@@ -432,7 +432,8 @@
     "external_environment_policy": "Real multi-device, public NAT and Minecraft acceptance remain unverified where no authorized environment is available; no mock substitution.",
     "verified_main": "48febb538333b161fabe86135c0b8319429ab644",
     "verified_pending_PRs": [
-      208
+      208,
+      209
     ],
     "toolchain": "rustc 1.99.0 (b940084d7 2026-09-28)",
     "local_platform": "aarch64-apple-darwin",
@@ -535,7 +536,7 @@
       "fixed-version Minecraft server and interactive clients",
       "deployment/canary target and rollback exercise"
     ],
-    "updated_UTC": "2026-10-13T20:27:06.692199+00:00",
+    "updated_UTC": "2026-10-13T20:43:24.559999+00:00",
     "missing_acceptance_definitions": {
       "labels": [
         "S3C",
@@ -574,7 +575,7 @@
       ],
       "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
     },
-    "handoff_progress_commit": "f71cab5302d18bc9740515309b3ad6856c6aacac",
+    "handoff_progress_commit": "9b6e3b88abf69be98c86fa8ef0048624a48dd578",
     "parallel_preparation": {
       "B-02B.tool_contract": {
         "UTC": "2026-10-13T14:46:18.121210+00:00",
@@ -598,13 +599,15 @@
         "adopted": false,
         "CI": false,
         "remaining": "Full same-head CI; genuine Managed/dynamic/room/rendezvous and real child worker-loss scopes remain separate.",
-        "status": "local_committed_full_validation_main_integration_passed",
+        "status": "pushed_PR209_full_CI_running",
         "latest_commit": "5c790eb006155f266d0df13f73ffd955255eb34b",
         "latest_tree": "2c05070db16ea101a9c588cf87a5bf0729cb2c13",
         "targeted_c12_unique": 52,
         "workspace_after_main": 2405,
         "isolated_after_main": 247,
-        "binding": "work/evidence/b28-main-integration/commit-binding.json"
+        "binding": "work/evidence/b28-main-integration/commit-binding.json",
+        "pushed": true,
+        "PR": 209
       },
       "B-02B.runner": {
         "status": "local_committed_review_fixes_verified",
@@ -823,7 +826,11 @@
           "legacy_direction_negative_assertion_failures": 2,
           "scope": "Only two REQUEST verified_round_trips expectations changed from1 to0; actual Echo/CRC/valid/invalid/duplicate assertions retained. Legacy local diagnostic controls are not native current-owner evidence.",
           "full_validation": false
-        }
+        },
+        "current_status": "pushed_PR209_full_CI_running",
+        "latest_commit": "5c790eb006155f266d0df13f73ffd955255eb34b",
+        "pushed": true,
+        "PR": 209
       },
       "B-02B.all_tools_integration": {
         "status": "local_committed_combined_validation_and_root_review_passed",
@@ -850,7 +857,7 @@
         "real_world": false
       },
       "B-03.active_buffer_lifetime": {
-        "status": "root_cleanup_review_fixes_staged_native_pending",
+        "status": "local_committed_full_native_and_two_negative_controls_passed",
         "base": "8fb0265537d2cf34885874a2db8b6c46769782bb",
         "scope": "move-only original active/retry/preparation/serialized buffer owner leases; full pipeline coverage remains unknown",
         "adopted": false,
@@ -865,7 +872,22 @@
           "Relay fixture could drop original blocker handle on prerequisite panic",
           "Repark timeout ignored cleanup join result"
         ],
-        "fix": "Retain/catch original blocker and server with common 1s cleanup; verify repark cancelled join; reuse identical reviewed PR207 fixture helper"
+        "fix": "Retain/catch original blocker and server with common 1s cleanup; verify repark cancelled join; reuse identical reviewed PR207 fixture helper",
+        "native_focused": 23,
+        "workspace_passed": 2350,
+        "original_ignored": 3,
+        "isolated": 247,
+        "nat": 92,
+        "quality": 95,
+        "full_manifest_sha256": "43f79e11b4bff5536787aa993c6546bb57acb6b1e7d4b10f021671c4b29b509e",
+        "negative_control_validation": true,
+        "negative_controls": 2,
+        "restored_focused": 23,
+        "commit": "8a4dfc7379080efd4dcf082b48e5188fb44ea651",
+        "tree": "359f7cce123cc106bf74a93c85e9c11bfa95e340",
+        "pushed": false,
+        "CI": false,
+        "binding": "work/evidence/b03-native-candidate/COMMIT-BINDING.json"
       },
       "N-01.returned_call_cost": {
         "status": "staged_static_gates_and_independent_review_passed_native_pending",
@@ -967,7 +989,7 @@
         "review": "work/evidence/b03-waiting-root-review.json"
       },
       "D-03.blackhole_fresh": {
-        "status": "local_commit_reviewed_static_and_loopback_passed",
+        "status": "ordinary_committed_pushed_manual_kernel_CI_queued",
         "commit": "10734f399b9dfaa31de9fb9cf0aa64a8b8ccf6f6",
         "source_freeze_sha256": "1c3aa889fcd23394ee933fc65174db4ced15c2dad6a76cfb8abc1490d556a5e1",
         "new_cases_each_python": 19,
@@ -975,12 +997,24 @@
         "quality": 95,
         "evidence_files_verified": 40,
         "kernel_executed": false,
-        "pushed": false,
+        "pushed": true,
         "adopted": false,
         "binding": "work/evidence/d03-commit-binding.json",
         "integrated_fixture_commit": "e7a6a196ae2457a343ab288c9213a68264407f8e",
         "integrated_tree": "7903aef170d93d5577a1f802b49340647c2c742c",
-        "post_merge_checks_passed": 5
+        "post_merge_checks_passed": 5,
+        "head": "e7a6a196ae2457a343ab288c9213a68264407f8e",
+        "tree": "7903aef170d93d5577a1f802b49340647c2c742c",
+        "dispatch": {
+          "head": "e7a6a196ae2457a343ab288c9213a68264407f8e",
+          "tree": "7903aef170d93d5577a1f802b49340647c2c742c",
+          "run_id": 38464012431,
+          "attempt": 1,
+          "event": "workflow_dispatch",
+          "scope": "manual same-host real kernel fault slice; not full PR adoption",
+          "native_result": "pending",
+          "utc": "2026-10-13T20:36:10.523183+00:00"
+        }
       },
       "B-01.actual_worker_loss": {
         "status": "implementation_in_progress_no_native_run",
@@ -1039,9 +1073,9 @@
       }
     },
     "product_batch_counts_current": {
-      "published": 25,
+      "published": 26,
       "ordinary_merged": 24,
-      "pending": 1,
+      "pending": 2,
       "original24_all_merged": true,
       "local_candidates_are_published_batches": false
     },
@@ -1435,7 +1469,7 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
-        "current_detail": "B25-B28 local ancestry committed; c12 52 unique controls +2400 workspace passed. Ordinary main48 integration commit5c790eb passed2405 workspace/3 originalignored/247 isolated/NAT92/quality95/allgates. Not pushed/adopted. Real Managed/dynamic and actual child loss fixtures separately implementing."
+        "current_detail": "B25-B28 source committed and ordinary main48 integration5c790eb passed52 unique native controls before merge and2405 workspace/247 isolated/NAT92/quality95/allgates after merge. Nonforce pushed asPR209;17 runs18gates in progress, not adopted. Managed/dynamic and actual child loss fixtures remain separate."
       },
       "B-02A": {
         "status": "进行中",
@@ -1453,7 +1487,7 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "channel+pending+in-flight 总资源、真实操作及覆盖/开销可解释；未知 bytes 不伪造 atomic 总量或改进率",
-        "current_detail": "First native compile E0507 fixed by borrowing original permit. Second actualrun2/4failed: no-output assertion observed original sender closure; Relay future re-polled after early path rejection. Retain original transport and preserve actual Ready result; diagnosis shows defaultDirect-first blocks the Relay fixture. Explicit originalRelayOnly config applied before peer admission; latestfocusedrunning, no accepted native/full result. All failures retained."
+        "current_detail": "Five owner-stage slice committed8a4dfc7 after11 full gates/focused23/workspace2350/isolated247/NAT92/quality95. Both actual original-hook removals caused predetermined assertions after cleanup; original helper+anchor reaped/group absent, all11 source hashes restored and positive23 re-passed. CI/main integration and broaderpipeline/overhead scope pending."
       },
       "N-01": {
         "status": "进行中",
@@ -1485,7 +1519,7 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Linux/macOS/Windows/Android 真实 TUN/TCP、切路/黑洞/EMSGSIZE/PTB/预算变化；不错误降级健康或超预算发包",
-        "current_detail": "5-file fixed32 fault-clear-fresh application slice locally committed10734f3 after independentreview, 19 new+50 original tests each Python3.12.12/3.14.6, quality95/fourgates. No kernel DROP execution yet. Bedrock7e fixture repair being ordinarily integrated; real CI required."
+        "current_detail": "D03 fixed32 (16 expected blackhole failures and16 fresh recovery successes) local69 controls eachPython andmandatorygates passed. Ordinary fixtureintegration e7a6a196 pushed; workflow_dispatch run38464012431 attempt1 queued. Native kernel result pending; manual scope separate from fullPR adoption."
       },
       "C-01": {
         "status": "待启动",
@@ -1536,10 +1570,10 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
-        "current_detail": "Original24 batches merged; newPR208 Linux32/32 artifact accepted atnewhead but WindowsRust originalHardHard test failed and needs investigation. No blindrerun/merge. B28 local5c790eb fullpassed; others pending."
+        "current_detail": "Original24 batches merged. NewPR208 exacthead kernel32/32 accepted but actual WindowsRust report-gate failure under investigation blocks merge;PR209 fullCI in progress. D03 manualkernelrun underway. No failures hidden or blindreruns."
       }
     },
-    "latest_observation_utc": "2026-10-13T20:20:26.773125+00:00",
+    "latest_observation_utc": "2026-10-13T20:37:20.957815+00:00",
     "pr208": {
       "number": 208,
       "url": "https://github.com/yhan-sun/p2wlan/pull/208",
@@ -1553,19 +1587,19 @@
       "rust_source_identical_to_main": true,
       "evidence_manifest_sha256": "d0e34818539d03b2a0936950c6ff0f915c32fa6e449d9b6d0de38eaf5baade0e",
       "evidence_files": 220,
-      "kernel_tun_actual_CI_pending": true,
+      "kernel_tun_actual_CI_pending": false,
       "actual_Minecraft_world_available": false,
       "linux_application_artifact": {
-        "utc": "2026-10-13T19:39:16.998076+00:00",
+        "utc": "2026-10-13T20:24:37.456004+00:00",
         "result": "passed",
         "scope": "linux_same_host_kernel_tun_application",
-        "source_commit": "25273368b6de782e7db7653f4052d3c7031408cc",
-        "head": "bf14f5a54c45606c97b7af453cdfbe1443cb09d6",
-        "tree": "3a7978cc78746aff0c353f22dc8b054828a45278",
-        "run_id": 38453268580,
+        "source_commit": "1a6fce432da2847e9033d13e48bcc27903440937",
+        "head": "7e55887decdbadcc9eb303b475a38b8daca87587",
+        "tree": "2caa99f3536cbb8453192a17c5e2e243b96f7493",
+        "run_id": 38460014179,
         "attempt": 1,
-        "artifact_id": 11842466573,
-        "archive_sha256": "44ee0c74a5b72549a2a471f74237b566e5b4d8007730af7638b4f8c6e2cde523",
+        "artifact_id": 11845946964,
+        "archive_sha256": "3d9fc1cb4ae2aa71d08dabc8f6256594b9c5cb53cdab2ec3760f794708472a2b",
         "remote_digest_present": true,
         "prescheduled_requests": 32,
         "success_requests": 32,
@@ -1576,7 +1610,48 @@
         "public_network_verified": null,
         "binary_recomputed_locally": false,
         "binary_binding_scope": "original CI harness checked build-info and hashes before/after",
-        "status_for_current_head": "historical_pre_repair_only_new_head_requires_fresh_artifact"
+        "source_sha256": {
+          ".github/workflows/parallel-rooms.yml": "d320604766df933f48ecdcac8d757756098992bb00e77d7c3825712d0533cea0",
+          "scripts/dual-end/tcp_business_probe.py": "0e6de36d2980605f6e46e96dcd3c72ece084955d24cef2f511a0b5fbcff965c7",
+          "scripts/dual-end/udp_business_probe.py": "7c8a39d5a8e194949a59edb6e69c578bb554c1ddd718dcf33c78f0990571d6f2",
+          "scripts/dual-end/udp_business_summary.py": "fd93839d5366cc89da61c667348244ff9a28f0279ef7f3dd7d30143d361b7434",
+          "scripts/parallel-rooms/linux-netns.py": "8eb0d778fd8ff2be1c8b5db1db9966781b137feca78d35dea1c7826a0958f30c",
+          "scripts/parallel-rooms/linux_tun_contract.py": "ea635ddb7f277970d6e60213baa29eb5e46ea8f3cfd5ad66b83fdb2d2a89cfa1",
+          "scripts/parallel-rooms/linux_tun_evidence.py": "13a201cd15c90e2e1ab3f4ea1989ac1a2b16a6366133e36dcc0f1bd6f6c2e959",
+          "scripts/parallel-rooms/linux_tun_owned.py": "93add9056670f83167bdd8c8253ca4666b45a4a189a965ca315acd6c57187b7a"
+        },
+        "extracted_file_sha256": {
+          "linux-tun-application/debug/01-kernel_tun_routes_ready.json": "01f7249de4239b632d17032df4df55649464375e9f321b7b1617c54d5c77ecc7",
+          "linux-tun-application/debug/02-fixed_application_requests_complete.json": "d7baeff4476a6785a6f3799a5b169753ed88b217e5f9013ec02fe6dd6f882461",
+          "linux-tun-application/debug/a1.instance-1.console.log": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "linux-tun-application/debug/a1.instance-1.daemon.log": "4557d38f32b049488d3f4a764ec31b4853860ff6b1d033ec4b3af8f000a479be",
+          "linux-tun-application/debug/b1.instance-1.console.log": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "linux-tun-application/debug/b1.instance-1.daemon.log": "7b8e9d1316e48597de6015c4c2e98f3d79dfc3eb7587bed5b64d13fad6cd004d",
+          "linux-tun-application/report.json": "cb01438ebd40671516c6ba8951ed64ad213585e8cf3bc04901b2b61b6910b5d0",
+          "linux-tun-application/tcp-a-to-b-echo.json": "ced46474eadc75f3c1dcb346563ba1913a6579f01fb3a4da16a2965538f2b870",
+          "linux-tun-application/tcp-a-to-b-echo.log": "2b6436e3c0e3e8a7b155570fc566670e4eb0f1218071a8f8cb521a98a643042b",
+          "linux-tun-application/tcp-a-to-b-probe.json": "c159b4ce8491a941fbbc552950e8ca1eeb896c30bc5b53f3667f3f4b26b1fee7",
+          "linux-tun-application/tcp-a-to-b-probe.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "linux-tun-application/tcp-b-to-a-echo.json": "e42ffcbb41fc736971f9d749e8846cd21d503cda6b0148f1f1959f9e9829c1a9",
+          "linux-tun-application/tcp-b-to-a-echo.log": "2b6436e3c0e3e8a7b155570fc566670e4eb0f1218071a8f8cb521a98a643042b",
+          "linux-tun-application/tcp-b-to-a-probe.json": "f92531d4a6950f153617aee3196c2a50a8c57bc8f014a4b7d5e843a0001e446b",
+          "linux-tun-application/tcp-b-to-a-probe.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "linux-tun-application/udp-a-to-b-echo.json": "747e918112f998d46cd37e64262943530e6382dfa1142a13c699ca22bba67cfd",
+          "linux-tun-application/udp-a-to-b-echo.log": "b290a95be6740d9c271f9e751f1e46f40a051d9ae14ed791ffd4dd104b1ee137",
+          "linux-tun-application/udp-a-to-b-probe.json": "bb108ad24ad40ebb397243f95287da71f0dd17f7aff3d9accf993f019424718a",
+          "linux-tun-application/udp-a-to-b-probe.log": "e7f9abfcb94164009aaee84a9e43a14f1add7d79891ce16e83a577f5e4f675ae",
+          "linux-tun-application/udp-b-to-a-echo.json": "7dbaf907bfb3f4e6f6a3cbcb3422ec50f6b389f01cc79ae1503d0332d9931e77",
+          "linux-tun-application/udp-b-to-a-echo.log": "b290a95be6740d9c271f9e751f1e46f40a051d9ae14ed791ffd4dd104b1ee137",
+          "linux-tun-application/udp-b-to-a-probe.json": "b3abd6df08772ed79c87be8ab53089012a39c16646c432da3c59079be9532799",
+          "linux-tun-application/udp-b-to-a-probe.log": "e7f9abfcb94164009aaee84a9e43a14f1add7d79891ce16e83a577f5e4f675ae",
+          "parallel-rooms-debug/01-initial_bidirectional_direct.json": "89e1235de412d3827df01d275988e5706c4e82de58805b932560bdfee6287d00",
+          "parallel-rooms-debug/02-a1_pre_restart.json": "0e7e5d82465b7bf02a4656f2283678e08c6fa3dd0bfa67c3d4ba8ad436f17906",
+          "parallel-rooms-debug/03-a1_stopped_before_restart.json": "dc284674783ed3e98378692e9693916c31f756e24b659338b3d250555b4c44b2",
+          "parallel-rooms-debug/04-a1_post_restart_ready.json": "80a915481488b4312ccbe28e16a9a9df1cff3f00404bf1a535064a35618e6c3f",
+          "parallel-rooms-debug/05-a1_post_restart_traffic.json": "1394cdda7dc8829522a3248a06a35be9d5d38c486149705d4aca09f6b015a479",
+          "parallel-rooms-debug/06-all_assertions_passed.json": "a7a232fce946e048fdedce2a08b66406faa4b39b0a57c7aae5f4906a4660422d",
+          "parallel-rooms-evidence.json": "0110a773fa75fd98910aeadd7881a6098bbc5b81c46b0597311b723609671b58"
+        }
       },
       "CI_failures": [
         {
@@ -1687,7 +1762,48 @@
         "reason": "peer-a did not record hard_hard_attempt_report within original30s",
         "cause": "not yet established",
         "logs": "work/evidence/ci-b02-208-7e55887/windows-rust-failure-attempt1"
+      },
+      "minecraft_protocol_CI": {
+        "utc": "2026-10-13T20:42:04.920171+00:00",
+        "scope": "fixed protocol fixtures and evidence tools only; no actual game world",
+        "head": "7e55887decdbadcc9eb303b475a38b8daca87587",
+        "run": 38460014135,
+        "attempt": 1,
+        "job": 115512442918,
+        "log_sha256": "e882161999ec68e14955dc74f63a30b9239819ceac3dbc51f3bfc6034a97f01e",
+        "java": {
+          "tests": 24,
+          "runtime": "22.16.0"
+        },
+        "bedrock": {
+          "tests": 53,
+          "runtime": "26.0.0",
+          "startup_cancel_passed": true
+        },
+        "contract_tests": 23,
+        "runner_tests": 28,
+        "audit_zero_vulnerability_reports": 4,
+        "full_PR_CI_passed": false,
+        "blocking_other_job": "Rust Check (Windows) original HardHard attempt report missing"
       }
+    },
+    "pr209": {
+      "number": 209,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/209",
+      "head": "5c790eb006155f266d0df13f73ffd955255eb34b",
+      "tree": "2c05070db16ea101a9c588cf87a5bf0729cb2c13",
+      "base": "48febb538333b161fabe86135c0b8319429ab644",
+      "candidate": "9b0ad1ff977310028c14af3b9b4f5c4124176422",
+      "status": "full_CI_in_progress_not_adopted",
+      "expected_runs": 17,
+      "expected_gates": 18,
+      "local_workspace": 2405,
+      "original_ignored": 3,
+      "isolated": 247,
+      "quality": 95,
+      "nat": 92,
+      "exact_c12_unique": 52,
+      "binding": "work/evidence/b28-main-integration/commit-binding.json"
     }
   }
 }
