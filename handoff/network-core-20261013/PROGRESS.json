@@ -128,7 +128,8 @@
       "next_action": "B-01；补双端真实 TUN 请求链、路径/session/socket 精确归属与当前请求证据",
       "acceptance": "Transport、Overlay、Dataplane、Application 分层；历史 Mock/RX/TX 观察不作全任务验收",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "B-02B",
@@ -141,7 +142,8 @@
       "next_action": "B-01、B-02A；实现 Minecraft 可重复交互工具",
       "acceptance": "Java TCP 与 Bedrock UDP 分开；同端请求/确认 RTT，固定世界/版本，TPS/MSPT/GC/重传与超时保留",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "B-03",
@@ -166,7 +168,8 @@
       "next_action": "B-01、B-03；六个本机子项完成记录保持，补真实执行/失败/成本对应",
       "acceptance": "计划与实际发送可核对；过期、预算、限流、未发送、发送不确定分开；公网结论有实际样本",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "N-02",
@@ -178,7 +181,8 @@
       "next_action": "N-01；同预算 hh2 时序/候选 A/B",
       "acceptance": "规律/跳号/随机映射、冷/热/背景分层；可复现收益或不采纳结论",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "N-03",
@@ -191,7 +195,8 @@
       "next_action": "B-01、N-01；普通 pool 与 hh2 socket 独立实验",
       "acceptance": "保持平台 cap、全进程预算、deadline；requested/attached/usable、竞争、清理/映射副作用完整",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "D-01",
@@ -230,7 +235,8 @@
       "next_action": "B-01/B-03；通用采证复用 B-02A，无需等待 MC",
       "acceptance": "Linux/macOS/Windows/Android 真实 TUN/TCP、切路/黑洞/EMSGSIZE/PTB/预算变化；不错误降级健康或超预算发包",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "C-01",
@@ -243,7 +249,8 @@
       "next_action": "B-01/B-03；补同网关重映射、切网、休眠、撤权/rekey 并发",
       "acceptance": "恢复时间、失包、旧 owner 拒绝、资源回收及跨路径不重放",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "C-02",
@@ -270,7 +277,8 @@
       "next_action": "B-01/B-02A/C-02；先 A/B 现有启动策略，再按证据扩展唯一 reducer",
       "acceptance": "首次可用改善，Direct 不回归，Relay 成本可见；不重置截止或降低验证",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "R-00",
@@ -284,7 +292,8 @@
       "next_action": "B-01/B-02A/B-03；现有多区域/重选与持续业务质量、协调迁移",
       "acceptance": "双端同 Relay rendezvous、验证/续期/撤权保持，有业务证据才改选择机制",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "R-01",
@@ -297,7 +306,8 @@
       "next_action": "B-02A/R-00 证明 TLS Relay 的问题；UDP Relay RFC 与单区域原型",
       "acceptance": "双向加密业务、TLS 回退、票据/撤权、防放大、限速、MTU/拥塞与成本",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "R-02",
@@ -319,7 +329,8 @@
       "next_action": "明确 TCP 打洞需求；simultaneous-open 独立实验",
       "acceptance": "OS/NAT 矩阵、取消与资源上界，失败保持 UDP/TLS 主线",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "X-02",
@@ -329,7 +340,8 @@
       "next_action": "IPv6-only/NAT64 实际样本",
       "acceptance": "STUN/控制/Relay、IPv4 literal/DNS64 的可达性矩阵；目标部署受影响则提级实施",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "X-03",
@@ -339,7 +351,8 @@
       "next_action": "CPU/系统调用/多出口瓶颈证据",
       "acceptance": "GSO/GRO、batch、多队列、多链路分别实验；CPU/吞吐/尾延迟，乱序与 replay 有界",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     },
     {
       "id": "G-01",
@@ -349,7 +362,8 @@
       "next_action": "贯穿所有任务，当前先完成五个 pending 产品 PR",
       "acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
       "accepted_scope": null,
-      "evidence_for_full_task_completion": null
+      "evidence_for_full_task_completion": null,
+      "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
     }
   ],
   "pending_patch": {
@@ -409,5 +423,142 @@
     "absolute_path_helpers_included": false,
     "raw_private_logs_included": false,
     "revalidate_actual_refs_CI_and_artifacts": true
+  },
+  "continuation": {
+    "started_UTC": "2026-10-13T13:49:27.896067+00:00",
+    "handoff_commit": "712536b852298c004ff4cc188c2899105322cf71",
+    "handoff_checksums_verified": true,
+    "user_validation_scope": "local_machine_and_GitHub_CI_only",
+    "external_environment_policy": "Real multi-device, public NAT and Minecraft acceptance remain unverified where no authorized environment is available; no mock substitution.",
+    "verified_main": "4937de2de8e8b91492fe3d6e8bd83d5c51faa9ad",
+    "verified_pending_PRs": [
+      202,
+      203,
+      204,
+      205,
+      207
+    ],
+    "toolchain": "rustc 1.99.0 (b940084d7 2026-09-28)",
+    "local_platform": "aarch64-apple-darwin",
+    "initial_CI": {
+      "main_security": "failure: quinn-proto 0.11.16, fixed requirement >=0.11.18",
+      "pr202": "B19 prerequisite timeout in Linux CI and Business MTU; DPLPMTUD aggregation cascade",
+      "evidence": "Initial main/#202 full run/job audit retained locally; summaries to be published with PR update"
+    },
+    "pr202": {
+      "status": "pushed_full_same_head_CI_pending",
+      "base_synchronization": "ordinary merge of verified main",
+      "patch_sha256": "c2bc69def2d3abcea3468bae0bcb466c7bff7b1ffad706f193cde0012ac62071",
+      "patch_apply_check": true,
+      "workspace_fmt_check_exit": 0,
+      "native_validation": true,
+      "CI_validation": false,
+      "negative_control": {
+        "exit_code": 101,
+        "expected_assertion": true,
+        "released_before_cleanup": true,
+        "cleanup_returned_before_assertion": true,
+        "registered_native_tests": 1949,
+        "b19_registered_tests": 10,
+        "result": "expected_failure_verified"
+      },
+      "preliminary_checks": {
+        "docs": 0,
+        "health": 0,
+        "quality_tests": {
+          "exit": 0,
+          "count": 95
+        },
+        "bash": 0,
+        "nat_sim_unit": {
+          "exit": 0,
+          "count": 92
+        }
+      },
+      "merge_source_commit": "f474efc55d7c5596bc23af32ec9a0458650e64eb",
+      "positive_control": {
+        "fanout": 1,
+        "sibling": 1,
+        "b19_module": 10,
+        "all_passed": true,
+        "binary_from_current_cargo_json": true
+      },
+      "clippy_exit": 0,
+      "security_lock_change": "quinn-proto 0.11.16 -> 0.11.18, minimal version/checksum only; cargo-audit zero vulnerabilities with old-lock negative control",
+      "head": "e9edb2953dba677e5b85f8ef2502328353c905b6",
+      "tree": "3b6fbecf37046fd77f654fa9cadbb7caaf6907e2",
+      "parents": [
+        "91db0464436e87892c4ad788b6955a812a747b71"
+      ],
+      "fixture_commit": "91db0464436e87892c4ad788b6955a812a747b71",
+      "full_local": {
+        "fmt": 0,
+        "clippy": 0,
+        "workspace_passed": 2335,
+        "workspace_original_ignored": 3,
+        "isolated_daemon_hard_hard_passed": 247,
+        "nat_unit_passed": 92,
+        "mandatory_checks": "all_passed",
+        "quality_tests": 95
+      },
+      "final_lock_checks": {
+        "root_audit": 0,
+        "fuzz_audit": 0,
+        "root_locked_deny": 0,
+        "fuzz_locked_deny": 0,
+        "old_main_lock_negative_advisories": 5,
+        "fuzz_path_versions_only": true,
+        "same_locked_metadata": true
+      },
+      "commit_binding": "Full validation patch matches committed product source; final mandatory checks and both locked metadata include fuzz-only path version correction.",
+      "push": "non_force_success_after_read_only_ref_verification",
+      "PR_evidence_updated": true
+    },
+    "completed_this_continuation": [],
+    "remaining_environment_limits": [
+      "physical Windows/Android/Linux peers",
+      "real public NAT/NAT64 samples",
+      "fixed-version Minecraft server and interactive clients",
+      "deployment/canary target and rollback exercise"
+    ],
+    "updated_UTC": "2026-10-13T14:17:39.346519+00:00",
+    "missing_acceptance_definitions": {
+      "labels": [
+        "S3C",
+        "C06",
+        "C11"
+      ],
+      "user_response": "No additional definition; implement explicit requirements and retain gaps",
+      "source_audit": {
+        "branches": 178,
+        "tags": 167,
+        "pull_refs": 187,
+        "commits": 2192,
+        "text_blobs": 10586,
+        "issue_PR_bodies": 207,
+        "issue_comments": 165,
+        "PR_reviews": 7,
+        "release_bodies": 163,
+        "release_asset_names": 1086
+      },
+      "status": "partial_original_requirements_recovered_full_definitions_still_missing",
+      "recovered_C06": [
+        "original FIFO cap and Weak request lifetime",
+        "merge/repark ordering, deadline, residence, generation and retry budgets",
+        "generation discard followed by shutdown exact loss accounting",
+        "stopping owner original tracked FIFO discard and no keeper"
+      ],
+      "recovered_C11": [
+        "legacy public literal and default constructor",
+        "Unknown Any raw routing",
+        "legacy public encryption fast/slow compatibility"
+      ],
+      "still_missing": [
+        "S3C independent definition",
+        "complete original C06 matrix",
+        "complete frozen old C11 interface/regression matrix"
+      ],
+      "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
+    }
   }
 }
