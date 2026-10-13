@@ -83,8 +83,8 @@
   ],
   "task_counts": {
     "完成": 2,
-    "进行中": 7,
-    "待启动": 6,
+    "进行中": 8,
+    "待启动": 5,
     "条件候选": 7
   },
   "tasks": [
@@ -111,7 +111,7 @@
     {
       "id": "B-01",
       "status": "进行中",
-      "status_detail": "PR209 pushed5c790eb, actual NATCI failures under investigation. Managed/dynamic 7-case candidate frozen/static95 but native unrun. Real worker-loss implementation resumed on isolated worktree, unvalidated.",
+      "status_detail": "PR2095c full17 CI failed NAT/dependencies; minimal resolved-runtimeVIP and Freshmarker repair under staticfreeze. B01workerloss9file frozen; 6 actual native tests passed after minimaltest import/default construction fixes; negatives/full pending. Managed/dynamic7case candidate native unrun. PR209new6nativepositivepass, wrongdestcontrol timeout underdiagnosis; no adoption.",
       "dependencies": [],
       "next_action": "先交付 #202–#207；补最终 current-owner/once、S3C、故障后 fresh REQUEST→远端当前 REQUEST→匹配 ACK；完整 canonical pipeline、真实 partial/worker loss、C06/C11",
       "acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
@@ -160,7 +160,7 @@
     {
       "id": "N-01",
       "status": "进行中",
-      "status_detail": "Native40+3 actual negative+restored40 passed; full11 local checks now running after fresh11-crate cleanup. No commit/CI/adoption yet.",
+      "status_detail": "Full11 local passed:40 focused,2360 workspace,247 isolated,NAT92,quality95,3 original ignored; three actual negatives and restored positives passed, independent review complete. Pushed PR210 commit e2684e64c65cd1f4f7f4eaddf5b5246bab55885a. Full17-runCI/18gates in progress; adoption pending.",
       "dependencies": [
         "B-01",
         "B-03"
@@ -227,7 +227,7 @@
     {
       "id": "D-03",
       "status": "进行中",
-      "status_detail": "Actualfirstmanual kernel fault failed8send_error+24not_started; alloriginalresourcescleaned. TargetINPUT+originalerrno repair4b1f1db passed74 tests perPython+quality95/rootreview andpushed; newrun38468485231 pending. No fullD03 acceptance.",
+      "status_detail": "New4b actualLinux dispatch artifact11851620319 accepted:baseline32/32,8UDPtimeout+8TCPnot_sent,16freshsuccess,11groups/22handles eachharness and exactrules/FD/networkcleanup. APIsteps=[] gap retained, Required pending. FullD03/canonical/public/otherplatform/PRadoption incomplete.",
       "dependencies": [
         "B-01",
         "B-03"
@@ -254,8 +254,8 @@
     },
     {
       "id": "C-02",
-      "status": "待启动",
-      "status_detail": "Read-only current source found potential first keepalive miss degrading candidate-pair actual selector while connection remainsDirect. Actual UDP reproduction pending; no production policy change or acceptance.",
+      "status": "进行中",
+      "status_detail": "Fix2 setup under originaldeadline andexternalowners independentlyreviewed; staged5test-onlyfiles, firstactualselector regression next. Productionpolicy unchanged.",
       "dependencies": [
         "B-02A",
         "B-03"
@@ -536,7 +536,7 @@
       "fixed-version Minecraft server and interactive clients",
       "deployment/canary target and rollback exercise"
     ],
-    "updated_UTC": "2026-10-13T21:13:13.247200+00:00",
+    "updated_UTC": "2026-10-13T21:36:26.635486+00:00",
     "missing_acceptance_definitions": {
       "labels": [
         "S3C",
@@ -575,7 +575,7 @@
       ],
       "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
     },
-    "handoff_progress_commit": "7b0eabef59b60febe3d3fce557d7deefab5bb78d",
+    "handoff_progress_commit": "10a34d86c20388fbe09a6f4c7a592d1a9d487c9f",
     "parallel_preparation": {
       "B-02B.tool_contract": {
         "UTC": "2026-10-13T14:46:18.121210+00:00",
@@ -1060,8 +1060,8 @@
     },
     "task_counts_current": {
       "完成": 2,
-      "进行中": 7,
-      "待启动": 6,
+      "进行中": 8,
+      "待启动": 5,
       "条件候选": 7
     },
     "pr203": {
@@ -1486,18 +1486,20 @@
       "D-00A": {
         "status": "完成",
         "accepted_scope": "historical_local_correctness_only",
-        "remaining_acceptance": "确定性回归保持；真实 TUN 归 B-02A/D-03"
+        "remaining_acceptance": "确定性回归保持；真实 TUN 归 B-02A/D-03",
+        "current_detail": "完成（本机）"
       },
       "D-00B": {
         "status": "完成",
         "accepted_scope": "historical_local_correctness_only",
-        "remaining_acceptance": "本机四锁争用、超时/关闭/活锁回归保持；真实性能另验"
+        "remaining_acceptance": "本机四锁争用、超时/关闭/活锁回归保持；真实性能另验",
+        "current_detail": "完成（本机）"
       },
       "B-01": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
-        "current_detail": "PR209 pushed5c790eb, actual NATCI failures under investigation. Managed/dynamic 7-case candidate frozen/static95 but native unrun. Real worker-loss implementation resumed on isolated worktree, unvalidated."
+        "current_detail": "PR2095c full17 CI failed NAT/dependencies; minimal resolved-runtimeVIP and Freshmarker repair under staticfreeze. B01workerloss9file frozen; 6 actual native tests passed after minimaltest import/default construction fixes; negatives/full pending. Managed/dynamic7case candidate native unrun. PR209new6nativepositivepass, wrongdestcontrol timeout underdiagnosis; no adoption."
       },
       "B-02A": {
         "status": "进行中",
@@ -1521,79 +1523,91 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "计划与实际发送可核对；过期、预算、限流、未发送、发送不确定分开；公网结论有实际样本",
-        "current_detail": "Native40+3 actual negative+restored40 passed; full11 local checks now running after fresh11-crate cleanup. No commit/CI/adoption yet."
+        "current_detail": "Full11 local passed:40 focused,2360 workspace,247 isolated,NAT92,quality95,3 original ignored; three actual negatives and restored positives passed, independent review complete. Pushed PR210 commit e2684e64c65cd1f4f7f4eaddf5b5246bab55885a. Full17-runCI/18gates in progress; adoption pending."
       },
       "N-02": {
         "status": "待启动",
         "accepted_scope": null,
-        "remaining_acceptance": "规律/跳号/随机映射、冷/热/背景分层；可复现收益或不采纳结论"
+        "remaining_acceptance": "规律/跳号/随机映射、冷/热/背景分层；可复现收益或不采纳结论",
+        "current_detail": "待启动 / P1"
       },
       "N-03": {
         "status": "待启动",
         "accepted_scope": null,
-        "remaining_acceptance": "保持平台 cap、全进程预算、deadline；requested/attached/usable、竞争、清理/映射副作用完整"
+        "remaining_acceptance": "保持平台 cap、全进程预算、deadline；requested/attached/usable、竞争、清理/映射副作用完整",
+        "current_detail": "待启动 / P1"
       },
       "D-01": {
         "status": "条件候选",
         "accepted_scope": null,
-        "remaining_acceptance": "双向/outbound-only、关闭/重建/取消安全；同负载尾延迟改善，否则不合入"
+        "remaining_acceptance": "双向/outbound-only、关闭/重建/取消安全；同负载尾延迟改善，否则不合入",
+        "current_detail": "条件候选 / P1"
       },
       "D-02": {
         "status": "条件候选",
         "accepted_scope": null,
-        "remaining_acceptance": "流内有序、密文不重排、backlog/fast path 不绕过、公平与资源有界；收益不足不合入"
+        "remaining_acceptance": "流内有序、密文不重排、backlog/fast path 不绕过、公平与资源有界；收益不足不合入",
+        "current_detail": "条件候选 / P1"
       },
       "D-03": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Linux/macOS/Windows/Android 真实 TUN/TCP、切路/黑洞/EMSGSIZE/PTB/预算变化；不错误降级健康或超预算发包",
-        "current_detail": "Actualfirstmanual kernel fault failed8send_error+24not_started; alloriginalresourcescleaned. TargetINPUT+originalerrno repair4b1f1db passed74 tests perPython+quality95/rootreview andpushed; newrun38468485231 pending. No fullD03 acceptance."
+        "current_detail": "New4b actualLinux dispatch artifact11851620319 accepted:baseline32/32,8UDPtimeout+8TCPnot_sent,16freshsuccess,11groups/22handles eachharness and exactrules/FD/networkcleanup. APIsteps=[] gap retained, Required pending. FullD03/canonical/public/otherplatform/PRadoption incomplete."
       },
       "C-01": {
         "status": "待启动",
         "accepted_scope": null,
-        "remaining_acceptance": "恢复时间、失包、旧 owner 拒绝、资源回收及跨路径不重放"
+        "remaining_acceptance": "恢复时间、失包、旧 owner 拒绝、资源回收及跨路径不重放",
+        "current_detail": "待启动 / P1"
       },
       "C-02": {
-        "status": "待启动",
+        "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "空闲、UDP 无 ACK、单尖峰、服务器卡顿、本机排队不误判路径失活",
-        "current_detail": "Read-only current source found potential first keepalive miss degrading candidate-pair actual selector while connection remainsDirect. Actual UDP reproduction pending; no production policy change or acceptance."
+        "current_detail": "Fix2 setup under originaldeadline andexternalowners independentlyreviewed; staged5test-onlyfiles, firstactualselector regression next. Productionpolicy unchanged."
       },
       "C-03": {
         "status": "待启动",
         "accepted_scope": null,
-        "remaining_acceptance": "首次可用改善，Direct 不回归，Relay 成本可见；不重置截止或降低验证"
+        "remaining_acceptance": "首次可用改善，Direct 不回归，Relay 成本可见；不重置截止或降低验证",
+        "current_detail": "待启动 / P1"
       },
       "R-00": {
         "status": "待启动",
         "accepted_scope": null,
-        "remaining_acceptance": "双端同 Relay rendezvous、验证/续期/撤权保持，有业务证据才改选择机制"
+        "remaining_acceptance": "双端同 Relay rendezvous、验证/续期/撤权保持，有业务证据才改选择机制",
+        "current_detail": "待启动 / P1"
       },
       "R-01": {
         "status": "条件候选",
         "accepted_scope": null,
-        "remaining_acceptance": "双向加密业务、TLS 回退、票据/撤权、防放大、限速、MTU/拥塞与成本"
+        "remaining_acceptance": "双向加密业务、TLS 回退、票据/撤权、防放大、限速、MTU/拥塞与成本",
+        "current_detail": "条件候选 / P2"
       },
       "R-02": {
         "status": "条件候选",
         "accepted_scope": null,
-        "remaining_acceptance": "显式参与/退出、权限、配额、兼容可验证；不自动开放转发"
+        "remaining_acceptance": "显式参与/退出、权限、配额、兼容可验证；不自动开放转发",
+        "current_detail": "条件候选 / P2"
       },
       "X-01": {
         "status": "条件候选",
         "accepted_scope": null,
-        "remaining_acceptance": "OS/NAT 矩阵、取消与资源上界，失败保持 UDP/TLS 主线"
+        "remaining_acceptance": "OS/NAT 矩阵、取消与资源上界，失败保持 UDP/TLS 主线",
+        "current_detail": "条件候选 / P2"
       },
       "X-02": {
         "status": "条件候选",
         "accepted_scope": null,
-        "remaining_acceptance": "STUN/控制/Relay、IPv4 literal/DNS64 的可达性矩阵；目标部署受影响则提级实施"
+        "remaining_acceptance": "STUN/控制/Relay、IPv4 literal/DNS64 的可达性矩阵；目标部署受影响则提级实施",
+        "current_detail": "条件候选（按部署影响提级）"
       },
       "X-03": {
         "status": "条件候选",
         "accepted_scope": null,
-        "remaining_acceptance": "GSO/GRO、batch、多队列、多链路分别实验；CPU/吞吐/尾延迟，乱序与 replay 有界"
+        "remaining_acceptance": "GSO/GRO、batch、多队列、多链路分别实验；CPU/吞吐/尾延迟，乱序与 replay 有界",
+        "current_detail": "条件候选 / P2"
       },
       "G-01": {
         "status": "进行中",
@@ -1602,7 +1616,7 @@
         "current_detail": "Original24batches adopted. NewPR208 a7cd902 fullCI started after13positive/4actualnegative/restored13/full2340+253. PR2095c actualNAT failures retained and being diagnosed. D03newdispatch4b pending. No hiddenfailures or blindreruns."
       }
     },
-    "latest_observation_utc": "2026-10-13T21:13:13.247200+00:00",
+    "latest_observation_utc": "2026-10-13T21:28:30.338409+00:00",
     "pr208": {
       "number": 208,
       "url": "https://github.com/yhan-sun/p2wlan/pull/208",
@@ -1654,7 +1668,7 @@
       "tree": "2c05070db16ea101a9c588cf87a5bf0729cb2c13",
       "base": "48febb538333b161fabe86135c0b8319429ab644",
       "candidate": "9b0ad1ff977310028c14af3b9b4f5c4124176422",
-      "status": "native_NAT_CI_failures_under_investigation_not_adopted",
+      "status": "all17_CI_completed_failed_NAT_and_dependents_minimal_VIP_repair_in_progress",
       "expected_runs": 17,
       "expected_gates": 18,
       "local_workspace": 2405,
@@ -1663,7 +1677,120 @@
       "quality": 95,
       "nat": 92,
       "exact_c12_unique": 52,
-      "binding": "work/evidence/b28-main-integration/commit-binding.json"
+      "binding": "work/evidence/b28-main-integration/commit-binding.json",
+      "failed_job_count": 14,
+      "current_failure_jobs": [
+        {
+          "run_id": 38463239828,
+          "workflow": "DPLPMTUD Required",
+          "job_id": 115523528508,
+          "name": "DPLPMTUD external required gates",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239828,
+          "workflow": "DPLPMTUD Required",
+          "job_id": 115539837385,
+          "name": "DPLPMTUD evidence aggregate",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239828,
+          "workflow": "DPLPMTUD Required",
+          "job_id": 115539924774,
+          "name": "DPLPMTUD Required",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239921,
+          "workflow": "NAT Topology Gate",
+          "job_id": 115532151562,
+          "name": "Direct cold-start topology",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239921,
+          "workflow": "NAT Topology Gate",
+          "job_id": 115532151585,
+          "name": "Relay blackhole topology 5/5",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239921,
+          "workflow": "NAT Topology Gate",
+          "job_id": 115532151698,
+          "name": "Relay blackhole topology 2/5",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239921,
+          "workflow": "NAT Topology Gate",
+          "job_id": 115532151702,
+          "name": "Relay blackhole topology 3/5",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239921,
+          "workflow": "NAT Topology Gate",
+          "job_id": 115532151842,
+          "name": "Relay blackhole topology 4/5",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239921,
+          "workflow": "NAT Topology Gate",
+          "job_id": 115532151884,
+          "name": "Relay blackhole topology 1/5",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239921,
+          "workflow": "NAT Topology Gate",
+          "job_id": 115538829840,
+          "name": "NAT Topology Required",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239747,
+          "workflow": "Path State Machine",
+          "job_id": 115523528890,
+          "name": "Existing lifecycle and topology gates",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239747,
+          "workflow": "Path State Machine",
+          "job_id": 115541039992,
+          "name": "Path State Machine Required",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239887,
+          "workflow": "Business MTU Budget Required",
+          "job_id": 115523528271,
+          "name": "Business MTU external required gates",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38463239887,
+          "workflow": "Business MTU Budget Required",
+          "job_id": 115543007211,
+          "name": "Business MTU Budget Required",
+          "conclusion": "failure"
+        }
+      ],
+      "current_failure_reason": "Bootstrap PeerManager localVIP .1 differs from original runtime control-assigned .2/.3; sufficient source-inferred REQUEST rejection. Separate missing compatibility marker after native ACK success; not solely a logging issue.",
+      "failure_audit": "work/evidence/pr209-nat-first-failure-audit/REPORT.md",
+      "runtime_vip_candidate": {
+        "status": "compiled_6_passed_1_failed_1_unrun_no_adoption",
+        "source_freeze": "work/evidence/pr209-runtime-vip-fix/source-freeze-fix-1.json",
+        "source_sha256": "93b4394797e76cdfd45d2c50d234a2390940d00fa57a8b4ff08c6acdc7750ff6",
+        "staged_tree": "cbdfdb291364a5fc06c6c055fae77d1bd79b6826",
+        "passed_scope": "Direct/Relay Fresh markers/once/sourceNone, stalegeneration andstalesession thenfresh",
+        "actual_failure": "wrong destination raw packet MockTun write prerequisite2s timeout; investigating ingress TUN admission; no deadline/assertion relaxation",
+        "initial_plan_rejection": "names exceed64chars; selectors unchanged in shortname plan",
+        "full_checks_pending": true
+      }
     },
     "n01_current": {
       "utc": "2026-10-13T21:02:39.245068+00:00",
@@ -1674,10 +1801,32 @@
       "restored_positive": 40,
       "negative_evidence": "work/evidence/n01-cancellation-negatives/RESULT.json",
       "restored_manifest_sha256": "fd0b61c93004fed6b661fd34a8e9c97839f7b573c5c8ceb5fdb8df41555c3d1b",
-      "full_regression": "not_run",
-      "CI": "not_run",
+      "full_regression": "initial Clippy failed unused old test-only wrapper; minimal cfg(test) fix; new full validation running",
+      "CI": false,
       "adopted": false,
-      "limitations": "Actual primary/compatibility cost and child cancellation only; returned/retained overlap, unresolved joins unknown, no total-network cost or public NAT conclusion."
+      "limitations": "Actual primary/compatibility cost and child cancellation only; returned/retained overlap, unresolved joins unknown, no total-network cost or public NAT conclusion.",
+      "source_freeze_current": "work/evidence/n01-native-candidate/source-freeze-after-clippy-repair.json",
+      "status": "pushed_PR210_full_CI_in_progress",
+      "commit": "e2684e64c65cd1f4f7f4eaddf5b5246bab55885a",
+      "tree": "fc663275b66520b6d7c2d6afb954ccc2ab94f357",
+      "local_evidence": {
+        "full_checks": 11,
+        "focused": 40,
+        "workspace": 2360,
+        "original_ignored": 3,
+        "isolated": 247,
+        "nat": 92,
+        "quality": 95,
+        "actual_negatives": 3
+      },
+      "acceptance": "work/evidence/n01-native-candidate/FINAL-ACCEPTANCE.json",
+      "pushed": true,
+      "PR": 210,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/210",
+      "candidate": "6988459069dfdced46f9bb4e73cdbddc4d76650c",
+      "CI_evidence": "work/evidence/ci-n01-210-e2684e6",
+      "expected_runs": 17,
+      "expected_gates": 18
     },
     "d03_current": {
       "utc": "2026-10-13T20:58:37.089118+00:00",
@@ -1742,7 +1891,19 @@
       "quality": 95,
       "four_gates": "passed",
       "root_independent_review": "passed",
-      "full_PR_adoption": false
+      "full_PR_adoption": false,
+      "linux_slice_status": "source_bound_actual_artifact_accepted",
+      "artifact_id": 11851620319,
+      "artifact_sha256": "8cbdec2bff153aee5c634d39068207398fed67b7c205041aea371d1956757487",
+      "baseline_success": 32,
+      "fault_udp_timeout": 8,
+      "fault_tcp_not_sent": 8,
+      "fresh_success": 16,
+      "original_groups_per_harness": 11,
+      "original_handles_per_harness": 22,
+      "step_api_metadata_missing": true,
+      "full_d03_verified": false,
+      "PR_adopted": false
     },
     "pr208_head_history": [
       {

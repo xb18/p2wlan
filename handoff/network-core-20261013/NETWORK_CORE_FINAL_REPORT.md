@@ -181,11 +181,15 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 文档门禁通过（19份公共文档，1,518份tracked文本）；代码健康通过（648份Rust文件，0历史例外）；明确Rust 1.99.0后质量95项全部通过；3个脚本语法、staged差异空白检查通过。补丁无损解码回原5,930 bytes，SHA256一致；git apply --check通过，已有输出文件拒绝覆盖。首次质量检查的5个rustfmt环境错误保留；未改产品源码、未运行新补丁的Rust测试或Linux CI。
 
 
-## 九、继续实施的当前证据
+## 九、继续实施的当前记录
+
+当前以报告第九节与PROGRESS.json.continuation为准。原#202/#203/#204/#205/#207已顺序完成完整CI并普通合并，main48febb。PR208 a7cd902完整本机通过，17次CI仍待完整验收；PR209 5c790eb的17次CI已全部结束并确认NAT失败，最小VIP/ACK日志修复6项真实正控通过，但错误目的地址控制仍有2s原前置超时待诊断。N01普通探测成本e2684e6完整本机11检查/40重点/2360工作区/247隔离/3实际负控通过，已推送并创建PR210，17次CI待验。B03本地8a4dfc7完整本机通过，未推送。D03修正4b1f1db实际Linux产物已核验基线32、8UDP超时/8TCP未发送及解除后16新请求成功，11组/22句柄各自回收，仍不代表完整D03或PR采用。API逐step元数据缺失保留，完整workflow待核实。B01真实child-loss6项原生通过，负控/全回归待验；C02 test-only统一原setup截止修复已独立审查，首次实际路径回归准备中；Managed/dynamic7项尚未原生。仅本机和GitHubCI；子代理统一GPT-6.1 Sol ultra。
+
+### 实际进度
 
 任务仍在实施。远端 main 当前为 `48febb538333b161fabe86135c0b8319429ab644`；未通过完整 CI 的候选均不计作采用。用户限定本机与 GitHub CI，后续子代理统一 GPT‑6.1 Sol ultra。
 
-## 已采用的顺序任务
+### 已采用的顺序任务
 
 | PR | 已验 HEAD | 普通合并 | 完整适用 CI |
 |---|---|---|---|
@@ -197,17 +201,17 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 
 原24批全部普通合并。每次核对实际 head/main、最新 attempt、job/check、原跳过条件及实际合并 parents/tree。#204 空提交不匹配 Flutter push 路径，所以16次为其完整适用范围。#205 的711份证据清单 SHA256 `1dd09b7f22025246c527c9f032996fc42a26d3c87322bfb382a39137a712bf45`；#207 的1015份清单 `405f3308e3a28bb4d9dae337bf05c6d6072110ca87d98fc1960b661bc2d28a6f`。
 
-## 当前已实施候选
+### 当前已实施候选
 
 - **#208 应用采证与报告发布：修复已推送，新一轮完整CI中。** 当前HEAD `a7cd90240eb36f75bc58ff85211c1e8e652f7dbc`，tree `46916b50851d105115b7bc07efda6ec69bd32465`，candidate `1b4beb18459f88a993685a9bd73e3bf42ce0a1c4`。在固定32请求Linux工具、Minecraft协议采证和已修启动取消fixture上，新增原终态报告锁竞争修复：同原100ms总截止、完整身份重核、一次seal/ledger。六项新锁控制加七项原回归13项通过；四项实际故障变体在原清理后触发指定断言，恢复全部源码后13项重跑通过。完整11检查：工作区2340、HardHard隔离253、NAT92、quality95、格式/文档/健康/脚本/Clippy均通过，保留3原特权ignored，独立审查通过。17次适用workflow运行/18门禁和本HEAD真实Linux产物待验，尚未采用。原30秒双端断言保持；历史Windows失败具体锁分支未知，不能断言唯一根因。
-- **PR #209 原身份和一次记账：已推送，完整 CI 中。** 顺序提交 `dca76a6`（Relay来源）、`2b201c3`（Direct来源）、`8d67bc6`（Relay成员和关闭）、`addd758`（能力发布）、`a078354`（最终核对/once/原REQUEST回应源）。c12实际52个唯一重点控制、2400工作区、247隔离通过；普通整合最新main后提交 `5c790eb006155f266d0df13f73ffd955255eb34b`，tree `2c05070db16ea101a9c588cf87a5bf0729cb2c13`，2405工作区、247隔离、NAT92、quality95、全部门禁和Clippy通过，保留3原特权测试ignored。已创建 [PR #209](https://github.com/yhan-sun/p2wlan/pull/209)，17次适用运行/18门禁正在执行，已有NAT作业实际失败并开始归因，尚未采用。实际两项15秒TTL及取消/once/早ACK/高水位负控有证据。当前same-path、same-Relay-client、non-room范围；Managed/dynamic/room/rendezvous仍不冒充已验。
+- **PR #209 原身份和一次记账：完整CI发现NAT失败，修复中。** 顺序提交 `dca76a6`（Relay来源）、`2b201c3`（Direct来源）、`8d67bc6`（Relay成员和关闭）、`addd758`（能力发布）、`a078354`（最终核对/once/原REQUEST回应源）。c12实际52个唯一重点控制、2400工作区、247隔离通过；普通整合最新main后提交 `5c790eb006155f266d0df13f73ffd955255eb34b`，tree `2c05070db16ea101a9c588cf87a5bf0729cb2c13`，2405工作区、247隔离、NAT92、quality95、全部门禁和Clippy通过，保留3原特权测试ignored。已创建 [PR #209](https://github.com/yhan-sun/p2wlan/pull/209)，本轮17次适用运行已全部结束，六项NAT及依赖门禁失败；已定位启动配置VIP与注册后实际VIP不一致的请求资格检查，以及Fresh成功标记缺失，最小修复和真实Direct/Relay回归正在准备，尚未采用。实际两项15秒TTL及取消/once/早ACK/高水位负控有证据。当前same-path、same-Relay-client、non-room范围；Managed/dynamic/room/rendezvous仍不冒充已验。
 - **B03 五个活动buffer owner阶段：本地正反控和完整回归通过，已分批提交。** 四个slow-send阶段加原DataPlane等待许可阶段；10文件候选、11源码绑定。当前23重点控制、2350工作区、247隔离、NAT92、quality95及全部11检查通过，保留3项原特权ignored。初次编译、sender提前关闭、Relay默认Direct-first前置及Clippy失败均留档并最小修复。两项实际去掉原观察hook的负控触发指定断言，均在原owner清理之后失败；监督进程和原组全部回收，再恢复11源码hash并重跑23正控通过。已提交 `8a4dfc7379080efd4dcf082b48e5188fb44ea651`，尚未推送、通过CI或采用。channel驻留、backlog、Relay、全pipeline及开销仍有缺口。
-- **N01 普通探测取消成本：40项重点与回归、3项负控及恢复后的40项复测均通过。** 21文件候选接入main48；初次编译的3模块路径、原代际变量和测试绑定问题已最小修复并保留失败。三个实际移除primary/compatibility记账或子任务abort的负控均在原owner清理后触发指定断言，进程组回收后恢复全部源码再重跑正控。原绝对截止不变；returned与retained重叠不可相加，未join子任务和无返回事实保留unknown。完整11项本机回归正在执行，CI与采用尚未完成。
-- **D03 Linux黑洞→解除→新请求：首次真实内核CI失败已定位，正在修正故障注入。** 手动运行 [38464012431](https://github.com/yhan-sun/p2wlan/actions/runs/38464012431) attempt1绑定HEAD `e7a6a196ae2457a343ab288c9213a68264407f8e`；原独立基线32/32通过，11组/22句柄清理。新故障切片固定32请求中，8条UDP返回send_error而非预期超时，后24条未启动，0条fresh成功；原5组/10句柄、两精确规则、原namespace FD和网络资源均已清理。实际artifact11848608412，SHA256 `920c8a840e403071f44a7b2f850b3167a36c7b60ae6b5e6131d85e10d0306cdd` 与远端一致。具体errno未记录，不猜测。已将两条规则移至原接收端INPUT并记录实际numeric errno，保持全部32请求、同端口范围、原期限和恢复断言。修正两套Python各74项、quality95/四门禁及独立复核通过；提交 `4b1f1dbad9eb93156ef585754dc5a4e3ebcf115f` 已普通推送，新手动运行 [38468485231](https://github.com/yhan-sun/p2wlan/actions/runs/38468485231) 待验，未宣称D03通过。
+- **N01 普通探测取消成本：40项重点与回归、3项负控及恢复后的40项复测均通过。** 21文件候选接入main48；初次编译的3模块路径、原代际变量和测试绑定问题已最小修复并保留失败。三个实际移除primary/compatibility记账或子任务abort的负控均在原owner清理后触发指定断言，进程组回收后恢复全部源码再重跑正控。原绝对截止不变；returned与retained重叠不可相加，未join子任务和无返回事实保留unknown。完整11项本机回归已通过：工作区2360、隔离247、NAT92、quality95；独立复核完成。已普通提交并推送 `e2684e64c65cd1f4f7f4eaddf5b5246bab55885a`，创建 [PR #210](https://github.com/yhan-sun/p2wlan/pull/210)；17次适用运行/18门禁开始，采用尚未完成。
+- **D03 Linux黑洞→解除→新请求：首次真实内核CI失败已定位，正在修正故障注入。** 手动运行 [38464012431](https://github.com/yhan-sun/p2wlan/actions/runs/38464012431) attempt1绑定HEAD `e7a6a196ae2457a343ab288c9213a68264407f8e`；原独立基线32/32通过，11组/22句柄清理。新故障切片固定32请求中，8条UDP返回send_error而非预期超时，后24条未启动，0条fresh成功；原5组/10句柄、两精确规则、原namespace FD和网络资源均已清理。实际artifact11848608412，SHA256 `920c8a840e403071f44a7b2f850b3167a36c7b60ae6b5e6131d85e10d0306cdd` 与远端一致。具体errno未记录，不猜测。已将两条规则移至原接收端INPUT并记录实际numeric errno，保持全部32请求、同端口范围、原期限和恢复断言。修正两套Python各74项、quality95/四门禁及独立复核通过；提交 `4b1f1dbad9eb93156ef585754dc5a4e3ebcf115f` 已普通推送，新手动运行 [38468485231](https://github.com/yhan-sun/p2wlan/actions/runs/38468485231) 原Linux作业已成功且产物11851620319通过源码和哈希核验：8条UDP超时、8条TCP连接截止而未发送，解除精确规则后16条新请求成功；两套harness各11组/22句柄清理。API逐step字段为空，已保存实际job日志和此缺口；Required最终状态待确认，未宣称完整D03通过。
 
-真实scheduler child丢失后的A2保留/A3恢复切片正在冻结；Managed/dynamic的7项原生ACK候选已通过静态检查和独立复核，尚未运行Rust。C02正在编写真实UDP回归以核实首次keepalive丢失是否提前改变实际路径选择，未改生产策略。N02/N03目前只有有界本机/CI实验方案，没有策略A/B或采纳结论。
+真实scheduler child丢失后的A2保留/A3恢复切片已冻结，6项实际测试已通过，负控和完整回归待验；Managed/dynamic的7项原生ACK候选已通过静态检查和独立复核，尚未运行Rust。C02正在编写真实UDP回归以核实首次keepalive丢失是否提前改变实际路径选择，未改生产策略。N02/N03目前只有有界本机/CI实验方案，没有策略A/B或采纳结论。
 
-## 保留的失败与证据边界
+### 保留的失败与证据边界
 
 #208历史HEAD `7e55887` 的Linux32/32与Minecraft协议24+53/契约23/runner28通过，但Windows Rust原终态报告断言及依赖门禁失败；新a7cd902必须重新验收。
 
@@ -219,8 +223,8 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 
 Minecraft真实世界、固定服务端负载、TPS/MSPT/GC和跨设备结果未验。此前动态Bedrock重传复核被工具风险检查中断，未绕过；普通协议/纯控制不能替代未完成的动态范围。
 
-## 原始定义和剩余任务
+### 原始定义和剩余任务
 
 远端检索覆盖178branches、167tags、187PRrefs、2192commits、10586文本blob及PR/Issue/评论/Release，在 `2a5735568ee8767022cd509dff1112cdb969574a` 找到C06 FIFO/容量/Weak/代际/停止和C11旧入口/UnknownAny/crypto局部要求。S3C独立定义、完整C06矩阵及完整C11接口矩阵仍未找到；检索结论见 REMOTE_ACCEPTANCE_SOURCE_AUDIT.md。
 
-任务级最新状态与依赖见 PROGRESS.json 的 continuation.task_status_current。历史完成2项、进行中7项、待启动6项、条件候选7项。条件任务不能因缺环境自动算完成；需有实际触发/不采用依据。实体设备、公网NAT/NAT64、全平台真实TUN/TCP、完整故障矩阵、Minecraft世界、性能A/B、发布灰度与回滚继续明确未验。
+任务级最新状态与依赖见 PROGRESS.json 的 continuation.task_status_current。历史完成2项、进行中8项、待启动5项、条件候选7项。条件任务不能因缺环境自动算完成；需有实际触发/不采用依据。实体设备、公网NAT/NAT64、全平台真实TUN/TCP、完整故障矩阵、Minecraft世界、性能A/B、发布灰度与回滚继续明确未验。
