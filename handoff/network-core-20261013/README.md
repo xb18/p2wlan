@@ -1,6 +1,6 @@
 # 网络核心移交包
 
-原始检查点说明保留如下；当前以报告第九节与PROGRESS.json.continuation为准。原#202/#203/#204/#205/#207已顺序通过完整CI并普通合并，main48febb。PR209运行时VIP与Fresh确认标记修复8d0b64d已普通提交推送：50重点、2413工作区、247隔离、四实际负控及恢复8项均通过；新17次CI开始，旧5c的NAT失败保留。PR208 a7cd902当前Linux真实TUN32/32和11组/22句柄清理、Minecraft协议24+53及契约23/runner28已验，完整17次CI仍待验。N01 e2684e6已推送PR210，完整本机通过，17次CI待验。B03本地8a4dfc7已验未推送。D03 4b1f1db实际Linux黑洞解除后16新请求成功，同次手动workflow五作业全通过，仅该切片验收。B01原child-loss六项通过，四负控执行中；C02实际首次miss selector问题最小修复新1+旧4通过，新增idle-consent测试静态通过未原生；N02两文件同预算HH时序候选静态通过，9原生及6+6cold A/B未跑，未采用。Managed/dynamic七项待原生。仅本机和GitHubCI；子代理统一GPT-6.1 Sol ultra。
+原始检查点说明保留如下；当前以报告第九节与PROGRESS.json.continuation为准。原#202/#203/#204/#205/#207已顺序全CI普通合并；PR208 a7cd902也已通过17运行/18门禁、当前Linux32/32和协议采证后普通合并dbe5d67，最新main=dbe5d67f2142981e103b858cf82981696b5c1bb6。三个外部门禁首轮API403保留，依赖成功后按顺序重跑attempt2通过，1354文件封存已验。PR2098d新CI仍有Direct/Relay真实业务失败：当前Direct实证incoming source16006而reply selected endpoint16005，最终source guard会拒绝，正在做保持身份/预算的最小修复设计；不得归到API。B01原worker丢失切片完整11/4实际反例/恢复6通过，提交11d6676；C02首次miss selector与健康idle完整11通过，提交0be532f；二者均本地、未完整CI或采用。N01 e268原17CI结束但外部门禁API失败，现已普通整合新main无冲突暂存，门禁查询优化两文件108质量测试通过待组合。N02九原生+两计时反例通过，恢复及完整回归运行，6+6cold A/B未跑无收益结论。N03最小SOCKET_POOL透传候选静态通过，off/2/4固定9cold未跑。B03/Managed组合原生待验。D03手动Linux故障解除16新请求及五作业通过，完整PR采用待验。仅本机/GitHubCI，所有原失败保留；子代理GPT-6.1 Sol ultra。
 
 本包对应产品源码检查点 d2df1627952191fe3d535d64ad6249723e1ba404。分支 codex/network-core-handoff-20261013 用于保存可移植交接资料。
 

@@ -187,46 +187,55 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 
 ### 实际进度
 
-任务仍在实施。远端 main 当前为 `48febb538333b161fabe86135c0b8319429ab644`；未通过完整 CI 的候选均不计作采用。用户限定本机与 GitHub CI，后续子代理统一 GPT‑6.1 Sol ultra。
+任务仍在实施。最新已验 main 为 `dbe5d67f2142981e103b858cf82981696b5c1bb6`。只使用本机和 GitHub CI；后续子代理统一 GPT‑6.1 Sol ultra。未通过完整 CI 的候选不计采用，局部通过不升级为整个任务完成。
 
-### 已采用的顺序任务
+### 已通过完整 CI 并普通合并
 
 | PR | 已验 HEAD | 普通合并 | 完整适用 CI |
 |---|---|---|---|
-| [#202](https://github.com/yhan-sun/p2wlan/pull/202) | `e9edb2953dba677e5b85f8ef2502328353c905b6` | `da4edadc84c0b10a138115652cc031145dcb77c6` | 17次运行、18门禁、87成功、2原条件跳过 |
-| [#203](https://github.com/yhan-sun/p2wlan/pull/203) | `b98914724ba6b83eb3f21beb09b69d2718bec27a` | `221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98` | 17次运行、18门禁、87成功、2原条件跳过 |
-| [#204](https://github.com/yhan-sun/p2wlan/pull/204) | `4a2c434b0165693ac331acfc1ad7bc7d2a7aed4a` | `8fb0265537d2cf34885874a2db8b6c46769782bb` | 16次运行、18门禁、81成功、2原条件跳过 |
-| [#205](https://github.com/yhan-sun/p2wlan/pull/205) | `81e9220fcbce7bd92cecad1d4ff734341c4fab54` | `1845d1381e46596cbc42b0a3b14b55573b8dfd2f` | 17次运行、18门禁、87成功、2原条件跳过 |
-| [#207](https://github.com/yhan-sun/p2wlan/pull/207) | `4fbe60eec1ee436144df1df510a1acef6a751485` | `48febb538333b161fabe86135c0b8319429ab644` | 17次运行、18门禁、87成功、2原条件跳过 |
+| [#202](https://github.com/yhan-sun/p2wlan/pull/202) | `e9edb2953dba677e5b85f8ef2502328353c905b6` | `da4edadc84c0b10a138115652cc031145dcb77c6` | 17运行、18门禁、87成功、2原跳过 |
+| [#203](https://github.com/yhan-sun/p2wlan/pull/203) | `b98914724ba6b83eb3f21beb09b69d2718bec27a` | `221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98` | 17运行、18门禁、87成功、2原跳过 |
+| [#204](https://github.com/yhan-sun/p2wlan/pull/204) | `4a2c434b0165693ac331acfc1ad7bc7d2a7aed4a` | `8fb0265537d2cf34885874a2db8b6c46769782bb` | 16运行、18门禁、81成功、2原跳过 |
+| [#205](https://github.com/yhan-sun/p2wlan/pull/205) | `81e9220fcbce7bd92cecad1d4ff734341c4fab54` | `1845d1381e46596cbc42b0a3b14b55573b8dfd2f` | 17运行、18门禁、87成功、2原跳过 |
+| [#207](https://github.com/yhan-sun/p2wlan/pull/207) | `4fbe60eec1ee436144df1df510a1acef6a751485` | `48febb538333b161fabe86135c0b8319429ab644` | 17运行、18门禁、87成功、2原跳过 |
+| [#208](https://github.com/yhan-sun/p2wlan/pull/208) | `a7cd90240eb36f75bc58ff85211c1e8e652f7dbc` | `dbe5d67f2142981e103b858cf82981696b5c1bb6` | 17运行、18门禁、87成功、2原跳过 |
 
-原24批全部普通合并。每次核对实际 head/main、最新 attempt、job/check、原跳过条件及实际合并 parents/tree。#204 空提交不匹配 Flutter push 路径，所以16次为其完整适用范围。#205 的711份证据清单 SHA256 `1dd09b7f22025246c527c9f032996fc42a26d3c87322bfb382a39137a712bf45`；#207 的1015份清单 `405f3308e3a28bb4d9dae337bf05c6d6072110ca87d98fc1960b661bc2d28a6f`。
+原24批已全部采用。#204 的空提交不匹配 Flutter push 路径，16次为完整适用范围。每次核对实际head/main、最新attempt、job/check、原跳过条件和合并parents/tree。
 
-### 当前已实施候选
+#208于2026-10-13 22:36:08 UTC合并。其三套完整Rust作业逐项验证原22项关键回归和13项终态报告控制；DPLPMTUD十个实际场景通过。首轮三个外部门禁在GitHub API查询阶段403失败，保留原日志；依赖实际成功后按Path→Business→DPL顺序重跑，三者attempt2通过。最终1354文件封存SHA256 `20f25aadd69e6026cbfa61e6f19a82e028a4396c5bb8c43167050d7d30a8fc94`，89个当前job/check ID完全对应。
 
-- **#208 应用采证与报告发布：修复已推送，新一轮完整CI中。** 当前HEAD `a7cd90240eb36f75bc58ff85211c1e8e652f7dbc`，tree `46916b50851d105115b7bc07efda6ec69bd32465`，candidate `1b4beb18459f88a993685a9bd73e3bf42ce0a1c4`。在固定32请求Linux工具、Minecraft协议采证和已修启动取消fixture上，新增原终态报告锁竞争修复：同原100ms总截止、完整身份重核、一次seal/ledger。六项新锁控制加七项原回归13项通过；四项实际故障变体在原清理后触发指定断言，恢复全部源码后13项重跑通过。完整11检查：工作区2340、HardHard隔离253、NAT92、quality95、格式/文档/健康/脚本/Clippy均通过，保留3原特权ignored，独立审查通过。17次适用workflow运行/18门禁仍待验，尚未采用。本HEAD Linux真实TUN产物已核验：run38468770963/artifact11849753073，32/32双向UDP/TCP成功；11组/22原句柄回收，TUN及网络清理齐全。远端archive SHA256 b221f9b4fcb7d990524a1a3369e0b89391a56cffd51a3587e41757b2f8956e12与本地相同，64项证据封存逐一核对。API逐step为空的缺口与原日志均保留。原30秒双端断言保持；历史Windows失败具体锁分支未知，不能断言唯一根因。
-- **PR #209 原身份和一次记账：完整CI发现NAT失败，修复中。** 顺序提交 `dca76a6`（Relay来源）、`2b201c3`（Direct来源）、`8d67bc6`（Relay成员和关闭）、`addd758`（能力发布）、`a078354`（最终核对/once/原REQUEST回应源）。c12实际52个唯一重点控制、2400工作区、247隔离通过；普通整合最新main后提交 `5c790eb006155f266d0df13f73ffd955255eb34b`，tree `2c05070db16ea101a9c588cf87a5bf0729cb2c13`，2405工作区、247隔离、NAT92、quality95、全部门禁和Clippy通过，保留3原特权测试ignored。已创建 [PR #209](https://github.com/yhan-sun/p2wlan/pull/209)，本轮17次适用运行已全部结束，六项NAT及依赖门禁失败；已定位启动配置VIP与注册后实际VIP不一致的请求资格检查，以及Fresh成功标记缺失，六文件最小修复已通过真实Direct/Relay八项回归：动态VIP、错误目标、代际/session失效和Fresh标记恰好一次。错误目标测试原先错误等待TUN写入，实际失败已保存；修正为真实解密接收及native入口拒绝，后续正确请求仍要求完整TUN字节一致。当前修复完整12检查通过：50项精确闭环、2413工作区、247隔离、NAT92、quality95及Clippy；四项实际错误补丁验证和恢复后的8项复测通过；已普通提交推送 `8d0b64d14384b1329b54be5b4777d88b4a5b3f2e`，tree `b918214190c5ae48fcd67cbde28b4dbc24660b38`，新17次完整CI开始，尚未采用。实际两项15秒TTL及取消/once/早ACK/高水位负控有证据。当前same-path、same-Relay-client、non-room范围；Managed/dynamic/room/rendezvous仍不冒充已验。
-- **B03 五个活动buffer owner阶段：本地正反控和完整回归通过，已分批提交。** 四个slow-send阶段加原DataPlane等待许可阶段；10文件候选、11源码绑定。当前23重点控制、2350工作区、247隔离、NAT92、quality95及全部11检查通过，保留3项原特权ignored。初次编译、sender提前关闭、Relay默认Direct-first前置及Clippy失败均留档并最小修复。两项实际去掉原观察hook的负控触发指定断言，均在原owner清理之后失败；监督进程和原组全部回收，再恢复11源码hash并重跑23正控通过。已提交 `8a4dfc7379080efd4dcf082b48e5188fb44ea651`，尚未推送、通过CI或采用。channel驻留、backlog、Relay、全pipeline及开销仍有缺口。
-- **N01 普通探测取消成本：40项重点与回归、3项负控及恢复后的40项复测均通过。** 21文件候选接入main48；初次编译的3模块路径、原代际变量和测试绑定问题已最小修复并保留失败。三个实际移除primary/compatibility记账或子任务abort的负控均在原owner清理后触发指定断言，进程组回收后恢复全部源码再重跑正控。原绝对截止不变；returned与retained重叠不可相加，未join子任务和无返回事实保留unknown。完整11项本机回归已通过：工作区2360、隔离247、NAT92、quality95；独立复核完成。已普通提交并推送 `e2684e64c65cd1f4f7f4eaddf5b5246bab55885a`，创建 [PR #210](https://github.com/yhan-sun/p2wlan/pull/210)；17次适用运行/18门禁开始，采用尚未完成。
-- **D03 Linux黑洞→解除→新请求：首次真实内核CI失败已定位，正在修正故障注入。** 手动运行 [38464012431](https://github.com/yhan-sun/p2wlan/actions/runs/38464012431) attempt1绑定HEAD `e7a6a196ae2457a343ab288c9213a68264407f8e`；原独立基线32/32通过，11组/22句柄清理。新故障切片固定32请求中，8条UDP返回send_error而非预期超时，后24条未启动，0条fresh成功；原5组/10句柄、两精确规则、原namespace FD和网络资源均已清理。实际artifact11848608412，SHA256 `920c8a840e403071f44a7b2f850b3167a36c7b60ae6b5e6131d85e10d0306cdd` 与远端一致。具体errno未记录，不猜测。已将两条规则移至原接收端INPUT并记录实际numeric errno，保持全部32请求、同端口范围、原期限和恢复断言。修正两套Python各74项、quality95/四门禁及独立复核通过；提交 `4b1f1dbad9eb93156ef585754dc5a4e3ebcf115f` 已普通推送，新手动运行 [38468485231](https://github.com/yhan-sun/p2wlan/actions/runs/38468485231) 原Linux作业已成功且产物11851620319通过源码和哈希核验：8条UDP超时、8条TCP连接截止而未发送，解除精确规则后16条新请求成功；两套harness各11组/22句柄清理。API逐step字段为空，已保存实际job日志和此缺口；同次手动workflow的五项作业及Required现均成功；这只验收该切片，未宣称完整PR CI或完整D03通过。
+同HEAD Linux产物run38468770963/artifact11849753073已验：UDP/TCP双向32/32、11组/22原句柄清理、TUN在namespace删除前消失、网络残留为空。远端/本地archive SHA256 `b221f9b4fcb7d990524a1a3369e0b89391a56cffd51a3587e41757b2f8956e12`。API逐step为空的缺口保留，实际job日志/源码/产物齐全。Minecraft同HEAD协议检查Java24、Bedrock53、契约23、runner28和四份零漏洞审计通过；真实世界未验。
 
-当前a7cd902的Minecraft协议与工具证据已重新验收：实际CI作业115542123639，Java24、Bedrock53、契约23、runner28通过，四份依赖审计零漏洞；含原startup-cancel控制，真实游戏世界仍未验。
+### 当前实施与验收边界
 
-真实scheduler child丢失后的A2保留/A3恢复切片已冻结，6项实际测试已通过，负控和完整回归待验；Managed/dynamic的7项原生ACK候选已通过静态检查和独立复核，尚未运行Rust。C02真实UDP回归已复现首次保活丢失后连接仍Direct、实际selector却None/pairDegraded；原任务及端口清理后断言失败。同一原三次丢失门槛前保留Selected且保留真实失败计数的最小修复，已通过新1项和旧4项原生控制，独立复核通过；第三次仍降级，完整回归待验。N02新增两文件HH第二波20ms等待锚点候选，保留原截止/额度/两波同pair；静态检查通过，9原生控制和6+6固定cold场景尚未运行，未采用。N03仍只有本机/CI实验方案。
+| 范围 | 实际完成 | 尚未完成 |
+|---|---|---|
+| PR #209 原身份/原ACK/一次记账 | HEAD `8d0b64d14384b1329b54be5b4777d88b4a5b3f2e` 修复启动配置VIP误比较与Fresh标记；50精确、2413工作区、247隔离、4实际反例、恢复8项、完整12本地检查通过 | 新CI的Direct cold-start及部分Relay场景仍实际失败，独立于API403；正在查原日志和产物，不采用 |
+| B01 原子任务丢失 | 本地提交 `11d66765ede2698945eef625cb0b6da3ba16735e`；6精确、2342工作区、247隔离、NAT92、quality95、完整11检查、4接受反例及恢复6项通过 | 未推送/完整CI/采用；私有Relay内部任务仅abort，不冒称独立join；不代表完整未知C06矩阵 |
+| C02 保活与空闲 | 本地提交 `0be532f5d24deff502f6ec04467a983c9ac92bfe`；6精确、2342工作区、247隔离、NAT92、quality95、完整11检查通过；前两次miss保留Selected，第三次仍降级；实际健康consent在应用空闲时保持selector | 未完整CI/采用；业务无ACK、真实单尖峰、服务器停顿、本机排队分层场景仍缺 |
+| B03 活动buffer | 原提交 `8a4dfc7379080efd4dcf082b48e5188fb44ea651` 的23精确、2350工作区、247隔离、完整11、2实际反例及恢复23项通过；已普通整合PR2098d并暂存，静态7检查通过 | 组合73精确和完整回归未运行；channel/backlog/全pipeline与开销尚缺；未采用 |
+| Managed/dynamic | 在PR2098d上独立整合11文件，组合tree `d6cf2fa1b8165d3c65cb1f00d78cc5ecdecd7afc`，静态7检查通过 | 57项原生计划未运行；没有把计划算通过 |
+| N01 普通探测取消成本 | PR #210 HEAD `e2684e64c65cd1f4f7f4eaddf5b5246bab55885a` 本地40精确、2360工作区、247隔离、完整11、3实际反例及恢复40项通过；首轮17CI结束，失败为外部门禁API链 | 已在本地普通整合新main dbe5d67，无冲突；将结合最小门禁查询修复，组合验证后再推送；未采用 |
+| N02 HH第二波时序 | 原20ms等待改为锚定首波启动，保留原总截止/额度/两波同pair；两文件静态和独立审查通过 | 九项实际测试和两项计时反例通过，恢复及完整回归运行；固定6+6 cold A/B未运行，不能宣称收益或采用 |
+| N03 pool采证 | 已发现matrix丢失SOCKET_POOL传参，正在做最小工具修复和预注册 | 原CLI单primary基线是off，数字1非法；拟off/2/4固定9次，均未实际运行；requested不等于usable |
+| D03 Linux黑洞恢复 | 提交 `4b1f1dbad9eb93156ef585754dc5a4e3ebcf115f` 的手动CI run38468485231五作业全通过；baseline32/32，8 UDP超时+8 TCP未发送，解除原精确规则后16新请求成功；两套harness各11组/22句柄清理 | 未整合新main并走完整PR CI；完整D03/各平台/公网/MTU故障矩阵未验 |
 
-### 保留的失败与证据边界
+D03实际artifact11851620319，远端/本地SHA256 `8cbdec2bff153aee5c634d39068207398fed67b7c205041aea371d1956757487`。原INPUT两规则计数为8 UDP包/1752字节及1 TCP包/60字节，规则删除与FD关闭在fresh请求前完成。此前OUTPUT故障注入产生UDP send_error的首次失败完整保留，不猜未记录的errno。
 
-#208历史HEAD `7e55887` 的Linux32/32与Minecraft协议24+53/契约23/runner28通过，但Windows Rust原终态报告断言及依赖门禁失败；新a7cd902必须重新验收。
+### 保留的失败与限制
 
-#208旧HEAD `bf14f5a`：Bedrock启动取消52/53，父子信号时序输给原100ms期限；已在新fixture中修复，原失败保留。macOS Rekey无执行机、无步骤，GitHub明确为容量不足；没有把它记作产品缺陷或测试通过。依赖门禁失败均保留。
+B01旧abort-bypass控制在原take_loss前置步骤超时，仍不接受；替代的真实子任务panic反例按原清理后cancelled断言失败。随后工具raw-index字节变化拒绝继续，源码和完整暂存语义未变，原因未知；单独续跑第四反例且恢复正控通过。C02新增测试首次编译因nonce返回类型u64与实际[u8;8]不匹配失败，仅修正该类型后全套通过。
 
-旧HEAD实际Linux报告 run `38453268580`、artifact `11842466573` 已核验：archive SHA256 `44ee0c74a5b72549a2a471f74237b566e5b4d8007730af7638b4f8c6e2cde523`，实际candidate `25273368b6de782e7db7653f4052d3c7031408cc` 与该HEAD同tree；UDP/TCP双向32/32成功，11原child/11anchor实际回收，原组消失，TUN在命名空间删除前已检查消失。它只证明旧HEAD的同机Linux应用范围，新HEAD必须重验。
+#209旧5c六NAT零确认失败保留；8d已出现native overlay，仍存在实际场景失败，不能宣称原修复解决全部CI。三个当前PR共十项原API查询失败已审计，其中发布审计明确为GitHub installation配额耗尽，其余403类别未有原响应body/headers，保留未知；没有据此把真正业务失败归为基础设施。
 
-#203/#204历史本机workspace总数2340/2341混入两条其他checkout测试，严格同源码总数声明已撤回，不能减2冒充重跑。独立GitHubCI没有污染，完整CI与合并证据仍有效；原日志保留并已纠正PR。后续每次切换checkout均清理全部11个本项目crate，再重新绑定实际测试二进制和源码；本次B28和B03遵守此规则。
+历史#203/#204本机workspace总数混入其它checkout的两条测试，严格同源码总数已撤回。独立GitHubCI有效，原日志保留；此后每次切换checkout清理全部11个本项目crate，重新绑定实际二进制与源码。所有早期启动取消、Windows报告缺失、macOS容量和首次编译/断言失败均保留。
 
-Minecraft真实世界、固定服务端负载、TPS/MSPT/GC和跨设备结果未验。此前动态Bedrock重传复核被工具风险检查中断，未绕过；普通协议/纯控制不能替代未完成的动态范围。
+真实设备、公网NAT/NAT64、全平台TUN、Minecraft世界/TPS/MSPT/GC、性能A/B和发布灰度/回滚尚未验证。所用资源限定为本机和GitHubCI；协议fixture、同机loopback和kernelTUN各自按实际范围记账。
 
-### 原始定义和剩余任务
+### 其余任务及原定义
 
-远端检索覆盖178branches、167tags、187PRrefs、2192commits、10586文本blob及PR/Issue/评论/Release，在 `2a5735568ee8767022cd509dff1112cdb969574a` 找到C06 FIFO/容量/Weak/代际/停止和C11旧入口/UnknownAny/crypto局部要求。S3C独立定义、完整C06矩阵及完整C11接口矩阵仍未找到；检索结论见 REMOTE_ACCEPTANCE_SOURCE_AUDIT.md。
+任务级状态见PROGRESS.json的continuation.task_status_current：完成2、进行中10、待启动3、条件候选7。C01/C03/R00已有最小后续切片方案；R00发现aux common-hub入口可能错误标记primary来源的静态缺口，尚未复现，不能据推断记产品失败。
 
-任务级最新状态与依赖见 PROGRESS.json 的 continuation.task_status_current。历史完成2项、进行中8项、待启动5项、条件候选7项。条件任务不能因缺环境自动算完成；需有实际触发/不采用依据。实体设备、公网NAT/NAT64、全平台真实TUN/TCP、完整故障矩阵、Minecraft世界、性能A/B、发布灰度与回滚继续明确未验。
+D01/D02/R01/R02/X01/X02/X03未因缺环境自动完成。现阶段不默认启用无收益证据的split/DRR/UDP Relay/用户转发/TCP打洞/batch/多链路；先按原任务需求与现路径数据决定。原代码支持IPv6不等于NAT64已验。
+
+远端检索覆盖178branches、167tags、187PRrefs、2192commits、10586文本blob以及PR/Issue/评论/Release，在 `2a5735568ee8767022cd509dff1112cdb969574a` 找到C06 FIFO/容量/Weak/代际/停止和C11旧入口/UnknownAny/crypto局部要求。S3C独立定义、完整C06和C11矩阵仍未找到；详见REMOTE_ACCEPTANCE_SOURCE_AUDIT.md。
