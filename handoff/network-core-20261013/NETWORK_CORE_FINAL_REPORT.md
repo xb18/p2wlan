@@ -181,14 +181,20 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 文档门禁通过（19份公共文档，1,518份tracked文本）；代码健康通过（648份Rust文件，0历史例外）；明确Rust 1.99.0后质量95项全部通过；3个脚本语法、staged差异空白检查通过。补丁无损解码回原5,930 bytes，SHA256一致；git apply --check通过，已有输出文件拒绝覆盖。首次质量检查的5个rustfmt环境错误保留；未改产品源码、未运行新补丁的Rust测试或Linux CI。
 
 
-## 九、继续实施记录（2026-10-13）
+## 九、继续实施记录（2026-10-14，前序时间按UTC记录）
 
 以上第1至8节是原始移交快照，历史数字与待验证状态保持原义。用户已限定后续验收仅本机和 GitHub CI；缺失实体设备、公网样本与固定游戏环境如实保留。
 
 #202 已普通合并，合并提交 `da4edadc84c0b10a138115652cc031145dcb77c6`，被验收HEAD `e9edb2953dba677e5b85f8ef2502328353c905b6`，树 `3b6fbecf37046fd77f654fa9cadbb7caaf6907e2`。原阻塞callback负控在释放和回收后触发指定断言；修正版目标回归、workspace 2335项及隔离hard_hard 247项、全部仓库检查通过。相同HEAD的17次运行/16个工作流、18项必需门禁全部通过；89个作业中87成功、2个原条件跳过，清单与check-run ID逐项一致。合并父链和源码树已核实。五项RustSec问题通过quinn-proto最小更新修复，root/fuzz审计均零漏洞，无新增忽略。证据入口：[PR #202](https://github.com/yhan-sun/p2wlan/pull/202)、[CI](https://github.com/yhan-sun/p2wlan/actions/runs/38411734340)、[DPLPMTUD](https://github.com/yhan-sun/p2wlan/actions/runs/38411734954)。
 
-#203 已普通同步新main并非force推送 `b98914724ba6b83eb3f21beb09b69d2718bec27a`；本机B20新增3项、B19 10项、原C06 4项、C11旧入口1项，以及fmt/Clippy/95质量及强制检查通过。完整workspace2340项、隔离hard_hard 247项及92项NAT策略测试通过；当前HEAD全部CI仍在验收，尚未合并。之后继续 #204、#205、#207。
+#203 已完成同HEAD全部验收并普通合并为 `221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98`。被验HEAD `b98914724ba6b83eb3f21beb09b69d2718bec27a`，合并树 `d48c7e9eb6da6a07ca9cb792ced405e33ad8eeda` 与CI候选相同。本机18项目标、workspace2340项、隔离hard_hard247项、NAT92项和全部强制检查通过。17次运行/16工作流全部成功，18/18必需门禁，89个当前作业与check-run完全对应（87成功、2原条件跳过）；三平台作业各15项B19与3项B20通过，DPLPMTUD live10/10通过。完整979文件证据归档校验通过。来源：[PR #203](https://github.com/yhan-sun/p2wlan/pull/203)、[CI Linux/Windows](https://github.com/yhan-sun/p2wlan/actions/runs/38418950047)、[DPLPMTUD](https://github.com/yhan-sun/p2wlan/actions/runs/38418949978)。
+
+当前推进 #204，本地普通同步最新main提交为 `7e95f0ef411bed885b9982777d6a18ba2a2834d2`，相对main仅原LegacyRelay测试与cfg(test)声明；尚待本批本机/CI验收和推送。之后继续 #205、#207。
 
 远端完整历史检索恢复部分原始定义：commit `2a5735568ee8767022cd509dff1112cdb969574a` 的 `client/daemon/src/network_outbound/queue/request_carriage_tests.rs` 包含C06四项FIFO/容量/Weak/代际/停止控制；`lib/daemon/overlay_validate/b14_carriage_read_tests.rs` 与 `client/daemon/src/transport/tests/request_carriage_crypto.rs` 包含C11旧入口/UnknownAny/加密兼容局部范围。S3C独立定义、完整C06矩阵及冻结的完整C11旧接口矩阵仍未找到，不将现有局部测试冒充完整验收。
 
-后续独立候选已有本机证据但未采用：历史Relay reader/client身份 `dca76a6bf80929b515843b9e695e6cea16cd6305`，完整workspace2338项及隔离247项通过；Minecraft离线契约 `3dc0819a7a15d82152874a4d2b25b0627108c91e`，23项测试与独立审查通过。最终current-owner/once/ACK仍未实现；Minecraft监督器正在验收，真实Java/Bedrock适配器仍未实现。这些是代码缺口，不能一概记成缺设备。全部22项状态及依赖保存在PROGRESS.json。
+后续独立候选已有本机证据但未采用：历史Relay reader/client身份 `dca76a6bf80929b515843b9e695e6cea16cd6305`，完整workspace2338项及隔离247项通过；Direct原始收发身份与发布边界 `2b201c300c9611767af4f631733887679c5e1539`，91项目标、workspace2344项和隔离247项及独立审查通过。均仅本地提交，未完成独立CI或合入main。Relay关闭/停止原边界正在实施，最终current-owner/once/ACK尚未接入。
+
+Minecraft离线契约 `3dc0819a7a15d82152874a4d2b25b0627108c91e` 的23项测试与独立审查通过；有界进程监督器 `afb3577972c1d7f0be1ace4dd3b0774055a9b789` 修复进程组清理错误后，在两个Python版本各28项测试及独立复核通过。Java1.20.4适配器候选两项审查问题（noop状态变化与同一批更新顺序误判）已修复；24项Node22.16测试含11个真实客户端/本机协议fixture、原Python与强制检查通过，修复独立复核进行中。Bedrock独立候选正在实施。协议fixture不是实际游戏世界；Java/Bedrock真实交互与服务器遥测均未整体验收。上述代码候选未推送或采用。
+
+全部22项状态和依赖保存在PROGRESS.json；未完成代码、原定义缺口和环境缺口分开记录。
