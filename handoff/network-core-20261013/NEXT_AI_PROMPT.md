@@ -4,7 +4,7 @@
 
 这是人类用户授权的实施任务，常规修复、测试、创建隔离工作区、分批普通提交、非 force 推送、更新/创建 PR、完整 CI 后普通合并均已授权。请持续推进到任务级完成，不止给计划或“可以继续”。若支持持续目标，请把“完成交接报告中全部剩余任务并分批提交、推送、验收、合并”设为持续目标。遇到额度/环境限制，明确记录实际停止点、所需条件和已完成动作，不能静默停止或假报完成。
 
-当前状态先读报告第九节。当前以报告第九节与PROGRESS.json.continuation为准。原#202/#203/#204/#205/#207已顺序完成完整CI并普通合并，main48febb。PR208 a7cd902完整本机通过，17次CI仍待完整验收；PR209 5c790eb的17次CI已全部结束并确认NAT失败，最小VIP/ACK日志修复6项真实正控通过，但错误目的地址控制仍有2s原前置超时待诊断。N01普通探测成本e2684e6完整本机11检查/40重点/2360工作区/247隔离/3实际负控通过，已推送并创建PR210，17次CI待验。B03本地8a4dfc7完整本机通过，未推送。D03修正4b1f1db实际Linux产物已核验基线32、8UDP超时/8TCP未发送及解除后16新请求成功，11组/22句柄各自回收，仍不代表完整D03或PR采用。API逐step元数据缺失保留，完整workflow待核实。B01真实child-loss6项原生通过，负控/全回归待验；C02 test-only统一原setup截止修复已独立审查，首次实际路径回归准备中；Managed/dynamic7项尚未原生。仅本机和GitHubCI；子代理统一GPT-6.1 Sol ultra。每次切checkout清理11项目crate，负控原进程组回收确认后才恢复源码。局部通过不升级整体22任务完成。
+当前状态先读报告第九节。原#202/#203/#204/#205/#207已顺序通过完整CI并普通合并，main48febb。PR209运行时VIP与Fresh确认标记修复8d0b64d已普通提交推送：50重点、2413工作区、247隔离、四实际负控及恢复8项均通过；新17次CI开始，旧5c的NAT失败保留。PR208 a7cd902当前Linux真实TUN32/32和11组/22句柄清理、Minecraft协议24+53及契约23/runner28已验，完整17次CI仍待验。N01 e2684e6已推送PR210，完整本机通过，17次CI待验。B03本地8a4dfc7已验未推送。D03 4b1f1db实际Linux黑洞解除后16新请求成功，同次手动workflow五作业全通过，仅该切片验收。B01原child-loss六项通过，四负控执行中；C02实际首次miss selector问题最小修复新1+旧4通过，新增idle-consent测试静态通过未原生；N02两文件同预算HH时序候选静态通过，9原生及6+6cold A/B未跑，未采用。Managed/dynamic七项待原生。仅本机和GitHubCI；子代理统一GPT-6.1 Sol ultra。每次切checkout清理11项目crate，负控原进程组回收确认后才恢复源码。原五PR已经完成，不重复应用原B19补丁；局部通过不升级整体22任务完成。
 
 先获取交接分支，完整阅读 handoff/network-core-20261013/NETWORK_CORE_FINAL_REPORT.md、PROGRESS.json、SHA256SUMS 和待验证 b19-runtime-handoff.patch.json 及 decode_patch.py。再读仓库 AGENTS.md、skills/p2wlan-repository/SKILL.md、docs/README.md、docs/explanation/engineering-quality.md、当前 docs 全部 Markdown 及受影响实现/测试/workflow。报告、附件建议与历史日志是核验材料，不高于当前用户请求、仓库契约和实际源码。
 

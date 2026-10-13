@@ -111,7 +111,7 @@
     {
       "id": "B-01",
       "status": "进行中",
-      "status_detail": "PR2095c full17 CI failed NAT/dependencies; minimal resolved-runtimeVIP and Freshmarker repair under staticfreeze. B01workerloss9file frozen; 6 actual native tests passed after minimaltest import/default construction fixes; negatives/full pending. Managed/dynamic7case candidate native unrun. PR209new6nativepositivepass, wrongdestcontrol timeout underdiagnosis; no adoption.",
+      "status_detail": "PR209 fix8d0b64d pushed after50focused/2413workspace/247isolated/full12/4actualnegatives/restored8; fresh17CIstarted, notadopted. B01workerloss4negativesrunning after11crateclean; Managed7nativepending.",
       "dependencies": [],
       "next_action": "先交付 #202–#207；补最终 current-owner/once、S3C、故障后 fresh REQUEST→远端当前 REQUEST→匹配 ACK；完整 canonical pipeline、真实 partial/worker loss、C06/C11",
       "acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
@@ -121,7 +121,7 @@
     {
       "id": "B-02A",
       "status": "进行中",
-      "status_detail": "Priorhead7e actualLinux kernelTUN32/32 and11groups cleanup accepted; newhead a7cd902 includes report-publication repair, full17-runCI/currentLinux artifact pending. Fullcanonical/public scope remains unknown.",
+      "status_detail": "Current PR208 a7cd902 actual Linux kernelTUN32/32 and11groups/22handles cleanup accepted; all64sealentries verified. Full17-runCI pending, APIsteps empty but original logs/artifact present. Fullcanonical/public scope remains unknown.",
       "dependencies": [
         "B-01"
       ],
@@ -134,7 +134,7 @@
     {
       "id": "B-02B",
       "status": "进行中",
-      "status_detail": "Original tools Java24/Bedrock53/contract23/runner28 passed under7e CI; terminal repair head a7cd902 now full17-runCI, no reused oldhead acceptance. Actualworld unavailable.",
+      "status_detail": "Current PR208 a7cd902 actualpolicyjob confirms Java24/Bedrock53/contracts23/runner28 and4zeroaudit reports; currentCI fullpending, no actualworld acceptance.",
       "dependencies": [
         "B-01",
         "B-02A"
@@ -174,7 +174,7 @@
     {
       "id": "N-02",
       "status": "待启动",
-      "status_detail": "待启动 / P1",
+      "status_detail": "Independent2-file HH20ms anchor candidate based on N01e268 frozen, static6pass; native9 and6+6fixedcold A/B unrun, independentreview pending, notadopted.",
       "dependencies": [
         "N-01"
       ],
@@ -227,7 +227,7 @@
     {
       "id": "D-03",
       "status": "进行中",
-      "status_detail": "New4b actualLinux dispatch artifact11851620319 accepted:baseline32/32,8UDPtimeout+8TCPnot_sent,16freshsuccess,11groups/22handles eachharness and exactrules/FD/networkcleanup. APIsteps=[] gap retained, Required pending. FullD03/canonical/public/otherplatform/PRadoption incomplete.",
+      "status_detail": "4b actualLinux dispatch artifact11851620319 accepted:baseline32/32,8UDPtimeout+8TCPnot_sent,16freshsuccess,11groups/22handles eachharness; exactrules/FD/networkcleanup. Same dispatched workflow all5jobs inclRequired nowpass. APIsteps=[] gap retained. FullD03/canonical/public/otherplatform/PRadoption incomplete.",
       "dependencies": [
         "B-01",
         "B-03"
@@ -255,7 +255,7 @@
     {
       "id": "C-02",
       "status": "进行中",
-      "status_detail": "Fix2 setup under originaldeadline andexternalowners independentlyreviewed; staged5test-onlyfiles, firstactualselector regression next. Productionpolicy unchanged.",
+      "status_detail": "Actualfirstmiss selector bug fixed with5nativepass. Newidle-app+healthyconsent actualselector candidate onlytestregistration/newleaf staticpassed, nativepending and independentreview ongoing. FullC02scenarios incomplete.",
       "dependencies": [
         "B-02A",
         "B-03"
@@ -357,7 +357,7 @@
     {
       "id": "G-01",
       "status": "进行中",
-      "status_detail": "Original24batches adopted. NewPR208 a7cd902 fullCI started after13positive/4actualnegative/restored13/full2340+253. PR2095c actualNAT failures retained and being diagnosed. D03newdispatch4b pending. No hiddenfailures or blindreruns.",
+      "status_detail": "Original24batches adopted. PR208 currentLinux32/32 accepted, full17CI pending. PR209 old5c fullCI failed; stagedfix2 exact50/Clippy passed and workspace running; negativespending. N01PR210 fullCI running. D03manual5jobs passed, no fullPRadoption. First failures preserved.",
       "dependencies": [],
       "next_action": "贯穿所有任务，当前先完成五个 pending 产品 PR",
       "acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
@@ -536,7 +536,7 @@
       "fixed-version Minecraft server and interactive clients",
       "deployment/canary target and rollback exercise"
     ],
-    "updated_UTC": "2026-10-13T21:36:26.635486+00:00",
+    "updated_UTC": "2026-10-13T22:04:14.263362+00:00",
     "missing_acceptance_definitions": {
       "labels": [
         "S3C",
@@ -575,7 +575,7 @@
       ],
       "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
     },
-    "handoff_progress_commit": "10a34d86c20388fbe09a6f4c7a592d1a9d487c9f",
+    "handoff_progress_commit": "5a07dd96f429bc4c02c6ea174701a8fd05947878",
     "parallel_preparation": {
       "B-02B.tool_contract": {
         "UTC": "2026-10-13T14:46:18.121210+00:00",
@@ -1499,19 +1499,19 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
-        "current_detail": "PR2095c full17 CI failed NAT/dependencies; minimal resolved-runtimeVIP and Freshmarker repair under staticfreeze. B01workerloss9file frozen; 6 actual native tests passed after minimaltest import/default construction fixes; negatives/full pending. Managed/dynamic7case candidate native unrun. PR209new6nativepositivepass, wrongdestcontrol timeout underdiagnosis; no adoption."
+        "current_detail": "PR209 fix8d0b64d pushed after50focused/2413workspace/247isolated/full12/4actualnegatives/restored8; fresh17CIstarted, notadopted. B01workerloss4negativesrunning after11crateclean; Managed7nativepending."
       },
       "B-02A": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Transport、Overlay、Dataplane、Application 分层；历史 Mock/RX/TX 观察不作全任务验收",
-        "current_detail": "Priorhead7e actualLinux kernelTUN32/32 and11groups cleanup accepted; newhead a7cd902 includes report-publication repair, full17-runCI/currentLinux artifact pending. Fullcanonical/public scope remains unknown."
+        "current_detail": "Current PR208 a7cd902 actual Linux kernelTUN32/32 and11groups/22handles cleanup accepted; all64sealentries verified. Full17-runCI pending, APIsteps empty but original logs/artifact present. Fullcanonical/public scope remains unknown."
       },
       "B-02B": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Java TCP 与 Bedrock UDP 分开；同端请求/确认 RTT，固定世界/版本，TPS/MSPT/GC/重传与超时保留",
-        "current_detail": "Original tools Java24/Bedrock53/contract23/runner28 passed under7e CI; terminal repair head a7cd902 now full17-runCI, no reused oldhead acceptance. Actualworld unavailable."
+        "current_detail": "Current PR208 a7cd902 actualpolicyjob confirms Java24/Bedrock53/contracts23/runner28 and4zeroaudit reports; currentCI fullpending, no actualworld acceptance."
       },
       "B-03": {
         "status": "进行中",
@@ -1529,7 +1529,7 @@
         "status": "待启动",
         "accepted_scope": null,
         "remaining_acceptance": "规律/跳号/随机映射、冷/热/背景分层；可复现收益或不采纳结论",
-        "current_detail": "待启动 / P1"
+        "current_detail": "Independent2-file HH20ms anchor candidate based on N01e268 frozen, static6pass; native9 and6+6fixedcold A/B unrun, independentreview pending, notadopted."
       },
       "N-03": {
         "status": "待启动",
@@ -1553,7 +1553,7 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Linux/macOS/Windows/Android 真实 TUN/TCP、切路/黑洞/EMSGSIZE/PTB/预算变化；不错误降级健康或超预算发包",
-        "current_detail": "New4b actualLinux dispatch artifact11851620319 accepted:baseline32/32,8UDPtimeout+8TCPnot_sent,16freshsuccess,11groups/22handles eachharness and exactrules/FD/networkcleanup. APIsteps=[] gap retained, Required pending. FullD03/canonical/public/otherplatform/PRadoption incomplete."
+        "current_detail": "4b actualLinux dispatch artifact11851620319 accepted:baseline32/32,8UDPtimeout+8TCPnot_sent,16freshsuccess,11groups/22handles eachharness; exactrules/FD/networkcleanup. Same dispatched workflow all5jobs inclRequired nowpass. APIsteps=[] gap retained. FullD03/canonical/public/otherplatform/PRadoption incomplete."
       },
       "C-01": {
         "status": "待启动",
@@ -1565,7 +1565,7 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "空闲、UDP 无 ACK、单尖峰、服务器卡顿、本机排队不误判路径失活",
-        "current_detail": "Fix2 setup under originaldeadline andexternalowners independentlyreviewed; staged5test-onlyfiles, firstactualselector regression next. Productionpolicy unchanged."
+        "current_detail": "Actualfirstmiss selector bug fixed with5nativepass. Newidle-app+healthyconsent actualselector candidate onlytestregistration/newleaf staticpassed, nativepending and independentreview ongoing. FullC02scenarios incomplete."
       },
       "C-03": {
         "status": "待启动",
@@ -1613,7 +1613,7 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
-        "current_detail": "Original24batches adopted. NewPR208 a7cd902 fullCI started after13positive/4actualnegative/restored13/full2340+253. PR2095c actualNAT failures retained and being diagnosed. D03newdispatch4b pending. No hiddenfailures or blindreruns."
+        "current_detail": "Original24batches adopted. PR208 currentLinux32/32 accepted, full17CI pending. PR209 old5c fullCI failed; stagedfix2 exact50/Clippy passed and workspace running; negativespending. N01PR210 fullCI running. D03manual5jobs passed, no fullPRadoption. First failures preserved."
       }
     },
     "latest_observation_utc": "2026-10-13T21:28:30.338409+00:00",
@@ -1657,140 +1657,178 @@
         "evidence": "work/evidence/ci-b02-208-a7cd902",
         "flutter_push": "client/daemon/** matches unchanged push filter"
       },
-      "kernel_tun_actual_CI_pending": true,
+      "kernel_tun_actual_CI_pending": false,
       "actual_Minecraft_world_available": false,
-      "prior_head_evidence": "continuation.pr208_head_history: old exacthead kernel/protocol accepted but Windows failed; not reused for newhead"
+      "prior_head_evidence": "continuation.pr208_head_history: old exacthead kernel/protocol accepted but Windows failed; not reused for newhead",
+      "current_linux_artifact": {
+        "status": "scope accepted; full CI pending",
+        "head": "a7cd90240eb36f75bc58ff85211c1e8e652f7dbc",
+        "run_id": 38468770963,
+        "attempt": 1,
+        "job_id": 115542126468,
+        "artifact_id": 11849753073,
+        "archive_sha256": "b221f9b4fcb7d990524a1a3369e0b89391a56cffd51a3587e41757b2f8956e12",
+        "report": "work/evidence/pr208-linux-artifact-review-a7cd902/REPORT.md",
+        "seal_sha256": "12cc4aef2be3b514819e36823f7fe0a5094f20da1c785485680e735d5f044240",
+        "root_verified_seal_entries": 64,
+        "requests_passed": 32,
+        "requests_planned": 32,
+        "cleanup_groups": 11,
+        "original_handles_reaped": 22,
+        "api_steps_gap": "empty in list and individual metadata; original job logs and source-bound artifact retained",
+        "full_CI_accepted": false
+      },
+      "minecraft_current_head_evidence": "work/evidence/ci-b02-208-a7cd902/minecraft-policy-positive/ACCEPTANCE.json"
     },
     "pr209": {
       "number": 209,
       "url": "https://github.com/yhan-sun/p2wlan/pull/209",
-      "head": "5c790eb006155f266d0df13f73ffd955255eb34b",
-      "tree": "2c05070db16ea101a9c588cf87a5bf0729cb2c13",
+      "head": "8d0b64d14384b1329b54be5b4777d88b4a5b3f2e",
+      "tree": "b918214190c5ae48fcd67cbde28b4dbc24660b38",
       "base": "48febb538333b161fabe86135c0b8319429ab644",
-      "candidate": "9b0ad1ff977310028c14af3b9b4f5c4124176422",
-      "status": "all17_CI_completed_failed_NAT_and_dependents_minimal_VIP_repair_in_progress",
+      "candidate": "2d505ab8304d48f5614dbd51485321a46db4cdec",
+      "status": "runtimeVIP fix ordinary committed/pushed; fresh17run fullCI started; not adopted",
       "expected_runs": 17,
       "expected_gates": 18,
-      "local_workspace": 2405,
+      "local_workspace": 2413,
       "original_ignored": 3,
       "isolated": 247,
       "quality": 95,
       "nat": 92,
       "exact_c12_unique": 52,
       "binding": "work/evidence/b28-main-integration/commit-binding.json",
-      "failed_job_count": 14,
-      "current_failure_jobs": [
-        {
-          "run_id": 38463239828,
-          "workflow": "DPLPMTUD Required",
-          "job_id": 115523528508,
-          "name": "DPLPMTUD external required gates",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239828,
-          "workflow": "DPLPMTUD Required",
-          "job_id": 115539837385,
-          "name": "DPLPMTUD evidence aggregate",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239828,
-          "workflow": "DPLPMTUD Required",
-          "job_id": 115539924774,
-          "name": "DPLPMTUD Required",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239921,
-          "workflow": "NAT Topology Gate",
-          "job_id": 115532151562,
-          "name": "Direct cold-start topology",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239921,
-          "workflow": "NAT Topology Gate",
-          "job_id": 115532151585,
-          "name": "Relay blackhole topology 5/5",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239921,
-          "workflow": "NAT Topology Gate",
-          "job_id": 115532151698,
-          "name": "Relay blackhole topology 2/5",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239921,
-          "workflow": "NAT Topology Gate",
-          "job_id": 115532151702,
-          "name": "Relay blackhole topology 3/5",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239921,
-          "workflow": "NAT Topology Gate",
-          "job_id": 115532151842,
-          "name": "Relay blackhole topology 4/5",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239921,
-          "workflow": "NAT Topology Gate",
-          "job_id": 115532151884,
-          "name": "Relay blackhole topology 1/5",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239921,
-          "workflow": "NAT Topology Gate",
-          "job_id": 115538829840,
-          "name": "NAT Topology Required",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239747,
-          "workflow": "Path State Machine",
-          "job_id": 115523528890,
-          "name": "Existing lifecycle and topology gates",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239747,
-          "workflow": "Path State Machine",
-          "job_id": 115541039992,
-          "name": "Path State Machine Required",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239887,
-          "workflow": "Business MTU Budget Required",
-          "job_id": 115523528271,
-          "name": "Business MTU external required gates",
-          "conclusion": "failure"
-        },
-        {
-          "run_id": 38463239887,
-          "workflow": "Business MTU Budget Required",
-          "job_id": 115543007211,
-          "name": "Business MTU Budget Required",
-          "conclusion": "failure"
-        }
-      ],
-      "current_failure_reason": "Bootstrap PeerManager localVIP .1 differs from original runtime control-assigned .2/.3; sufficient source-inferred REQUEST rejection. Separate missing compatibility marker after native ACK success; not solely a logging issue.",
-      "failure_audit": "work/evidence/pr209-nat-first-failure-audit/REPORT.md",
       "runtime_vip_candidate": {
-        "status": "compiled_6_passed_1_failed_1_unrun_no_adoption",
-        "source_freeze": "work/evidence/pr209-runtime-vip-fix/source-freeze-fix-1.json",
+        "status": "committed/pushed; local full12+actual4negatives+restored8passed; newCIpending",
+        "source_freeze": "work/evidence/pr209-runtime-vip-fix/source-freeze-fix-2.json",
         "source_sha256": "93b4394797e76cdfd45d2c50d234a2390940d00fa57a8b4ff08c6acdc7750ff6",
-        "staged_tree": "cbdfdb291364a5fc06c6c055fae77d1bd79b6826",
+        "staged_tree": "b918214190c5ae48fcd67cbde28b4dbc24660b38",
         "passed_scope": "Direct/Relay Fresh markers/once/sourceNone, stalegeneration andstalesession thenfresh",
         "actual_failure": "wrong destination raw packet MockTun write prerequisite2s timeout; investigating ingress TUN admission; no deadline/assertion relaxation",
         "initial_plan_rejection": "names exceed64chars; selectors unchanged in shortname plan",
-        "full_checks_pending": true
-      }
+        "full_checks_pending": true,
+        "source_freeze_sha256": "39344143e15e37d21347679fc673f693023d949bb28578799dc54530112a348a",
+        "focused_manifest": "work/evidence/pr209-runtime-vip-focused-fix2/manifest.json",
+        "exact_native_passed": 8,
+        "full_validation": "work/evidence/pr209-runtime-vip-full-split/manifest.json",
+        "first_full_plan_prebuild_rejection": "50 process plan exceeded existing 32-process limit; split into 21/29 without changing caps; no compilation/test in rejected invocation",
+        "full_validation_status": "passed12checks (two split exact groups plus10 common)",
+        "workspace_passed": 2413,
+        "original_ignored": 3,
+        "isolated_passed": 247,
+        "focused_unique_passed": 50,
+        "negative_controls": "four actual controls passed after cleanup; six SHA restored",
+        "restored_positive": 8
+      },
+      "parent": "5c790eb006155f266d0df13f73ffd955255eb34b",
+      "new_CI": "work/evidence/ci-b28-209-8d0b64d",
+      "runtime_vip_local_acceptance": "work/evidence/pr209-runtime-vip-LOCAL-ACCEPTANCE.json",
+      "prior_failed_head_evidence": {
+        "head": "5c790eb006155f266d0df13f73ffd955255eb34b",
+        "failed_job_count": 14,
+        "current_failure_jobs": [
+          {
+            "run_id": 38463239828,
+            "workflow": "DPLPMTUD Required",
+            "job_id": 115523528508,
+            "name": "DPLPMTUD external required gates",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239828,
+            "workflow": "DPLPMTUD Required",
+            "job_id": 115539837385,
+            "name": "DPLPMTUD evidence aggregate",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239828,
+            "workflow": "DPLPMTUD Required",
+            "job_id": 115539924774,
+            "name": "DPLPMTUD Required",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115532151562,
+            "name": "Direct cold-start topology",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115532151585,
+            "name": "Relay blackhole topology 5/5",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115532151698,
+            "name": "Relay blackhole topology 2/5",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115532151702,
+            "name": "Relay blackhole topology 3/5",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115532151842,
+            "name": "Relay blackhole topology 4/5",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115532151884,
+            "name": "Relay blackhole topology 1/5",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115538829840,
+            "name": "NAT Topology Required",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239747,
+            "workflow": "Path State Machine",
+            "job_id": 115523528890,
+            "name": "Existing lifecycle and topology gates",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239747,
+            "workflow": "Path State Machine",
+            "job_id": 115541039992,
+            "name": "Path State Machine Required",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239887,
+            "workflow": "Business MTU Budget Required",
+            "job_id": 115523528271,
+            "name": "Business MTU external required gates",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239887,
+            "workflow": "Business MTU Budget Required",
+            "job_id": 115543007211,
+            "name": "Business MTU Budget Required",
+            "conclusion": "failure"
+          }
+        ],
+        "current_failure_reason": "Bootstrap PeerManager localVIP .1 differs from original runtime control-assigned .2/.3; sufficient source-inferred REQUEST rejection. Separate missing compatibility marker after native ACK success; not solely a logging issue.",
+        "failure_audit": "work/evidence/pr209-nat-first-failure-audit/REPORT.md"
+      },
+      "current_head_CI_failure_status": "new fullCI in progress; no failure conclusion yet"
     },
     "n01_current": {
       "utc": "2026-10-13T21:02:39.245068+00:00",
@@ -1903,7 +1941,15 @@
       "original_handles_per_harness": 22,
       "step_api_metadata_missing": true,
       "full_d03_verified": false,
-      "PR_adopted": false
+      "PR_adopted": false,
+      "manual_workflow_final": {
+        "head": "4b1f1dbad9eb93156ef585754dc5a4e3ebcf115f",
+        "run_id": 38468485231,
+        "attempt": 1,
+        "all_five_jobs_passed": true,
+        "evidence": "work/evidence/d03-input-final-workflow-4b1f1db/ACCEPTANCE.json",
+        "full_pr_CI_accepted": false
+      }
     },
     "pr208_head_history": [
       {
@@ -2127,6 +2173,162 @@
           "staged_tree": "46916b50851d105115b7bc07efda6ec69bd32465",
           "status": "13 native exact controls passed; four negative controls running",
           "scope": "Same original100ms transaction retries short actual profile/session contention with all guards released then fullidentity recheck; one seal/ledger unchanged. Historical Windows exact failing lock branch not observed."
+        }
+      }
+    ],
+    "c02_current": {
+      "status": "original bug reproduced and minimal production fix actual focused tests passed; full validation pending",
+      "source_freeze": "work/evidence/c02-minimal-threshold-fix/source-freeze.json",
+      "patch_sha256": "b4346820d825e99c3ae2727902f47848b1f76c6261ba2e8c92b541f4f3e62242",
+      "original_failure": "work/evidence/c02-actual-selector-first/manifest.json",
+      "actual_passing_manifest": "work/evidence/c02-keepalive-fixed-combined/manifest.json",
+      "new_controls": 1,
+      "original_regressions": 4,
+      "fix_scope": "keep actual Selected candidate before original third-miss threshold; retain actual failure counters and reasons; third miss retains degradation/fallback",
+      "independent_review": "work/evidence/c02-minimal-threshold-independent-review.md",
+      "full_C02_complete": false
+    },
+    "pr209_head_history": [
+      {
+        "number": 209,
+        "url": "https://github.com/yhan-sun/p2wlan/pull/209",
+        "head": "5c790eb006155f266d0df13f73ffd955255eb34b",
+        "tree": "2c05070db16ea101a9c588cf87a5bf0729cb2c13",
+        "base": "48febb538333b161fabe86135c0b8319429ab644",
+        "candidate": "9b0ad1ff977310028c14af3b9b4f5c4124176422",
+        "status": "all17_CI_completed_failed_NAT_and_dependents_minimal_VIP_repair_in_progress",
+        "expected_runs": 17,
+        "expected_gates": 18,
+        "local_workspace": 2405,
+        "original_ignored": 3,
+        "isolated": 247,
+        "quality": 95,
+        "nat": 92,
+        "exact_c12_unique": 52,
+        "binding": "work/evidence/b28-main-integration/commit-binding.json",
+        "failed_job_count": 14,
+        "current_failure_jobs": [
+          {
+            "run_id": 38463239828,
+            "workflow": "DPLPMTUD Required",
+            "job_id": 115523528508,
+            "name": "DPLPMTUD external required gates",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239828,
+            "workflow": "DPLPMTUD Required",
+            "job_id": 115539837385,
+            "name": "DPLPMTUD evidence aggregate",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239828,
+            "workflow": "DPLPMTUD Required",
+            "job_id": 115539924774,
+            "name": "DPLPMTUD Required",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115532151562,
+            "name": "Direct cold-start topology",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115532151585,
+            "name": "Relay blackhole topology 5/5",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115532151698,
+            "name": "Relay blackhole topology 2/5",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115532151702,
+            "name": "Relay blackhole topology 3/5",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115532151842,
+            "name": "Relay blackhole topology 4/5",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115532151884,
+            "name": "Relay blackhole topology 1/5",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239921,
+            "workflow": "NAT Topology Gate",
+            "job_id": 115538829840,
+            "name": "NAT Topology Required",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239747,
+            "workflow": "Path State Machine",
+            "job_id": 115523528890,
+            "name": "Existing lifecycle and topology gates",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239747,
+            "workflow": "Path State Machine",
+            "job_id": 115541039992,
+            "name": "Path State Machine Required",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239887,
+            "workflow": "Business MTU Budget Required",
+            "job_id": 115523528271,
+            "name": "Business MTU external required gates",
+            "conclusion": "failure"
+          },
+          {
+            "run_id": 38463239887,
+            "workflow": "Business MTU Budget Required",
+            "job_id": 115543007211,
+            "name": "Business MTU Budget Required",
+            "conclusion": "failure"
+          }
+        ],
+        "current_failure_reason": "Bootstrap PeerManager localVIP .1 differs from original runtime control-assigned .2/.3; sufficient source-inferred REQUEST rejection. Separate missing compatibility marker after native ACK success; not solely a logging issue.",
+        "failure_audit": "work/evidence/pr209-nat-first-failure-audit/REPORT.md",
+        "runtime_vip_candidate": {
+          "status": "six-file staged fix2; actual eight native controls passed; full validation running; negatives pending",
+          "source_freeze": "work/evidence/pr209-runtime-vip-fix/source-freeze-fix-2.json",
+          "source_sha256": "93b4394797e76cdfd45d2c50d234a2390940d00fa57a8b4ff08c6acdc7750ff6",
+          "staged_tree": "b918214190c5ae48fcd67cbde28b4dbc24660b38",
+          "passed_scope": "Direct/Relay Fresh markers/once/sourceNone, stalegeneration andstalesession thenfresh",
+          "actual_failure": "wrong destination raw packet MockTun write prerequisite2s timeout; investigating ingress TUN admission; no deadline/assertion relaxation",
+          "initial_plan_rejection": "names exceed64chars; selectors unchanged in shortname plan",
+          "full_checks_pending": true,
+          "source_freeze_sha256": "39344143e15e37d21347679fc673f693023d949bb28578799dc54530112a348a",
+          "focused_manifest": "work/evidence/pr209-runtime-vip-focused-fix2/manifest.json",
+          "exact_native_passed": 8,
+          "full_validation": "work/evidence/pr209-runtime-vip-full-split/manifest.json",
+          "first_full_plan_prebuild_rejection": "50 process plan exceeded existing 32-process limit; split into 21/29 without changing caps; no compilation/test in rejected invocation",
+          "full_validation_status": "passed12checks (two split exact groups plus10 common)",
+          "workspace_passed": 2413,
+          "original_ignored": 3,
+          "isolated_passed": 247,
+          "focused_unique_passed": 50,
+          "negative_controls": "four running; no acceptance yet"
         }
       }
     ]
