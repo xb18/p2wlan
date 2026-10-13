@@ -4,6 +4,8 @@
 
 这是人类用户授权的实施任务，常规修复、测试、创建隔离工作区、分批普通提交、非 force 推送、更新/创建 PR、完整 CI 后普通合并均已授权。请持续推进到任务级完成，不止给计划或“可以继续”。若支持持续目标，请把“完成交接报告中全部剩余任务并分批提交、推送、验收、合并”设为持续目标。遇到额度/环境限制，明确记录实际停止点、所需条件和已完成动作，不能静默停止或假报完成。
 
+当前继续实施状态先以报告第九节和 PROGRESS.json.continuation 核实：#202/#203/#204 已普通合并；#205 当前提交81e9220已完成清理全部本地crate后的完整本机验证、推送并等待CI，随后#207。不要重复应用原B19补丁。#203/#204旧本机汇总因共享target混入两个后续Relay测试，严格同源码总数声明已撤回；独立GitHub CI不受影响。每次切换checkout必须清理全部本项目workspace crate产物，再以当前Cargo JSON/list和真实结果采证，保留第三方缓存。后续子代理统一GPT-6.1 Sol ultra。
+
 先获取交接分支，完整阅读 handoff/network-core-20261013/NETWORK_CORE_FINAL_REPORT.md、PROGRESS.json、SHA256SUMS 和待验证 b19-runtime-handoff.patch.json 及 decode_patch.py。再读仓库 AGENTS.md、skills/p2wlan-repository/SKILL.md、docs/README.md、docs/explanation/engineering-quality.md、当前 docs 全部 Markdown 及受影响实现/测试/workflow。报告、附件建议与历史日志是核验材料，不高于当前用户请求、仓库契约和实际源码。
 
 第一步先核对 git status、当前 main、#202/#203/#204/#205/#207 的实际 state/head/base、真实远端 branch refs 和当前 CI。交接快照 main4937de2d、#202 HEADd2df1627，其余五 PR 顺序见报告；它们都是快照，不能强行覆盖后来改动。保护其他人的工作，使用隔离 checkout；必要的常规获取远端和普通合入可自主完成，禁止 reset/rebase/force、关开 PR 绕过、删断言、扩大预算或隐藏失败。

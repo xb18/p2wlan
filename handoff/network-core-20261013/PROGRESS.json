@@ -430,9 +430,8 @@
     "handoff_checksums_verified": true,
     "user_validation_scope": "local_machine_and_GitHub_CI_only",
     "external_environment_policy": "Real multi-device, public NAT and Minecraft acceptance remain unverified where no authorized environment is available; no mock substitution.",
-    "verified_main": "221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98",
+    "verified_main": "8fb0265537d2cf34885874a2db8b6c46769782bb",
     "verified_pending_PRs": [
-      204,
       205,
       207
     ],
@@ -526,7 +525,8 @@
     },
     "completed_this_continuation": [
       "#202 fixture, security correction, full exact-head CI and ordinary merge",
-      "#203 original shared actor FIFO full exact-head CI and ordinary merge"
+      "#203 original shared actor FIFO full exact-head CI and ordinary merge",
+      "#204 original Legacy Relay FIFO full exact-head CI and ordinary merge"
     ],
     "remaining_environment_limits": [
       "physical Windows/Android/Linux peers",
@@ -534,7 +534,7 @@
       "fixed-version Minecraft server and interactive clients",
       "deployment/canary target and rollback exercise"
     ],
-    "updated_UTC": "2026-10-13T16:36:16.129338+00:00",
+    "updated_UTC": "2026-10-13T17:33:26.685493+00:00",
     "missing_acceptance_definitions": {
       "labels": [
         "S3C",
@@ -573,7 +573,7 @@
       ],
       "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
     },
-    "handoff_progress_commit": "5abee6a9a9026aa42a4984282540fcf09d64dfa5",
+    "handoff_progress_commit": "118a13236ab94bf7a7072d0da86b66ec5e30cfa5",
     "parallel_preparation": {
       "B-02B.tool_contract": {
         "UTC": "2026-10-13T14:46:18.121210+00:00",
@@ -596,7 +596,7 @@
         "all_mandatory_and_clippy_passed": true,
         "adopted": false,
         "CI": false,
-        "remaining": "B26 original Direct facts verified in targeted tests; full validation/review running. B27 Relay close/stop and B28 final current-owner/once/ACK credit remain unimplemented."
+        "remaining": "B25/B26/B27 and capability prerequisite locally committed, reviewed and tested. B28 final original current-owner/once/ACK transaction is being implemented; no final native credit or adoption yet."
       },
       "B-02B.runner": {
         "status": "local_committed_review_fixes_verified",
@@ -627,7 +627,7 @@
         "commit": "5c126c209564ff431144128de9a6d5533b81812c",
         "tree": "534df1667c1d8f3ac3a7363e836e6c6b44ca5fc1",
         "independent_review": "24 original tests plus 15 review controls passed; no actionable issues after fixes",
-        "integration": "Ordinary local merge with runner and combined validation in progress",
+        "integration": "Ordinary local merge with runner completed and combined tests passed at 5e51bcd6dff5449c9f6781caa9e9e25c04696046; no CI or adoption yet.",
         "commit_evidence": "work/evidence/b02b-java-commit-binding.json"
       },
       "B-01.direct_original_facts": {
@@ -671,9 +671,9 @@
         "base": "2b201c300c9611767af4f631733887679c5e1539",
         "targeted_unique": 98,
         "related_clippy_and_four_mandatory": true,
-        "full_workspace": false,
+        "full_workspace": true,
         "final_credit_connected": false,
-        "committed": false,
+        "committed": true,
         "adopted": false,
         "review": "work/evidence/b27-review-sol/README.md",
         "full_validation": {
@@ -686,29 +686,77 @@
           "all_mandatory_fmt_clippy": "passed",
           "evidence": "work/evidence/b27-full-final/manifest.json"
         },
-        "preserved_failure": "work/evidence/b27-full: initial staging path typo and isolated Cargo build stale relay symbols; package cache rebuilt, final staged-source validation running",
+        "preserved_failure": "work/evidence/b27-full: initial staging path typo and isolated Cargo build stale relay symbols; package cache rebuilt, final frozen-source full validation passed.",
         "commit": "8d67bc66bc7703fb80ccc6edad26c8898c3cdb14",
         "tree": "2765d52c2533e72d295982dc0e385e7273997e38",
         "binding": "work/evidence/b27-commit-binding.json"
       },
       "B-02B.bedrock_adapter": {
-        "status": "candidate_rejected_pending_three_review_fixes",
+        "status": "local_committed_reviewed_tested_53_not_published",
         "candidate_version": "1.18.30 protocol503 RakNet10",
         "original_tests": 31,
         "review_evidence": "work/evidence/b02b-bedrock-review-sol",
-        "findings": [
+        "adopted": false,
+        "real_game_world_validated": false,
+        "original_findings": [
           "P1 queued rather than physically sent encrypted packet can receive false success",
           "P2 startup sends unintended unconnected ping",
           "P2 final send permits changed original held-item snapshot"
         ],
-        "adopted": false,
-        "real_game_world_validated": false
+        "fixed_candidate_tests": 43,
+        "actual_encrypted_protocol_fixture_groups": 21,
+        "Node": "26.0.0",
+        "source_manifest_sha256": "bc46efc5181aa2b543e5cd557a87faef1e8495e8372cebf2146a50e16253b8c8",
+        "fix_evidence": "work/evidence/b02b-bedrock-fix",
+        "independent_rereview": "work/evidence/b02b-bedrock-fix-review-sol",
+        "CI": false,
+        "committed": true,
+        "independent_tests": 43,
+        "independent_control_scope": "existing saved results only; dynamic review turn interrupted by tool risk check; no retry of interrupted experiment",
+        "new_confirmed_issue": "Reliable retransmission bypasses original action/item/deadline validation when transient origin has been cleared; original stale held item and completed action can be retransmitted.",
+        "remaining": "Combined runner/Java/Bedrock integration and same-head CI; dynamic reliable retransmission post-fix not rerun; actual Minecraft world unavailable.",
+        "commit": "cdf7cf2dad43d97cbc73c8905c9c6d35b84c90b5",
+        "tree": "556157656b186c1d2a69b24c25867d4a4b6a3a6d",
+        "parents": [
+          "3dc0819a7a15d82152874a4d2b25b0627108c91e"
+        ],
+        "tested_committed_patch_sha256": "0097a1baa0e836ed28b90b76b0038cc5a653662862c3ca77aff50621cd4dc422",
+        "tests": 53,
+        "independent_pure_tests": 10,
+        "independent_old_source_assertion_controls": 2,
+        "mandatory_quality": 95,
+        "all_mandatory": "passed",
+        "sealed_files_root_verified": 409,
+        "dynamic_retransmission_postfix_rerun": false,
+        "real_game_world": false,
+        "pushed": false,
+        "retransmission_fix": "Original Buffer WeakMap provenance, final original action/item/deadline validation per send, native completion once; 10 independent pure controls and 2 specific old-source assertion controls passed."
       },
       "B-01.capability_publication": {
-        "status": "implementation_under_test",
+        "status": "local_committed_full_validation_and_independent_review_passed",
         "base": "8d67bc66bc7703fb80ccc6edad26c8898c3cdb14",
         "scope": "Original watch-map RMW serialized; stale membership publication rejected; final staged lookup can return Contended without waiting on a watch writer. No final ACK credit yet.",
-        "adopted": false
+        "adopted": false,
+        "commit": "addd75862593e41ff257c013d62f39dd06e625ba",
+        "tree": "9df3df5ee254d32cc005236e7c78f8f5f43f8337",
+        "parent": "8d67bc66bc7703fb80ccc6edad26c8898c3cdb14",
+        "UTC": "2026-10-13T16:50:49.275210+00:00",
+        "tested_reviewed_committed_diff_sha256": "2f337598c23e9cb014e22cf772f45c78922ec34e783419a7f44ded57bc17542b",
+        "matching": true,
+        "focused": 10,
+        "negative_assertion_controls": 2,
+        "full_workspace": 2356,
+        "original_ignored": 3,
+        "isolated_hard_hard": 247,
+        "NAT": 92,
+        "quality": 95,
+        "fmt_include_format_clippy_mandatory": "passed",
+        "review": "no blocking issue within capability publication prerequisite",
+        "source_behavior_limit": "staged try snapshot needs caller emit+epoch; no final once/ACK; normal hotread may wait; lazy prune",
+        "two_other_files": "format-only corrections to preceding B26/B27 include files",
+        "pushed": false,
+        "CI": false,
+        "binding": "work/evidence/b28-capability-commit-binding.json"
       },
       "B-02B.java_runner_integration": {
         "status": "local_merge_tested_frozen_not_published",
@@ -734,6 +782,21 @@
         "sealed_files_root_verified": 147,
         "adopted": false,
         "real_world_game_validated": false
+      },
+      "B-01.original_ack_transaction": {
+        "status": "implementation_in_progress_unverified",
+        "base": "addd75862593e41ff257c013d62f39dd06e625ba",
+        "scope": "sealed original session role, original physical publication timing, final current-owner try-guards and per-A once commit; genuine fresh request/ACK controls pending",
+        "adopted": false,
+        "CI": false
+      },
+      "B-02B.all_tools_integration": {
+        "status": "implementation_and_validation_in_progress",
+        "base": "5e51bcd6dff5449c9f6781caa9e9e25c04696046",
+        "bedrock_commit": "cdf7cf2dad43d97cbc73c8905c9c6d35b84c90b5",
+        "scope": "Normal local merge plus separate fixed Node runtimes and Python-runner to original Bedrock adapter CLI controls",
+        "adopted": false,
+        "CI": false
       }
     },
     "task_counts_current": {
@@ -751,7 +814,7 @@
       "pushed": true,
       "full_local": {
         "workspace": {
-          "passed": 2340,
+          "passed": null,
           "failed": 0,
           "ignored": 3
         },
@@ -759,7 +822,10 @@
         "nat": 92,
         "mandatory_quality": 95,
         "targeted": 18,
-        "all_passed": true
+        "all_passed": false,
+        "historical_aggregate_passed": 2340,
+        "full_workspace_same_source_validated": false,
+        "correction": "Two B25 Relay test artifacts were reused across local checkouts. Aggregate is not accepted as a strict same-source workspace count; original logs preserved. Exact targeted tests and independent full GitHub CI remain accepted. PR205 full local rerun after cleaning all local workspace package artifacts passed 2339 tests; this does not retroactively replace historical source-specific counts."
       },
       "merge_commit": "221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98",
       "merged_at_UTC": "2026-10-13T16:04:54Z",
@@ -777,38 +843,95 @@
     },
     "product_batch_counts_current": {
       "published": 24,
-      "ordinary_merged": 21,
-      "pending": 3,
+      "ordinary_merged": 22,
+      "pending": 2,
       "local_candidates_are_published_batches": false
     },
     "pr204": {
-      "status": "local_validation_passed_full_CI_running",
+      "status": "accepted_and_ordinary_merged",
       "head": "4a2c434b0165693ac331acfc1ad7bc7d2a7aed4a",
       "tree": "cf5093bd2e0ceb90848c053d6bc1ba63e2e8e63a",
       "base": "221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98",
       "pushed": true,
       "CI": {
-        "status": "running",
-        "evidence": "work/evidence/ci-b21-4a2c434",
-        "prior_head_unaccepted_reason": "Only Flutter push workflow triggered before PR retarget; ordinary same-tree empty commit triggers synchronize on main base. No close/reopen."
+        "status": "passed",
+        "runs": 16,
+        "workflows": 16,
+        "required_gates": 18,
+        "successful_jobs": 81,
+        "original_conditional_skips": 2,
+        "all_applicable_passed": true,
+        "head_bound": true,
+        "root_verified_sealed_files": 806,
+        "manifest_sha256": "5571abfd148cb7bfe68f1bbe25f37b3b3503166cf5e66179e22d4697ba18dc9e",
+        "evidence": "work/evidence/ci-b21-4a2c434"
       },
       "full_local": {
         "tested_head": "7e95f0ef411bed885b9982777d6a18ba2a2834d2",
         "identical_tree_to_pushed_head": true,
         "focused": 19,
-        "workspace": 2341,
+        "workspace": null,
         "original_ignored": 3,
         "isolated_hard_hard": 247,
         "NAT": 92,
         "quality": 95,
-        "all_mandatory_fmt_clippy": "passed",
-        "evidence": "work/evidence/pr204-full/manifest.json"
-      }
+        "all_mandatory_fmt_clippy": "passed; workspace aggregate source binding withdrawn",
+        "evidence": "work/evidence/pr204-full/manifest.json",
+        "historical_aggregate_passed": 2341,
+        "full_workspace_same_source_validated": false,
+        "correction": "Two B25 Relay test artifacts were reused across local checkouts. Aggregate is not accepted as a strict same-source workspace count; original logs preserved. Exact targeted tests and independent full GitHub CI remain accepted. PR205 full local rerun after cleaning all local workspace package artifacts passed 2339 tests; this does not retroactively replace historical source-specific counts."
+      },
+      "merge_commit": "8fb0265537d2cf34885874a2db8b6c46769782bb",
+      "merged_at_UTC": "2026-10-13T17:04:18Z"
     },
     "subagent_preference": {
       "model": "gpt-6.1-sol",
       "reasoning_effort": "ultra",
       "no_astra": true
-    }
+    },
+    "pr205": {
+      "status": "local_clean_full_validation_passed_pushed_CI_in_progress",
+      "original_head": "67b21b1cb54301b4a5810b2d3be48021e2b7a775",
+      "base": "8fb0265537d2cf34885874a2db8b6c46769782bb",
+      "ordinary_sync_commit": "649cfc815958c93f6740f0fb593718db71e96827",
+      "base_retargeted_to_main": true,
+      "scope": "Original ACK barrier and exact +1 sample assertions retained; bounded fixture body and both owned worker joins before assertions. Production deadlines unchanged.",
+      "CI": {
+        "status": "in_progress",
+        "expected_runs": 17,
+        "expected_workflows": 16,
+        "expected_gates": 18,
+        "evidence": "work/evidence/ci-b22-81e9220"
+      },
+      "pushed": true,
+      "focused": 21,
+      "negative_control": {
+        "case": "original responder never completes",
+        "expected_assertion_after_owned_cleanup": true,
+        "actual_rust_exit": 101,
+        "helper_exit": 1,
+        "positive_source_restored_sha256": "57f15e55e8c65207a8c462543c4786a2361798c4c5956a591d61ed193468af16",
+        "evidence": "work/evidence/pr205-cleanup-negative"
+      },
+      "preserved_initial_failure": "Test compile pattern omitted nested inbound Result; corrected; no old binary reused.",
+      "clean_revalidation_evidence": "work/evidence/pr205-full-clean",
+      "cache_audit": "work/evidence/local-workspace-cache-audit",
+      "head": "81e9220fcbce7bd92cecad1d4ff734341c4fab54",
+      "tree": "763525a7412bf1d8a1c4784fa51cc5b0134d1fb6",
+      "full_local": {
+        "workspace_passed": 2339,
+        "failed": 0,
+        "original_ignored": 3,
+        "hard_hard_isolated": 247,
+        "NAT": 92,
+        "quality": 95,
+        "focused": 21,
+        "all_mandatory_fmt_include_clippy": "passed",
+        "all_local_package_artifacts_cleaned": true
+      },
+      "binding": "work/evidence/pr205-commit-binding.json",
+      "review": "no actionable issue in independent read-only review"
+    },
+    "local_artifact_policy": "On checkout switch, clean all local workspace package artifacts in shared target before relying on native binary results; keep dependency caches. THIS-build Cargo JSON alone cannot detect an overwritten shared artifact."
   }
 }
