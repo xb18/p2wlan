@@ -1,6 +1,6 @@
 {
   "schema": "p2wlan_network_core_portable_handoff_v1",
-  "snapshot_UTC": "2026-10-13T20:27:06.692199+00:00",
+  "snapshot_UTC": "2026-10-13T21:13:13.247200+00:00",
   "repository": "https://github.com/yhan-sun/p2wlan",
   "handoff_branch": "codex/network-core-handoff-20261013",
   "product_source_commit": "d2df1627952191fe3d535d64ad6249723e1ba404",
@@ -111,7 +111,7 @@
     {
       "id": "B-01",
       "status": "进行中",
-      "status_detail": "B25-B28 local ancestry committed; c12 52 unique controls +2400 workspace passed. Ordinary main48 integration commit5c790eb passed2405 workspace/3 originalignored/247 isolated/NAT92/quality95/allgates. Not pushed/adopted. Real Managed/dynamic and actual child loss fixtures separately implementing.",
+      "status_detail": "PR209 pushed5c790eb, actual NATCI failures under investigation. Managed/dynamic 7-case candidate frozen/static95 but native unrun. Real worker-loss implementation resumed on isolated worktree, unvalidated.",
       "dependencies": [],
       "next_action": "先交付 #202–#207；补最终 current-owner/once、S3C、故障后 fresh REQUEST→远端当前 REQUEST→匹配 ACK；完整 canonical pipeline、真实 partial/worker loss、C06/C11",
       "acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
@@ -121,7 +121,7 @@
     {
       "id": "B-02A",
       "status": "进行中",
-      "status_detail": "Newhead7e55887 actualLinux kernelTUN32/32 and11groups cleanup independentlyaccepted at run38460014179/artifact11845946964; exacttreebound. PR notmerged due realWindowsRust failure elsewhere; canonical/public/fullB02A unknown.",
+      "status_detail": "Priorhead7e actualLinux kernelTUN32/32 and11groups cleanup accepted; newhead a7cd902 includes report-publication repair, full17-runCI/currentLinux artifact pending. Fullcanonical/public scope remains unknown.",
       "dependencies": [
         "B-01"
       ],
@@ -134,7 +134,7 @@
     {
       "id": "B-02B",
       "status": "进行中",
-      "status_detail": "Fixture race and bounded-cleanup repair53/53 plus original actualCLI SIGTERM passed, negative caught missingabort after actualcleanup; ordinary commit7e55887 pushed toPR208. Fresh16 applicableCI runs18gates pending; actual world unavailable.",
+      "status_detail": "Original tools Java24/Bedrock53/contract23/runner28 passed under7e CI; terminal repair head a7cd902 now full17-runCI, no reused oldhead acceptance. Actualworld unavailable.",
       "dependencies": [
         "B-01",
         "B-02A"
@@ -148,7 +148,7 @@
     {
       "id": "B-03",
       "status": "进行中",
-      "status_detail": "First native compile E0507 fixed by borrowing original permit. Second actualrun2/4failed: no-output assertion observed original sender closure; Relay future re-polled after early path rejection. Retain original transport and preserve actual Ready result; diagnosis shows defaultDirect-first blocks the Relay fixture. Explicit originalRelayOnly config applied before peer admission; latestfocusedrunning, no accepted native/full result. All failures retained.",
+      "status_detail": "Full11 local checks passed:23 focused,2350 workspace,247 isolated,NAT92,quality95,3 original ignored; two actual observation-hook negatives plus restored23 passed. Clean local commit8a4dfc7379080efd4dcf082b48e5188fb44ea651. Not yet pushed/CI/adopted; whole-pipeline and overhead gaps remain.",
       "dependencies": [
         "B-01"
       ],
@@ -160,7 +160,7 @@
     {
       "id": "N-01",
       "status": "进行中",
-      "status_detail": "21-file cancellation-safe primary/compatibility cost candidate integrated byte-identically on latest main; independent review clean. 20 controls, original caller regressions and three cleanup-safe mutants prepared but not run; full cost gaps retained.",
+      "status_detail": "Native40+3 actual negative+restored40 passed; full11 local checks now running after fresh11-crate cleanup. No commit/CI/adoption yet.",
       "dependencies": [
         "B-01",
         "B-03"
@@ -227,7 +227,7 @@
     {
       "id": "D-03",
       "status": "进行中",
-      "status_detail": "5-file fixed32 fault-clear-fresh application slice locally committed10734f3 after independentreview, 19 new+50 original tests each Python3.12.12/3.14.6, quality95/fourgates. No kernel DROP execution yet. Bedrock7e fixture repair being ordinarily integrated; real CI required.",
+      "status_detail": "Actualfirstmanual kernel fault failed8send_error+24not_started; alloriginalresourcescleaned. TargetINPUT+originalerrno repair4b1f1db passed74 tests perPython+quality95/rootreview andpushed; newrun38468485231 pending. No fullD03 acceptance.",
       "dependencies": [
         "B-01",
         "B-03"
@@ -255,7 +255,7 @@
     {
       "id": "C-02",
       "status": "待启动",
-      "status_detail": "待启动 / P1",
+      "status_detail": "Read-only current source found potential first keepalive miss degrading candidate-pair actual selector while connection remainsDirect. Actual UDP reproduction pending; no production policy change or acceptance.",
       "dependencies": [
         "B-02A",
         "B-03"
@@ -357,7 +357,7 @@
     {
       "id": "G-01",
       "status": "进行中",
-      "status_detail": "Original24 batches merged; newPR208 Linux32/32 artifact accepted atnewhead but WindowsRust originalHardHard test failed and needs investigation. No blindrerun/merge. B28 local5c790eb fullpassed; others pending.",
+      "status_detail": "Original24batches adopted. NewPR208 a7cd902 fullCI started after13positive/4actualnegative/restored13/full2340+253. PR2095c actualNAT failures retained and being diagnosed. D03newdispatch4b pending. No hiddenfailures or blindreruns.",
       "dependencies": [],
       "next_action": "贯穿所有任务，当前先完成五个 pending 产品 PR",
       "acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
@@ -536,7 +536,7 @@
       "fixed-version Minecraft server and interactive clients",
       "deployment/canary target and rollback exercise"
     ],
-    "updated_UTC": "2026-10-13T20:43:24.559999+00:00",
+    "updated_UTC": "2026-10-13T21:13:13.247200+00:00",
     "missing_acceptance_definitions": {
       "labels": [
         "S3C",
@@ -575,7 +575,7 @@
       ],
       "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
     },
-    "handoff_progress_commit": "9b6e3b88abf69be98c86fa8ef0048624a48dd578",
+    "handoff_progress_commit": "7b0eabef59b60febe3d3fce557d7deefab5bb78d",
     "parallel_preparation": {
       "B-02B.tool_contract": {
         "UTC": "2026-10-13T14:46:18.121210+00:00",
@@ -937,7 +937,24 @@
       "N-01.cancellation_cost": {
         "status": "21-file draft frozen/static verification in progress;17 new controls pending native execution",
         "coverage": "Original invocation retains fixed primary/compatibility diagnostics before followup awaits; original child handle retained; body and join share original absolute deadline. Missing/unjoined explicitly partial,notzero. Burst/ACK excluded.",
-        "independent_review": "ongoing; no Cargo lease yet"
+        "independent_review": "ongoing; no Cargo lease yet",
+        "current_native": "40 unique focused passed; three actual mutation controls running",
+        "current_source_freeze": "work/evidence/n01-native-candidate/source-freeze-after-build-repair.json",
+        "first_failure": "work/evidence/n01-cancellation-cost-focused-initial",
+        "adopted": false,
+        "focused": {
+          "utc": "2026-10-13T20:50:56.104835+00:00",
+          "result": "focused_passed",
+          "unique_tests": 40,
+          "n01_tests": 20,
+          "related_regressions": 20,
+          "manifest_sha256": "7ca0c997b091ab4e14bbbb0c108ffa3807233ebbabe2b4488fb46a40b079307e",
+          "source_freeze": "work/evidence/n01-native-candidate/source-freeze-after-build-repair.json",
+          "full_validation": false,
+          "negative_controls": "running",
+          "CI": false,
+          "adopted": false
+        }
       },
       "N-02.N-03.local_ci_design": {
         "status": "read_only_plan_only_not_executed",
@@ -989,7 +1006,7 @@
         "review": "work/evidence/b03-waiting-root-review.json"
       },
       "D-03.blackhole_fresh": {
-        "status": "ordinary_committed_pushed_manual_kernel_CI_queued",
+        "status": "initial_kernel_failed_input_repair_pushed_new_dispatch_pending",
         "commit": "10734f399b9dfaa31de9fb9cf0aa64a8b8ccf6f6",
         "source_freeze_sha256": "1c3aa889fcd23394ee933fc65174db4ced15c2dad6a76cfb8abc1490d556a5e1",
         "new_cases_each_python": 19,
@@ -1014,7 +1031,12 @@
           "scope": "manual same-host real kernel fault slice; not full PR adoption",
           "native_result": "pending",
           "utc": "2026-10-13T20:36:10.523183+00:00"
-        }
+        },
+        "latest_commit": "4b1f1dbad9eb93156ef585754dc5a4e3ebcf115f",
+        "latest_tree": "3699b742330e4f1b86d5957b4bf824868e670cc2",
+        "latest_run": 38468485231,
+        "initial_failure_run": 38464012431,
+        "local_current_checks_each_python": 74
       },
       "B-01.actual_worker_loss": {
         "status": "implementation_in_progress_no_native_run",
@@ -1024,10 +1046,16 @@
         "design": "work/evidence/b01-real-worker-loss-next-slice.md"
       },
       "B-01.managed_dynamic": {
-        "status": "implementation_in_progress_no_native_run",
+        "status": "static_candidate4_frozen_no_native",
         "checkout": "work/p2wlan-managed-dynamic",
         "base": "a078354573e336868f5b384d5446ff0189312194",
-        "design": "work/evidence/b28-managed-dynamic-next-fixture-design.md"
+        "design": "work/evidence/b28-managed-dynamic-next-fixture-design.md",
+        "source_freeze": "work/evidence/b28-managed-dynamic/source-freeze-static-4.json",
+        "registered_cases": 7,
+        "source_files": 11,
+        "quality": 95,
+        "independent_static_review": "passed",
+        "adopted": false
       }
     },
     "task_counts_current": {
@@ -1469,31 +1497,31 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
-        "current_detail": "B25-B28 source committed and ordinary main48 integration5c790eb passed52 unique native controls before merge and2405 workspace/247 isolated/NAT92/quality95/allgates after merge. Nonforce pushed asPR209;17 runs18gates in progress, not adopted. Managed/dynamic and actual child loss fixtures remain separate."
+        "current_detail": "PR209 pushed5c790eb, actual NATCI failures under investigation. Managed/dynamic 7-case candidate frozen/static95 but native unrun. Real worker-loss implementation resumed on isolated worktree, unvalidated."
       },
       "B-02A": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Transport、Overlay、Dataplane、Application 分层；历史 Mock/RX/TX 观察不作全任务验收",
-        "current_detail": "Newhead7e55887 actualLinux kernelTUN32/32 and11groups cleanup independentlyaccepted at run38460014179/artifact11845946964; exacttreebound. PR notmerged due realWindowsRust failure elsewhere; canonical/public/fullB02A unknown."
+        "current_detail": "Priorhead7e actualLinux kernelTUN32/32 and11groups cleanup accepted; newhead a7cd902 includes report-publication repair, full17-runCI/currentLinux artifact pending. Fullcanonical/public scope remains unknown."
       },
       "B-02B": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Java TCP 与 Bedrock UDP 分开；同端请求/确认 RTT，固定世界/版本，TPS/MSPT/GC/重传与超时保留",
-        "current_detail": "Fixture race and bounded-cleanup repair53/53 plus original actualCLI SIGTERM passed, negative caught missingabort after actualcleanup; ordinary commit7e55887 pushed toPR208. Fresh16 applicableCI runs18gates pending; actual world unavailable."
+        "current_detail": "Original tools Java24/Bedrock53/contract23/runner28 passed under7e CI; terminal repair head a7cd902 now full17-runCI, no reused oldhead acceptance. Actualworld unavailable."
       },
       "B-03": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "channel+pending+in-flight 总资源、真实操作及覆盖/开销可解释；未知 bytes 不伪造 atomic 总量或改进率",
-        "current_detail": "Five owner-stage slice committed8a4dfc7 after11 full gates/focused23/workspace2350/isolated247/NAT92/quality95. Both actual original-hook removals caused predetermined assertions after cleanup; original helper+anchor reaped/group absent, all11 source hashes restored and positive23 re-passed. CI/main integration and broaderpipeline/overhead scope pending."
+        "current_detail": "Full11 local checks passed:23 focused,2350 workspace,247 isolated,NAT92,quality95,3 original ignored; two actual observation-hook negatives plus restored23 passed. Clean local commit8a4dfc7379080efd4dcf082b48e5188fb44ea651. Not yet pushed/CI/adopted; whole-pipeline and overhead gaps remain."
       },
       "N-01": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "计划与实际发送可核对；过期、预算、限流、未发送、发送不确定分开；公网结论有实际样本",
-        "current_detail": "21-file cancellation-safe primary/compatibility cost candidate integrated byte-identically on latest main; independent review clean. 20 controls, original caller regressions and three cleanup-safe mutants prepared but not run; full cost gaps retained."
+        "current_detail": "Native40+3 actual negative+restored40 passed; full11 local checks now running after fresh11-crate cleanup. No commit/CI/adoption yet."
       },
       "N-02": {
         "status": "待启动",
@@ -1519,7 +1547,7 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Linux/macOS/Windows/Android 真实 TUN/TCP、切路/黑洞/EMSGSIZE/PTB/预算变化；不错误降级健康或超预算发包",
-        "current_detail": "D03 fixed32 (16 expected blackhole failures and16 fresh recovery successes) local69 controls eachPython andmandatorygates passed. Ordinary fixtureintegration e7a6a196 pushed; workflow_dispatch run38464012431 attempt1 queued. Native kernel result pending; manual scope separate from fullPR adoption."
+        "current_detail": "Actualfirstmanual kernel fault failed8send_error+24not_started; alloriginalresourcescleaned. TargetINPUT+originalerrno repair4b1f1db passed74 tests perPython+quality95/rootreview andpushed; newrun38468485231 pending. No fullD03 acceptance."
       },
       "C-01": {
         "status": "待启动",
@@ -1529,7 +1557,8 @@
       "C-02": {
         "status": "待启动",
         "accepted_scope": null,
-        "remaining_acceptance": "空闲、UDP 无 ACK、单尖峰、服务器卡顿、本机排队不误判路径失活"
+        "remaining_acceptance": "空闲、UDP 无 ACK、单尖峰、服务器卡顿、本机排队不误判路径失活",
+        "current_detail": "Read-only current source found potential first keepalive miss degrading candidate-pair actual selector while connection remainsDirect. Actual UDP reproduction pending; no production policy change or acceptance."
       },
       "C-03": {
         "status": "待启动",
@@ -1570,116 +1599,231 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
-        "current_detail": "Original24 batches merged. NewPR208 exacthead kernel32/32 accepted but actual WindowsRust report-gate failure under investigation blocks merge;PR209 fullCI in progress. D03 manualkernelrun underway. No failures hidden or blindreruns."
+        "current_detail": "Original24batches adopted. NewPR208 a7cd902 fullCI started after13positive/4actualnegative/restored13/full2340+253. PR2095c actualNAT failures retained and being diagnosed. D03newdispatch4b pending. No hiddenfailures or blindreruns."
       }
     },
-    "latest_observation_utc": "2026-10-13T20:37:20.957815+00:00",
+    "latest_observation_utc": "2026-10-13T21:13:13.247200+00:00",
     "pr208": {
       "number": 208,
       "url": "https://github.com/yhan-sun/p2wlan/pull/208",
-      "head": "7e55887decdbadcc9eb303b475a38b8daca87587",
-      "tree": "2caa99f3536cbb8453192a17c5e2e243b96f7493",
+      "head": "a7cd90240eb36f75bc58ff85211c1e8e652f7dbc",
+      "tree": "46916b50851d105115b7bc07efda6ec69bd32465",
       "base": "48febb538333b161fabe86135c0b8319429ab644",
-      "status": "fresh_linux_artifact_accepted_windows_rust_failure_under_investigation_no_merge",
-      "changed_files": 42,
-      "quality": 95,
-      "post_main_four_gates_passed": true,
-      "rust_source_identical_to_main": true,
-      "evidence_manifest_sha256": "d0e34818539d03b2a0936950c6ff0f915c32fa6e449d9b6d0de38eaf5baade0e",
-      "evidence_files": 220,
-      "kernel_tun_actual_CI_pending": false,
+      "candidate": "1b4beb18459f88a993685a9bd73e3bf42ce0a1c4",
+      "status": "new_full_CI_running_not_adopted",
+      "changed_files": 47,
+      "rust_source_identical_to_main": false,
+      "terminal_fix": {
+        "utc": "2026-10-13T21:11:41.411672+00:00",
+        "source_freeze_sha256": "7df32e7d5776b41aa528f16c36fb5c8e777c56017c31d126738260ac9b27a933",
+        "staged_tree": "46916b50851d105115b7bc07efda6ec69bd32465",
+        "full_patch_sha256": "703a6ff0ce193fc8fc2a73d10a1e17c83e42422692c22f42e9438bb64da3e42c",
+        "ordinary_patch_sha256": "5bd1e380755e119dea0faa4ab2dea763eb82b3f73b4108f36577d1ff60871b66",
+        "full_checks": 11,
+        "focused_before": 13,
+        "actual_negative_controls": 4,
+        "restored_focused": 13,
+        "workspace": 2340,
+        "original_ignored": 3,
+        "isolated": 253,
+        "NAT": 92,
+        "quality": 95,
+        "independent_review_sha256": "a4aa75df3e6361b7ed019906d3799a3074104db695d640bb0705b01c71c10929",
+        "CI": "requires new head",
+        "adopted": false,
+        "commit": "a7cd90240eb36f75bc58ff85211c1e8e652f7dbc",
+        "tree": "46916b50851d105115b7bc07efda6ec69bd32465",
+        "parent": "7e55887decdbadcc9eb303b475a38b8daca87587",
+        "pushed": true,
+        "PR": 208
+      },
+      "new_CI": {
+        "expected_workflow_runs": 17,
+        "required_gates": 18,
+        "evidence": "work/evidence/ci-b02-208-a7cd902",
+        "flutter_push": "client/daemon/** matches unchanged push filter"
+      },
+      "kernel_tun_actual_CI_pending": true,
       "actual_Minecraft_world_available": false,
-      "linux_application_artifact": {
-        "utc": "2026-10-13T20:24:37.456004+00:00",
-        "result": "passed",
-        "scope": "linux_same_host_kernel_tun_application",
-        "source_commit": "1a6fce432da2847e9033d13e48bcc27903440937",
+      "prior_head_evidence": "continuation.pr208_head_history: old exacthead kernel/protocol accepted but Windows failed; not reused for newhead"
+    },
+    "pr209": {
+      "number": 209,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/209",
+      "head": "5c790eb006155f266d0df13f73ffd955255eb34b",
+      "tree": "2c05070db16ea101a9c588cf87a5bf0729cb2c13",
+      "base": "48febb538333b161fabe86135c0b8319429ab644",
+      "candidate": "9b0ad1ff977310028c14af3b9b4f5c4124176422",
+      "status": "native_NAT_CI_failures_under_investigation_not_adopted",
+      "expected_runs": 17,
+      "expected_gates": 18,
+      "local_workspace": 2405,
+      "original_ignored": 3,
+      "isolated": 247,
+      "quality": 95,
+      "nat": 92,
+      "exact_c12_unique": 52,
+      "binding": "work/evidence/b28-main-integration/commit-binding.json"
+    },
+    "n01_current": {
+      "utc": "2026-10-13T21:02:39.245068+00:00",
+      "source_freeze": "work/evidence/n01-native-candidate/source-freeze-after-build-repair.json",
+      "patch_sha256": "ddef44e2f877214ff926aa9cbb2e4b7c623fdc5244e8dc06f2785efc7055f173",
+      "focused_initial": 40,
+      "actual_negative_controls": 3,
+      "restored_positive": 40,
+      "negative_evidence": "work/evidence/n01-cancellation-negatives/RESULT.json",
+      "restored_manifest_sha256": "fd0b61c93004fed6b661fd34a8e9c97839f7b573c5c8ceb5fdb8df41555c3d1b",
+      "full_regression": "not_run",
+      "CI": "not_run",
+      "adopted": false,
+      "limitations": "Actual primary/compatibility cost and child cancellation only; returned/retained overlap, unresolved joins unknown, no total-network cost or public NAT conclusion."
+    },
+    "d03_current": {
+      "utc": "2026-10-13T20:58:37.089118+00:00",
+      "result": "native_fault_slice_failed_with_original_owned_cleanup_confirmed",
+      "head": "e7a6a196ae2457a343ab288c9213a68264407f8e",
+      "tree": "7903aef170d93d5577a1f802b49340647c2c742c",
+      "run_id": 38464012431,
+      "attempt": 1,
+      "artifact_id": 11848608412,
+      "archive_sha256": "920c8a840e403071f44a7b2f850b3167a36c7b60ae6b5e6131d85e10d0306cdd",
+      "remote_digest_matched": true,
+      "baseline_actual_success_requests": 32,
+      "baseline_original_groups_collected": 11,
+      "baseline_original_handles_collected": 22,
+      "fault_fixed_denominator": 32,
+      "fault_actual_send_errors": 8,
+      "fault_not_started_requests": 24,
+      "fault_expected_timeouts_observed": 0,
+      "fault_fresh_success_requests": 0,
+      "fault_created_groups_collected": 5,
+      "fault_actual_handles_collected": 10,
+      "fault_drop_counter_after_requests": "unobserved; exercise stopped before original counter snapshot",
+      "normal_clear_before_fresh": "unobserved; no fresh phase started",
+      "failure_cleanup_exact_rules_removed": true,
+      "original_namespace_fd_closed": true,
+      "remaining_owned_network_resources": [],
+      "original_parallel_rooms_report_passed": true,
+      "binary_sha256": {
+        "control": "86c15246e90e71c7f348d1f1a79546f958045da7f620dfdd04c190309616a014",
+        "daemon": "f9a8da440af55a50ddc42b905a7537cbecdee088eb9ea4ab65650bad7913d0be"
+      },
+      "binary_recomputed_locally": false,
+      "source_sha256": {
+        "scripts/parallel-rooms/linux_tun_evidence.py": "845f11bc7ec0a4241536f37754c808b4f98030fd1cd29f139381490ae2a7fcad",
+        "scripts/parallel-rooms/linux-netns.py": "8eb0d778fd8ff2be1c8b5db1db9966781b137feca78d35dea1c7826a0958f30c",
+        "scripts/parallel-rooms/linux_tun_owned.py": "93add9056670f83167bdd8c8253ca4666b45a4a189a965ca315acd6c57187b7a",
+        "scripts/parallel-rooms/linux_tun_contract.py": "ea635ddb7f277970d6e60213baa29eb5e46ea8f3cfd5ad66b83fdb2d2a89cfa1",
+        "scripts/parallel-rooms/linux_tun_fault.py": "45933f11afc66ab2e045aa1d4855d853f3147e0eb91427de0025001c2393e628",
+        "scripts/parallel-rooms/linux_tun_fault_contract.py": "9b1f94b543b25a4e029d4965603baaa4545136d902f3f6a448ee9a2472674125",
+        "scripts/dual-end/udp_business_probe.py": "7c8a39d5a8e194949a59edb6e69c578bb554c1ddd718dcf33c78f0990571d6f2",
+        "scripts/dual-end/udp_business_summary.py": "fd93839d5366cc89da61c667348244ff9a28f0279ef7f3dd7d30143d361b7434",
+        "scripts/dual-end/tcp_business_probe.py": "0e6de36d2980605f6e46e96dcd3c72ece084955d24cef2f511a0b5fbcff965c7",
+        ".github/workflows/parallel-rooms.yml": "eb26dd10d31bda15fa4250450f2650f9a5bf26735b1364b6887b9082e6a16808"
+      },
+      "canonical_current_owner_verified": null,
+      "full_d03_fault_matrix_verified": null,
+      "raw_probe_sha256": "3d060f0e18f81c53c4dafc9d1295398212a1f8677e7226d704cf78f85614cf64",
+      "raw_echo_sha256": "3a2bf6fb576369e44f11858e2ce4556dfdaa8b8cc217e96248f4d6ae0108c7de",
+      "errno_observed": null,
+      "kernel_failure_cause": "OUTPUT rule/local send-error relation is an inference; original tool reports no errno",
+      "rerun_triggered": false,
+      "product_changed": false,
+      "cargo_executed": false
+    },
+    "d03_input_repair": {
+      "head": "4b1f1dbad9eb93156ef585754dc5a4e3ebcf115f",
+      "tree": "3699b742330e4f1b86d5957b4bf824868e670cc2",
+      "run": 38468485231,
+      "attempt": 1,
+      "status": "manual_native_queued",
+      "local_python_tests_each": 74,
+      "quality": 95,
+      "four_gates": "passed",
+      "root_independent_review": "passed",
+      "full_PR_adoption": false
+    },
+    "pr208_head_history": [
+      {
+        "number": 208,
+        "url": "https://github.com/yhan-sun/p2wlan/pull/208",
         "head": "7e55887decdbadcc9eb303b475a38b8daca87587",
         "tree": "2caa99f3536cbb8453192a17c5e2e243b96f7493",
-        "run_id": 38460014179,
-        "attempt": 1,
-        "artifact_id": 11845946964,
-        "archive_sha256": "3d9fc1cb4ae2aa71d08dabc8f6256594b9c5cb53cdab2ec3760f794708472a2b",
-        "remote_digest_present": true,
-        "prescheduled_requests": 32,
-        "success_requests": 32,
-        "owned_process_groups_cleaned": 11,
-        "original_parallel_room_report_passed": true,
-        "canonical_current_owner_verified": null,
-        "full_d03_fault_matrix_verified": null,
-        "public_network_verified": null,
-        "binary_recomputed_locally": false,
-        "binary_binding_scope": "original CI harness checked build-info and hashes before/after",
-        "source_sha256": {
-          ".github/workflows/parallel-rooms.yml": "d320604766df933f48ecdcac8d757756098992bb00e77d7c3825712d0533cea0",
-          "scripts/dual-end/tcp_business_probe.py": "0e6de36d2980605f6e46e96dcd3c72ece084955d24cef2f511a0b5fbcff965c7",
-          "scripts/dual-end/udp_business_probe.py": "7c8a39d5a8e194949a59edb6e69c578bb554c1ddd718dcf33c78f0990571d6f2",
-          "scripts/dual-end/udp_business_summary.py": "fd93839d5366cc89da61c667348244ff9a28f0279ef7f3dd7d30143d361b7434",
-          "scripts/parallel-rooms/linux-netns.py": "8eb0d778fd8ff2be1c8b5db1db9966781b137feca78d35dea1c7826a0958f30c",
-          "scripts/parallel-rooms/linux_tun_contract.py": "ea635ddb7f277970d6e60213baa29eb5e46ea8f3cfd5ad66b83fdb2d2a89cfa1",
-          "scripts/parallel-rooms/linux_tun_evidence.py": "13a201cd15c90e2e1ab3f4ea1989ac1a2b16a6366133e36dcc0f1bd6f6c2e959",
-          "scripts/parallel-rooms/linux_tun_owned.py": "93add9056670f83167bdd8c8253ca4666b45a4a189a965ca315acd6c57187b7a"
-        },
-        "extracted_file_sha256": {
-          "linux-tun-application/debug/01-kernel_tun_routes_ready.json": "01f7249de4239b632d17032df4df55649464375e9f321b7b1617c54d5c77ecc7",
-          "linux-tun-application/debug/02-fixed_application_requests_complete.json": "d7baeff4476a6785a6f3799a5b169753ed88b217e5f9013ec02fe6dd6f882461",
-          "linux-tun-application/debug/a1.instance-1.console.log": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-          "linux-tun-application/debug/a1.instance-1.daemon.log": "4557d38f32b049488d3f4a764ec31b4853860ff6b1d033ec4b3af8f000a479be",
-          "linux-tun-application/debug/b1.instance-1.console.log": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-          "linux-tun-application/debug/b1.instance-1.daemon.log": "7b8e9d1316e48597de6015c4c2e98f3d79dfc3eb7587bed5b64d13fad6cd004d",
-          "linux-tun-application/report.json": "cb01438ebd40671516c6ba8951ed64ad213585e8cf3bc04901b2b61b6910b5d0",
-          "linux-tun-application/tcp-a-to-b-echo.json": "ced46474eadc75f3c1dcb346563ba1913a6579f01fb3a4da16a2965538f2b870",
-          "linux-tun-application/tcp-a-to-b-echo.log": "2b6436e3c0e3e8a7b155570fc566670e4eb0f1218071a8f8cb521a98a643042b",
-          "linux-tun-application/tcp-a-to-b-probe.json": "c159b4ce8491a941fbbc552950e8ca1eeb896c30bc5b53f3667f3f4b26b1fee7",
-          "linux-tun-application/tcp-a-to-b-probe.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "linux-tun-application/tcp-b-to-a-echo.json": "e42ffcbb41fc736971f9d749e8846cd21d503cda6b0148f1f1959f9e9829c1a9",
-          "linux-tun-application/tcp-b-to-a-echo.log": "2b6436e3c0e3e8a7b155570fc566670e4eb0f1218071a8f8cb521a98a643042b",
-          "linux-tun-application/tcp-b-to-a-probe.json": "f92531d4a6950f153617aee3196c2a50a8c57bc8f014a4b7d5e843a0001e446b",
-          "linux-tun-application/tcp-b-to-a-probe.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "linux-tun-application/udp-a-to-b-echo.json": "747e918112f998d46cd37e64262943530e6382dfa1142a13c699ca22bba67cfd",
-          "linux-tun-application/udp-a-to-b-echo.log": "b290a95be6740d9c271f9e751f1e46f40a051d9ae14ed791ffd4dd104b1ee137",
-          "linux-tun-application/udp-a-to-b-probe.json": "bb108ad24ad40ebb397243f95287da71f0dd17f7aff3d9accf993f019424718a",
-          "linux-tun-application/udp-a-to-b-probe.log": "e7f9abfcb94164009aaee84a9e43a14f1add7d79891ce16e83a577f5e4f675ae",
-          "linux-tun-application/udp-b-to-a-echo.json": "7dbaf907bfb3f4e6f6a3cbcb3422ec50f6b389f01cc79ae1503d0332d9931e77",
-          "linux-tun-application/udp-b-to-a-echo.log": "b290a95be6740d9c271f9e751f1e46f40a051d9ae14ed791ffd4dd104b1ee137",
-          "linux-tun-application/udp-b-to-a-probe.json": "b3abd6df08772ed79c87be8ab53089012a39c16646c432da3c59079be9532799",
-          "linux-tun-application/udp-b-to-a-probe.log": "e7f9abfcb94164009aaee84a9e43a14f1add7d79891ce16e83a577f5e4f675ae",
-          "parallel-rooms-debug/01-initial_bidirectional_direct.json": "89e1235de412d3827df01d275988e5706c4e82de58805b932560bdfee6287d00",
-          "parallel-rooms-debug/02-a1_pre_restart.json": "0e7e5d82465b7bf02a4656f2283678e08c6fa3dd0bfa67c3d4ba8ad436f17906",
-          "parallel-rooms-debug/03-a1_stopped_before_restart.json": "dc284674783ed3e98378692e9693916c31f756e24b659338b3d250555b4c44b2",
-          "parallel-rooms-debug/04-a1_post_restart_ready.json": "80a915481488b4312ccbe28e16a9a9df1cff3f00404bf1a535064a35618e6c3f",
-          "parallel-rooms-debug/05-a1_post_restart_traffic.json": "1394cdda7dc8829522a3248a06a35be9d5d38c486149705d4aca09f6b015a479",
-          "parallel-rooms-debug/06-all_assertions_passed.json": "a7a232fce946e048fdedce2a08b66406faa4b39b0a57c7aae5f4906a4660422d",
-          "parallel-rooms-evidence.json": "0110a773fa75fd98910aeadd7881a6098bbc5b81c46b0597311b723609671b58"
-        }
-      },
-      "CI_failures": [
-        {
-          "run_id": 38453268501,
-          "attempt": 1,
-          "job_id": 115489346815,
-          "scope": "Bedrock native startup-cancel fixture",
-          "result": "52/53 passed; expected interrupted, observed adapter_error",
-          "diagnosis": "Parent UDP receive then OS signal races the original 100ms child connect deadline; no production cancellation failure proven. Test scheduling repair pending.",
-          "evidence": "work/evidence/ci-b02-208-bf14f5a/policy-job-failure-attempt1"
-        },
-        {
-          "run_id": 38453268554,
-          "attempt": 1,
-          "job_id": 115489346399,
-          "scope": "macOS Rekey Regression",
-          "result": "cancelled before runner assignment; no steps",
-          "diagnosis": "GitHub annotation: hosted runner was not acquired after multiple attempts; macOS arm64 capacity constraints.",
-          "evidence": "work/evidence/ci-b02-208-bf14f5a/rekey-cancel-attempt1"
-        }
-      ],
-      "historical_first_head": {
-        "head": "bf14f5a54c45606c97b7af453cdfbe1443cb09d6",
-        "tree": "3a7978cc78746aff0c353f22dc8b054828a45278",
-        "changed_files": 41,
-        "local_functional_executions": 228,
+        "base": "48febb538333b161fabe86135c0b8319429ab644",
+        "status": "current_head_full_CI_failed_windows_report_repair_under_native_validation",
+        "changed_files": 42,
+        "quality": 95,
+        "post_main_four_gates_passed": true,
+        "rust_source_identical_to_main": true,
         "evidence_manifest_sha256": "d0e34818539d03b2a0936950c6ff0f915c32fa6e449d9b6d0de38eaf5baade0e",
         "evidence_files": 220,
+        "kernel_tun_actual_CI_pending": false,
+        "actual_Minecraft_world_available": false,
+        "linux_application_artifact": {
+          "utc": "2026-10-13T20:24:37.456004+00:00",
+          "result": "passed",
+          "scope": "linux_same_host_kernel_tun_application",
+          "source_commit": "1a6fce432da2847e9033d13e48bcc27903440937",
+          "head": "7e55887decdbadcc9eb303b475a38b8daca87587",
+          "tree": "2caa99f3536cbb8453192a17c5e2e243b96f7493",
+          "run_id": 38460014179,
+          "attempt": 1,
+          "artifact_id": 11845946964,
+          "archive_sha256": "3d9fc1cb4ae2aa71d08dabc8f6256594b9c5cb53cdab2ec3760f794708472a2b",
+          "remote_digest_present": true,
+          "prescheduled_requests": 32,
+          "success_requests": 32,
+          "owned_process_groups_cleaned": 11,
+          "original_parallel_room_report_passed": true,
+          "canonical_current_owner_verified": null,
+          "full_d03_fault_matrix_verified": null,
+          "public_network_verified": null,
+          "binary_recomputed_locally": false,
+          "binary_binding_scope": "original CI harness checked build-info and hashes before/after",
+          "source_sha256": {
+            ".github/workflows/parallel-rooms.yml": "d320604766df933f48ecdcac8d757756098992bb00e77d7c3825712d0533cea0",
+            "scripts/dual-end/tcp_business_probe.py": "0e6de36d2980605f6e46e96dcd3c72ece084955d24cef2f511a0b5fbcff965c7",
+            "scripts/dual-end/udp_business_probe.py": "7c8a39d5a8e194949a59edb6e69c578bb554c1ddd718dcf33c78f0990571d6f2",
+            "scripts/dual-end/udp_business_summary.py": "fd93839d5366cc89da61c667348244ff9a28f0279ef7f3dd7d30143d361b7434",
+            "scripts/parallel-rooms/linux-netns.py": "8eb0d778fd8ff2be1c8b5db1db9966781b137feca78d35dea1c7826a0958f30c",
+            "scripts/parallel-rooms/linux_tun_contract.py": "ea635ddb7f277970d6e60213baa29eb5e46ea8f3cfd5ad66b83fdb2d2a89cfa1",
+            "scripts/parallel-rooms/linux_tun_evidence.py": "13a201cd15c90e2e1ab3f4ea1989ac1a2b16a6366133e36dcc0f1bd6f6c2e959",
+            "scripts/parallel-rooms/linux_tun_owned.py": "93add9056670f83167bdd8c8253ca4666b45a4a189a965ca315acd6c57187b7a"
+          },
+          "extracted_file_sha256": {
+            "linux-tun-application/debug/01-kernel_tun_routes_ready.json": "01f7249de4239b632d17032df4df55649464375e9f321b7b1617c54d5c77ecc7",
+            "linux-tun-application/debug/02-fixed_application_requests_complete.json": "d7baeff4476a6785a6f3799a5b169753ed88b217e5f9013ec02fe6dd6f882461",
+            "linux-tun-application/debug/a1.instance-1.console.log": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+            "linux-tun-application/debug/a1.instance-1.daemon.log": "4557d38f32b049488d3f4a764ec31b4853860ff6b1d033ec4b3af8f000a479be",
+            "linux-tun-application/debug/b1.instance-1.console.log": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+            "linux-tun-application/debug/b1.instance-1.daemon.log": "7b8e9d1316e48597de6015c4c2e98f3d79dfc3eb7587bed5b64d13fad6cd004d",
+            "linux-tun-application/report.json": "cb01438ebd40671516c6ba8951ed64ad213585e8cf3bc04901b2b61b6910b5d0",
+            "linux-tun-application/tcp-a-to-b-echo.json": "ced46474eadc75f3c1dcb346563ba1913a6579f01fb3a4da16a2965538f2b870",
+            "linux-tun-application/tcp-a-to-b-echo.log": "2b6436e3c0e3e8a7b155570fc566670e4eb0f1218071a8f8cb521a98a643042b",
+            "linux-tun-application/tcp-a-to-b-probe.json": "c159b4ce8491a941fbbc552950e8ca1eeb896c30bc5b53f3667f3f4b26b1fee7",
+            "linux-tun-application/tcp-a-to-b-probe.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "linux-tun-application/tcp-b-to-a-echo.json": "e42ffcbb41fc736971f9d749e8846cd21d503cda6b0148f1f1959f9e9829c1a9",
+            "linux-tun-application/tcp-b-to-a-echo.log": "2b6436e3c0e3e8a7b155570fc566670e4eb0f1218071a8f8cb521a98a643042b",
+            "linux-tun-application/tcp-b-to-a-probe.json": "f92531d4a6950f153617aee3196c2a50a8c57bc8f014a4b7d5e843a0001e446b",
+            "linux-tun-application/tcp-b-to-a-probe.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "linux-tun-application/udp-a-to-b-echo.json": "747e918112f998d46cd37e64262943530e6382dfa1142a13c699ca22bba67cfd",
+            "linux-tun-application/udp-a-to-b-echo.log": "b290a95be6740d9c271f9e751f1e46f40a051d9ae14ed791ffd4dd104b1ee137",
+            "linux-tun-application/udp-a-to-b-probe.json": "bb108ad24ad40ebb397243f95287da71f0dd17f7aff3d9accf993f019424718a",
+            "linux-tun-application/udp-a-to-b-probe.log": "e7f9abfcb94164009aaee84a9e43a14f1add7d79891ce16e83a577f5e4f675ae",
+            "linux-tun-application/udp-b-to-a-echo.json": "7dbaf907bfb3f4e6f6a3cbcb3422ec50f6b389f01cc79ae1503d0332d9931e77",
+            "linux-tun-application/udp-b-to-a-echo.log": "b290a95be6740d9c271f9e751f1e46f40a051d9ae14ed791ffd4dd104b1ee137",
+            "linux-tun-application/udp-b-to-a-probe.json": "b3abd6df08772ed79c87be8ab53089012a39c16646c432da3c59079be9532799",
+            "linux-tun-application/udp-b-to-a-probe.log": "e7f9abfcb94164009aaee84a9e43a14f1add7d79891ce16e83a577f5e4f675ae",
+            "parallel-rooms-debug/01-initial_bidirectional_direct.json": "89e1235de412d3827df01d275988e5706c4e82de58805b932560bdfee6287d00",
+            "parallel-rooms-debug/02-a1_pre_restart.json": "0e7e5d82465b7bf02a4656f2283678e08c6fa3dd0bfa67c3d4ba8ad436f17906",
+            "parallel-rooms-debug/03-a1_stopped_before_restart.json": "dc284674783ed3e98378692e9693916c31f756e24b659338b3d250555b4c44b2",
+            "parallel-rooms-debug/04-a1_post_restart_ready.json": "80a915481488b4312ccbe28e16a9a9df1cff3f00404bf1a535064a35618e6c3f",
+            "parallel-rooms-debug/05-a1_post_restart_traffic.json": "1394cdda7dc8829522a3248a06a35be9d5d38c486149705d4aca09f6b015a479",
+            "parallel-rooms-debug/06-all_assertions_passed.json": "a7a232fce946e048fdedce2a08b66406faa4b39b0a57c7aae5f4906a4660422d",
+            "parallel-rooms-evidence.json": "0110a773fa75fd98910aeadd7881a6098bbc5b81c46b0597311b723609671b58"
+          }
+        },
         "CI_failures": [
           {
             "run_id": 38453268501,
@@ -1700,110 +1844,130 @@
             "evidence": "work/evidence/ci-b02-208-bf14f5a/rekey-cancel-attempt1"
           }
         ],
-        "linux_application_artifact": {
-          "utc": "2026-10-13T19:39:16.998076+00:00",
-          "result": "passed",
-          "scope": "linux_same_host_kernel_tun_application",
-          "source_commit": "25273368b6de782e7db7653f4052d3c7031408cc",
+        "historical_first_head": {
           "head": "bf14f5a54c45606c97b7af453cdfbe1443cb09d6",
           "tree": "3a7978cc78746aff0c353f22dc8b054828a45278",
-          "run_id": 38453268580,
+          "changed_files": 41,
+          "local_functional_executions": 228,
+          "evidence_manifest_sha256": "d0e34818539d03b2a0936950c6ff0f915c32fa6e449d9b6d0de38eaf5baade0e",
+          "evidence_files": 220,
+          "CI_failures": [
+            {
+              "run_id": 38453268501,
+              "attempt": 1,
+              "job_id": 115489346815,
+              "scope": "Bedrock native startup-cancel fixture",
+              "result": "52/53 passed; expected interrupted, observed adapter_error",
+              "diagnosis": "Parent UDP receive then OS signal races the original 100ms child connect deadline; no production cancellation failure proven. Test scheduling repair pending.",
+              "evidence": "work/evidence/ci-b02-208-bf14f5a/policy-job-failure-attempt1"
+            },
+            {
+              "run_id": 38453268554,
+              "attempt": 1,
+              "job_id": 115489346399,
+              "scope": "macOS Rekey Regression",
+              "result": "cancelled before runner assignment; no steps",
+              "diagnosis": "GitHub annotation: hosted runner was not acquired after multiple attempts; macOS arm64 capacity constraints.",
+              "evidence": "work/evidence/ci-b02-208-bf14f5a/rekey-cancel-attempt1"
+            }
+          ],
+          "linux_application_artifact": {
+            "utc": "2026-10-13T19:39:16.998076+00:00",
+            "result": "passed",
+            "scope": "linux_same_host_kernel_tun_application",
+            "source_commit": "25273368b6de782e7db7653f4052d3c7031408cc",
+            "head": "bf14f5a54c45606c97b7af453cdfbe1443cb09d6",
+            "tree": "3a7978cc78746aff0c353f22dc8b054828a45278",
+            "run_id": 38453268580,
+            "attempt": 1,
+            "artifact_id": 11842466573,
+            "archive_sha256": "44ee0c74a5b72549a2a471f74237b566e5b4d8007730af7638b4f8c6e2cde523",
+            "remote_digest_present": true,
+            "prescheduled_requests": 32,
+            "success_requests": 32,
+            "owned_process_groups_cleaned": 11,
+            "original_parallel_room_report_passed": true,
+            "canonical_current_owner_verified": null,
+            "full_d03_fault_matrix_verified": null,
+            "public_network_verified": null,
+            "binary_recomputed_locally": false,
+            "binary_binding_scope": "original CI harness checked build-info and hashes before/after",
+            "status_for_current_head": "historical_pre_repair_only_new_head_requires_fresh_artifact"
+          }
+        },
+        "local_repair_validation": {
+          "Bedrock": 53,
+          "lifecycle_subset": 3,
+          "negative_assertion_failures": 1,
+          "quality": 95,
+          "four_mandatory_gates": "passed",
+          "final_tracked_docs_health": "passed",
+          "production_protocol_dependencies_workflows": "unchanged",
+          "evidence_seal_sha256": "06b60357fcf4875ccdc53ccd104573c1b98d80042064cf52670b90043aa4b88b",
+          "source_commit_bound": true
+        },
+        "new_CI": {
+          "expected_workflow_runs": 16,
+          "required_gates": 18,
+          "evidence": "work/evidence/ci-b02-208-7e55887",
+          "candidate": "1a6fce432da2847e9033d13e48bcc27903440937",
+          "reason_no_Flutter_push": "Exact immediate-parent test-only diff does not match unchanged Flutter push paths; PR event still applies to fullPRdiff.",
+          "all_workflows_completed": true,
+          "all_workflows_successful": false,
+          "required_gates_authorized": false
+        },
+        "new_head_linux_acceptance": {
+          "head": "7e55887decdbadcc9eb303b475a38b8daca87587",
+          "tree": "2caa99f3536cbb8453192a17c5e2e243b96f7493",
+          "source_commit": "1a6fce432da2847e9033d13e48bcc27903440937",
+          "run_id": 38460014179,
           "attempt": 1,
-          "artifact_id": 11842466573,
-          "archive_sha256": "44ee0c74a5b72549a2a471f74237b566e5b4d8007730af7638b4f8c6e2cde523",
-          "remote_digest_present": true,
-          "prescheduled_requests": 32,
+          "artifact_id": 11845946964,
+          "archive_sha256": "3d9fc1cb4ae2aa71d08dabc8f6256594b9c5cb53cdab2ec3760f794708472a2b",
+          "scope": "linux_same_host_kernel_tun_application",
           "success_requests": 32,
-          "owned_process_groups_cleaned": 11,
-          "original_parallel_room_report_passed": true,
-          "canonical_current_owner_verified": null,
-          "full_d03_fault_matrix_verified": null,
-          "public_network_verified": null,
-          "binary_recomputed_locally": false,
-          "binary_binding_scope": "original CI harness checked build-info and hashes before/after",
-          "status_for_current_head": "historical_pre_repair_only_new_head_requires_fresh_artifact"
+          "owned_process_groups_cleaned": 11
+        },
+        "current_ci_failure": {
+          "run": 38460014135,
+          "job": 115512442697,
+          "attempt": 1,
+          "test": "tests::synchronized_punch_e2e::scenarios::hard_hard_two_peer_partial_reachability_never_stays_asymmetric_direct",
+          "reason": "peer-a did not record hard_hard_attempt_report within original30s",
+          "cause": "not yet established",
+          "logs": "work/evidence/ci-b02-208-7e55887/windows-rust-failure-attempt1"
+        },
+        "minecraft_protocol_CI": {
+          "utc": "2026-10-13T20:42:04.920171+00:00",
+          "scope": "fixed protocol fixtures and evidence tools only; no actual game world",
+          "head": "7e55887decdbadcc9eb303b475a38b8daca87587",
+          "run": 38460014135,
+          "attempt": 1,
+          "job": 115512442918,
+          "log_sha256": "e882161999ec68e14955dc74f63a30b9239819ceac3dbc51f3bfc6034a97f01e",
+          "java": {
+            "tests": 24,
+            "runtime": "22.16.0"
+          },
+          "bedrock": {
+            "tests": 53,
+            "runtime": "26.0.0",
+            "startup_cancel_passed": true
+          },
+          "contract_tests": 23,
+          "runner_tests": 28,
+          "audit_zero_vulnerability_reports": 4,
+          "full_PR_CI_passed": false,
+          "blocking_other_job": "Rust Check (Windows) original HardHard attempt report missing"
+        },
+        "publication_repair": {
+          "source_freeze": "work/evidence/pr208-windows-hh-audit/source-freeze-fix-2.json",
+          "patch_sha256": "703a6ff0ce193fc8fc2a73d10a1e17c83e42422692c22f42e9438bb64da3e42c",
+          "staged_tree": "46916b50851d105115b7bc07efda6ec69bd32465",
+          "status": "13 native exact controls passed; four negative controls running",
+          "scope": "Same original100ms transaction retries short actual profile/session contention with all guards released then fullidentity recheck; one seal/ledger unchanged. Historical Windows exact failing lock branch not observed."
         }
-      },
-      "local_repair_validation": {
-        "Bedrock": 53,
-        "lifecycle_subset": 3,
-        "negative_assertion_failures": 1,
-        "quality": 95,
-        "four_mandatory_gates": "passed",
-        "final_tracked_docs_health": "passed",
-        "production_protocol_dependencies_workflows": "unchanged",
-        "evidence_seal_sha256": "06b60357fcf4875ccdc53ccd104573c1b98d80042064cf52670b90043aa4b88b",
-        "source_commit_bound": true
-      },
-      "new_CI": {
-        "expected_workflow_runs": 16,
-        "required_gates": 18,
-        "evidence": "work/evidence/ci-b02-208-7e55887",
-        "candidate": "1a6fce432da2847e9033d13e48bcc27903440937",
-        "reason_no_Flutter_push": "Exact immediate-parent test-only diff does not match unchanged Flutter push paths; PR event still applies to fullPRdiff."
-      },
-      "new_head_linux_acceptance": {
-        "head": "7e55887decdbadcc9eb303b475a38b8daca87587",
-        "tree": "2caa99f3536cbb8453192a17c5e2e243b96f7493",
-        "source_commit": "1a6fce432da2847e9033d13e48bcc27903440937",
-        "run_id": 38460014179,
-        "attempt": 1,
-        "artifact_id": 11845946964,
-        "archive_sha256": "3d9fc1cb4ae2aa71d08dabc8f6256594b9c5cb53cdab2ec3760f794708472a2b",
-        "scope": "linux_same_host_kernel_tun_application",
-        "success_requests": 32,
-        "owned_process_groups_cleaned": 11
-      },
-      "current_ci_failure": {
-        "run": 38460014135,
-        "job": 115512442697,
-        "attempt": 1,
-        "test": "tests::synchronized_punch_e2e::scenarios::hard_hard_two_peer_partial_reachability_never_stays_asymmetric_direct",
-        "reason": "peer-a did not record hard_hard_attempt_report within original30s",
-        "cause": "not yet established",
-        "logs": "work/evidence/ci-b02-208-7e55887/windows-rust-failure-attempt1"
-      },
-      "minecraft_protocol_CI": {
-        "utc": "2026-10-13T20:42:04.920171+00:00",
-        "scope": "fixed protocol fixtures and evidence tools only; no actual game world",
-        "head": "7e55887decdbadcc9eb303b475a38b8daca87587",
-        "run": 38460014135,
-        "attempt": 1,
-        "job": 115512442918,
-        "log_sha256": "e882161999ec68e14955dc74f63a30b9239819ceac3dbc51f3bfc6034a97f01e",
-        "java": {
-          "tests": 24,
-          "runtime": "22.16.0"
-        },
-        "bedrock": {
-          "tests": 53,
-          "runtime": "26.0.0",
-          "startup_cancel_passed": true
-        },
-        "contract_tests": 23,
-        "runner_tests": 28,
-        "audit_zero_vulnerability_reports": 4,
-        "full_PR_CI_passed": false,
-        "blocking_other_job": "Rust Check (Windows) original HardHard attempt report missing"
       }
-    },
-    "pr209": {
-      "number": 209,
-      "url": "https://github.com/yhan-sun/p2wlan/pull/209",
-      "head": "5c790eb006155f266d0df13f73ffd955255eb34b",
-      "tree": "2c05070db16ea101a9c588cf87a5bf0729cb2c13",
-      "base": "48febb538333b161fabe86135c0b8319429ab644",
-      "candidate": "9b0ad1ff977310028c14af3b9b4f5c4124176422",
-      "status": "full_CI_in_progress_not_adopted",
-      "expected_runs": 17,
-      "expected_gates": 18,
-      "local_workspace": 2405,
-      "original_ignored": 3,
-      "isolated": 247,
-      "quality": 95,
-      "nat": 92,
-      "exact_c12_unique": 52,
-      "binding": "work/evidence/b28-main-integration/commit-binding.json"
-    }
+    ]
   }
 }

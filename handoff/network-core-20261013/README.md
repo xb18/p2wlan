@@ -1,6 +1,6 @@
 # 网络核心移交包
 
-原始检查点说明保留如下；当前以报告第九节与PROGRESS.json.continuation为准。#202/#203/#204/#205/#207已按顺序完整CI并普通合并，main48febb。PR208新HEAD7e55887的Linux32/32与Minecraft协议24+53已验，Windows原HardHard缺报告仍阻塞；PR209已发布5c790eb完整CI中；B03本地8a4dfc7正反控/完整回归通过，未推送；D03 e7a6a196已推送且手动真实内核运行38464012431待验。N01及真实child/Managed/dynamic继续推进，不重放原B19补丁。子代理统一GPT-6.1 Sol ultra，仅本机和GitHubCI。
+原始检查点说明保留如下；当前以报告第九节与PROGRESS.json.continuation为准。原五个PR已顺序完整CI普通合并。PR208报告发布修复a7cd902完整本机通过、17次CI待验；PR209真实NAT失败已保存并修复中；B03本地8a4dfc7待推送；N01正反控通过、全回归中。D03首次内核故障切片失败且完整清理，修正4b1f1db已推送、新run38468485231待验。剩余任务继续实施，不重新应用原B19补丁；子代理统一GPT-6.1 Sol ultra，仅本机和GitHubCI。
 
 本包对应产品源码检查点 d2df1627952191fe3d535d64ad6249723e1ba404。分支 codex/network-core-handoff-20261013 用于保存可移植交接资料。
 
