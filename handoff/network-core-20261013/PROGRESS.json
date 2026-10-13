@@ -1,0 +1,413 @@
+{
+  "schema": "p2wlan_network_core_portable_handoff_v1",
+  "snapshot_UTC": "2026-10-13T05:33:13.705Z",
+  "repository": "https://github.com/yhan-sun/p2wlan",
+  "handoff_branch": "codex/network-core-handoff-20261013",
+  "product_source_commit": "d2df1627952191fe3d535d64ad6249723e1ba404",
+  "product_source_tree": "2c59d0916db053cc4bf9edfb298708c264215d4b",
+  "remote_main_snapshot": "4937de2de8e8b91492fe3d6e8bd83d5c51faa9ad",
+  "product_batch_counts": {
+    "published": 24,
+    "ordinary_merged": 19,
+    "pending": 5,
+    "handoff_checkpoint_is_product_batch": false
+  },
+  "pending_PR_order": [
+    202,
+    203,
+    204,
+    205,
+    207
+  ],
+  "PR_snapshots": [
+    {
+      "number": 202,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/202",
+      "state": "open",
+      "merged": false,
+      "draft": false,
+      "head": "d2df1627952191fe3d535d64ad6249723e1ba404",
+      "head_ref": "codex/network-core-publish-19",
+      "base": "main",
+      "base_sha": "4bd3037b4d37780cb937d4bd57b2e2bc019ebb06",
+      "mergeable_state": "unstable"
+    },
+    {
+      "number": 203,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/203",
+      "state": "open",
+      "merged": false,
+      "draft": false,
+      "head": "5c65a4304b678a0a8cdf5090f10d431d467de2fa",
+      "head_ref": "codex/network-core-publish-20",
+      "base": "codex/network-core-publish-19",
+      "base_sha": "d48e1756a5d567c395b39a03ee673091bbc5565e",
+      "mergeable_state": "clean"
+    },
+    {
+      "number": 204,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/204",
+      "state": "open",
+      "merged": false,
+      "draft": false,
+      "head": "06410c5e1094332974b5697d0662458a6b38e67e",
+      "head_ref": "codex/network-core-publish-21",
+      "base": "codex/network-core-publish-20",
+      "base_sha": "5c65a4304b678a0a8cdf5090f10d431d467de2fa",
+      "mergeable_state": "clean"
+    },
+    {
+      "number": 205,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/205",
+      "state": "open",
+      "merged": false,
+      "draft": false,
+      "head": "67b21b1cb54301b4a5810b2d3be48021e2b7a775",
+      "head_ref": "codex/network-core-publish-22",
+      "base": "codex/network-core-publish-21",
+      "base_sha": "06410c5e1094332974b5697d0662458a6b38e67e",
+      "mergeable_state": "clean"
+    },
+    {
+      "number": 207,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/207",
+      "state": "open",
+      "merged": false,
+      "draft": false,
+      "head": "0e3d53f49c81afd84baa00c4368639d152e638b3",
+      "head_ref": "codex/network-core-publish-24",
+      "base": "codex/network-core-publish-22",
+      "base_sha": "67b21b1cb54301b4a5810b2d3be48021e2b7a775",
+      "mergeable_state": "clean"
+    }
+  ],
+  "task_counts": {
+    "完成": 2,
+    "进行中": 5,
+    "待启动": 8,
+    "条件候选": 7
+  },
+  "tasks": [
+    {
+      "id": "D-00A",
+      "status": "完成",
+      "status_detail": "完成（本机）",
+      "dependencies": [],
+      "next_action": "维持 fallback 读/路由取消保护、feedback 关闭回归",
+      "acceptance": "确定性回归保持；真实 TUN 归 B-02A/D-03",
+      "accepted_scope": "historical_local_correctness_only",
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "D-00B",
+      "status": "完成",
+      "status_detail": "完成（本机）",
+      "dependencies": [],
+      "next_action": "维持 per-peer 唯一 owner 准入、公平锁活锁修复、FIFO/截止",
+      "acceptance": "本机四锁争用、超时/关闭/活锁回归保持；真实性能另验",
+      "accepted_scope": "historical_local_correctness_only",
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "B-01",
+      "status": "进行中",
+      "status_detail": "进行中 / P0",
+      "dependencies": [],
+      "next_action": "先交付 #202–#207；补最终 current-owner/once、S3C、故障后 fresh REQUEST→远端当前 REQUEST→匹配 ACK；完整 canonical pipeline、真实 partial/worker loss、C06/C11",
+      "acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "B-02A",
+      "status": "进行中",
+      "status_detail": "进行中 / P0",
+      "dependencies": [
+        "B-01"
+      ],
+      "next_action": "B-01；补双端真实 TUN 请求链、路径/session/socket 精确归属与当前请求证据",
+      "acceptance": "Transport、Overlay、Dataplane、Application 分层；历史 Mock/RX/TX 观察不作全任务验收",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "B-02B",
+      "status": "待启动",
+      "status_detail": "待启动 / P0",
+      "dependencies": [
+        "B-01",
+        "B-02A"
+      ],
+      "next_action": "B-01、B-02A；实现 Minecraft 可重复交互工具",
+      "acceptance": "Java TCP 与 Bedrock UDP 分开；同端请求/确认 RTT，固定世界/版本，TPS/MSPT/GC/重传与超时保留",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "B-03",
+      "status": "进行中",
+      "status_detail": "进行中 / P0",
+      "dependencies": [
+        "B-01"
+      ],
+      "next_action": "B-01；12 个既有 Vec 站点及 actor/FIFO 局部事实保持，补全 pipeline/coverage/lease/copy/serialized 计量",
+      "acceptance": "channel+pending+in-flight 总资源、真实操作及覆盖/开销可解释；未知 bytes 不伪造 atomic 总量或改进率",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "N-01",
+      "status": "进行中",
+      "status_detail": "进行中 / P0",
+      "dependencies": [
+        "B-01",
+        "B-03"
+      ],
+      "next_action": "B-01、B-03；六个本机子项完成记录保持，补真实执行/失败/成本对应",
+      "acceptance": "计划与实际发送可核对；过期、预算、限流、未发送、发送不确定分开；公网结论有实际样本",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "N-02",
+      "status": "待启动",
+      "status_detail": "待启动 / P1",
+      "dependencies": [
+        "N-01"
+      ],
+      "next_action": "N-01；同预算 hh2 时序/候选 A/B",
+      "acceptance": "规律/跳号/随机映射、冷/热/背景分层；可复现收益或不采纳结论",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "N-03",
+      "status": "待启动",
+      "status_detail": "待启动 / P1",
+      "dependencies": [
+        "B-01",
+        "N-01"
+      ],
+      "next_action": "B-01、N-01；普通 pool 与 hh2 socket 独立实验",
+      "acceptance": "保持平台 cap、全进程预算、deadline；requested/attached/usable、竞争、清理/映射副作用完整",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "D-01",
+      "status": "条件候选",
+      "status_detail": "条件候选 / P1",
+      "dependencies": [
+        "B-02A",
+        "B-03"
+      ],
+      "next_action": "B-02A/B-03 且复现 TUN 串行等待；平台 split API 原型",
+      "acceptance": "双向/outbound-only、关闭/重建/取消安全；同负载尾延迟改善，否则不合入",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "D-02",
+      "status": "条件候选",
+      "status_detail": "条件候选 / P1",
+      "dependencies": [
+        "B-02A",
+        "B-03"
+      ],
+      "next_action": "B-02A/B-03 且复现可控多流排队；明文 DRR 原型",
+      "acceptance": "流内有序、密文不重排、backlog/fast path 不绕过、公平与资源有界；收益不足不合入",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "D-03",
+      "status": "待启动",
+      "status_detail": "待启动 / P1",
+      "dependencies": [
+        "B-01",
+        "B-03"
+      ],
+      "next_action": "B-01/B-03；通用采证复用 B-02A，无需等待 MC",
+      "acceptance": "Linux/macOS/Windows/Android 真实 TUN/TCP、切路/黑洞/EMSGSIZE/PTB/预算变化；不错误降级健康或超预算发包",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "C-01",
+      "status": "待启动",
+      "status_detail": "待启动 / P1",
+      "dependencies": [
+        "B-01",
+        "B-03"
+      ],
+      "next_action": "B-01/B-03；补同网关重映射、切网、休眠、撤权/rekey 并发",
+      "acceptance": "恢复时间、失包、旧 owner 拒绝、资源回收及跨路径不重放",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "C-02",
+      "status": "待启动",
+      "status_detail": "待启动 / P1",
+      "dependencies": [
+        "B-02A",
+        "B-03"
+      ],
+      "next_action": "B-02A/B-03；MC 误报参考 B-02B；健康只读 shadow",
+      "acceptance": "空闲、UDP 无 ACK、单尖峰、服务器卡顿、本机排队不误判路径失活",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "C-03",
+      "status": "待启动",
+      "status_detail": "待启动 / P1",
+      "dependencies": [
+        "B-01",
+        "B-02A",
+        "C-02"
+      ],
+      "next_action": "B-01/B-02A/C-02；先 A/B 现有启动策略，再按证据扩展唯一 reducer",
+      "acceptance": "首次可用改善，Direct 不回归，Relay 成本可见；不重置截止或降低验证",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "R-00",
+      "status": "待启动",
+      "status_detail": "待启动 / P1",
+      "dependencies": [
+        "B-01",
+        "B-02A",
+        "B-03"
+      ],
+      "next_action": "B-01/B-02A/B-03；现有多区域/重选与持续业务质量、协调迁移",
+      "acceptance": "双端同 Relay rendezvous、验证/续期/撤权保持，有业务证据才改选择机制",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "R-01",
+      "status": "条件候选",
+      "status_detail": "条件候选 / P2",
+      "dependencies": [
+        "B-02A",
+        "R-00"
+      ],
+      "next_action": "B-02A/R-00 证明 TLS Relay 的问题；UDP Relay RFC 与单区域原型",
+      "acceptance": "双向加密业务、TLS 回退、票据/撤权、防放大、限速、MTU/拥塞与成本",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "R-02",
+      "status": "条件候选",
+      "status_detail": "条件候选 / P2",
+      "dependencies": [
+        "R-01"
+      ],
+      "next_action": "R-01 结论及用户需求；自愿 Peer Relay RFC/配额",
+      "acceptance": "显式参与/退出、权限、配额、兼容可验证；不自动开放转发",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "X-01",
+      "status": "条件候选",
+      "status_detail": "条件候选 / P2",
+      "dependencies": [],
+      "next_action": "明确 TCP 打洞需求；simultaneous-open 独立实验",
+      "acceptance": "OS/NAT 矩阵、取消与资源上界，失败保持 UDP/TLS 主线",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "X-02",
+      "status": "条件候选",
+      "status_detail": "条件候选（按部署影响提级）",
+      "dependencies": [],
+      "next_action": "IPv6-only/NAT64 实际样本",
+      "acceptance": "STUN/控制/Relay、IPv4 literal/DNS64 的可达性矩阵；目标部署受影响则提级实施",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "X-03",
+      "status": "条件候选",
+      "status_detail": "条件候选 / P2",
+      "dependencies": [],
+      "next_action": "CPU/系统调用/多出口瓶颈证据",
+      "acceptance": "GSO/GRO、batch、多队列、多链路分别实验；CPU/吞吐/尾延迟，乱序与 replay 有界",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    },
+    {
+      "id": "G-01",
+      "status": "进行中",
+      "status_detail": "进行中 / P0",
+      "dependencies": [],
+      "next_action": "贯穿所有任务，当前先完成五个 pending 产品 PR",
+      "acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
+      "accepted_scope": null,
+      "evidence_for_full_task_completion": null
+    }
+  ],
+  "pending_patch": {
+    "file": "b19-runtime-handoff.patch.json",
+    "decode_entrypoint": "decode_patch.py",
+    "encoding": "base64",
+    "decoded_bytes": 5930,
+    "decoded_sha256": "c2bc69def2d3abcea3468bae0bcb466c7bff7b1ffad706f193cde0012ac62071",
+    "status": "静态审查，尚未应用或原生验证",
+    "applied_to_product": false,
+    "native_validation": false,
+    "Linux_CI_accepted": false
+  },
+  "handoff_validation": {
+    "status": "已通过",
+    "scope": "handoff documents and patch decoder only",
+    "product_source_changed": false,
+    "public_docs": 19,
+    "tracked_text_files": 1518,
+    "code_health_rust_files": 648,
+    "legacy_health_exceptions": 0,
+    "quality_tests": 95,
+    "quality_tests_passed": true,
+    "quality_runtime": "RUSTUP_TOOLCHAIN=1.99.0",
+    "bash_syntax_scripts": 3,
+    "patch_decode_roundtrip_passed": true,
+    "patch_apply_check_passed": true,
+    "decoder_overwrite_refused": true,
+    "staged_whitespace_check_passed": true,
+    "product_patch_native_tests_run": false,
+    "product_patch_Linux_CI_accepted": false,
+    "first_quality_failure": {
+      "cause": "5 temporary-directory rustfmt tests had no explicit toolchain",
+      "preserved": true
+    },
+    "at_UTC": "2026-10-13T05:56:34.536Z"
+  },
+  "latest_historical_failure": {
+    "head": "d2df1627952191fe3d535d64ad6249723e1ba404",
+    "test": "network_outbound::send::relay_publication_tests::b19_original_fanout_first_full_with_other_unknown",
+    "jobs": [
+      "https://github.com/yhan-sun/p2wlan/actions/runs/38247099316/job/114803612944",
+      "https://github.com/yhan-sun/p2wlan/actions/runs/38247099290/job/114803612964"
+    ],
+    "specific_wait_phase_proven": false,
+    "unique_production_root_cause_proven": false
+  },
+  "unverified_environments": [
+    "full real TUN/platform matrix",
+    "public NAT",
+    "Minecraft interactions",
+    "performance A/B",
+    "final release artifacts and rollback"
+  ],
+  "migration": {
+    "requires_original_host": false,
+    "absolute_path_helpers_included": false,
+    "raw_private_logs_included": false,
+    "revalidate_actual_refs_CI_and_artifacts": true
+  }
+}
