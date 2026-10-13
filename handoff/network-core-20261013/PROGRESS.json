@@ -133,8 +133,8 @@
     },
     {
       "id": "B-02B",
-      "status": "待启动",
-      "status_detail": "待启动 / P0",
+      "status": "进行中",
+      "status_detail": "离线证据契约已本地提交并通过23项测试与独立审查；有界adapter监督器验收中；实际Java/Bedrock适配器与真实游戏验收未完成",
       "dependencies": [
         "B-01",
         "B-02A"
@@ -430,9 +430,8 @@
     "handoff_checksums_verified": true,
     "user_validation_scope": "local_machine_and_GitHub_CI_only",
     "external_environment_policy": "Real multi-device, public NAT and Minecraft acceptance remain unverified where no authorized environment is available; no mock substitution.",
-    "verified_main": "4937de2de8e8b91492fe3d6e8bd83d5c51faa9ad",
+    "verified_main": "da4edadc84c0b10a138115652cc031145dcb77c6",
     "verified_pending_PRs": [
-      202,
       203,
       204,
       205,
@@ -446,13 +445,13 @@
       "evidence": "Initial main/#202 full run/job audit retained locally; summaries to be published with PR update"
     },
     "pr202": {
-      "status": "pushed_full_same_head_CI_pending",
+      "status": "accepted_and_ordinary_merged",
       "base_synchronization": "ordinary merge of verified main",
       "patch_sha256": "c2bc69def2d3abcea3468bae0bcb466c7bff7b1ffad706f193cde0012ac62071",
       "patch_apply_check": true,
       "workspace_fmt_check_exit": 0,
       "native_validation": true,
-      "CI_validation": false,
+      "CI_validation": true,
       "negative_control": {
         "exit_code": 101,
         "expected_assertion": true,
@@ -512,16 +511,30 @@
       },
       "commit_binding": "Full validation patch matches committed product source; final mandatory checks and both locked metadata include fuzz-only path version correction.",
       "push": "non_force_success_after_read_only_ref_verification",
-      "PR_evidence_updated": true
+      "PR_evidence_updated": true,
+      "merge_commit": "da4edadc84c0b10a138115652cc031145dcb77c6",
+      "merged_at_UTC": "2026-10-13T14:58:18Z",
+      "CI": {
+        "runs": 17,
+        "workflows": 16,
+        "required_gates": 18,
+        "successful_jobs": 87,
+        "original_conditional_skips": 2,
+        "all_applicable_passed": true,
+        "head_bound": true,
+        "evidence": "PR #202 and local exact-head CI archive"
+      }
     },
-    "completed_this_continuation": [],
+    "completed_this_continuation": [
+      "#202 fixture, security correction, full exact-head CI and ordinary merge"
+    ],
     "remaining_environment_limits": [
       "physical Windows/Android/Linux peers",
       "real public NAT/NAT64 samples",
       "fixed-version Minecraft server and interactive clients",
       "deployment/canary target and rollback exercise"
     ],
-    "updated_UTC": "2026-10-13T14:17:39.346519+00:00",
+    "updated_UTC": "2026-10-13T15:08:06.537227+00:00",
     "missing_acceptance_definitions": {
       "labels": [
         "S3C",
@@ -559,6 +572,64 @@
         "complete frozen old C11 interface/regression matrix"
       ],
       "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
+    },
+    "handoff_progress_commit": "cd138ad46a656df74b98d7dafefcca0fb676a031",
+    "parallel_preparation": {
+      "B-02B.tool_contract": {
+        "UTC": "2026-10-13T14:46:18.121210+00:00",
+        "head": "3dc0819a7a15d82152874a4d2b25b0627108c91e",
+        "tree": "da12821931662c719635f5d0e65d0089c583345a",
+        "tested_patch_matches_commit": true,
+        "tests": 23,
+        "review": "one reproduced P2 fixed and independently verified",
+        "push": false,
+        "CI": false,
+        "adoption": "pending ordered prior PRs and independent same-head CI"
+      },
+      "B-01.final_owner": {
+        "historical_reader_identity_commit": "dca76a6bf80929b515843b9e695e6cea16cd6305",
+        "full_workspace_passed": 2338,
+        "original_ignored": 3,
+        "isolated_daemon_hard_hard_passed": 247,
+        "NAT_policy_passed": 92,
+        "review": "no confirmed findings",
+        "all_mandatory_and_clippy_passed": true,
+        "adopted": false,
+        "CI": false,
+        "remaining": "Final current-owner/once/ACK credit is not implemented; B26 design underway."
+      }
+    },
+    "task_counts_current": {
+      "完成": 2,
+      "待启动": 7,
+      "条件候选": 7,
+      "进行中": 6
+    },
+    "pr203": {
+      "status": "full_local_passed_same_head_CI_running",
+      "head": "b98914724ba6b83eb3f21beb09b69d2718bec27a",
+      "base": "da4edadc84c0b10a138115652cc031145dcb77c6",
+      "production_diff": false,
+      "new_tests": 3,
+      "pushed": true,
+      "full_local": {
+        "workspace": {
+          "passed": 2340,
+          "failed": 0,
+          "ignored": 3
+        },
+        "hard_hard": 247,
+        "nat": 92,
+        "mandatory_quality": 95,
+        "targeted": 18,
+        "all_passed": true
+      }
+    },
+    "product_batch_counts_current": {
+      "published": 24,
+      "ordinary_merged": 20,
+      "pending": 4,
+      "local_candidates_are_published_batches": false
     }
   }
 }

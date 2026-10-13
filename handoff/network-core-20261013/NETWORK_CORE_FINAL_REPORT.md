@@ -179,3 +179,16 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 ## 八、本次移交包检查结果
 
 文档门禁通过（19份公共文档，1,518份tracked文本）；代码健康通过（648份Rust文件，0历史例外）；明确Rust 1.99.0后质量95项全部通过；3个脚本语法、staged差异空白检查通过。补丁无损解码回原5,930 bytes，SHA256一致；git apply --check通过，已有输出文件拒绝覆盖。首次质量检查的5个rustfmt环境错误保留；未改产品源码、未运行新补丁的Rust测试或Linux CI。
+
+
+## 九、继续实施记录（2026-10-13）
+
+以上第1至8节是原始移交快照，历史数字与待验证状态保持原义。用户已限定后续验收仅本机和 GitHub CI；缺失实体设备、公网样本与固定游戏环境如实保留。
+
+#202 已普通合并，合并提交 `da4edadc84c0b10a138115652cc031145dcb77c6`，被验收HEAD `e9edb2953dba677e5b85f8ef2502328353c905b6`，树 `3b6fbecf37046fd77f654fa9cadbb7caaf6907e2`。原阻塞callback负控在释放和回收后触发指定断言；修正版目标回归、workspace 2335项及隔离hard_hard 247项、全部仓库检查通过。相同HEAD的17次运行/16个工作流、18项必需门禁全部通过；89个作业中87成功、2个原条件跳过，清单与check-run ID逐项一致。合并父链和源码树已核实。五项RustSec问题通过quinn-proto最小更新修复，root/fuzz审计均零漏洞，无新增忽略。证据入口：[PR #202](https://github.com/yhan-sun/p2wlan/pull/202)、[CI](https://github.com/yhan-sun/p2wlan/actions/runs/38411734340)、[DPLPMTUD](https://github.com/yhan-sun/p2wlan/actions/runs/38411734954)。
+
+#203 已普通同步新main并非force推送 `b98914724ba6b83eb3f21beb09b69d2718bec27a`；本机B20新增3项、B19 10项、原C06 4项、C11旧入口1项，以及fmt/Clippy/95质量及强制检查通过。完整workspace2340项、隔离hard_hard 247项及92项NAT策略测试通过；当前HEAD全部CI仍在验收，尚未合并。之后继续 #204、#205、#207。
+
+远端完整历史检索恢复部分原始定义：commit `2a5735568ee8767022cd509dff1112cdb969574a` 的 `client/daemon/src/network_outbound/queue/request_carriage_tests.rs` 包含C06四项FIFO/容量/Weak/代际/停止控制；`lib/daemon/overlay_validate/b14_carriage_read_tests.rs` 与 `client/daemon/src/transport/tests/request_carriage_crypto.rs` 包含C11旧入口/UnknownAny/加密兼容局部范围。S3C独立定义、完整C06矩阵及冻结的完整C11旧接口矩阵仍未找到，不将现有局部测试冒充完整验收。
+
+后续独立候选已有本机证据但未采用：历史Relay reader/client身份 `dca76a6bf80929b515843b9e695e6cea16cd6305`，完整workspace2338项及隔离247项通过；Minecraft离线契约 `3dc0819a7a15d82152874a4d2b25b0627108c91e`，23项测试与独立审查通过。最终current-owner/once/ACK仍未实现；Minecraft监督器正在验收，真实Java/Bedrock适配器仍未实现。这些是代码缺口，不能一概记成缺设备。全部22项状态及依赖保存在PROGRESS.json。
