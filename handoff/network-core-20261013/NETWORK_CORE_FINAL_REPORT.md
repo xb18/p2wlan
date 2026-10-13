@@ -200,7 +200,7 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 | [#207](https://github.com/yhan-sun/p2wlan/pull/207) | `4fbe60eec1ee436144df1df510a1acef6a751485` | `48febb538333b161fabe86135c0b8319429ab644` | 17运行、18门禁、87成功、2原跳过 |
 | [#208](https://github.com/yhan-sun/p2wlan/pull/208) | `a7cd90240eb36f75bc58ff85211c1e8e652f7dbc` | `dbe5d67f2142981e103b858cf82981696b5c1bb6` | 17运行、18门禁、87成功、2原跳过 |
 
-原24批已全部采用。#204 的空提交不匹配 Flutter push 路径，16次为完整适用范围。每次核对实际head/main、最新attempt、job/check、原跳过条件和合并parents/tree。
+原24批已全部采用。新增#208已采用，#209/#210/#211待验；合计28批发布、25批普通合并、3批待验。#204 的空提交不匹配 Flutter push 路径，16次为完整适用范围。每次核对实际head/main、最新attempt、job/check、原跳过条件和合并parents/tree。
 
 #208于2026-10-13 22:36:08 UTC合并。其三套完整Rust作业逐项验证原22项关键回归和13项终态报告控制；DPLPMTUD十个实际场景通过。首轮三个外部门禁在GitHub API查询阶段403失败，保留原日志；依赖实际成功后按Path→Business→DPL顺序重跑，三者attempt2通过。最终1354文件封存SHA256 `20f25aadd69e6026cbfa61e6f19a82e028a4396c5bb8c43167050d7d30a8fc94`，89个当前job/check ID完全对应。
 
@@ -210,17 +210,25 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 
 | 范围 | 实际完成 | 尚未完成 |
 |---|---|---|
-| PR #209 原身份/原ACK/一次记账 | HEAD `8d0b64d14384b1329b54be5b4777d88b4a5b3f2e` 修复启动配置VIP误比较与Fresh标记；50精确、2413工作区、247隔离、4实际反例、恢复8项、完整12本地检查通过 | 新CI的Direct cold-start及部分Relay场景仍实际失败，独立于API403；正在查原日志和产物，不采用 |
+| PR #209 原身份/原ACK/一次记账 | HEAD `8d0b64d14384b1329b54be5b4777d88b4a5b3f2e` 修复启动配置VIP误比较与Fresh标记；50精确、2413工作区、247隔离、4实际反例、恢复8项、完整12本地检查通过 | 8d全部17CI结束，Direct及五个Relay场景实际失败，独立于API403；真实非对称回归已在原8d复现指定Echo拒绝且13/13清理；最小修复同exact正控通过（新请求各+1、重复+0），独立46923b61两项精确通过；与R00/main208组合0632146首轮22通过、1失败、1未跑（新请求未进入echo捕获），14/14清理通过，正在诊断；完整组合未通过，不采用 |
 | B01 原子任务丢失 | 本地提交 `11d66765ede2698945eef625cb0b6da3ba16735e`；6精确、2342工作区、247隔离、NAT92、quality95、完整11检查、4接受反例及恢复6项通过 | 未推送/完整CI/采用；私有Relay内部任务仅abort，不冒称独立join；不代表完整未知C06矩阵 |
-| C02 保活与空闲 | 本地提交 `0be532f5d24deff502f6ec04467a983c9ac92bfe`；6精确、2342工作区、247隔离、NAT92、quality95、完整11检查通过；前两次miss保留Selected，第三次仍降级；实际健康consent在应用空闲时保持selector | 未完整CI/采用；业务无ACK、真实单尖峰、服务器停顿、本机排队分层场景仍缺 |
+| C02 保活与空闲 | 本地提交 `0be532f5d24deff502f6ec04467a983c9ac92bfe`；6精确、2342工作区、247隔离、NAT92、quality95、完整11检查通过；前两次miss保留Selected，第三次仍降级；实际健康consent在应用空闲时保持selector | 未完整CI/采用；单60ms RTT尖峰测试已静态冻结但原生未跑；业务无ACK、服务器停顿、本机排队仍缺 |
 | B03 活动buffer | 原提交 `8a4dfc7379080efd4dcf082b48e5188fb44ea651` 的23精确、2350工作区、247隔离、完整11、2实际反例及恢复23项通过；已普通整合PR2098d并暂存，静态7检查通过 | 组合73精确和完整回归未运行；channel/backlog/全pipeline与开销尚缺；未采用 |
 | Managed/dynamic | 在PR2098d上独立整合11文件，组合tree `d6cf2fa1b8165d3c65cb1f00d78cc5ecdecd7afc`，静态7检查通过 | 57项原生计划未运行；没有把计划算通过 |
-| N01 普通探测取消成本 | PR #210 HEAD `e2684e64c65cd1f4f7f4eaddf5b5246bab55885a` 本地40精确、2360工作区、247隔离、完整11、3实际反例及恢复40项通过；首轮17CI结束，失败为外部门禁API链 | 已在本地普通整合新main dbe5d67，无冲突；将结合最小门禁查询修复，组合验证后再推送；未采用 |
-| N02 HH第二波时序 | 原20ms等待改为锚定首波启动，保留原总截止/额度/两波同pair；两文件静态和独立审查通过 | 九项实际测试和两项计时反例通过，恢复及完整回归运行；固定6+6 cold A/B未运行，不能宣称收益或采用 |
-| N03 pool采证 | 已发现matrix丢失SOCKET_POOL传参，正在做最小工具修复和预注册 | 原CLI单primary基线是off，数字1非法；拟off/2/4固定9次，均未实际运行；requested不等于usable |
-| D03 Linux黑洞恢复 | 提交 `4b1f1dbad9eb93156ef585754dc5a4e3ebcf115f` 的手动CI run38468485231五作业全通过；baseline32/32，8 UDP超时+8 TCP未发送，解除原精确规则后16新请求成功；两套harness各11组/22句柄清理 | 未整合新main并走完整PR CI；完整D03/各平台/公网/MTU故障矩阵未验 |
+| N01 普通探测取消成本 | #210已更新至 `4ab2f284f79103ef99e7b3df1de8c1d1101eab16`；普通整合main208及门禁查询修复；40重点+13终态、2360工作区、253隔离、quality108、完整12检查通过 | 当前提交17项CI正在运行；仍未采用 |
+| N02 HH第二波时序 | 本地候选 `ee36f299ef7b3eb7935412c6cc38a43d3056874c`；9重点、2计时反例及恢复完整11通过 | 固定6+6共12轮全部执行、零重试；每版本2轮证据有效（含Relay）、4轮线程栈溢出；全部回收，无因果收益结论，未采用 |
+| N03 pool采证 | 最小工具修复 `e764bf5ad831bd14c857901af34655a19f06ce3a` 已保存；Python35+35、quality95与四门禁通过 | off/2/4固定9次仍未执行；requested不等于usable；未采用 |
+| D03 Linux黑洞恢复 | 旧4b手动CI五作业全通过，baseline32/32、8 UDP超时+8 TCP未发送、16新请求恢复；新普通整合提交 `57d0d83808a482efadabda7ec46a1a99cf74dfb3` 双Python74与四门禁通过 | 加上已验门禁查询修复的 `1d35708` 已普通推送并创建 [#211](https://github.com/yhan-sun/p2wlan/pull/211)，当前quality108/四门禁通过，完整CI与实际Linux产物运行中；完整D03/各平台/公网/MTU矩阵未验 |
+
+B01与C02已经和main208无冲突普通组合为 `f8cc39cfcf16dd073b12fa0176ee8505e83b0ef7`，原16个改动文件逐字保留，四必需门禁通过；组合25项重点及完整回归仍待运行；新增单尖峰后应按26项验收，未将计划计入通过。
 
 D03实际artifact11851620319，远端/本地SHA256 `8cbdec2bff153aee5c634d39068207398fed67b7c205041aea371d1956757487`。原INPUT两规则计数为8 UDP包/1752字节及1 TCP包/60字节，规则删除与FD关闭在fresh请求前完成。此前OUTPUT故障注入产生UDP send_error的首次失败完整保留，不猜未记录的errno。
+
+N02固定12轮已经全部完成，基线与候选各2轮证据有效、4轮发生Tokio线程栈溢出。12轮所有原进程已回收，没有强制终止或重试。证据有效不等于Direct：negative-wrap基线Direct、候选Relay；random-high-entropy-negative两者均Relay。缺失成本不记0，单轮观察不能作因果收益结论；原线程栈、构建模式、场景和全部失败均保留。
+
+NAT模拟C拦截层修复本地提交 `3ce672d63e4a43360da63aeb58199e7eb3fe0204`：移除发送路径的大栈缓冲，保留原UDP来源、头部、计数和错误语义。旧C在实际有界线程测试中SIGBUS失败，新C通过；双Python重点及四门禁共8检查通过，独立审查通过。宽范围314测试运行期间源码曾变化，明确仅作诊断，不算最终源码验收。实际daemon新矩阵、完整CI和采用未完成，不能据此认定N02收益或全部栈问题解决。
+
+#210当前Ubuntu Rekey作业在checkout阶段超过原30分钟而取消，Rust安装/测试未开始；macOS同运行通过。原作业、注释和日志接口404均保留，深层原因未知；同HEAD按原预算重跑失败作业，未将取消计为通过。
 
 ### 保留的失败与限制
 
@@ -234,7 +242,7 @@ B01旧abort-bypass控制在原take_loss前置步骤超时，仍不接受；替�
 
 ### 其余任务及原定义
 
-任务级状态见PROGRESS.json的continuation.task_status_current：完成2、进行中10、待启动3、条件候选7。C01/C03/R00已有最小后续切片方案；R00发现aux common-hub入口可能错误标记primary来源的静态缺口，尚未复现，不能据推断记产品失败。
+任务级状态见PROGRESS.json的continuation.task_status_current：完成2、进行中11、待启动2、条件候选7。C01/C03已有最小后续切片方案；R00真实common-hub原reader来源回归已实际复现native Echo拒绝；最小修复提交`0b01d67082a61a1a44dd94cd53e58f7356cd1544`同exact正控通过，原primary外壳和最终ACK检查保持。完整canonical native once和替换reader负控在隔离实现，尚未原生运行。
 
 D01/D02/R01/R02/X01/X02/X03未因缺环境自动完成。现阶段不默认启用无收益证据的split/DRR/UDP Relay/用户转发/TCP打洞/batch/多链路；先按原任务需求与现路径数据决定。原代码支持IPv6不等于NAT64已验。
 

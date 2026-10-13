@@ -1,91 +1,162 @@
 {
   "schema": "p2wlan_network_core_portable_handoff_v1",
-  "snapshot_UTC": "2026-10-13T21:13:13.247200+00:00",
+  "snapshot_UTC": "2026-10-13T23:36:40.103607+00:00",
   "repository": "https://github.com/yhan-sun/p2wlan",
   "handoff_branch": "codex/network-core-handoff-20261013",
   "product_source_commit": "d2df1627952191fe3d535d64ad6249723e1ba404",
   "product_source_tree": "2c59d0916db053cc4bf9edfb298708c264215d4b",
   "remote_main_snapshot": "4937de2de8e8b91492fe3d6e8bd83d5c51faa9ad",
   "product_batch_counts": {
-    "published": 24,
-    "ordinary_merged": 19,
-    "pending": 5,
+    "published": 28,
+    "ordinary_merged": 25,
+    "pending": 3,
+    "original24_all_merged": true,
+    "post_handoff_PRs": [
+      208,
+      209,
+      210,
+      211
+    ],
     "handoff_checkpoint_is_product_batch": false
   },
   "pending_PR_order": [
-    202,
-    203,
-    204,
-    205,
-    207
+    209,
+    210,
+    211
   ],
   "PR_snapshots": [
     {
       "number": 202,
       "url": "https://github.com/yhan-sun/p2wlan/pull/202",
-      "state": "open",
-      "merged": false,
+      "state": "closed",
+      "merged": true,
       "draft": false,
-      "head": "d2df1627952191fe3d535d64ad6249723e1ba404",
+      "head": "e9edb2953dba677e5b85f8ef2502328353c905b6",
       "head_ref": "codex/network-core-publish-19",
       "base": "main",
-      "base_sha": "4bd3037b4d37780cb937d4bd57b2e2bc019ebb06",
-      "mergeable_state": "unstable"
+      "base_sha": "4937de2de8e8b91492fe3d6e8bd83d5c51faa9ad",
+      "merge_commit_sha": "da4edadc84c0b10a138115652cc031145dcb77c6",
+      "merged_at": "2026-10-13T14:58:18Z",
+      "observed_utc": "2026-10-13T23:15:49.672057+00:00"
     },
     {
       "number": 203,
       "url": "https://github.com/yhan-sun/p2wlan/pull/203",
-      "state": "open",
-      "merged": false,
+      "state": "closed",
+      "merged": true,
       "draft": false,
-      "head": "5c65a4304b678a0a8cdf5090f10d431d467de2fa",
+      "head": "b98914724ba6b83eb3f21beb09b69d2718bec27a",
       "head_ref": "codex/network-core-publish-20",
-      "base": "codex/network-core-publish-19",
-      "base_sha": "d48e1756a5d567c395b39a03ee673091bbc5565e",
-      "mergeable_state": "clean"
+      "base": "main",
+      "base_sha": "da4edadc84c0b10a138115652cc031145dcb77c6",
+      "merge_commit_sha": "221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98",
+      "merged_at": "2026-10-13T16:04:54Z",
+      "observed_utc": "2026-10-13T23:15:49.672057+00:00"
     },
     {
       "number": 204,
       "url": "https://github.com/yhan-sun/p2wlan/pull/204",
-      "state": "open",
-      "merged": false,
+      "state": "closed",
+      "merged": true,
       "draft": false,
-      "head": "06410c5e1094332974b5697d0662458a6b38e67e",
+      "head": "4a2c434b0165693ac331acfc1ad7bc7d2a7aed4a",
       "head_ref": "codex/network-core-publish-21",
-      "base": "codex/network-core-publish-20",
-      "base_sha": "5c65a4304b678a0a8cdf5090f10d431d467de2fa",
-      "mergeable_state": "clean"
+      "base": "main",
+      "base_sha": "221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98",
+      "merge_commit_sha": "8fb0265537d2cf34885874a2db8b6c46769782bb",
+      "merged_at": "2026-10-13T17:04:18Z",
+      "observed_utc": "2026-10-13T23:15:49.672057+00:00"
     },
     {
       "number": 205,
       "url": "https://github.com/yhan-sun/p2wlan/pull/205",
-      "state": "open",
-      "merged": false,
+      "state": "closed",
+      "merged": true,
       "draft": false,
-      "head": "67b21b1cb54301b4a5810b2d3be48021e2b7a775",
+      "head": "81e9220fcbce7bd92cecad1d4ff734341c4fab54",
       "head_ref": "codex/network-core-publish-22",
-      "base": "codex/network-core-publish-21",
-      "base_sha": "06410c5e1094332974b5697d0662458a6b38e67e",
-      "mergeable_state": "clean"
+      "base": "main",
+      "base_sha": "8fb0265537d2cf34885874a2db8b6c46769782bb",
+      "merge_commit_sha": "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+      "merged_at": "2026-10-13T18:09:05Z",
+      "observed_utc": "2026-10-13T23:15:49.672057+00:00"
     },
     {
       "number": 207,
       "url": "https://github.com/yhan-sun/p2wlan/pull/207",
+      "state": "closed",
+      "merged": true,
+      "draft": false,
+      "head": "4fbe60eec1ee436144df1df510a1acef6a751485",
+      "head_ref": "codex/network-core-publish-24",
+      "base": "main",
+      "base_sha": "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+      "merge_commit_sha": "48febb538333b161fabe86135c0b8319429ab644",
+      "merged_at": "2026-10-13T19:10:02Z",
+      "observed_utc": "2026-10-13T23:15:49.672057+00:00"
+    },
+    {
+      "number": 208,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/208",
+      "state": "closed",
+      "merged": true,
+      "draft": false,
+      "head": "a7cd90240eb36f75bc58ff85211c1e8e652f7dbc",
+      "head_ref": "codex/network-core-application-evidence-20261013",
+      "base": "main",
+      "base_sha": "48febb538333b161fabe86135c0b8319429ab644",
+      "merge_commit_sha": "dbe5d67f2142981e103b858cf82981696b5c1bb6",
+      "merged_at": "2026-10-13T22:36:08Z",
+      "observed_utc": "2026-10-13T23:15:49.672057+00:00"
+    },
+    {
+      "number": 209,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/209",
       "state": "open",
       "merged": false,
       "draft": false,
-      "head": "0e3d53f49c81afd84baa00c4368639d152e638b3",
-      "head_ref": "codex/network-core-publish-24",
-      "base": "codex/network-core-publish-22",
-      "base_sha": "67b21b1cb54301b4a5810b2d3be48021e2b7a775",
-      "mergeable_state": "clean"
+      "head": "8d0b64d14384b1329b54be5b4777d88b4a5b3f2e",
+      "head_ref": "codex/network-core-original-ack-20261013",
+      "base": "main",
+      "base_sha": "48febb538333b161fabe86135c0b8319429ab644",
+      "merge_commit_sha": "2d505ab8304d48f5614dbd51485321a46db4cdec",
+      "merged_at": null,
+      "observed_utc": "2026-10-13T23:15:49.672057+00:00"
+    },
+    {
+      "number": 210,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/210",
+      "state": "open",
+      "merged": false,
+      "draft": false,
+      "head": "4ab2f284f79103ef99e7b3df1de8c1d1101eab16",
+      "head_ref": "codex/network-core-ordinary-probe-cost-main-20261013",
+      "base": "main",
+      "base_sha": "dbe5d67f2142981e103b858cf82981696b5c1bb6",
+      "merge_commit_sha": "c59c120643777d72d5a8201501103b5afa630d7e",
+      "merged_at": null,
+      "observed_utc": "2026-10-13T23:15:49.672057+00:00"
+    },
+    {
+      "number": 211,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/211",
+      "state": "open",
+      "merged": false,
+      "draft": false,
+      "head": "1d357087271397b10e53ebf4d7fc521beba89286",
+      "head_ref": "codex/network-core-linux-recovery-evidence-20261013",
+      "base": "main",
+      "base_sha": "dbe5d67f2142981e103b858cf82981696b5c1bb6",
+      "merge_commit_sha": "23b3f5cd59fc4d7bb920375753b587de921c3c54",
+      "merged_at": null,
+      "observed_utc": "2026-10-13T23:15:49.672057+00:00"
     }
   ],
   "task_counts": {
     "完成": 2,
-    "进行中": 9,
-    "待启动": 4,
-    "条件候选": 7
+    "进行中": 11,
+    "条件候选": 7,
+    "待启动": 2
   },
   "tasks": [
     {
@@ -111,7 +182,7 @@
     {
       "id": "B-01",
       "status": "进行中",
-      "status_detail": "PR209 fix8d0b64d pushed after50focused/2413workspace/247isolated/full12/4actualnegatives/restored8; fresh17CIstarted, notadopted. B01workerloss4negativesrunning after11crateclean; Managed7nativepending.",
+      "status_detail": "PR209原8d真实Direct/Relay失败保留；非对称46923b61两精确及R00最小guard0b01d67实际反例→正控通过。组合0632146首组22通过/1失败/1未跑，失败为失效后新请求未进入echo捕获，14/14清理通过；正在诊断，未推送采用。B01/C02组合及Managed仍待原生组合验收。",
       "dependencies": [],
       "next_action": "先交付 #202–#207；补最终 current-owner/once、S3C、故障后 fresh REQUEST→远端当前 REQUEST→匹配 ACK；完整 canonical pipeline、真实 partial/worker loss、C06/C11",
       "acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
@@ -121,7 +192,7 @@
     {
       "id": "B-02A",
       "status": "进行中",
-      "status_detail": "Current PR208 a7cd902 actual Linux kernelTUN32/32 and11groups/22handles cleanup accepted; all64sealentries verified. Full17-runCI pending, APIsteps empty but original logs/artifact present. Fullcanonical/public scope remains unknown.",
+      "status_detail": "PR208 a7cd902 ordinarily merged dbe5d67 after full17CI/18gates/87pass2skip and same-head realLinuxTUN32/32 with11groups/22handles cleanup. Fullcanonical/public/device scope remains unverified.",
       "dependencies": [
         "B-01"
       ],
@@ -134,7 +205,7 @@
     {
       "id": "B-02B",
       "status": "进行中",
-      "status_detail": "Current PR208 a7cd902 actualpolicyjob confirms Java24/Bedrock53/contracts23/runner28 and4zeroaudit reports; currentCI fullpending, no actualworld acceptance.",
+      "status_detail": "PR208 adopted after fullCI; same-head Java24/Bedrock53/contracts23/runner28 and4zeroaudit reports accepted. No actual Minecraft world/TPS/MSPT/GC or workload performance acceptance.",
       "dependencies": [
         "B-01",
         "B-02A"
@@ -148,7 +219,7 @@
     {
       "id": "B-03",
       "status": "进行中",
-      "status_detail": "Full11 local checks passed:23 focused,2350 workspace,247 isolated,NAT92,quality95,3 original ignored; two actual observation-hook negatives plus restored23 passed. Clean local commit8a4dfc7379080efd4dcf082b48e5188fb44ea651. Not yet pushed/CI/adopted; whole-pipeline and overhead gaps remain.",
+      "status_detail": "Old23/full11/2actualneg/restored23 passed at8a. Ordinary no-commit integration of PR2098d staged,73unique combinednative/full notrun; static7pass, notadopted.",
       "dependencies": [
         "B-01"
       ],
@@ -160,7 +231,7 @@
     {
       "id": "N-01",
       "status": "进行中",
-      "status_detail": "Full11 local passed:40 focused,2360 workspace,247 isolated,NAT92,quality95,3 original ignored; three actual negatives and restored positives passed, independent review complete. Pushed PR210 commit e2684e64c65cd1f4f7f4eaddf5b5246bab55885a. Full17-runCI/18gates in progress; adoption pending.",
+      "status_detail": "PR210更新HEAD4ab2f284f79103ef99e7b3df1de8c1d1101eab16：普通整合main208及两文件门禁查询优化；组合40重点+13终态/2360工作区3原ignored/253隔离/NAT92/quality108/完整12检查通过；新17 CI正在运行，未采用。",
       "dependencies": [
         "B-01",
         "B-03"
@@ -174,7 +245,7 @@
     {
       "id": "N-02",
       "status": "进行中",
-      "status_detail": "Independent2-file HH20ms anchor candidate based on N01e268 frozen, static6pass; native9 and6+6fixedcold A/B unrun, independentreview pending, notadopted.",
+      "status_detail": "候选ee36计时正反例/完整11通过；固定12轮实际各2有效+4栈溢出，全回收、零重试。保留八份匹配崩溃报告；C模拟拦截层栈占用修复3ce672d已通过真实旧C失败/新C正控、双Python及四门禁，实际daemon新矩阵与CI未验，无因果收益/采用结论。",
       "dependencies": [
         "N-01"
       ],
@@ -186,8 +257,8 @@
     },
     {
       "id": "N-03",
-      "status": "待启动",
-      "status_detail": "待启动 / P1",
+      "status": "进行中",
+      "status_detail": "工具修复已本地提交e764bf5ad831bd14c857901af34655a19f06ce3a；Python35+35/quality95/四门禁及原工具反例通过。固定off/2/4×3场景共9冷启动仍未执行，actual usable未知，未采用。",
       "dependencies": [
         "B-01",
         "N-01"
@@ -227,7 +298,7 @@
     {
       "id": "D-03",
       "status": "进行中",
-      "status_detail": "4b actualLinux dispatch artifact11851620319 accepted:baseline32/32,8UDPtimeout+8TCPnot_sent,16freshsuccess,11groups/22handles eachharness; exactrules/FD/networkcleanup. Same dispatched workflow all5jobs inclRequired nowpass. APIsteps=[] gap retained. FullD03/canonical/public/otherplatform/PRadoption incomplete.",
+      "status_detail": "旧4b真实Linux INPUT黑洞/恢复证据及全5CI保留。当前main208+门禁查询组合1d357087271397b10e53ebf4d7fc521beba89286已普通推送，创建PR211；D03 Python74+74原字节、当前四门禁/quality108通过，完整CI/当前Linux产物运行中，未采用。",
       "dependencies": [
         "B-01",
         "B-03"
@@ -255,7 +326,7 @@
     {
       "id": "C-02",
       "status": "进行中",
-      "status_detail": "Actualfirstmiss selector bug fixed with5nativepass. Newidle-app+healthyconsent actualselector candidate onlytestregistration/newleaf staticpassed, nativepending and independentreview ongoing. FullC02scenarios incomplete.",
+      "status_detail": "原0be532f完整11和6精确已验；B01/main208组合f8cc39c静态通过，原25精确未跑。新增单60ms RTT尖峰真实nonce ACK测试已冻结且静态通过，原生待跑；业务无ACK/服务器停顿/本机排队仍未验。",
       "dependencies": [
         "B-02A",
         "B-03"
@@ -282,8 +353,8 @@
     },
     {
       "id": "R-00",
-      "status": "待启动",
-      "status_detail": "待启动 / P1",
+      "status": "进行中",
+      "status_detail": "实际common原reader REQUEST已复现native Echo错误RelayPublication拒绝；最小5生产+2测试修复0b01d67在同exact正控及独立审查通过，原primary外壳与finalACK身份保留。完整canonical native once/替换reader负控正在隔离实现；组合/CI未通过，未采用。",
       "dependencies": [
         "B-01",
         "B-02A",
@@ -357,7 +428,7 @@
     {
       "id": "G-01",
       "status": "进行中",
-      "status_detail": "Original24batches adopted. PR208 currentLinux32/32 accepted, full17CI pending. PR209 old5c fullCI failed; stagedfix2 exact50/Clippy passed and workspace running; negativespending. N01PR210 fullCI running. D03manual5jobs passed, no fullPRadoption. First failures preserved.",
+      "status_detail": "原24批及#208已完整CI后普通采用。#209新组合本地实际失败正在修复；#2104ab/#2111d当前17CI进行中。#210 Ubuntu Rekey在checkout阶段超原30m取消，未执行Rust；日志404缺口及原作业保留，同源未扩预算重跑失败作业。仅本机/GitHubCI。",
       "dependencies": [],
       "next_action": "贯穿所有任务，当前先完成五个 pending 产品 PR",
       "acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
@@ -544,7 +615,7 @@
       "fixed-version Minecraft server and interactive clients",
       "deployment/canary target and rollback exercise"
     ],
-    "updated_UTC": "2026-10-13T22:43:05.851369+00:00",
+    "updated_UTC": "2026-10-13T23:36:40.103607+00:00",
     "missing_acceptance_definitions": {
       "labels": [
         "S3C",
@@ -583,7 +654,7 @@
       ],
       "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
     },
-    "handoff_progress_commit": "00c3d73df1df1e0db2f155a604bec1b4e4fd7e71",
+    "handoff_progress_commit": "bbf1f51",
     "parallel_preparation": {
       "B-02B.tool_contract": {
         "UTC": "2026-10-13T14:46:18.121210+00:00",
@@ -1068,9 +1139,9 @@
     },
     "task_counts_current": {
       "完成": 2,
-      "进行中": 10,
-      "待启动": 3,
-      "条件候选": 7
+      "进行中": 11,
+      "条件候选": 7,
+      "待启动": 2
     },
     "pr203": {
       "status": "accepted_and_ordinary_merged",
@@ -1109,11 +1180,17 @@
       }
     },
     "product_batch_counts_current": {
-      "published": 26,
-      "ordinary_merged": 24,
-      "pending": 2,
+      "published": 28,
+      "ordinary_merged": 25,
+      "pending": 3,
       "original24_all_merged": true,
-      "local_candidates_are_published_batches": false
+      "post_handoff_PRs": [
+        208,
+        209,
+        210,
+        211
+      ],
+      "handoff_checkpoint_is_product_batch": false
     },
     "pr204": {
       "status": "accepted_and_ordinary_merged",
@@ -1507,7 +1584,7 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
-        "current_detail": "PR2098d currentCI includes a fresh actual Direct cold-start topology failure under audit plus distinct API failures. Worker-loss11d6676 local full11/4acceptedactualneg/restored6passed. Managed57nativepending."
+        "current_detail": "PR209原8d真实Direct/Relay失败保留；非对称46923b61两精确及R00最小guard0b01d67实际反例→正控通过。组合0632146首组22通过/1失败/1未跑，失败为失效后新请求未进入echo捕获，14/14清理通过；正在诊断，未推送采用。B01/C02组合及Managed仍待原生组合验收。"
       },
       "B-02A": {
         "status": "进行中",
@@ -1531,19 +1608,19 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "计划与实际发送可核对；过期、预算、限流、未发送、发送不确定分开；公网结论有实际样本",
-        "current_detail": "PR210 e268 old full17CI completed but external API chain failed; all actual dependency suites passed. Now ordinary local merge newmain dbe5d67 staged without conflicts; gate query helper optimization pending combination/fullvalidation. Notadopted."
+        "current_detail": "PR210更新HEAD4ab2f284f79103ef99e7b3df1de8c1d1101eab16：普通整合main208及两文件门禁查询优化；组合40重点+13终态/2360工作区3原ignored/253隔离/NAT92/quality108/完整12检查通过；新17 CI正在运行，未采用。"
       },
       "N-02": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "规律/跳号/随机映射、冷/热/背景分层；可复现收益或不采纳结论",
-        "current_detail": "Nine actual exact tests and two actual timer mutants passed; all2sources restored; restored9/full11 running. No fixed6/6coldAB or performance adoption yet."
+        "current_detail": "候选ee36计时正反例/完整11通过；固定12轮实际各2有效+4栈溢出，全回收、零重试。保留八份匹配崩溃报告；C模拟拦截层栈占用修复3ce672d已通过真实旧C失败/新C正控、双Python及四门禁，实际daemon新矩阵与CI未验，无因果收益/采用结论。"
       },
       "N-03": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "保持平台 cap、全进程预算、deadline；requested/attached/usable、竞争、清理/映射副作用完整",
-        "current_detail": "Minimal matrix SOCKET_POOL passthrough candidate and requested-only manifest implemented; Python3.12/3.14 each35+quality95/fourchecks passed. Native CLI count1 usesoff, not raw1; fixedoff/2/4 ninecold preregistered, allnotrun; actual usableunknown."
+        "current_detail": "工具修复已本地提交e764bf5ad831bd14c857901af34655a19f06ce3a；Python35+35/quality95/四门禁及原工具反例通过。固定off/2/4×3场景共9冷启动仍未执行，actual usable未知，未采用。"
       },
       "D-01": {
         "status": "条件候选",
@@ -1561,7 +1638,7 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Linux/macOS/Windows/Android 真实 TUN/TCP、切路/黑洞/EMSGSIZE/PTB/预算变化；不错误降级健康或超预算发包",
-        "current_detail": "4b actualLinux dispatch artifact11851620319 accepted:baseline32/32,8UDPtimeout+8TCPnot_sent,16freshsuccess,11groups/22handles eachharness; exactrules/FD/networkcleanup. Same dispatched workflow all5jobs inclRequired nowpass. APIsteps=[] gap retained. FullD03/canonical/public/otherplatform/PRadoption incomplete."
+        "current_detail": "旧4b真实Linux INPUT黑洞/恢复证据及全5CI保留。当前main208+门禁查询组合1d357087271397b10e53ebf4d7fc521beba89286已普通推送，创建PR211；D03 Python74+74原字节、当前四门禁/quality108通过，完整CI/当前Linux产物运行中，未采用。"
       },
       "C-01": {
         "status": "待启动",
@@ -1573,7 +1650,7 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "空闲、UDP 无 ACK、单尖峰、服务器卡顿、本机排队不误判路径失活",
-        "current_detail": "Localcommit0be532f after focused6/full11:2342workspace/247isolated/NAT92/quality95; first idle build type mismatch retained and fixed one type. First/second miss and idle scope only; no CI/adoption/fullscenario claim."
+        "current_detail": "原0be532f完整11和6精确已验；B01/main208组合f8cc39c静态通过，原25精确未跑。新增单60ms RTT尖峰真实nonce ACK测试已冻结且静态通过，原生待跑；业务无ACK/服务器停顿/本机排队仍未验。"
       },
       "C-03": {
         "status": "待启动",
@@ -1582,10 +1659,10 @@
         "current_detail": "待启动 / P1"
       },
       "R-00": {
-        "status": "待启动",
+        "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "双端同 Relay rendezvous、验证/续期/撤权保持，有业务证据才改选择机制",
-        "current_detail": "待启动 / P1"
+        "current_detail": "实际common原reader REQUEST已复现native Echo错误RelayPublication拒绝；最小5生产+2测试修复0b01d67在同exact正控及独立审查通过，原primary外壳与finalACK身份保留。完整canonical native once/替换reader负控正在隔离实现；组合/CI未通过，未采用。"
       },
       "R-01": {
         "status": "条件候选",
@@ -1621,10 +1698,10 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
-        "current_detail": "Original24batches plus PR208 adopted with completeCI/source/artifact/ordinarymerge verification. PR2098d fresh business failures distinct from API failures under audit. N01 integrating acceptednewmain; D03manual5passed but fullPRadoption pending. Only local/GHCI; all prior failures retained."
+        "current_detail": "原24批及#208已完整CI后普通采用。#209新组合本地实际失败正在修复；#2104ab/#2111d当前17CI进行中。#210 Ubuntu Rekey在checkout阶段超原30m取消，未执行Rust；日志404缺口及原作业保留，同源未扩预算重跑失败作业。仅本机/GitHubCI。"
       }
     },
-    "latest_observation_utc": "2026-10-13T22:43:05.851369+00:00",
+    "latest_observation_utc": "2026-10-13T23:36:40.103607+00:00",
     "pr208": {
       "number": 208,
       "url": "https://github.com/yhan-sun/p2wlan/pull/208",
@@ -1902,40 +1979,13 @@
       "current_head_CI_failure_status": "new fullCI in progress; no failure conclusion yet"
     },
     "n01_current": {
-      "utc": "2026-10-13T21:02:39.245068+00:00",
-      "source_freeze": "work/evidence/n01-native-candidate/source-freeze-after-build-repair.json",
-      "patch_sha256": "ddef44e2f877214ff926aa9cbb2e4b7c623fdc5244e8dc06f2785efc7055f173",
-      "focused_initial": 40,
-      "actual_negative_controls": 3,
-      "restored_positive": 40,
-      "negative_evidence": "work/evidence/n01-cancellation-negatives/RESULT.json",
-      "restored_manifest_sha256": "fd0b61c93004fed6b661fd34a8e9c97839f7b573c5c8ceb5fdb8df41555c3d1b",
-      "full_regression": "initial Clippy failed unused old test-only wrapper; minimal cfg(test) fix; new full validation running",
-      "CI": false,
-      "adopted": false,
-      "limitations": "Actual primary/compatibility cost and child cancellation only; returned/retained overlap, unresolved joins unknown, no total-network cost or public NAT conclusion.",
-      "source_freeze_current": "work/evidence/n01-native-candidate/source-freeze-after-clippy-repair.json",
-      "status": "pushed_PR210_full_CI_in_progress",
-      "commit": "e2684e64c65cd1f4f7f4eaddf5b5246bab55885a",
-      "tree": "fc663275b66520b6d7c2d6afb954ccc2ab94f357",
-      "local_evidence": {
-        "full_checks": 11,
-        "focused": 40,
-        "workspace": 2360,
-        "original_ignored": 3,
-        "isolated": 247,
-        "nat": 92,
-        "quality": 95,
-        "actual_negatives": 3
-      },
-      "acceptance": "work/evidence/n01-native-candidate/FINAL-ACCEPTANCE.json",
-      "pushed": true,
-      "PR": 210,
-      "url": "https://github.com/yhan-sun/p2wlan/pull/210",
-      "candidate": "6988459069dfdced46f9bb4e73cdbddc4d76650c",
-      "CI_evidence": "work/evidence/ci-n01-210-e2684e6",
-      "expected_runs": 17,
-      "expected_gates": 18
+      "head": "4ab2f284f79103ef99e7b3df1de8c1d1101eab16",
+      "tree": "5164e71a767c75a5db738ad99a5af60221ac45ca",
+      "main": "dbe5d67f2142981e103b858cf82981696b5c1bb6",
+      "local": "full12passed;40+13focused",
+      "ci_evidence": "work/evidence/ci-n01-210-4ab2f28",
+      "ci": "running",
+      "adopted": false
     },
     "d03_current": {
       "utc": "2026-10-13T20:58:37.089118+00:00",
@@ -2475,6 +2525,415 @@
       ],
       "actual_usable_socket_count": null,
       "adopted": false
+    },
+    "n02_current": {
+      "head": "ee36f299ef7b3eb7935412c6cc38a43d3056874c",
+      "tree": "792215e6f800e1bd030e62d76f3acb0ec62bcfdb",
+      "local_checks": "full11passed;9exact;2actualnegative_controls",
+      "evidence": "work/evidence/n02-wave-full/manifest.json",
+      "ab": "actual12completed;baseline2valid4stackoverflow,candidate2valid4stackoverflow;no retry;pending interpretation;not adopted",
+      "adoption": false
+    },
+    "recovery_health_integration": {
+      "head": "f8cc39cfcf16dd073b12fa0176ee8505e83b0ef7",
+      "tree": "d9c505faaf5427db2727d3d4b2cee91d053ac8c4",
+      "static": "4passed",
+      "native": "combined25+full11pending",
+      "adopted": false
+    },
+    "d03_current_main208": {
+      "head": "1d357087271397b10e53ebf4d7fc521beba89286",
+      "tree": "5370dcca24186541049b50a7f4ecac2a38dca7b1",
+      "checks": "D03 unchanged Python74+74;gate query commit addition required4passed quality108",
+      "ci": "PR211 current full CI running",
+      "adopted": false,
+      "pr": 211
+    },
+    "n02_actual_ab": {
+      "evidence": "work/evidence/n02-wave-ab-fixed-six",
+      "planned_runs": 12,
+      "status": "actual12completed_not_adopted",
+      "first_baseline": "actual stack overflow and exit134;all8processesreaped;not a timing-effect result",
+      "retry_count": 0,
+      "actual_runs": 12,
+      "not_started": 0,
+      "baseline": {
+        "evidence_valid_rounds": 2,
+        "stack_overflow_rounds": 4,
+        "seconds": 181.696
+      },
+      "candidate": {
+        "evidence_valid_rounds": 2,
+        "stack_overflow_rounds": 4,
+        "seconds": 136.889
+      },
+      "cleanup": "all12 all_reaped=true forced=false original owned waits complete",
+      "scope": "Evidence-valid round may use Relay; not equivalent to Direct. Single negative-wrap observation changed Direct to Relay; no causal or benefit conclusion from once-per-scenario samples and eight crashes. Missing costs remain missing.",
+      "audit": "work/evidence/n02-wave-ab-fixed-six/ACTUAL-CLEANUP-IDENTITY-AUDIT.json"
+    },
+    "pr211": {
+      "url": "https://github.com/yhan-sun/p2wlan/pull/211",
+      "head": "1d357087271397b10e53ebf4d7fc521beba89286",
+      "tree": "5370dcca24186541049b50a7f4ecac2a38dca7b1",
+      "base": "dbe5d67f2142981e103b858cf82981696b5c1bb6",
+      "ci": "running",
+      "evidence": "work/evidence/ci-d03-211-1d35708",
+      "adopted": false
+    },
+    "pr209_asymmetric": {
+      "baseline": "8d0b64d14384b1329b54be5b4777d88b4a5b3f2e",
+      "baseline_reproduced": "native-baseline-2 exact1 designated original Echo assert;13/13 joined2ports",
+      "prior_compile_failure_retained": true,
+      "minimal_fix": "46923b61e42ea70891c6993d03355003c8c4e5f0: original positive and revoked/compat/new-canonical two exact tests passed on isolated8d-based source",
+      "new_lane_invalidation_tests": "isolated native-fixed-2 two exact passed; combined0632146 invalidation test failed at sourced REQUEST echo capture;14/14 handles joined,2ports rebound",
+      "full_validation": "combined0632146 first focused group22passed/1failed/1notrun; remaining checks separately running; no full acceptance",
+      "evidence": "work/evidence/pr209-asymmetric-echo-fix",
+      "adopted": false
+    },
+    "pr209_combined": {
+      "head": "063214645caae4ffc32e4c862beeaac1b6a336c8",
+      "tree": "2db9659558dc94bfb7e6ddde8bb4f3988073744f",
+      "components": [
+        "46923b61e42ea70891c6993d03355003c8c4e5f0",
+        "0b01d67082a61a1a44dd94cd53e58f7356cd1544",
+        "dbe5d67f2142981e103b858cf82981696b5c1bb6",
+        "gate-query-only two files from4ab"
+      ],
+      "pushed": false,
+      "adopted": false,
+      "first_full_run": "failed at asymmetric revoked/compat exact after22passed; full13 not completed",
+      "evidence": "work/evidence/pr209-asymmetric-common-main208-full/manifest.json"
+    },
+    "r00_current": {
+      "commit": "0b01d67082a61a1a44dd94cd53e58f7356cd1544",
+      "tree": "ffa448b426490932846bff39a3377c125af41447",
+      "actual_baseline": "native-baseline4 designated RelayPublication rejection after actual common-reader REQUEST;cleanup3/3+4/4+3/3",
+      "actual_fixed": "native-fixed1 same exact passed44ms; independent review passed",
+      "scope": "only native Echo member lookup uses original immutable reader endpoint; outer primary envelope/finalACK/old assertions unchanged",
+      "earlier_failures": [
+        "baseline2 cleanup TUN closed",
+        "baseline3 request parser wrong test ports"
+      ],
+      "remaining": "common canonical Full/read/native once and replaced-reader tests implementing, not run",
+      "evidence": "work/evidence/r00-common-origin",
+      "adopted": false
+    },
+    "nat_shim_stack_current": {
+      "commit": "3ce672d63e4a43360da63aeb58199e7eb3fe0204",
+      "tree": "32fb8438d0d47e7351b5f64cd10487498b14828d",
+      "baseline": "old C actual bounded helper worker SIGBUS-10; child reaped; no join claim",
+      "fixed": "original sendto via header+2iov, bounded heap sendmsg frame; both Python versions focused and required checks total8 passed, quality108; independent review passed",
+      "diagnostic_only": "broader Nat314 passed but source changed during run; not accepted as final-source validation",
+      "remaining": "actual daemon matrix, full CI and adoption pending; no N02 benefit conclusion",
+      "evidence": "work/evidence/nat-shim-stack-final/manifest.json",
+      "adopted": false
+    },
+    "c02_single_spike": {
+      "source_base": "f8cc39cfcf16dd073b12fa0176ee8505e83b0ef7",
+      "status": "one uncommitted test leaf frozen; real original nonce Probe ACK delay60ms; original500mswait/2send/work_end preserved; static checks passed; native not run",
+      "source_sha256": "d8f8653ec3af96ee711e81aca41e4a1dadfbc35d3e6c10f65b8a90f578250b5b",
+      "evidence": "work/evidence/c02-single-spike",
+      "adopted": false
+    },
+    "n01_latest_CI_snapshot": {
+      "timestamp_utc": "20261013T233611Z",
+      "head_sha": "4ab2f284f79103ef99e7b3df1de8c1d1101eab16",
+      "all_workflows_completed": false,
+      "all_workflows_successful": false,
+      "failed_jobs": [],
+      "runs": [
+        {
+          "id": 38481255916,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38481255856,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38481255907,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38481255805,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38481255888,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38481255964,
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 38481255909,
+          "attempt": 1,
+          "status": "in_progress",
+          "conclusion": null
+        },
+        {
+          "id": 38481255947,
+          "attempt": 1,
+          "status": "in_progress",
+          "conclusion": null
+        },
+        {
+          "id": 38481255814,
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 38481255883,
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 38481255981,
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 38481255925,
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 38481255975,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38481255927,
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 38481255980,
+          "attempt": 2,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38481255943,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38481251454,
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "d03_latest_CI_snapshot": {
+      "timestamp_utc": "20261013T233531Z",
+      "head_sha": "1d357087271397b10e53ebf4d7fc521beba89286",
+      "all_workflows_completed": false,
+      "all_workflows_successful": false,
+      "failed_jobs": [],
+      "runs": [
+        {
+          "id": 38482887261,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38482887330,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38482887259,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38482887288,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38482887395,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38482887215,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38482887213,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38482887270,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38482887267,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38482887287,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38482887352,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        },
+        {
+          "id": 38482887234,
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 38482887331,
+          "attempt": 1,
+          "status": "in_progress",
+          "conclusion": null
+        },
+        {
+          "id": 38482887339,
+          "attempt": 1,
+          "status": "in_progress",
+          "conclusion": null
+        },
+        {
+          "id": 38482887609,
+          "attempt": 1,
+          "status": "in_progress",
+          "conclusion": null
+        },
+        {
+          "id": 38482887310,
+          "attempt": 1,
+          "status": "in_progress",
+          "conclusion": null
+        },
+        {
+          "id": 38482838635,
+          "attempt": 1,
+          "status": "queued",
+          "conclusion": null
+        }
+      ]
     }
+  },
+  "original_handoff_snapshot": {
+    "product_batch_counts": {
+      "published": 24,
+      "ordinary_merged": 19,
+      "pending": 5,
+      "handoff_checkpoint_is_product_batch": false
+    },
+    "pending_PR_order": [
+      202,
+      203,
+      204,
+      205,
+      207
+    ],
+    "PR_snapshots": [
+      {
+        "number": 202,
+        "url": "https://github.com/yhan-sun/p2wlan/pull/202",
+        "state": "open",
+        "merged": false,
+        "draft": false,
+        "head": "d2df1627952191fe3d535d64ad6249723e1ba404",
+        "head_ref": "codex/network-core-publish-19",
+        "base": "main",
+        "base_sha": "4bd3037b4d37780cb937d4bd57b2e2bc019ebb06",
+        "mergeable_state": "unstable"
+      },
+      {
+        "number": 203,
+        "url": "https://github.com/yhan-sun/p2wlan/pull/203",
+        "state": "open",
+        "merged": false,
+        "draft": false,
+        "head": "5c65a4304b678a0a8cdf5090f10d431d467de2fa",
+        "head_ref": "codex/network-core-publish-20",
+        "base": "codex/network-core-publish-19",
+        "base_sha": "d48e1756a5d567c395b39a03ee673091bbc5565e",
+        "mergeable_state": "clean"
+      },
+      {
+        "number": 204,
+        "url": "https://github.com/yhan-sun/p2wlan/pull/204",
+        "state": "open",
+        "merged": false,
+        "draft": false,
+        "head": "06410c5e1094332974b5697d0662458a6b38e67e",
+        "head_ref": "codex/network-core-publish-21",
+        "base": "codex/network-core-publish-20",
+        "base_sha": "5c65a4304b678a0a8cdf5090f10d431d467de2fa",
+        "mergeable_state": "clean"
+      },
+      {
+        "number": 205,
+        "url": "https://github.com/yhan-sun/p2wlan/pull/205",
+        "state": "open",
+        "merged": false,
+        "draft": false,
+        "head": "67b21b1cb54301b4a5810b2d3be48021e2b7a775",
+        "head_ref": "codex/network-core-publish-22",
+        "base": "codex/network-core-publish-21",
+        "base_sha": "06410c5e1094332974b5697d0662458a6b38e67e",
+        "mergeable_state": "clean"
+      },
+      {
+        "number": 207,
+        "url": "https://github.com/yhan-sun/p2wlan/pull/207",
+        "state": "open",
+        "merged": false,
+        "draft": false,
+        "head": "0e3d53f49c81afd84baa00c4368639d152e638b3",
+        "head_ref": "codex/network-core-publish-24",
+        "base": "codex/network-core-publish-22",
+        "base_sha": "67b21b1cb54301b4a5810b2d3be48021e2b7a775",
+        "mergeable_state": "clean"
+      }
+    ],
+    "remote_main_snapshot": "4937de2de8e8b91492fe3d6e8bd83d5c51faa9ad"
   }
 }
