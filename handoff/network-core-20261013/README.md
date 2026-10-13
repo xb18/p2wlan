@@ -1,6 +1,6 @@
 # 网络核心移交包
 
-原始检查点说明保留如下；当前状态以 PROGRESS.json.continuation.task_status_current 和报告第九节为准。#202/#203/#204/#205/#207已按顺序完整CI并普通合并，main为`48febb538333b161fabe86135c0b8319429ab644`。新增应用采证工具PR208（HEAD bf14f5a）同HEAD CI待验；原B19补丁不再重放。#203/#204旧本机汇总的共享缓存污染声明已纠正，独立CI仍有效。
+原始检查点说明保留如下；当前以报告第九节与PROGRESS.json.continuation为准。#202/#203/#204/#205/#207已按顺序完整CI并普通合并，main48febb。PR208修复HEAD7e55887的新CI待验；B25–B28已本地完整验收并普通整合main至5c790eb，但未推送/采用；B03/N01和D03新故障采证继续验证。原B19补丁不再重放；原失败和本机缓存证据纠正均保留。后续子代理统一GPT-6.1 Sol ultra，仅本机和GitHubCI。
 
 本包对应产品源码检查点 d2df1627952191fe3d535d64ad6249723e1ba404。分支 codex/network-core-handoff-20261013 用于保存可移植交接资料。
 

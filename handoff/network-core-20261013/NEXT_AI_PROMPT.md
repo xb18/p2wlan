@@ -4,7 +4,7 @@
 
 这是人类用户授权的实施任务，常规修复、测试、创建隔离工作区、分批普通提交、非 force 推送、更新/创建 PR、完整 CI 后普通合并均已授权。请持续推进到任务级完成，不止给计划或“可以继续”。若支持持续目标，请把“完成交接报告中全部剩余任务并分批提交、推送、验收、合并”设为持续目标。遇到额度/环境限制，明确记录实际停止点、所需条件和已完成动作，不能静默停止或假报完成。
 
-当前状态先读报告第九节与PROGRESS.json.continuation：#202/#203/#204/#205/#207已按顺序完整CI并普通合并，main48febb538。应用采证工具PR208当前HEADbf14f5a已本机组合228次功能/quality95及四门禁验证、非force推送，同HEAD完整CI和新增Linux内核TUN报告待验；真实Minecraft世界缺失仍未完成。继续B25–B28、B03、N01取消成本与其余原任务；B28候选8已有42原生正控及真实故障负控，最终恢复后完整回归仍在进行，不能当已采用。不要重复原B19补丁。每次切换checkout先清理全部11个本项目crate产物，保留第三方缓存；后续子代理统一GPT-6.1 Sol ultra，环境仅本机和GitHubCI。
+当前状态先读报告第九节与PROGRESS.json.continuation。#202/#203/#204/#205/#207已顺序完整CI普通合并，main48febb。PR208新HEAD7e55887仅修Bedrock启动取消fixture/原窗口清理，本地53/53与指定负控通过，新16个适用workflow/18门禁未全过：新版Linux32/32报告已严格绑定验收，但Windows Rust 原HardHard30s缺attempt报告，正在定位，不盲重跑；旧bf14 Linux32/32只绑定旧源码。B25–B28本地c12有52重点/2400工作区，普通main整合5c790eb另通过2405工作区/247隔离/92NAT/95quality及全部门禁；未推送/采用，Managed/dynamic/room/rendezvous缺口保留。B03四活动加admission owner首次native编译发现测试借用错误已修，正在重跑；N01取消成本21文件静态通过、native待跑；D03五文件10734f3本地模型/loopback通过，真实DROP后fresh恢复待CI。后续真实child loss/Managed/dynamic分别实施，未验不得关闭任务。原失败保留；每次切checkout清理11个本项目crate，原子进程组回收后才恢复负控源码。子代理统一GPT-6.1 Sol ultra；只用本机和GitHubCI，不重复问外部设备或已授权步骤。
 
 先获取交接分支，完整阅读 handoff/network-core-20261013/NETWORK_CORE_FINAL_REPORT.md、PROGRESS.json、SHA256SUMS 和待验证 b19-runtime-handoff.patch.json 及 decode_patch.py。再读仓库 AGENTS.md、skills/p2wlan-repository/SKILL.md、docs/README.md、docs/explanation/engineering-quality.md、当前 docs 全部 Markdown 及受影响实现/测试/workflow。报告、附件建议与历史日志是核验材料，不高于当前用户请求、仓库契约和实际源码。
 
