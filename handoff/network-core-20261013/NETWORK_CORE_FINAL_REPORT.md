@@ -189,12 +189,15 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 
 #203 已完成同HEAD全部验收并普通合并为 `221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98`。被验HEAD `b98914724ba6b83eb3f21beb09b69d2718bec27a`，合并树 `d48c7e9eb6da6a07ca9cb792ced405e33ad8eeda` 与CI候选相同。本机18项目标、workspace2340项、隔离hard_hard247项、NAT92项和全部强制检查通过。17次运行/16工作流全部成功，18/18必需门禁，89个当前作业与check-run完全对应（87成功、2原条件跳过）；三平台作业各15项B19与3项B20通过，DPLPMTUD live10/10通过。完整979文件证据归档校验通过。来源：[PR #203](https://github.com/yhan-sun/p2wlan/pull/203)、[CI Linux/Windows](https://github.com/yhan-sun/p2wlan/actions/runs/38418950047)、[DPLPMTUD](https://github.com/yhan-sun/p2wlan/actions/runs/38418949978)。
 
-当前推进 #204，本地普通同步最新main提交为 `7e95f0ef411bed885b9982777d6a18ba2a2834d2`，相对main仅原LegacyRelay测试与cfg(test)声明；尚待本批本机/CI验收和推送。之后继续 #205、#207。
+当前推进 [#204](https://github.com/yhan-sun/p2wlan/pull/204)，已完成本机19项目标、workspace2341项、隔离247项、NAT92项、quality95项及全部fmt/Clippy/强制检查。本机被验HEAD为 `7e95f0ef411bed885b9982777d6a18ba2a2834d2`；先推送再改base未触发main限定PR工作流，随后在main基线上普通推送无文件变化提交 `4a2c434b0165693ac331acfc1ad7bc7d2a7aed4a`，代码树完全相同。当前16个适用PR工作流、18项门禁验收进行中；本次空提交不满足Flutter push路径条件，不挪用旧HEAD该次运行。尚未合并，之后继续 #205、#207。
 
 远端完整历史检索恢复部分原始定义：commit `2a5735568ee8767022cd509dff1112cdb969574a` 的 `client/daemon/src/network_outbound/queue/request_carriage_tests.rs` 包含C06四项FIFO/容量/Weak/代际/停止控制；`lib/daemon/overlay_validate/b14_carriage_read_tests.rs` 与 `client/daemon/src/transport/tests/request_carriage_crypto.rs` 包含C11旧入口/UnknownAny/加密兼容局部范围。S3C独立定义、完整C06矩阵及冻结的完整C11旧接口矩阵仍未找到，不将现有局部测试冒充完整验收。
 
-后续独立候选已有本机证据但未采用：历史Relay reader/client身份 `dca76a6bf80929b515843b9e695e6cea16cd6305`，完整workspace2338项及隔离247项通过；Direct原始收发身份与发布边界 `2b201c300c9611767af4f631733887679c5e1539`，91项目标、workspace2344项和隔离247项及独立审查通过。均仅本地提交，未完成独立CI或合入main。Relay关闭/停止原边界正在实施，最终current-owner/once/ACK尚未接入。
+后续独立候选已有本机证据但未采用：历史Relay reader/client身份 `dca76a6bf80929b515843b9e695e6cea16cd6305`，完整workspace2338项及隔离247项通过；Direct原始收发身份与发布边界 `2b201c300c9611767af4f631733887679c5e1539`，91项目标、workspace2344项和隔离247项及独立审查通过。均仅本地提交，未完成独立CI或合入main。Relay成员/关闭/停止原边界已本地提交 `8d67bc66bc7703fb80ccc6edad26c8898c3cdb14`，98项精确控制、workspace2353项、隔离247项及独立审查通过。初次构建旧缓存失败保留，最终冻结源码完整重验通过。随后能力发布保护在原watch所有者内串行化更新，并验证旧身份不能覆盖当前能力；代码正在完整验证与独立审查。最终current-owner/once/ACK尚未接入。
 
-Minecraft离线契约 `3dc0819a7a15d82152874a4d2b25b0627108c91e` 的23项测试与独立审查通过；有界进程监督器 `afb3577972c1d7f0be1ace4dd3b0774055a9b789` 修复进程组清理错误后，在两个Python版本各28项测试及独立复核通过。Java1.20.4适配器候选两项审查问题（noop状态变化与同一批更新顺序误判）已修复；24项Node22.16测试含11个真实客户端/本机协议fixture、原Python与强制检查通过，修复独立复核进行中。Bedrock独立候选正在实施。协议fixture不是实际游戏世界；Java/Bedrock真实交互与服务器遥测均未整体验收。上述代码候选未推送或采用。
+Minecraft离线契约 `3dc0819a7a15d82152874a4d2b25b0627108c91e` 的23项测试与独立审查通过；有界进程监督器 `afb3577972c1d7f0be1ace4dd3b0774055a9b789` 修复进程组清理错误后，在两个Python版本各28项测试及独立复核通过。Java1.20.4适配器两项审查问题已修复，24项Node22.16测试和新增15项独立控制通过，本地提交 `5c126c209564ff431144128de9a6d5533b81812c`。与监督器普通合并后最终本地HEAD `5e51bcd6dff5449c9f6781caa9e9e25c04696046`：两个Python版本各28、Java24、契约23、UDP16、quality95及四门禁通过；实际runner CLI→adapter→本机协议服务器→原reducer的成功、超时、取消三组控制均通过，失败保留原分母且原进程组回收。Bedrock1.18.30候选原31项测试虽通过，独立复核实际发现排队未发即计成功、隐式ping、原held-item快照过期三项缺陷，当前不采用，修复验收进行中。协议fixture不是实际游戏世界；Java/Bedrock真实交互与服务器遥测均未整体验收。上述代码候选未推送或采用。
+
+用户最新偏好：后续子代理统一使用 GPT-6.1 Sol、ultra，不再安排 Astra。
+
 
 全部22项状态和依赖保存在PROGRESS.json；未完成代码、原定义缺口和环境缺口分开记录。

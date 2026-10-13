@@ -134,7 +134,7 @@
     {
       "id": "B-02B",
       "status": "进行中",
-      "status_detail": "离线契约和监督器本地提交已验；Java适配器两项审查问题已修、24项测试通过且修复复核中；Bedrock独立候选实施中；真实游戏未验",
+      "status_detail": "契约与监督器本地已验；Java修复独立复核通过并本地提交，组合验收中；Bedrock候选发现三项实际缺陷待修；真实游戏未验",
       "dependencies": [
         "B-01",
         "B-02A"
@@ -534,7 +534,7 @@
       "fixed-version Minecraft server and interactive clients",
       "deployment/canary target and rollback exercise"
     ],
-    "updated_UTC": "2026-10-13T16:06:07.259991+00:00",
+    "updated_UTC": "2026-10-13T16:36:16.129338+00:00",
     "missing_acceptance_definitions": {
       "labels": [
         "S3C",
@@ -573,7 +573,7 @@
       ],
       "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
     },
-    "handoff_progress_commit": "45c342929a503655ef330e34c1ddc8cffdb84686",
+    "handoff_progress_commit": "5abee6a9a9026aa42a4984282540fcf09d64dfa5",
     "parallel_preparation": {
       "B-02B.tool_contract": {
         "UTC": "2026-10-13T14:46:18.121210+00:00",
@@ -613,7 +613,7 @@
         "CI": false
       },
       "B-02B.java_adapter": {
-        "status": "two_P2_fixed_24_Node22_tests_and_all_mandatory_passed_independent_fix_review_running",
+        "status": "local_commit_reviewed_tested_not_published",
         "supported_candidate_edition_version": "Java 1.20.4 only",
         "actual_game_environment_tested": false,
         "evidence_scope": "actual Mineflayer client and local protocol server; no genuine game world/physical TUN/public NAT acceptance",
@@ -623,7 +623,12 @@
           "no-op transition validation",
           "same raw multi-block frame ordering"
         ],
-        "native_protocol_fixture_cases": 11
+        "native_protocol_fixture_cases": 11,
+        "commit": "5c126c209564ff431144128de9a6d5533b81812c",
+        "tree": "534df1667c1d8f3ac3a7363e836e6c6b44ca5fc1",
+        "independent_review": "24 original tests plus 15 review controls passed; no actionable issues after fixes",
+        "integration": "Ordinary local merge with runner and combined validation in progress",
+        "commit_evidence": "work/evidence/b02b-java-commit-binding.json"
       },
       "B-01.direct_original_facts": {
         "status": "local_committed_full_validation_and_review_passed",
@@ -660,6 +665,75 @@
           "capture export and instrumentation overhead"
         ],
         "existing_12_vec_and_6_local_subitems_preserved": true
+      },
+      "B-01.relay_lifecycle": {
+        "status": "local_commit_full_validation_review_passed_not_published",
+        "base": "2b201c300c9611767af4f631733887679c5e1539",
+        "targeted_unique": 98,
+        "related_clippy_and_four_mandatory": true,
+        "full_workspace": false,
+        "final_credit_connected": false,
+        "committed": false,
+        "adopted": false,
+        "review": "work/evidence/b27-review-sol/README.md",
+        "full_validation": {
+          "workspace": 2353,
+          "original_ignored": 3,
+          "isolated_hard_hard": 247,
+          "NAT": 92,
+          "quality": 95,
+          "focused_unique": 98,
+          "all_mandatory_fmt_clippy": "passed",
+          "evidence": "work/evidence/b27-full-final/manifest.json"
+        },
+        "preserved_failure": "work/evidence/b27-full: initial staging path typo and isolated Cargo build stale relay symbols; package cache rebuilt, final staged-source validation running",
+        "commit": "8d67bc66bc7703fb80ccc6edad26c8898c3cdb14",
+        "tree": "2765d52c2533e72d295982dc0e385e7273997e38",
+        "binding": "work/evidence/b27-commit-binding.json"
+      },
+      "B-02B.bedrock_adapter": {
+        "status": "candidate_rejected_pending_three_review_fixes",
+        "candidate_version": "1.18.30 protocol503 RakNet10",
+        "original_tests": 31,
+        "review_evidence": "work/evidence/b02b-bedrock-review-sol",
+        "findings": [
+          "P1 queued rather than physically sent encrypted packet can receive false success",
+          "P2 startup sends unintended unconnected ping",
+          "P2 final send permits changed original held-item snapshot"
+        ],
+        "adopted": false,
+        "real_game_world_validated": false
+      },
+      "B-01.capability_publication": {
+        "status": "implementation_under_test",
+        "base": "8d67bc66bc7703fb80ccc6edad26c8898c3cdb14",
+        "scope": "Original watch-map RMW serialized; stale membership publication rejected; final staged lookup can return Contended without waiting on a watch writer. No final ACK credit yet.",
+        "adopted": false
+      },
+      "B-02B.java_runner_integration": {
+        "status": "local_merge_tested_frozen_not_published",
+        "head": "5e51bcd6dff5449c9f6781caa9e9e25c04696046",
+        "tree": "71b39c21b1d1d2642f47bc3da999bdaa8ad79057",
+        "ordinary_merge": "ca8f58057844c2aef699e91a462db0a14c72a063",
+        "runner": {
+          "Python3.12.12": 28,
+          "Python3.14.6": 28
+        },
+        "Java_Node22.16": 24,
+        "contract_summary": 23,
+        "UDP": 16,
+        "quality": 95,
+        "mandatory_gates": "passed",
+        "actual_CLI_protocol_controls": [
+          "success2of2",
+          "timeout2of2",
+          "cancelled1_not_started1"
+        ],
+        "cleanup": "adapter and anchor reaped; owned group absent; bounded server cleanup",
+        "evidence": "work/evidence/b02b-java-runner-integration",
+        "sealed_files_root_verified": 147,
+        "adopted": false,
+        "real_world_game_validated": false
       }
     },
     "task_counts_current": {
@@ -708,12 +782,33 @@
       "local_candidates_are_published_batches": false
     },
     "pr204": {
-      "status": "latest_main_ordinary_merge_prepared_local_validation_pending",
-      "head": "7e95f0ef411bed885b9982777d6a18ba2a2834d2",
+      "status": "local_validation_passed_full_CI_running",
+      "head": "4a2c434b0165693ac331acfc1ad7bc7d2a7aed4a",
       "tree": "cf5093bd2e0ceb90848c053d6bc1ba63e2e8e63a",
       "base": "221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98",
-      "pushed": false,
-      "CI": false
+      "pushed": true,
+      "CI": {
+        "status": "running",
+        "evidence": "work/evidence/ci-b21-4a2c434",
+        "prior_head_unaccepted_reason": "Only Flutter push workflow triggered before PR retarget; ordinary same-tree empty commit triggers synchronize on main base. No close/reopen."
+      },
+      "full_local": {
+        "tested_head": "7e95f0ef411bed885b9982777d6a18ba2a2834d2",
+        "identical_tree_to_pushed_head": true,
+        "focused": 19,
+        "workspace": 2341,
+        "original_ignored": 3,
+        "isolated_hard_hard": 247,
+        "NAT": 92,
+        "quality": 95,
+        "all_mandatory_fmt_clippy": "passed",
+        "evidence": "work/evidence/pr204-full/manifest.json"
+      }
+    },
+    "subagent_preference": {
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "ultra",
+      "no_astra": true
     }
   }
 }
