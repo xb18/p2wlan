@@ -175,6 +175,12 @@ pub(super) fn hard_hard_birthday_wave_assignments(
     assignments
 }
 
+pub(super) async fn wait_for_next_hard_hard_birthday_wave(
+    first_wave_started_at: tokio::time::Instant,
+) {
+    tokio::time::sleep_until(first_wave_started_at + HARD_HARD_BIRTHDAY_WAVE_INTERVAL).await;
+}
+
 pub(super) fn hard_hard_fixed_anchor_wave_assignments(
     socket_count: usize,
     anchor: SocketAddr,
@@ -958,6 +964,7 @@ impl UdpTransport {
             .unwrap_or_default();
         let direct_commit_seq_at_start = self.peers.direct_commit_seq_sync(peer_id);
         let pacing = Arc::new(HardHardProbePacer::new());
+        let mut first_wave_started_at = None;
         for wave in 0..birthday.waves_planned {
             if self
                 .peers
@@ -967,8 +974,10 @@ impl UdpTransport {
                 birthday.stop_reason = Some("pair_prepared".to_string());
                 break;
             }
-            if wave > 0 {
-                sleep(HARD_HARD_BIRTHDAY_WAVE_INTERVAL).await;
+            if let Some(started_at) = first_wave_started_at {
+                // The first wave is already joined. Its elapsed work counts
+                // toward this not-before time, never toward a new sweep window.
+                wait_for_next_hard_hard_birthday_wave(started_at).await;
             }
             if wave > 0 {
                 if let Some(reason) = self
@@ -1022,6 +1031,10 @@ impl UdpTransport {
                     .saturating_add(u32::try_from(wave_assigned_count).unwrap_or(u32::MAX));
             });
             let mut workers = JoinSet::new();
+            if wave == 0 {
+                // No await separates this actual first-wave launch from spawn.
+                first_wave_started_at = Some(tokio::time::Instant::now());
+            }
             for (socket_position, socket_index) in
                 effective_socket_indices.iter().copied().enumerate()
             {

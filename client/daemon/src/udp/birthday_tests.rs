@@ -157,6 +157,36 @@ fn birthday_two_waves_retransmit_identical_pairs_without_socket_cartesian_produc
     assert_eq!(hard_hard_birthday_packets_planned(1, 96), 96);
 }
 
+#[tokio::test(start_paused = true)]
+async fn birthday_second_wave_waits_only_remaining_first_launch_interval() {
+    use futures_util::FutureExt;
+
+    let first_wave_started_at = tokio::time::Instant::now();
+    tokio::time::advance(std::time::Duration::from_millis(10)).await;
+    let mut waiting = Box::pin(super::birthday::wait_for_next_hard_hard_birthday_wave(
+        first_wave_started_at,
+    ));
+    assert!(waiting.as_mut().now_or_never().is_none());
+    tokio::time::advance(std::time::Duration::from_millis(9)).await;
+    assert!(waiting.as_mut().now_or_never().is_none());
+    waiting.await;
+    assert_eq!(
+        tokio::time::Instant::now().duration_since(first_wave_started_at),
+        std::time::Duration::from_millis(20),
+    );
+}
+
+#[tokio::test(start_paused = true)]
+async fn birthday_second_wave_adds_no_wait_after_elapsed_first_launch_interval() {
+    let first_wave_started_at = tokio::time::Instant::now();
+    tokio::time::advance(std::time::Duration::from_millis(30)).await;
+    super::birthday::wait_for_next_hard_hard_birthday_wave(first_wave_started_at).await;
+    assert_eq!(
+        tokio::time::Instant::now().duration_since(first_wave_started_at),
+        std::time::Duration::from_millis(30),
+    );
+}
+
 #[test]
 fn fixed_anchor_two_waves_keep_every_socket_on_the_one_remote_anchor() {
     let anchor: SocketAddr = "198.51.100.20:40004".parse().unwrap();
