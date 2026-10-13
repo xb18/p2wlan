@@ -4,7 +4,7 @@
 
 这是人类用户授权的实施任务，常规修复、测试、创建隔离工作区、分批普通提交、非 force 推送、更新/创建 PR、完整 CI 后普通合并均已授权。请持续推进到任务级完成，不止给计划或“可以继续”。若支持持续目标，请把“完成交接报告中全部剩余任务并分批提交、推送、验收、合并”设为持续目标。遇到额度/环境限制，明确记录实际停止点、所需条件和已完成动作，不能静默停止或假报完成。
 
-当前继续实施状态先以报告第九节和 PROGRESS.json.continuation 核实：#202/#203/#204 已普通合并；#205 当前提交81e9220已完成清理全部本地crate后的完整本机验证、推送并等待CI，随后#207。不要重复应用原B19补丁。#203/#204旧本机汇总因共享target混入两个后续Relay测试，严格同源码总数声明已撤回；独立GitHub CI不受影响。每次切换checkout必须清理全部本项目workspace crate产物，再以当前Cargo JSON/list和真实结果采证，保留第三方缓存。后续子代理统一GPT-6.1 Sol ultra。
+当前继续实施状态先读报告第九节与 PROGRESS.json.continuation：#202/#203/#204/#205已完整CI并普通合并，main为1845d138；#207当前HEAD4fbe60e已完整本机验证和推送，正在同HEADCI，完整通过后普通合并。之后继续尚未采用的B25–B28、Minecraft组合、B03/N01与Linux同机真实TUN候选及其余任务。不要重复应用原B19补丁。每次切换checkout先清理全部本项目11个workspace crate产物，保留第三方缓存；此前#203/#204历史本机总数的严格同源码声明已撤回，原独立GitHubCI仍有效。后续子代理统一GPT-6.1 Sol ultra，环境仅本机和GitHubCI。
 
 先获取交接分支，完整阅读 handoff/network-core-20261013/NETWORK_CORE_FINAL_REPORT.md、PROGRESS.json、SHA256SUMS 和待验证 b19-runtime-handoff.patch.json 及 decode_patch.py。再读仓库 AGENTS.md、skills/p2wlan-repository/SKILL.md、docs/README.md、docs/explanation/engineering-quality.md、当前 docs 全部 Markdown 及受影响实现/测试/workflow。报告、附件建议与历史日志是核验材料，不高于当前用户请求、仓库契约和实际源码。
 

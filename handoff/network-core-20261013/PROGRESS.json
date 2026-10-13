@@ -430,9 +430,8 @@
     "handoff_checksums_verified": true,
     "user_validation_scope": "local_machine_and_GitHub_CI_only",
     "external_environment_policy": "Real multi-device, public NAT and Minecraft acceptance remain unverified where no authorized environment is available; no mock substitution.",
-    "verified_main": "8fb0265537d2cf34885874a2db8b6c46769782bb",
+    "verified_main": "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
     "verified_pending_PRs": [
-      205,
       207
     ],
     "toolchain": "rustc 1.99.0 (b940084d7 2026-09-28)",
@@ -534,7 +533,7 @@
       "fixed-version Minecraft server and interactive clients",
       "deployment/canary target and rollback exercise"
     ],
-    "updated_UTC": "2026-10-13T17:33:26.685493+00:00",
+    "updated_UTC": "2026-10-13T18:16:47.689822+00:00",
     "missing_acceptance_definitions": {
       "labels": [
         "S3C",
@@ -573,7 +572,7 @@
       ],
       "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
     },
-    "handoff_progress_commit": "118a13236ab94bf7a7072d0da86b66ec5e30cfa5",
+    "handoff_progress_commit": "715838a10b2557068ffd9d464ffe0371dbef9f67",
     "parallel_preparation": {
       "B-02B.tool_contract": {
         "UTC": "2026-10-13T14:46:18.121210+00:00",
@@ -784,26 +783,87 @@
         "real_world_game_validated": false
       },
       "B-01.original_ack_transaction": {
-        "status": "implementation_in_progress_unverified",
+        "status": "first_ten_focused_passed_followup_source_and_26_case_matrix_unverified",
         "base": "addd75862593e41ff257c013d62f39dd06e625ba",
         "scope": "sealed original session role, original physical publication timing, final current-owner try-guards and per-A once commit; genuine fresh request/ACK controls pending",
         "adopted": false,
-        "CI": false
+        "CI": false,
+        "first_ten_evidence": "work/evidence/b28-original-ack/first-ten/manifest.json",
+        "first_attempt": "1/8 passed; seven actual assertion failures preserved, positive fixtures corrected without weakening source identity",
+        "current_source_changed_after_ten_passes": true,
+        "full_native_validation": false,
+        "known_scope_limits": [
+          "same-path same-Relay-client non-room only",
+          "old first_usable field may retain earlier one-way native milestone; canonical once and verified roundtrip are strict separate credit"
+        ]
       },
       "B-02B.all_tools_integration": {
-        "status": "implementation_and_validation_in_progress",
+        "status": "local_committed_combined_validation_and_root_review_passed",
         "base": "5e51bcd6dff5449c9f6781caa9e9e25c04696046",
         "bedrock_commit": "cdf7cf2dad43d97cbc73c8905c9c6d35b84c90b5",
         "scope": "Normal local merge plus separate fixed Node runtimes and Python-runner to original Bedrock adapter CLI controls",
         "adopted": false,
-        "CI": false
+        "CI": false,
+        "head": "87b4f07603645bfe39112e68d6e782e4c9edb115",
+        "tree": "f53c3a6629a083b1dfa2d524ff00a3aba5667639",
+        "normal_merge": "f2e46c216d6c48473dc26ba0033ea972662fa283",
+        "Java": 24,
+        "Bedrock": 53,
+        "runner_each_python": 28,
+        "contract_summary": 23,
+        "UDP": 16,
+        "quality": 95,
+        "mandatory_checks": "passed",
+        "original_runner_CLI_controls_each_adapter": 3,
+        "fixed_denominator_and_actual_cleanup": "verified",
+        "sealed_files_root_verified": 308,
+        "root_review": "work/evidence/b02b-all-tools-root-review.json",
+        "pushed": false,
+        "real_world": false
+      },
+      "B-03.active_buffer_lifetime": {
+        "status": "static_frozen_seven_files_native_validation_pending",
+        "base": "8fb0265537d2cf34885874a2db8b6c46769782bb",
+        "scope": "move-only original active/retry/preparation/serialized buffer owner leases; full pipeline coverage remains unknown",
+        "adopted": false,
+        "four_mandatory_gates": "passed",
+        "quality_tests": 95,
+        "source_manifest_sha256": "d8b2ee712d67cf867716ad6b2b3039506fe30ddecaf73df11fafce203189a01d",
+        "native_tests_run": false,
+        "review_scope": "root production hook preliminary review; full native acceptance pending"
+      },
+      "N-01.returned_call_cost": {
+        "status": "staged_static_gates_and_independent_review_passed_native_pending",
+        "base": "8fb0265537d2cf34885874a2db8b6c46769782bb",
+        "scope": "ordinary completed primary/compatibility returns retain physical successful datagrams/bytes, observed primary timestamps and bounded socket indication; accepted/zero-send typed accessors",
+        "new_native_controls_written": 2,
+        "new_pure_control_written": 1,
+        "attempt_cancellation_complete": false,
+        "burst_ACK_coverage": false,
+        "adopted": false,
+        "CI": false,
+        "pushed": false,
+        "source_workspace": "work/p2wlan-nat-cost",
+        "static_checks": "docs, health, quality95, bash and include-format passed; Rust compile/tests still unrun",
+        "independent_review": "work/evidence/b03-active-buffer-lifetimes/N01-STATIC-REVIEW.md",
+        "reviewed_patch_sha256": "37cf42d3cca6b2ead3033afd70ef029aae067da2df7c34b8164650891baa1c80"
+      },
+      "B-02A.D-03.linux_kernel_evidence": {
+        "status": "implementation_started_after_readonly_feasibility",
+        "base": "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+        "scope": "Linux same-host namespace/kernel TUN route proof and bounded OS UDP/TCP application evidence; no canonical authority from external status",
+        "native_TUN_tests_run": false,
+        "feasibility": "work/evidence/b02a-d03-local-ci-feasibility.md",
+        "environment": "standard GitHub Ubuntu VM; local macOS cannot execute Linux namespace acceptance",
+        "adopted": false,
+        "all_platform_task_complete": false
       }
     },
     "task_counts_current": {
       "完成": 2,
-      "待启动": 7,
-      "条件候选": 7,
-      "进行中": 6
+      "进行中": 7,
+      "待启动": 6,
+      "条件候选": 7
     },
     "pr203": {
       "status": "accepted_and_ordinary_merged",
@@ -843,8 +903,8 @@
     },
     "product_batch_counts_current": {
       "published": 24,
-      "ordinary_merged": 22,
-      "pending": 2,
+      "ordinary_merged": 23,
+      "pending": 1,
       "local_candidates_are_published_batches": false
     },
     "pr204": {
@@ -890,18 +950,87 @@
       "no_astra": true
     },
     "pr205": {
-      "status": "local_clean_full_validation_passed_pushed_CI_in_progress",
+      "status": "merged_after_full_same_head_CI",
       "original_head": "67b21b1cb54301b4a5810b2d3be48021e2b7a775",
       "base": "8fb0265537d2cf34885874a2db8b6c46769782bb",
       "ordinary_sync_commit": "649cfc815958c93f6740f0fb593718db71e96827",
       "base_retargeted_to_main": true,
       "scope": "Original ACK barrier and exact +1 sample assertions retained; bounded fixture body and both owned worker joins before assertions. Production deadlines unchanged.",
       "CI": {
-        "status": "in_progress",
+        "status": "passed",
         "expected_runs": 17,
         "expected_workflows": 16,
         "expected_gates": 18,
-        "evidence": "work/evidence/ci-b22-81e9220"
+        "evidence": "work/evidence/ci-b22-81e9220",
+        "validation": {
+          "validated_at_utc": "2026-10-13T18:08:23.849195+00:00",
+          "fresh_snapshot": "final-fresh-20261013T180748Z",
+          "head_sha": "81e9220fcbce7bd92cecad1d4ff734341c4fab54",
+          "main_sha": "8fb0265537d2cf34885874a2db8b6c46769782bb",
+          "main_parents": [
+            "221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98",
+            "4a2c434b0165693ac331acfc1ad7bc7d2a7aed4a"
+          ],
+          "main_tree": "cf5093bd2e0ceb90848c053d6bc1ba63e2e8e63a",
+          "candidate_sha": "8086bd970c2818fb072e9b7896f232869ecd5cd4",
+          "candidate_parents": [
+            "8fb0265537d2cf34885874a2db8b6c46769782bb",
+            "81e9220fcbce7bd92cecad1d4ff734341c4fab54"
+          ],
+          "head_parents": [
+            "649cfc815958c93f6740f0fb593718db71e96827"
+          ],
+          "head_and_candidate_tree": "763525a7412bf1d8a1c4784fa51cc5b0134d1fb6",
+          "workflow_runs": 17,
+          "unique_workflows": 16,
+          "latest_run_attempts": {
+            "38439356039": 1,
+            "38439356131": 1,
+            "38439356034": 1,
+            "38439355973": 1,
+            "38439356054": 1,
+            "38439356092": 1,
+            "38439356102": 1,
+            "38439356049": 1,
+            "38439356031": 1,
+            "38439355818": 1,
+            "38439355893": 1,
+            "38439355785": 1,
+            "38439355849": 1,
+            "38439355793": 1,
+            "38439355789": 1,
+            "38439355819": 1,
+            "38439351502": 1
+          },
+          "required_gates_passed": 18,
+          "jobs": 89,
+          "job_conclusions": {
+            "success": 87,
+            "skipped": 2
+          },
+          "all_job_ids_equal_current_check_run_ids": true,
+          "all_check_runs_bound_to_head": true,
+          "legacy_commit_status_contexts": 0,
+          "exact_15_b19_3_b20_1_b21_2_keepalive_tests_proven_in_three_jobs": true,
+          "dplpmtud_live_scenarios_passed": 10,
+          "pr_open": true,
+          "main_unchanged": true,
+          "remote_mutations_performed": false
+        },
+        "evidence_seal": {
+          "sealed_at_utc": "2026-10-13T18:08:24.025568+00:00",
+          "head_sha": "81e9220fcbce7bd92cecad1d4ff734341c4fab54",
+          "main_sha": "8fb0265537d2cf34885874a2db8b6c46769782bb",
+          "main_parents": [
+            "221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98",
+            "4a2c434b0165693ac331acfc1ad7bc7d2a7aed4a"
+          ],
+          "main_tree": "cf5093bd2e0ceb90848c053d6bc1ba63e2e8e63a",
+          "candidate_sha": "8086bd970c2818fb072e9b7896f232869ecd5cd4",
+          "tree_sha": "763525a7412bf1d8a1c4784fa51cc5b0134d1fb6",
+          "manifest_sha256": "1dd09b7f22025246c527c9f032996fc42a26d3c87322bfb382a39137a712bf45",
+          "manifest_files": 711
+        }
       },
       "pushed": true,
       "focused": 21,
@@ -930,8 +1059,216 @@
         "all_local_package_artifacts_cleaned": true
       },
       "binding": "work/evidence/pr205-commit-binding.json",
-      "review": "no actionable issue in independent read-only review"
+      "review": "no actionable issue in independent read-only review",
+      "latest_CI_snapshot": {
+        "utc": "2026-10-13T18:08:23.849195+00:00",
+        "complete_runs": 17,
+        "runs": 17,
+        "gates_passed": 18,
+        "failed_jobs": []
+      },
+      "merge_commit": "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+      "merged_at_UTC": "2026-10-13T18:09:05Z",
+      "actual_merge_parents": [
+        "8fb0265537d2cf34885874a2db8b6c46769782bb",
+        "81e9220fcbce7bd92cecad1d4ff734341c4fab54"
+      ],
+      "actual_merge_tree": "763525a7412bf1d8a1c4784fa51cc5b0134d1fb6"
     },
-    "local_artifact_policy": "On checkout switch, clean all local workspace package artifacts in shared target before relying on native binary results; keep dependency caches. THIS-build Cargo JSON alone cannot detect an overwritten shared artifact."
+    "local_artifact_policy": "On checkout switch, clean all local workspace package artifacts in shared target before relying on native binary results; keep dependency caches. THIS-build Cargo JSON alone cannot detect an overwritten shared artifact.",
+    "pr207": {
+      "status": "full_local_validated_reviewed_nonforce_pushed_CI_starting",
+      "integration": {
+        "head": "985ee18f45d0a9f5a42a39a97c9ad4cff9f2c543",
+        "parents": [
+          "0e3d53f49c81afd84baa00c4368639d152e638b3",
+          "81e9220fcbce7bd92cecad1d4ff734341c4fab54"
+        ],
+        "tree": "6fd8c0d554674a7c9b2a068d71fee46293d19af8",
+        "prior_pr207": "0e3d53f49c81afd84baa00c4368639d152e638b3",
+        "pr205_candidate": "81e9220fcbce7bd92cecad1d4ff734341c4fab54",
+        "status": "local integration only; PR205 CI still pending; no PR207 push or merge"
+      },
+      "cleanup_scope": "Original positive Budget remains 2s/1s. Caught test body releases completion barrier then uses one 1s cleanup deadline for original forwarder, actor and fixture server abort/join before assertions. Native Relay private writers only aborted, not claimed joined.",
+      "evidence": "work/evidence/pr207-focused-initial",
+      "CI": {
+        "status": "starting",
+        "expected_runs": 17,
+        "expected_gates": 18,
+        "evidence": "work/evidence/ci-b24-4fbe60e"
+      },
+      "adopted": false,
+      "focused_passed": 22,
+      "review": "work/evidence/pr207-cleanup-review.md",
+      "negative_control": "Original actor remains pending after original drain; unchanged one-second step fails only after actual forwarder/actor/server joins; Rust exit101/helper1; exact staged source restored",
+      "full_evidence": "work/evidence/pr207-full",
+      "base_retargeted_to_main": true,
+      "head": "4fbe60eec1ee436144df1df510a1acef6a751485",
+      "tree": "e4c73fd2e3f498b359cd08311543601aef363a4b",
+      "final_binding": {
+        "head": "4fbe60eec1ee436144df1df510a1acef6a751485",
+        "tree": "e4c73fd2e3f498b359cd08311543601aef363a4b",
+        "parents": [
+          "c9c2a5896c6388663d3d3fc16205ec23e653c80b",
+          "1845d1381e46596cbc42b0a3b14b55573b8dfd2f"
+        ],
+        "validated_source_commit": "c9c2a5896c6388663d3d3fc16205ec23e653c80b",
+        "validated_source_tree": "e4c73fd2e3f498b359cd08311543601aef363a4b",
+        "source_bytes_unchanged": true,
+        "main": "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+        "ordinary_merge_only": true,
+        "utc": "2026-10-13T18:15:25.253616+00:00"
+      },
+      "local_binding": {
+        "head": "c9c2a5896c6388663d3d3fc16205ec23e653c80b",
+        "tree": "e4c73fd2e3f498b359cd08311543601aef363a4b",
+        "parent": "985ee18f45d0a9f5a42a39a97c9ad4cff9f2c543",
+        "full_validation": "pr207-full",
+        "validated_diff_sha256": "29095c046f2a53ce1992819e74f048455956b66062920bad2da455912248dc8f",
+        "reviewed_source_sha256": {
+          "client/daemon/src/network_outbound/tests/relay_actor_drain.rs": "3f18a0ea2712d5faf4e438a2eb2d32618a454a786cd9f38c752aabc51c7edf4f",
+          "client/daemon/src/relay/send_origin.rs": "0edbe5fbb8a82df2b17474529384b944800b6202a9b14fb877226d02ab54d172"
+        },
+        "counts": {
+          "workspace": [
+            2340,
+            0,
+            3
+          ],
+          "hard_hard": [
+            247,
+            0,
+            0
+          ],
+          "focused": 22,
+          "NAT": 92,
+          "quality": 95
+        },
+        "all_local_workspace_packages_cleaned_before_validation": true,
+        "independent_review": "pr207-cleanup-review.md",
+        "negative_control": "pr207-cleanup-negative/RESULT.json",
+        "created_utc": "2026-10-13T18:14:05.391623+00:00"
+      },
+      "pushed": true
+    },
+    "task_status_current": {
+      "D-00A": {
+        "status": "完成",
+        "accepted_scope": "historical_local_correctness_only",
+        "remaining_acceptance": "确定性回归保持；真实 TUN 归 B-02A/D-03"
+      },
+      "D-00B": {
+        "status": "完成",
+        "accepted_scope": "historical_local_correctness_only",
+        "remaining_acceptance": "本机四锁争用、超时/关闭/活锁回归保持；真实性能另验"
+      },
+      "B-01": {
+        "status": "进行中",
+        "accepted_scope": null,
+        "remaining_acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
+        "current_detail": "202/203/204/205 merged after full CI; 207 full local tested/reviewed and pushed, CI pending; B28 42-test source batch pending clean full validation."
+      },
+      "B-02A": {
+        "status": "进行中",
+        "accepted_scope": null,
+        "remaining_acceptance": "Transport、Overlay、Dataplane、Application 分层；历史 Mock/RX/TX 观察不作全任务验收",
+        "current_detail": "Existing GitHub Ubuntu real kernel TUN capability confirmed; bounded Linux same-host application/route harness implementation started. Canonical original-request binding and final credit still separate B01/system-TUN gap."
+      },
+      "B-02B": {
+        "status": "进行中",
+        "accepted_scope": null,
+        "remaining_acceptance": "Java TCP 与 Bedrock UDP 分开；同端请求/确认 RTT，固定世界/版本，TPS/MSPT/GC/重传与超时保留",
+        "current_detail": "Combined Java/Bedrock/runner local tests and independent review passed at 87b4f07; remote CI and real game-world acceptance pending."
+      },
+      "B-03": {
+        "status": "进行中",
+        "accepted_scope": null,
+        "remaining_acceptance": "channel+pending+in-flight 总资源、真实操作及覆盖/开销可解释；未知 bytes 不伪造 atomic 总量或改进率",
+        "current_detail": "Seven-file local active buffer draft frozen; static gates pass; Rust validation pending. Whole pipeline and overhead still incomplete."
+      },
+      "N-01": {
+        "status": "进行中",
+        "accepted_scope": null,
+        "remaining_acceptance": "计划与实际发送可核对；过期、预算、限流、未发送、发送不确定分开；公网结论有实际样本",
+        "current_detail": "Eleven-file returned-call cost slice staged; static gates and independent review pass; native validation pending; cancellation and burst/ACK excluded."
+      },
+      "N-02": {
+        "status": "待启动",
+        "accepted_scope": null,
+        "remaining_acceptance": "规律/跳号/随机映射、冷/热/背景分层；可复现收益或不采纳结论"
+      },
+      "N-03": {
+        "status": "待启动",
+        "accepted_scope": null,
+        "remaining_acceptance": "保持平台 cap、全进程预算、deadline；requested/attached/usable、竞争、清理/映射副作用完整"
+      },
+      "D-01": {
+        "status": "条件候选",
+        "accepted_scope": null,
+        "remaining_acceptance": "双向/outbound-only、关闭/重建/取消安全；同负载尾延迟改善，否则不合入"
+      },
+      "D-02": {
+        "status": "条件候选",
+        "accepted_scope": null,
+        "remaining_acceptance": "流内有序、密文不重排、backlog/fast path 不绕过、公平与资源有界；收益不足不合入"
+      },
+      "D-03": {
+        "status": "进行中",
+        "accepted_scope": null,
+        "remaining_acceptance": "Linux/macOS/Windows/Android 真实 TUN/TCP、切路/黑洞/EMSGSIZE/PTB/预算变化；不错误降级健康或超预算发包",
+        "current_detail": "Linux same-host TCP/UDP evidence preparation started; full fault matrix and macOS/Windows/Android platform acceptance still unverified."
+      },
+      "C-01": {
+        "status": "待启动",
+        "accepted_scope": null,
+        "remaining_acceptance": "恢复时间、失包、旧 owner 拒绝、资源回收及跨路径不重放"
+      },
+      "C-02": {
+        "status": "待启动",
+        "accepted_scope": null,
+        "remaining_acceptance": "空闲、UDP 无 ACK、单尖峰、服务器卡顿、本机排队不误判路径失活"
+      },
+      "C-03": {
+        "status": "待启动",
+        "accepted_scope": null,
+        "remaining_acceptance": "首次可用改善，Direct 不回归，Relay 成本可见；不重置截止或降低验证"
+      },
+      "R-00": {
+        "status": "待启动",
+        "accepted_scope": null,
+        "remaining_acceptance": "双端同 Relay rendezvous、验证/续期/撤权保持，有业务证据才改选择机制"
+      },
+      "R-01": {
+        "status": "条件候选",
+        "accepted_scope": null,
+        "remaining_acceptance": "双向加密业务、TLS 回退、票据/撤权、防放大、限速、MTU/拥塞与成本"
+      },
+      "R-02": {
+        "status": "条件候选",
+        "accepted_scope": null,
+        "remaining_acceptance": "显式参与/退出、权限、配额、兼容可验证；不自动开放转发"
+      },
+      "X-01": {
+        "status": "条件候选",
+        "accepted_scope": null,
+        "remaining_acceptance": "OS/NAT 矩阵、取消与资源上界，失败保持 UDP/TLS 主线"
+      },
+      "X-02": {
+        "status": "条件候选",
+        "accepted_scope": null,
+        "remaining_acceptance": "STUN/控制/Relay、IPv4 literal/DNS64 的可达性矩阵；目标部署受影响则提级实施"
+      },
+      "X-03": {
+        "status": "条件候选",
+        "accepted_scope": null,
+        "remaining_acceptance": "GSO/GRO、batch、多队列、多链路分别实验；CPU/吞吐/尾延迟，乱序与 replay 有界"
+      },
+      "G-01": {
+        "status": "进行中",
+        "accepted_scope": null,
+        "remaining_acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
+        "current_detail": "23 of 24 previously published product batches merged; 207 pending. Local candidate commits do not count as published or adopted."
+      }
+    }
   }
 }

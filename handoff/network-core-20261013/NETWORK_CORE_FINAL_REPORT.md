@@ -183,41 +183,59 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 
 ## 九、继续实施的当前记录
 
-本节是继续实施的当前状态，前八节保留原交接时的历史记录。授权验收环境为本机和 GitHub CI；无真实环境的任务如实保留限制。
+前八节保留原交接历史，本节与 PROGRESS.json.continuation 是当前状态。
 
-### 已验收并普通合并
 
-| PR | 采用 HEAD | 普通合并 | 完整 CI |
+当前 main：`1845d1381e46596cbc42b0a3b14b55573b8dfd2f`。#202、#203、#204、#205 已按顺序完成适用完整 CI 并普通合并；#207 已完成本机完整验收及非 force 推送，同 HEAD CI 进行中。原先 24 批产品发布已有 23 批普通合并，1 批待验收；下述本地候选不计作发布或采用。任务仍未整体完成。
+
+用户授权只用本机和 GitHub CI；后续子代理统一 GPT-6.1 Sol ultra。常规测试、提交、非 force 推送、PR 与完整 CI 后普通合并沿用原授权。
+
+## 已采用记录
+
+| PR | 采用 HEAD | 普通合并 | 适用 CI |
 |---|---|---|---|
-| [#202](https://github.com/yhan-sun/p2wlan/pull/202) | `e9edb2953dba677e5b85f8ef2502328353c905b6` | `da4edadc84c0b10a138115652cc031145dcb77c6` | 17次运行、18门禁、87成功作业、2原条件跳过 |
-| [#203](https://github.com/yhan-sun/p2wlan/pull/203) | `b98914724ba6b83eb3f21beb09b69d2718bec27a` | `221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98` | 17次运行、18门禁、87成功作业、2原条件跳过 |
-| [#204](https://github.com/yhan-sun/p2wlan/pull/204) | `4a2c434b0165693ac331acfc1ad7bc7d2a7aed4a` | `8fb0265537d2cf34885874a2db8b6c46769782bb` | 16次运行、18门禁、81成功作业、2原条件跳过 |
+| [#202](https://github.com/yhan-sun/p2wlan/pull/202) | `e9edb2953dba677e5b85f8ef2502328353c905b6` | `da4edadc84c0b10a138115652cc031145dcb77c6` | 17次运行、18门禁、87成功、2原条件跳过 |
+| [#203](https://github.com/yhan-sun/p2wlan/pull/203) | `b98914724ba6b83eb3f21beb09b69d2718bec27a` | `221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98` | 17次运行、18门禁、87成功、2原条件跳过 |
+| [#204](https://github.com/yhan-sun/p2wlan/pull/204) | `4a2c434b0165693ac331acfc1ad7bc7d2a7aed4a` | `8fb0265537d2cf34885874a2db8b6c46769782bb` | 16次运行、18门禁、81成功、2原条件跳过 |
+| [#205](https://github.com/yhan-sun/p2wlan/pull/205) | `81e9220fcbce7bd92cecad1d4ff734341c4fab54` | `1845d1381e46596cbc42b0a3b14b55573b8dfd2f` | 17次运行、18门禁、87成功、2原条件跳过 |
 
-每项均重新核对当前 HEAD/main、所有运行与最新 attempt/job、checks ID、原条件跳过、候选 parents/tree 及实际 merge。#204 的空提交不匹配 Flutter push 路径条件，16个 PR workflow 是完整适用范围；未借用旧 HEAD 的 push 运行。#204 的806份本地证据已逐项校验。三个通用 CI 主作业实际通过原15项B19、3项B20及新增1项B21，DPLPMTUD实际10场景通过。
+每次合并均核对 head/main、最新 run attempt、全部 job/check ID、原条件跳过、候选及实际 merge 的父提交和 tree。#204 的源树不变空提交不匹配 Flutter push 条件，16 个 PR workflow 是完整适用范围；没有借用旧 HEAD 的 push 结果。
 
-### 本机缓存证据纠正与 #205
+#205 于 2026-10-13 18:09:05 UTC 普通合并；实际 parents 为 main `8fb0265` 与已验 HEAD `81e9220`，tree `763525a7412bf1d8a1c4784fa51cc5b0134d1fb6` 完全一致。711 个 CI 证据文件已逐项验证，清单 SHA256 `1dd09b7f22025246c527c9f032996fc42a26d3c87322bfb382a39137a712bf45`。三类完整通用 CI 日志均含 15 B19、3 B20、1 B21、2 保活控制；DPLPMTUD 原十场景通过。
 
-#203/#204 历史本机 workspace 总数2340/2341，各含两个来自后续候选 B25 的 Relay 测试名；共享 target 曾被其他 checkout 覆盖。本机总数的严格同源码声明已撤回，原始日志保留，不能简单减2后当作重新运行。独立 GitHub CI 的当前源码环境不含这两个外来测试，定向回归和实际合并身份仍有效，PR 中已记录纠正。后续每次 checkout 切换，先清理全部本项目 workspace crate 产物、保留第三方依赖缓存；仅靠本次 Cargo JSON 不能证明共享产物没有串用。
+## #207 当前验收
 
-[#205](https://github.com/yhan-sun/p2wlan/pull/205) 已普通同步上述 main，提交并非 force 推送 `81e9220fcbce7bd92cecad1d4ff734341c4fab54`，tree `763525a7412bf1d8a1c4784fa51cc5b0134d1fb6`。只修改原保活测试：原 peer ACK 接纳 barrier 和健康样本恰好+1断言保留，未完成 responder 保持所有权，成功、错误及超时均实际取消/等待两个工作任务；已完成 handle 不重复 poll。原500ms回合、生产 consent 时限和全部业务断言保持。fixture body 上界2s，清理共用1s截止，不计入业务成功窗口。
+[#207](https://github.com/yhan-sun/p2wlan/pull/207) 当前 HEAD `4fbe60eec1ee436144df1df510a1acef6a751485`，tree `e4c73fd2e3f498b359cd08311543601aef363a4b`，base main。普通同步 #205 的实际 merge 前后源码树相同。只涉及五个 cfg(test) fixture/注册路径；未改生产期限或 workflow。
 
-清理全部本地 crate 后的冻结源码完整重验：workspace2339 passed/0 failed/3原ignored、hard_hard逐项隔离247、重点回归21、NAT92、quality95及fmt/include-format/全workspace Clippy/四项强制检查通过。原 responder 永不完成负控，在两个owned任务清理断言通过后由指定超时断言退出101；恢复源码与独立审查一致。初始编译错误及首轮日志保留。当前17次适用CI（16 PR workflow + Flutter push）进行中，未合并；之后依次 #207。
+原 C06 优雅排空控制要求 A1 真实 General TCP Full、A2 保持 Idle，WorkerStopped 精确一次与字节数、两 FIFO 清空、无隐藏强引用以及原记录 Retired。新增异常回收保持原正例总 2 s/每步 1 s，先释放 completion barrier，在共同 1 s 清理截止内实际等待原 forwarder、actor 和 fixture server；所有 join 结果收集后才报告错误。Relay 库私有 writer 只按原接口 abort，不声称已 join；pipeline 创建前的 setup prerequisite 不在新增 catch 内。
 
-### 远端原定义
+清理所有本项目 crate 缓存后，冻结源码本机 macOS arm64/Rust 1.99.0 完整通过：workspace 2340/0失败/3原ignored、逐项隔离247、重点22、NAT92、quality95、fmt/include-format/全workspace Clippy及四门禁。原 actor 在完成 drain 后永不退出的负控，以原每步期限失败；实际三个 owned joins 完成后恢复指定原断言，Rust exit101，非外部超时或编译失败。源码恢复与独立审查、完整回归和提交严格一致。验证 patch SHA256 `29095c046f2a53ce1992819e74f048455956b66062920bad2da455912248dc8f`。
 
-完整历史检索恢复部分原始定义：commit `2a5735568ee8767022cd509dff1112cdb969574a` 的 `client/daemon/src/network_outbound/queue/request_carriage_tests.rs` 包含C06四项FIFO/容量/Weak/代际/停止控制；`lib/daemon/overlay_validate/b14_carriage_read_tests.rs` 与 `client/daemon/src/transport/tests/request_carriage_crypto.rs` 包含C11旧入口/UnknownAny/加密兼容局部范围。覆盖178 branches、167 tags、187 PR refs、2192 commits、10586文本blob及远端Issue/PR/评论/Release信息。S3C独立定义、完整C06矩阵及冻结完整C11旧接口矩阵仍未找到；不将局部控制冒充原完整验收。
+当前 17 次运行/16 workflow/18门禁 CI 正在执行；完整通过且再次核对身份后才普通合并。该局部控制不冒充 worker loss、真实 partial TCP、late callback、fresh ACK、最终 current-owner 或整个 C06 矩阵。
 
-### 本地候选与未完成边界
+## 本机缓存证据纠正
 
-以下均未推送、未通过独立同HEAD CI、未采用：
+#203/#204 历史 workspace 总数 2340/2341 各含两条后续 B25 的 Relay 用例，曾受共享 target 中其他 checkout 产物影响。其严格同源码总数声明已撤回，原始日志保留，不能减2后冒充重跑。独立 GitHub CI 未含这两条外来用例，实际完整 CI 与合并证据不受影响；对应 PR 已纠正。
 
-- Relay历史reader/client身份 `dca76a6bf80929b515843b9e695e6cea16cd6305`：53项目标、workspace2338、隔离247及审查通过。
-- Direct原始收发身份与发布边界 `2b201c300c9611767af4f631733887679c5e1539`：91项目标、workspace2344、隔离247及审查通过。
-- Relay成员/关闭/停止原边界 `8d67bc66bc7703fb80ccc6edad26c8898c3cdb14`：98项精确控制、workspace2353、隔离247及审查通过。首次旧缓存构建失败保留，最终完整重验通过。
-- 能力发布保护 `addd75862593e41ff257c013d62f39dd06e625ba`：10项目标、2项具体失败负控、workspace2356、隔离247、NAT92、quality95和全部检查及审查通过。原watch唯一所有者中串行化发布；最终 current-owner/once/ACK 事务和原 REQUEST来源传递正在实施，尚未验收。
-- Minecraft契约 `3dc0819a7a15d82152874a4d2b25b0627108c91e`：23项；有界监督器 `afb3577972c1d7f0be1ace4dd3b0774055a9b789`：两个Python版本各28项；Java1.20.4适配器 `5c126c209564ff431144128de9a6d5533b81812c`：24项Node22.16及15项独立控制。普通组合 HEAD `5e51bcd6dff5449c9f6781caa9e9e25c04696046` 已通过Python3.12.12/3.14.6各28项、Java24、契约23、UDP16、quality95及四门禁；原runner CLI→原adapter→本机协议服务器→原reducer的成功、超时、取消场景保持固定分母并实际回收进程组。
-- Bedrock1.18.30/protocol503/RakNet10候选 `cdf7cf2dad43d97cbc73c8905c9c6d35b84c90b5`：原排队未发即计成功、隐式ping、原物品快照过期及第二轮可靠重传丢失归属问题均修复。53项常规测试、独立10项进程内正控及2项旧源码具体断言负控通过，409份证据校验一致。动态复核曾被工具风险检查中断，未绕过或继续原动态重传实验；修复后该动态范围仍未验收。正在普通集成全部工具、独立Node固定版本CI及原runner→Bedrock CLI控制。
+后续每次切换 checkout，先清理全部 11 个本项目 workspace crate 产物、保留第三方依赖，再用本次 Cargo JSON/list、实际二进制及 source freeze 采证。#205 的 2339/3原ignored、247隔离、21重点和 #207 的上述结果均来自该清理流程。仅使用 Cargo JSON 本身不够证明共享产物未被覆盖。
 
-这些协议fixture不是真实游戏世界；Java/Bedrock真实交互、双端实体设备TUN、公网NAT/NAT64、Windows/Android实体设备、最终发布灰度和回滚仍未整体验收。B-03/N-01已完成后续计量缺口只读审计，尚未实施；其余22项状态/依赖见PROGRESS.json。无证据不宣称最终收益或整体完成。
+## 尚未采用的本地候选
 
-用户偏好：后续子代理统一 GPT-6.1 Sol、ultra，不再安排 Astra。
+以下候选未推送/未完成独立同 HEAD CI/未采用，不计作最终完成：
+
+- 原 Relay reader/client 身份 `dca76a6bf80929b515843b9e695e6cea16cd6305`：53 目标、workspace2338、隔离247和审查通过。
+- 原 Direct 读/发送身份 `2b201c300c9611767af4f631733887679c5e1539`：91 目标、workspace2344、隔离247和审查通过。
+- 原 Relay 成员/关闭/停止边界 `8d67bc66bc7703fb80ccc6edad26c8898c3cdb14`：98 目标、workspace2353、隔离247和审查通过，初次缓存构建失败保留。
+- 原能力发布保护 `addd75862593e41ff257c013d62f39dd06e625ba`：10 目标、2 具体负控、workspace2356、隔离247、NAT92、quality95及审查通过。
+- B28 最终 try-guard/current-owner/once/原 REQUEST 回应源：首轮1/8断言失败和原因保留，随后10项定向通过；后续源码已变，42项冻结矩阵待重新干净编译、正负控、完整回归与独立审查。旧 global first_usable 可已有单向 RX 里程碑，不能当作新的严格双向 native credit。当前范围限 same-path/same-Relay-client/non-room，混合路径/跨Relay/room 为明确 Unknown；动态/Managed/rendezvous 全原生矩阵尚有缺口。
+- Minecraft 全部工具组合 `87b4f07603645bfe39112e68d6e782e4c9edb115`，tree `f53c3a6629a083b1dfa2d524ff00a3aba5667639`：Java1.20.4/Node22.16 24项、Bedrock1.18.30/protocol503/RakNet10/Node26 53项、runner Python3.12.12和3.14.6各28项、契约23、UDP16、quality95及四门禁通过。原 runner CLI 到两个真实协议适配器各有成功/超时/取消控制，固定分母与实际进程组回收。308份组合证据与32个源码hash已由root复核，清单 `65dcf90f1ab1e432b55a6cb202fef1d14247cdff5951dc2ed9d0e0cf35fc9f4f`。
+- Bedrock 已修排队未发即成功、隐式ping、held-item过期、可靠重传丢失原归属。动态重传复核曾被工具风险检查中断，未绕过；修复后的该动态范围尚未重验，进程内正反控与普通协议套件不能替代真实游戏。
+- B03 四类 slow-send buffer move-only lease 七文件静态冻结，四门禁和quality95通过，Rust行为/负控待运行；仍非整个pipeline、allocator或RSS计量。
+- N01 ordinary completed-call 成本十一文件暂存，四门禁/quality95及独立静态审查通过；真实原生正负控待运行。只覆盖已返回 primary/compatibility calls 的成功datagram/bytes和观察到的primary时间；cancel、burst/ACK不是零，仍未完整覆盖。
+- B02A/D03 已确认 GitHub Ubuntu VM 可执行同机真实 kernel TUN/netns。新的分层路由与固定分母 UDP/TCP 工具开始实施；当前没有新增内核实测结果。OS 应用流量不得靠外部状态/nonce补出 canonical 原请求或当前权威。
+
+## 原定义和剩余限制
+
+远端全面检索不是“没有定义”：在 `2a5735568ee8767022cd509dff1112cdb969574a` 找到 C06 原四项 FIFO/容量/Weak/代际/停止控制和 C11 旧入口/UnknownAny/crypto 局部兼容范围。检索覆盖178 branches、167 tags、187 PR refs、2192 commits、10586文本blob及远端Issue/PR/评论/Release。S3C 独立定义、完整 C06 矩阵、冻结完整 C11 旧接口矩阵仍未找到；不伪造补完。
+
+22项任务当前：2项历史本机完成、7项进行中、6项待启动、7项条件候选；以 PROGRESS.json.continuation.task_status_current 和依赖为准。条件候选尚无采纳/不采纳实验证据，不自动判完成。Linux同机kernelTUN是可开展子项，不能替代实体设备、公网NAT/NAT64、全平台TUN/TCP、完整故障矩阵、真实Minecraft世界、性能A/B、最终发布灰度和回滚。所有未验范围继续保留。
