@@ -1,6 +1,6 @@
 # 网络核心移交包
 
-原始检查点说明保留如下；当前继续实施状态以 PROGRESS.json.continuation.task_status_current 和报告第九节为准。#202/#203/#204/#205 已完整CI并普通合并，main为 `1845d1381e46596cbc42b0a3b14b55573b8dfd2f`。#207 已完整本机验收并非force推送 `4fbe60e`，同HEAD CI进行中。#203/#204旧本机汇总受共享缓存影响的同源码声明已纠正，独立GitHubCI不受影响。原B19补丁已经采用，不再重放。
+原始检查点说明保留如下；当前状态以 PROGRESS.json.continuation.task_status_current 和报告第九节为准。#202/#203/#204/#205/#207已按顺序完整CI并普通合并，main为`48febb538333b161fabe86135c0b8319429ab644`。新增应用采证工具PR208（HEAD bf14f5a）同HEAD CI待验；原B19补丁不再重放。#203/#204旧本机汇总的共享缓存污染声明已纠正，独立CI仍有效。
 
 本包对应产品源码检查点 d2df1627952191fe3d535d64ad6249723e1ba404。分支 codex/network-core-handoff-20261013 用于保存可移植交接资料。
 

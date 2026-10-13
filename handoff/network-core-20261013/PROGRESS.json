@@ -430,9 +430,9 @@
     "handoff_checksums_verified": true,
     "user_validation_scope": "local_machine_and_GitHub_CI_only",
     "external_environment_policy": "Real multi-device, public NAT and Minecraft acceptance remain unverified where no authorized environment is available; no mock substitution.",
-    "verified_main": "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+    "verified_main": "48febb538333b161fabe86135c0b8319429ab644",
     "verified_pending_PRs": [
-      207
+      208
     ],
     "toolchain": "rustc 1.99.0 (b940084d7 2026-09-28)",
     "local_platform": "aarch64-apple-darwin",
@@ -525,7 +525,9 @@
     "completed_this_continuation": [
       "#202 fixture, security correction, full exact-head CI and ordinary merge",
       "#203 original shared actor FIFO full exact-head CI and ordinary merge",
-      "#204 original Legacy Relay FIFO full exact-head CI and ordinary merge"
+      "#204 original Legacy Relay FIFO full exact-head CI and ordinary merge",
+      "#205 bounded original keepalive cleanup, full clean native and same-head CI, ordinary merge",
+      "#207 original C06 actual actor drain and owned cleanup, full clean native and same-head CI, ordinary merge"
     ],
     "remaining_environment_limits": [
       "physical Windows/Android/Linux peers",
@@ -533,7 +535,7 @@
       "fixed-version Minecraft server and interactive clients",
       "deployment/canary target and rollback exercise"
     ],
-    "updated_UTC": "2026-10-13T18:16:47.689822+00:00",
+    "updated_UTC": "2026-10-13T19:16:47.918310+00:00",
     "missing_acceptance_definitions": {
       "labels": [
         "S3C",
@@ -572,7 +574,7 @@
       ],
       "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
     },
-    "handoff_progress_commit": "715838a10b2557068ffd9d464ffe0371dbef9f67",
+    "handoff_progress_commit": "0685c731db06c450f7321da44d43dbfce4e3711c",
     "parallel_preparation": {
       "B-02B.tool_contract": {
         "UTC": "2026-10-13T14:46:18.121210+00:00",
@@ -795,7 +797,19 @@
         "known_scope_limits": [
           "same-path same-Relay-client non-room only",
           "old first_usable field may retain earlier one-way native milestone; canonical once and verified roundtrip are strict separate credit"
-        ]
+        ],
+        "latest_root_review": {
+          "utc": "2026-10-13T19:07:48.126456+00:00",
+          "readd_root_cause": "New PeerConnection sequence initialized zero while original synchronous mirror retains highwater; actual snapshot2/mirror4. Minimal is_new inheritance preserves sole original owner.",
+          "candidate7_source_manifest_sha256": "65171ba5b120fd7320f642687500fdb036792190befc5aee7fb5b92243ad4dba",
+          "partial_tests": "21 of42 native and2 narrow peer controls passed; final changed-source acceptance pending.",
+          "fixture_cleanup_finding": "body panic bypasses explicit owned joins; author coordinating catch_unwind then same deadline joins then original panic.",
+          "full_accepted": false,
+          "candidate8_manifest_sha256": "2d8e9ffc30e4c8c9d3bd9df6e9d46c0249cd7db5c27f9371f67597cf13e04a70",
+          "candidate8_native_passed": 42,
+          "fixture_panic_control": "Bothpaths actual originalpanic101 only after8/8 explicit joins,0remaining; Relayserver.shutdown complete. Catch-bypass variants101 have no join-success marker.",
+          "mutation_controls": "Five actualassert failures for duplicate once,read-before-observable-Full and highwater restoration; no compile/timeout substitution; positiveSHA restored."
+        }
       },
       "B-02B.all_tools_integration": {
         "status": "local_committed_combined_validation_and_root_review_passed",
@@ -822,7 +836,7 @@
         "real_world": false
       },
       "B-03.active_buffer_lifetime": {
-        "status": "static_frozen_seven_files_native_validation_pending",
+        "status": "root_cleanup_review_fixes_staged_native_pending",
         "base": "8fb0265537d2cf34885874a2db8b6c46769782bb",
         "scope": "move-only original active/retry/preparation/serialized buffer owner leases; full pipeline coverage remains unknown",
         "adopted": false,
@@ -830,7 +844,14 @@
         "quality_tests": 95,
         "source_manifest_sha256": "d8b2ee712d67cf867716ad6b2b3039506fe30ddecaf73df11fafce203189a01d",
         "native_tests_run": false,
-        "review_scope": "root production hook preliminary review; full native acceptance pending"
+        "review_scope": "root production hook preliminary review; full native acceptance pending",
+        "current_files": 8,
+        "historical_seven_file_freeze_preserved": true,
+        "review_findings": [
+          "Relay fixture could drop original blocker handle on prerequisite panic",
+          "Repark timeout ignored cleanup join result"
+        ],
+        "fix": "Retain/catch original blocker and server with common 1s cleanup; verify repark cancelled join; reuse identical reviewed PR207 fixture helper"
       },
       "N-01.returned_call_cost": {
         "status": "staged_static_gates_and_independent_review_passed_native_pending",
@@ -857,6 +878,35 @@
         "environment": "standard GitHub Ubuntu VM; local macOS cannot execute Linux namespace acceptance",
         "adopted": false,
         "all_platform_task_complete": false
+      },
+      "B-02.application_tools_combination": {
+        "utc": "2026-10-13T19:06:44.765802+00:00",
+        "head": "fb84c8870e4f77b3e1df25448650598b4b618a44",
+        "tree": "d4da651d5faa216afbb81fd978fe0988b4ed7a89",
+        "parents": [
+          "87b4f07603645bfe39112e68d6e782e4c9edb115",
+          "b2fee45ac7979c440f8de261a08b6941ef7a014a"
+        ],
+        "scope": "Local normal merge only; new combined validation and PR CI pending.",
+        "original_component_sources_verified": 39,
+        "rust_tree_identical_to_main": "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+        "validation": "Combined16 checks passed across preserved attempts; post-main four gates pass; initial missing optional export-directory failure retained.",
+        "pushed": true,
+        "adopted": false,
+        "final_head": "bf14f5a54c45606c97b7af453cdfbe1443cb09d6",
+        "final_tree": "3a7978cc78746aff0c353f22dc8b054828a45278",
+        "all41_changed_sources_verified": true,
+        "PR": 208
+      },
+      "N-01.cancellation_cost": {
+        "status": "21-file draft frozen/static verification in progress;17 new controls pending native execution",
+        "coverage": "Original invocation retains fixed primary/compatibility diagnostics before followup awaits; original child handle retained; body and join share original absolute deadline. Missing/unjoined explicitly partial,notzero. Burst/ACK excluded.",
+        "independent_review": "ongoing; no Cargo lease yet"
+      },
+      "N-02.N-03.local_ci_design": {
+        "status": "read_only_plan_only_not_executed",
+        "evidence": "work/evidence/n02-n03-local-ci-experiment-plan.md",
+        "limits": "No frozen strategy candidate or hot-state CLI; no A/B/public-NAT adoption. Original ordinary4/HH8 socket caps and all budgets unchanged."
       }
     },
     "task_counts_current": {
@@ -902,9 +952,10 @@
       }
     },
     "product_batch_counts_current": {
-      "published": 24,
-      "ordinary_merged": 23,
+      "published": 25,
+      "ordinary_merged": 24,
       "pending": 1,
+      "original24_all_merged": true,
       "local_candidates_are_published_batches": false
     },
     "pr204": {
@@ -1077,7 +1128,7 @@
     },
     "local_artifact_policy": "On checkout switch, clean all local workspace package artifacts in shared target before relying on native binary results; keep dependency caches. THIS-build Cargo JSON alone cannot detect an overwritten shared artifact.",
     "pr207": {
-      "status": "full_local_validated_reviewed_nonforce_pushed_CI_starting",
+      "status": "accepted_and_ordinary_merged",
       "integration": {
         "head": "985ee18f45d0a9f5a42a39a97c9ad4cff9f2c543",
         "parents": [
@@ -1092,10 +1143,78 @@
       "cleanup_scope": "Original positive Budget remains 2s/1s. Caught test body releases completion barrier then uses one 1s cleanup deadline for original forwarder, actor and fixture server abort/join before assertions. Native Relay private writers only aborted, not claimed joined.",
       "evidence": "work/evidence/pr207-focused-initial",
       "CI": {
-        "status": "starting",
-        "expected_runs": 17,
-        "expected_gates": 18,
-        "evidence": "work/evidence/ci-b24-4fbe60e"
+        "status": "passed",
+        "validation": {
+          "validated_at_utc": "2026-10-13T19:09:05.001914+00:00",
+          "fresh_snapshot": "final-fresh-20261013T190829Z",
+          "head_sha": "4fbe60eec1ee436144df1df510a1acef6a751485",
+          "main_sha": "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+          "main_parents": [
+            "8fb0265537d2cf34885874a2db8b6c46769782bb",
+            "81e9220fcbce7bd92cecad1d4ff734341c4fab54"
+          ],
+          "main_tree": "763525a7412bf1d8a1c4784fa51cc5b0134d1fb6",
+          "candidate_sha": "98ae124d575bd8ab7773149a1a356a90c635d401",
+          "candidate_parents": [
+            "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+            "4fbe60eec1ee436144df1df510a1acef6a751485"
+          ],
+          "head_parents": [
+            "c9c2a5896c6388663d3d3fc16205ec23e653c80b",
+            "1845d1381e46596cbc42b0a3b14b55573b8dfd2f"
+          ],
+          "head_and_candidate_tree": "e4c73fd2e3f498b359cd08311543601aef363a4b",
+          "workflow_runs": 17,
+          "unique_workflows": 16,
+          "latest_run_attempts": {
+            "38445371726": 1,
+            "38445372110": 1,
+            "38445371895": 1,
+            "38445371818": 1,
+            "38445371969": 1,
+            "38445371734": 1,
+            "38445371894": 1,
+            "38445371736": 1,
+            "38445372069": 1,
+            "38445371826": 1,
+            "38445371987": 1,
+            "38445371914": 1,
+            "38445372052": 1,
+            "38445372036": 1,
+            "38445372045": 1,
+            "38445371837": 1,
+            "38445362767": 1
+          },
+          "required_gates_passed": 18,
+          "jobs": 89,
+          "job_conclusions": {
+            "success": 87,
+            "skipped": 2
+          },
+          "all_job_ids_equal_current_check_run_ids": true,
+          "all_check_runs_bound_to_head": true,
+          "legacy_commit_status_contexts": 0,
+          "exact_15_b19_3_b20_1_b21_2_keepalive_1_c06_tests_proven_in_three_jobs": true,
+          "dplpmtud_live_scenarios_passed": 10,
+          "pr_open": true,
+          "main_unchanged": true,
+          "remote_mutations_performed": false
+        },
+        "seal": {
+          "sealed_at_utc": "2026-10-13T19:09:05.259703+00:00",
+          "head_sha": "4fbe60eec1ee436144df1df510a1acef6a751485",
+          "main_sha": "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+          "main_parents": [
+            "8fb0265537d2cf34885874a2db8b6c46769782bb",
+            "81e9220fcbce7bd92cecad1d4ff734341c4fab54"
+          ],
+          "main_tree": "763525a7412bf1d8a1c4784fa51cc5b0134d1fb6",
+          "candidate_sha": "98ae124d575bd8ab7773149a1a356a90c635d401",
+          "tree_sha": "e4c73fd2e3f498b359cd08311543601aef363a4b",
+          "manifest_sha256": "405f3308e3a28bb4d9dae337bf05c6d6072110ca87d98fc1960b661bc2d28a6f",
+          "manifest_files": 1015
+        },
+        "root_verified_sealed_files": 1015
       },
       "adopted": false,
       "focused_passed": 22,
@@ -1149,7 +1268,69 @@
         "negative_control": "pr207-cleanup-negative/RESULT.json",
         "created_utc": "2026-10-13T18:14:05.391623+00:00"
       },
-      "pushed": true
+      "pushed": true,
+      "merge": {
+        "pr": {
+          "number": 207,
+          "html_url": "https://github.com/yhan-sun/p2wlan/pull/207",
+          "state": "closed",
+          "merged": true,
+          "merged_at": "2026-10-13T19:10:02Z",
+          "merge_commit_sha": "48febb538333b161fabe86135c0b8319429ab644"
+        },
+        "head": "4fbe60eec1ee436144df1df510a1acef6a751485",
+        "base": "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+        "commit": {
+          "sha": "48febb538333b161fabe86135c0b8319429ab644",
+          "node_id": "C_kwDOTZ4JTNoAKDQ4ZmViYjUzODMzM2IxNjFmYWJlODYxMzVjMGI4MzE5NDI5YWI2NDQ",
+          "url": "https://api.github.com/repos/yhan-sun/p2wlan/git/commits/48febb538333b161fabe86135c0b8319429ab644",
+          "html_url": "https://github.com/yhan-sun/p2wlan/commit/48febb538333b161fabe86135c0b8319429ab644",
+          "author": {
+            "name": "jwc1love",
+            "email": "155615614+jwc1love@users.noreply.github.com",
+            "date": "2026-10-13T19:10:02Z"
+          },
+          "committer": {
+            "name": "GitHub",
+            "email": "noreply@github.com",
+            "date": "2026-10-13T19:10:02Z"
+          },
+          "tree": {
+            "sha": "e4c73fd2e3f498b359cd08311543601aef363a4b",
+            "url": "https://api.github.com/repos/yhan-sun/p2wlan/git/trees/e4c73fd2e3f498b359cd08311543601aef363a4b"
+          },
+          "message": "Merge pull request #207 from yhan-sun/codex/network-core-publish-24\n\nfeat:覆盖Relay共享actor的优雅排空",
+          "parents": [
+            {
+              "sha": "1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+              "url": "https://api.github.com/repos/yhan-sun/p2wlan/git/commits/1845d1381e46596cbc42b0a3b14b55573b8dfd2f",
+              "html_url": "https://github.com/yhan-sun/p2wlan/commit/1845d1381e46596cbc42b0a3b14b55573b8dfd2f"
+            },
+            {
+              "sha": "4fbe60eec1ee436144df1df510a1acef6a751485",
+              "url": "https://api.github.com/repos/yhan-sun/p2wlan/git/commits/4fbe60eec1ee436144df1df510a1acef6a751485",
+              "html_url": "https://github.com/yhan-sun/p2wlan/commit/4fbe60eec1ee436144df1df510a1acef6a751485"
+            }
+          ],
+          "verification": {
+            "verified": true,
+            "reason": "valid",
+            "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqzoIKCRC1aQ7uu5UhlAAAwDkQAG6HlPFHpVY8Ee4HcZzYOZnu\nWzDc3eO7F2n+mSuabOegidnZrVZP1Oxlxc9uUS0H11dMZKv1NQUZhhJjf+81JQVA\nDL2QJO5nTdEcss/RpvkKgfY06iQ3rE8SZzaimhr6Pq/LTyOB0WRtTc4JOs3/RcjO\nm9VvZAlZJUE1k6db6ACxGQKAzFzpc3EhtHptrIahjOZ7sJ9cpoio/9bH9SxH6t8G\nF12ugtaVQsuReNO6B4CCqU+mBoh0Bkh2wkMIF9w1/xK2OPFvznn3NtY2650xreO/\naRavaPHQYMzGQ+vye8kM5JFUaBpCW2MtzASz24mw5UL6DE6fL5LuR2eB9E3mdDr6\nfyjWAnwUlkS4UNTyeSC8YwjQVowuSCYnyfW8esDt2u5xJy3DmnF/l6I3fmeZvhXN\nnz4dEJQoNVRxvvEyPJLN0abbkuVUQ4vqE5baChCgzM9tAkHKj7Sjbh1jj0KnrwDS\nZHC82pyWJWb/QEJYPap96Sg6ihRtApVoMPxPqYznPyjxnxdcCq0ebW3bNwwAv/2y\nx3Eu1d7MToKUvdKk++VQXCpRnRp3WsmLo0ap9T0pqoAqT4fyfUsZrlT7vyO94+J6\nrSWWcXutyMJEN4pHrulCpv+b2n3IR863kdh3aiyXofxBIszJnZOdLDKzyhyQGJq+\nsuaolrqUwk6M9/DixjCb\n=Ezxo\n-----END PGP SIGNATURE-----\n",
+            "payload": "tree e4c73fd2e3f498b359cd08311543601aef363a4b\nparent 1845d1381e46596cbc42b0a3b14b55573b8dfd2f\nparent 4fbe60eec1ee436144df1df510a1acef6a751485\nauthor jwc1love <155615614+jwc1love@users.noreply.github.com> 1791918602 +0900\ncommitter GitHub <noreply@github.com> 1791918602 +0900\n\nMerge pull request #207 from yhan-sun/codex/network-core-publish-24\n\nfeat:覆盖Relay共享actor的优雅排空",
+            "verified_at": "2026-10-13T19:10:02Z"
+          }
+        },
+        "main": {
+          "ref": "refs/heads/main",
+          "node_id": "REF_kwDOTZ4JTK9yZWZzL2hlYWRzL21haW4",
+          "url": "https://api.github.com/repos/yhan-sun/p2wlan/git/refs/heads/main",
+          "object": {
+            "sha": "48febb538333b161fabe86135c0b8319429ab644",
+            "type": "commit",
+            "url": "https://api.github.com/repos/yhan-sun/p2wlan/git/commits/48febb538333b161fabe86135c0b8319429ab644"
+          }
+        }
+      }
     },
     "task_status_current": {
       "D-00A": {
@@ -1166,31 +1347,31 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
-        "current_detail": "202/203/204/205 merged after full CI; 207 full local tested/reviewed and pushed, CI pending; B28 42-test source batch pending clean full validation."
+        "current_detail": "202/203/204/205/207 all fully CI accepted and ordinary merged in order. B28 positive candidate8 all42 native controls pass; real15s TTL bothpaths,2 narrowpeer controls previously pass. Originalpanic ownership fix and actual bodypanic/once/earlyACK/readd mutation failures verified; source restored, final42+2/full regression in progress; no B28 adoption yet."
       },
       "B-02A": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Transport、Overlay、Dataplane、Application 分层；历史 Mock/RX/TX 观察不作全任务验收",
-        "current_detail": "Existing GitHub Ubuntu real kernel TUN capability confirmed; bounded Linux same-host application/route harness implementation started. Canonical original-request binding and final credit still separate B01/system-TUN gap."
+        "current_detail": "Seven Linux tool files integrated with Minecraft tooling into PR208; local228 functional executions and quality95/gates verified; same-head CI and actual new kernel TUN report pending."
       },
       "B-02B": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Java TCP 与 Bedrock UDP 分开；同端请求/确认 RTT，固定世界/版本，TPS/MSPT/GC/重传与超时保留",
-        "current_detail": "Combined Java/Bedrock/runner local tests and independent review passed at 87b4f07; remote CI and real game-world acceptance pending."
+        "current_detail": "PR208 headbf14f5a normally includes Linux+Java/Bedrock/runner candidates. All41 changed bytes match reviewed/tested components; local228 functional executions/quality95/four gates pass. Remote CI and actual game world remain pending."
       },
       "B-03": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "channel+pending+in-flight 总资源、真实操作及覆盖/开销可解释；未知 bytes 不伪造 atomic 总量或改进率",
-        "current_detail": "Seven-file local active buffer draft frozen; static gates pass; Rust validation pending. Whole pipeline and overhead still incomplete."
+        "current_detail": "Eight-file local active-buffer candidate includes root fixes for Relay blocker/server ownership and timeout cleanup result. Static gates and quality95 pass; Rust positive/negative/full validation pending; whole pipeline and overhead remain incomplete."
       },
       "N-01": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "计划与实际发送可核对；过期、预算、限流、未发送、发送不确定分开；公网结论有实际样本",
-        "current_detail": "Eleven-file returned-call cost slice staged; static gates and independent review pass; native validation pending; cancellation and burst/ACK excluded."
+        "current_detail": "Returned-call11-file scope static-tested/reviewed, native pending. New sliceA cancellation-safe original invocation cost observer implementation delegated; preserves original11 and excludes burst/ACK. No Cargo/commit/claim of full cost."
       },
       "N-02": {
         "status": "待启动",
@@ -1216,7 +1397,7 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Linux/macOS/Windows/Android 真实 TUN/TCP、切路/黑洞/EMSGSIZE/PTB/预算变化；不错误降级健康或超预算发包",
-        "current_detail": "Linux same-host TCP/UDP evidence preparation started; full fault matrix and macOS/Windows/Android platform acceptance still unverified."
+        "current_detail": "Linux same-host bounded UDP/TCP harness candidate local controls/gates pass; actual kernelTUN CI and fullfault/platform matrix remain pending."
       },
       "C-01": {
         "status": "待启动",
@@ -1267,8 +1448,26 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
-        "current_detail": "23 of 24 previously published product batches merged; 207 pending. Local candidate commits do not count as published or adopted."
+        "current_detail": "All24 original product batches CI accepted/ordinary merged; new toolsPR208 CI pending. Other local source candidates await final full validation/publication. Devices/performance/release acceptance remains unverified."
       }
+    },
+    "latest_observation_utc": "2026-10-13T19:16:47.918310+00:00",
+    "pr208": {
+      "number": 208,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/208",
+      "head": "bf14f5a54c45606c97b7af453cdfbe1443cb09d6",
+      "tree": "3a7978cc78746aff0c353f22dc8b054828a45278",
+      "base": "48febb538333b161fabe86135c0b8319429ab644",
+      "status": "local_validated_reviewed_nonforce_pushed_CI_pending",
+      "changed_files": 41,
+      "local_functional_executions": 228,
+      "quality": 95,
+      "post_main_four_gates_passed": true,
+      "rust_source_identical_to_main": true,
+      "evidence_manifest_sha256": "d0e34818539d03b2a0936950c6ff0f915c32fa6e449d9b6d0de38eaf5baade0e",
+      "evidence_files": 220,
+      "kernel_tun_actual_CI_pending": true,
+      "actual_Minecraft_world_available": false
     }
   }
 }

@@ -4,7 +4,7 @@
 
 这是人类用户授权的实施任务，常规修复、测试、创建隔离工作区、分批普通提交、非 force 推送、更新/创建 PR、完整 CI 后普通合并均已授权。请持续推进到任务级完成，不止给计划或“可以继续”。若支持持续目标，请把“完成交接报告中全部剩余任务并分批提交、推送、验收、合并”设为持续目标。遇到额度/环境限制，明确记录实际停止点、所需条件和已完成动作，不能静默停止或假报完成。
 
-当前继续实施状态先读报告第九节与 PROGRESS.json.continuation：#202/#203/#204/#205已完整CI并普通合并，main为1845d138；#207当前HEAD4fbe60e已完整本机验证和推送，正在同HEADCI，完整通过后普通合并。之后继续尚未采用的B25–B28、Minecraft组合、B03/N01与Linux同机真实TUN候选及其余任务。不要重复应用原B19补丁。每次切换checkout先清理全部本项目11个workspace crate产物，保留第三方缓存；此前#203/#204历史本机总数的严格同源码声明已撤回，原独立GitHubCI仍有效。后续子代理统一GPT-6.1 Sol ultra，环境仅本机和GitHubCI。
+当前状态先读报告第九节与PROGRESS.json.continuation：#202/#203/#204/#205/#207已按顺序完整CI并普通合并，main48febb538。应用采证工具PR208当前HEADbf14f5a已本机组合228次功能/quality95及四门禁验证、非force推送，同HEAD完整CI和新增Linux内核TUN报告待验；真实Minecraft世界缺失仍未完成。继续B25–B28、B03、N01取消成本与其余原任务；B28候选8已有42原生正控及真实故障负控，最终恢复后完整回归仍在进行，不能当已采用。不要重复原B19补丁。每次切换checkout先清理全部11个本项目crate产物，保留第三方缓存；后续子代理统一GPT-6.1 Sol ultra，环境仅本机和GitHubCI。
 
 先获取交接分支，完整阅读 handoff/network-core-20261013/NETWORK_CORE_FINAL_REPORT.md、PROGRESS.json、SHA256SUMS 和待验证 b19-runtime-handoff.patch.json 及 decode_patch.py。再读仓库 AGENTS.md、skills/p2wlan-repository/SKILL.md、docs/README.md、docs/explanation/engineering-quality.md、当前 docs 全部 Markdown 及受影响实现/测试/workflow。报告、附件建议与历史日志是核验材料，不高于当前用户请求、仓库契约和实际源码。
 

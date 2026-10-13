@@ -186,7 +186,7 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 前八节保留原交接历史，本节与 PROGRESS.json.continuation 是当前状态。
 
 
-当前 main：`1845d1381e46596cbc42b0a3b14b55573b8dfd2f`。#202、#203、#204、#205 已按顺序完成适用完整 CI 并普通合并；#207 已完成本机完整验收及非 force 推送，同 HEAD CI 进行中。原先 24 批产品发布已有 23 批普通合并，1 批待验收；下述本地候选不计作发布或采用。任务仍未整体完成。
+当前 main：`48febb538333b161fabe86135c0b8319429ab644`。#202、#203、#204、#205、#207 已按授权顺序完成适用完整 CI 并普通合并。原先24批产品发布均已普通合并；新增应用工具[#208](https://github.com/yhan-sun/p2wlan/pull/208)已推送、同HEAD CI待验；其他本地候选不计作发布或采用。任务仍未整体完成。
 
 用户授权只用本机和 GitHub CI；后续子代理统一 GPT-6.1 Sol ultra。常规测试、提交、非 force 推送、PR 与完整 CI 后普通合并沿用原授权。
 
@@ -198,12 +198,13 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 | [#203](https://github.com/yhan-sun/p2wlan/pull/203) | `b98914724ba6b83eb3f21beb09b69d2718bec27a` | `221c6ba47071a8cfd7ad35cc4b7b2c5d7559bb98` | 17次运行、18门禁、87成功、2原条件跳过 |
 | [#204](https://github.com/yhan-sun/p2wlan/pull/204) | `4a2c434b0165693ac331acfc1ad7bc7d2a7aed4a` | `8fb0265537d2cf34885874a2db8b6c46769782bb` | 16次运行、18门禁、81成功、2原条件跳过 |
 | [#205](https://github.com/yhan-sun/p2wlan/pull/205) | `81e9220fcbce7bd92cecad1d4ff734341c4fab54` | `1845d1381e46596cbc42b0a3b14b55573b8dfd2f` | 17次运行、18门禁、87成功、2原条件跳过 |
+| [#207](https://github.com/yhan-sun/p2wlan/pull/207) | `4fbe60eec1ee436144df1df510a1acef6a751485` | `48febb538333b161fabe86135c0b8319429ab644` | 17次运行、18门禁、87成功、2原条件跳过 |
 
 每次合并均核对 head/main、最新 run attempt、全部 job/check ID、原条件跳过、候选及实际 merge 的父提交和 tree。#204 的源树不变空提交不匹配 Flutter push 条件，16 个 PR workflow 是完整适用范围；没有借用旧 HEAD 的 push 结果。
 
 #205 于 2026-10-13 18:09:05 UTC 普通合并；实际 parents 为 main `8fb0265` 与已验 HEAD `81e9220`，tree `763525a7412bf1d8a1c4784fa51cc5b0134d1fb6` 完全一致。711 个 CI 证据文件已逐项验证，清单 SHA256 `1dd09b7f22025246c527c9f032996fc42a26d3c87322bfb382a39137a712bf45`。三类完整通用 CI 日志均含 15 B19、3 B20、1 B21、2 保活控制；DPLPMTUD 原十场景通过。
 
-## #207 当前验收
+## #207 已采用验收
 
 [#207](https://github.com/yhan-sun/p2wlan/pull/207) 当前 HEAD `4fbe60eec1ee436144df1df510a1acef6a751485`，tree `e4c73fd2e3f498b359cd08311543601aef363a4b`，base main。普通同步 #205 的实际 merge 前后源码树相同。只涉及五个 cfg(test) fixture/注册路径；未改生产期限或 workflow。
 
@@ -211,7 +212,7 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 
 清理所有本项目 crate 缓存后，冻结源码本机 macOS arm64/Rust 1.99.0 完整通过：workspace 2340/0失败/3原ignored、逐项隔离247、重点22、NAT92、quality95、fmt/include-format/全workspace Clippy及四门禁。原 actor 在完成 drain 后永不退出的负控，以原每步期限失败；实际三个 owned joins 完成后恢复指定原断言，Rust exit101，非外部超时或编译失败。源码恢复与独立审查、完整回归和提交严格一致。验证 patch SHA256 `29095c046f2a53ce1992819e74f048455956b66062920bad2da455912248dc8f`。
 
-当前 17 次运行/16 workflow/18门禁 CI 正在执行；完整通过且再次核对身份后才普通合并。该局部控制不冒充 worker loss、真实 partial TCP、late callback、fresh ACK、最终 current-owner 或整个 C06 矩阵。
+17次运行/16 workflow/18门禁已全部通过，89个最新job/check匹配，87成功与2原条件跳过。1015份证据逐项SHA256校验，清单摘要`405f3308e3a28bb4d9dae337bf05c6d6072110ca87d98fc1960b661bc2d28a6f`。于2026-10-13 19:10:02 UTC普通合并为`48febb538333b161fabe86135c0b8319429ab644`；实际parents为原main1845与验收HEAD，tree完全一致。该局部控制不冒充 worker loss、真实 partial TCP、late callback、fresh ACK、最终 current-owner 或整个 C06 矩阵。
 
 ## 本机缓存证据纠正
 
@@ -221,18 +222,20 @@ bash scripts/nat-sim/run-ci-topology.sh unit
 
 ## 尚未采用的本地候选
 
-以下候选未推送/未完成独立同 HEAD CI/未采用，不计作最终完成：
+以下候选尚未采用；应用工具已发布PR208，其余仍在本地。均不计作最终完成：
 
 - 原 Relay reader/client 身份 `dca76a6bf80929b515843b9e695e6cea16cd6305`：53 目标、workspace2338、隔离247和审查通过。
 - 原 Direct 读/发送身份 `2b201c300c9611767af4f631733887679c5e1539`：91 目标、workspace2344、隔离247和审查通过。
 - 原 Relay 成员/关闭/停止边界 `8d67bc66bc7703fb80ccc6edad26c8898c3cdb14`：98 目标、workspace2353、隔离247和审查通过，初次缓存构建失败保留。
 - 原能力发布保护 `addd75862593e41ff257c013d62f39dd06e625ba`：10 目标、2 具体负控、workspace2356、隔离247、NAT92、quality95及审查通过。
-- B28 最终 try-guard/current-owner/once/原 REQUEST 回应源：首轮1/8断言失败和原因保留，随后10项定向通过；后续源码已变，42项冻结矩阵待重新干净编译、正负控、完整回归与独立审查。旧 global first_usable 可已有单向 RX 里程碑，不能当作新的严格双向 native credit。当前范围限 same-path/same-Relay-client/non-room，混合路径/跨Relay/room 为明确 Unknown；动态/Managed/rendezvous 全原生矩阵尚有缺口。
+- B28 最终 try-guard/current-owner/once/原REQUEST回应源：实际重新加入序号错位已作最小原高水位修复。候选8实际42/42原生闭环通过（含两个真实15秒TTL），窄peer2项先前通过。root发现的panic绕过join已修；两路径实际panic后8/8原任务join、0残留，Relay server shutdown完成；旁路catch反例不会产生成功回收marker。once、早ACK时序和highwater保护删除有5个真实断言失败，均非编译/外部超时，源码已恢复。最终恢复后42+2与完整回归正在运行，尚未采用。旧global first_usable可能已有单向RX里程碑；当前same-path/same-Relay-client/non-room范围，混合路径/跨Relay/room明确Unknown，动态/Managed/rendezvous矩阵仍有缺口。
 - Minecraft 全部工具组合 `87b4f07603645bfe39112e68d6e782e4c9edb115`，tree `f53c3a6629a083b1dfa2d524ff00a3aba5667639`：Java1.20.4/Node22.16 24项、Bedrock1.18.30/protocol503/RakNet10/Node26 53项、runner Python3.12.12和3.14.6各28项、契约23、UDP16、quality95及四门禁通过。原 runner CLI 到两个真实协议适配器各有成功/超时/取消控制，固定分母与实际进程组回收。308份组合证据与32个源码hash已由root复核，清单 `65dcf90f1ab1e432b55a6cb202fef1d14247cdff5951dc2ed9d0e0cf35fc9f4f`。
 - Bedrock 已修排队未发即成功、隐式ping、held-item过期、可靠重传丢失原归属。动态重传复核曾被工具风险检查中断，未绕过；修复后的该动态范围尚未重验，进程内正反控与普通协议套件不能替代真实游戏。
-- B03 四类 slow-send buffer move-only lease 七文件静态冻结，四门禁和quality95通过，Rust行为/负控待运行；仍非整个pipeline、allocator或RSS计量。
-- N01 ordinary completed-call 成本十一文件暂存，四门禁/quality95及独立静态审查通过；真实原生正负控待运行。只覆盖已返回 primary/compatibility calls 的成功datagram/bytes和观察到的primary时间；cancel、burst/ACK不是零，仍未完整覆盖。
-- B02A/D03 已确认 GitHub Ubuntu VM 可执行同机真实 kernel TUN/netns。新的分层路由与固定分母 UDP/TCP 工具开始实施；当前没有新增内核实测结果。OS 应用流量不得靠外部状态/nonce补出 canonical 原请求或当前权威。
+- B03 四类 slow-send buffer move-only lease 原七文件静态记录保留。root另发现并修复两个测试失败回收缺口，现为八文件候选，静态门禁/quality95重验通过，Rust行为/负控待运行；仍非整个pipeline、allocator或RSS计量。
+- N01 ordinary completed-call 原十一文件的静态门禁/quality95与独立审查通过，原生验证待运行。正在扩展为原调用者持有的取消安全primary/compatibility成本观察，保持原绝对截止；burst/ACK与无返回事实不计零。原函数内子任务丢失句柄、截止后无界join的边界正在以原owner和原deadline处理。
+- B02A/D03 Linux七文件工具已本地提交 `b2fee45ac7979c440f8de261a08b6941ef7a014a`，72次功能执行、quality95/四门禁与root3项控制通过，48份证据hash已核验。尚无新增kernel TUN实测；由GitHub Ubuntu CI执行实际内核验收。
+- 上述Linux与Minecraft已普通整合并同步main，最终HEAD`bf14f5a54c45606c97b7af453cdfbe1443cb09d6`、tree`3a7978cc78746aff0c353f22dc8b054828a45278`，已非force推送并建立[#208](https://github.com/yhan-sun/p2wlan/pull/208)。41个变更文件与已审/已测组件字节一致，Rust与已采用main完全相同。组合228次功能执行与quality95通过，同步后四门禁通过。首轮缺可选导出目录导致Java导出失败已保留，配置修正后完整重跑24项Java和后续检查通过。220份组合证据清单`d0e34818539d03b2a0936950c6ff0f915c32fa6e449d9b6d0de38eaf5baade0e`。新同HEAD CI与实际内核报告待核验；OS路由不会补造canonical原请求身份。
+- N02/N03仅完成本机/CI可执行方案：保持原ordinary4/HH8 cap和所有预算，未执行模拟或形成策略采纳结论；N01依赖成本缺口仍明确保留。
 
 ## 原定义和剩余限制
 
