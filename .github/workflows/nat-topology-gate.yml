@@ -327,7 +327,10 @@ jobs:
             rm -f "$diag_core_root"/*.raw.txt
           }
           trap restore_core_pattern EXIT
-          sudo sysctl -w "kernel.core_pattern=$diag_core_root/core.%e.%p" >/dev/null
+          # Kernel %P is the global process PID; %s is its terminating signal.
+          # Match the recorded launch directly, independent of GDB's optional
+          # `info proc` text for a core target.
+          sudo sysctl -w "kernel.core_pattern=$diag_core_root/core.%P.%s" >/dev/null
           # Change only core retention; keep the original thread stack,
           # round, connect, business, cancellation and cleanup deadlines.
           ulimit -c unlimited
@@ -354,13 +357,15 @@ jobs:
               -ex 'thread apply all bt 80' \
               "$diag_attempt_root/artifacts/daemon" "$diag_core" \
               > "$diag_core_root/gdb-$diag_core_count.raw.txt" 2> "$diag_output/gdb-$diag_core_count.stderr.txt"
-            python3 - "$diag_attempt_root" "$diag_core_root/gdb-$diag_core_count.raw.txt" "$diag_output/core-owner-$diag_core_count.json" <<'PY'
+            python3 - "$diag_attempt_root" "$diag_core" "$diag_core_root/gdb-$diag_core_count.raw.txt" "$diag_output/core-owner-$diag_core_count.json" <<'PY'
           import hashlib, json, pathlib, re, sys
-          root, raw, output = map(pathlib.Path, sys.argv[1:])
+          root, core, raw, output = map(pathlib.Path, sys.argv[1:])
           text = raw.read_text(errors="replace")
+          kernel_name = re.fullmatch(r"core\.([0-9]+)\.6", core.name)
+          assert kernel_name, "kernel global PID and SIGABRT must be recorded"
+          pid = int(kernel_name.group(1))
           process = re.search(r"^process ([0-9]+)\s*$", text, re.MULTILINE)
-          assert process, "core PID unavailable; daemon identity is unverified"
-          pid = int(process.group(1))
+          assert not process or int(process.group(1)) == pid, "core PID sources disagree"
           owners = [json.loads(path.read_text()) for path in (root / "round-1/launches").glob("node-*.json")]
           owner = [record for record in owners if record["pid"] == pid]
           assert len(owner) == 1, "core must belong to exactly one recorded daemon"
@@ -369,7 +374,7 @@ jobs:
           assert digest == artifact["artifacts"]["daemon"]["sha256"]
           assert owner[0]["source"] == artifact["source"]
           assert "SIGABRT" in text, "core signal differs from original stack-overflow abort"
-          output.write_text(json.dumps({"pid": pid, "role": owner[0]["role"], "source": artifact["source"], "daemon_sha256": digest, "core_owned_daemon_verified": True}, indent=2))
+          output.write_text(json.dumps({"pid": pid, "pid_source": "kernel.core_pattern.%P", "signal": 6, "role": owner[0]["role"], "source": artifact["source"], "daemon_sha256": digest, "core_owned_daemon_verified": True}, indent=2))
           PY
             # Publish symbols and source locations, never core memory,
             # runtime configuration, authorization or argument values.
