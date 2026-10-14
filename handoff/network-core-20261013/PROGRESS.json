@@ -1,27 +1,31 @@
 {
   "schema": "p2wlan_network_core_portable_handoff_v1",
-  "snapshot_UTC": "2026-10-14T00:14:06.948701+00:00",
+  "snapshot_UTC": "2026-10-14T00:44:05.197505+00:00",
   "repository": "https://github.com/yhan-sun/p2wlan",
   "handoff_branch": "codex/network-core-handoff-20261013",
   "product_source_commit": "03674990c4956df5580f2b56cb1aad83c645de36",
   "product_source_tree": "5370dcca24186541049b50a7f4ecac2a38dca7b1",
   "remote_main_snapshot": "03674990c4956df5580f2b56cb1aad83c645de36",
   "product_batch_counts": {
-    "published": 28,
+    "published": 30,
     "ordinary_merged": 26,
-    "pending": 2,
+    "pending": 4,
     "original24_all_merged": true,
     "post_handoff_PRs": [
       208,
       209,
       210,
-      211
+      211,
+      212,
+      213
     ],
     "handoff_checkpoint_is_product_batch": false
   },
   "pending_PR_order": [
     209,
-    210
+    210,
+    212,
+    213
   ],
   "PR_snapshots": [
     {
@@ -114,13 +118,13 @@
       "state": "open",
       "merged": false,
       "draft": false,
-      "head": "8d0b64d14384b1329b54be5b4777d88b4a5b3f2e",
+      "head": "4fa8b9ef24cb81bef8976db23f6a233b3ba8cbe4",
       "head_ref": "codex/network-core-original-ack-20261013",
       "base": "main",
-      "base_sha": "48febb538333b161fabe86135c0b8319429ab644",
-      "merge_commit_sha": "2d505ab8304d48f5614dbd51485321a46db4cdec",
+      "base_sha": "03674990c4956df5580f2b56cb1aad83c645de36",
+      "merge_commit_sha": "f623c4b2704d539ef89bb86dd966bf0342676324",
       "merged_at": null,
-      "observed_utc": "2026-10-13T23:15:49.672057+00:00"
+      "observed_utc": "2026-10-14T00:23:39.708935+00:00"
     },
     {
       "number": 210,
@@ -128,13 +132,13 @@
       "state": "open",
       "merged": false,
       "draft": false,
-      "head": "4ab2f284f79103ef99e7b3df1de8c1d1101eab16",
+      "head": "84a76a5de76776183017a405bcb4491031b0299b",
       "head_ref": "codex/network-core-ordinary-probe-cost-main-20261013",
       "base": "main",
-      "base_sha": "dbe5d67f2142981e103b858cf82981696b5c1bb6",
-      "merge_commit_sha": "c59c120643777d72d5a8201501103b5afa630d7e",
+      "base_sha": "03674990c4956df5580f2b56cb1aad83c645de36",
+      "merge_commit_sha": "bcdd5ed27c9739a8653fdb013897184ea51779c9",
       "merged_at": null,
-      "observed_utc": "2026-10-13T23:15:49.672057+00:00"
+      "observed_utc": "2026-10-14T00:23:39.708935+00:00"
     },
     {
       "number": 211,
@@ -149,13 +153,40 @@
       "merge_commit_sha": "03674990c4956df5580f2b56cb1aad83c645de36",
       "merged_at": "2026-10-14T00:06:13Z",
       "observed_utc": "2026-10-14T00:07:15.395308+00:00"
+    },
+    {
+      "number": 212,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/212",
+      "state": "open",
+      "merged": false,
+      "draft": false,
+      "head": "325e294b4935090e461d723079969bcda4a09bdc",
+      "head_ref": "codex/network-core-recovery-health-main-20261014",
+      "base": "main",
+      "base_sha": "03674990c4956df5580f2b56cb1aad83c645de36",
+      "merge_commit_sha": "d7d24a6b6dcd44bdd08e95f048cb3ae330f85f6e",
+      "merged_at": null,
+      "observed_utc": "2026-10-14T00:36:40.906216+00:00"
+    },
+    {
+      "number": 213,
+      "url": "https://github.com/yhan-sun/p2wlan/pull/213",
+      "state": "open",
+      "merged": false,
+      "draft": false,
+      "head": "c18e5990384cc7ccfa490b8f1c23dd5a1e6ab2a3",
+      "head_ref": "codex/network-core-ipv6-endpoint-fix-20261014",
+      "base": "main",
+      "base_sha": "03674990c4956df5580f2b56cb1aad83c645de36",
+      "merge_commit_sha": "8c8460df82032fd0c58421fea5392fecac166367",
+      "merged_at": null,
+      "observed_utc": "2026-10-14T00:44:05.197505+00:00"
     }
   ],
   "task_counts": {
     "完成": 2,
-    "进行中": 12,
-    "条件候选": 7,
-    "待启动": 1
+    "进行中": 14,
+    "条件候选": 6
   },
   "tasks": [
     {
@@ -181,9 +212,9 @@
     {
       "id": "B-01",
       "status": "进行中",
-      "status_detail": "PR209组合66unique/完整13本地检查通过；独立复核要求进一步收紧close原截止，close5及7项检查通过并提交762a69e。原真实Emit失败与join-only不足保留；common完整canonical两项首次原生运行中，尚未推送采用。",
+      "status_detail": "PR209 current4fa8 full13/68exact本机通过、完整CI进行中；worker-loss与C02组合clean325e full11/28exact通过并独立复核，已普通推送创建PR212；Managed组合c2ac414静态通过，61exact尚未原生验收。完整身份pipeline及缺失原定义仍未完成。",
       "dependencies": [],
-      "next_action": "先交付 #202–#207；补最终 current-owner/once、S3C、故障后 fresh REQUEST→远端当前 REQUEST→匹配 ACK；完整 canonical pipeline、真实 partial/worker loss、C06/C11",
+      "next_action": "完成#209/#212当前CI和Managed组合61原生/完整回归；继续原身份与故障后fresh闭环，缺失编号定义单列。",
       "acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
       "accepted_scope": null,
       "evidence_for_full_task_completion": null
@@ -218,7 +249,7 @@
     {
       "id": "B-03",
       "status": "进行中",
-      "status_detail": "Old23/full11/2actualneg/restored23 passed at8a. Ordinary no-commit integration of PR2098d staged,73unique combinednative/full notrun; static7pass, notadopted.",
+      "status_detail": "clean6053681普通整合current209/main211，原10B03文件字节保留、7静态通过；91unique四组及full14正在原生运行，未采用，完整pipeline/成本仍缺。",
       "dependencies": [
         "B-01"
       ],
@@ -230,7 +261,7 @@
     {
       "id": "N-01",
       "status": "进行中",
-      "status_detail": "PR210 4ab完整本地12通过，但CI新增Relay3/4真实失败；保留依赖门禁原3000s超时以及Rekey checkout超时后同源成功。正读取原NAT日志和产物诊断，不作采用。",
+      "status_detail": "PR210更新84a76a5：原4ab产品Rust不变，纳入已验Cshim及main211，当前7项改动相关检查通过，新17CI开始。额外314工具313过1restart凭据缺失，单项18s未复现、旧原因未知；不能写整套通过，原CI两栈溢出保留。",
       "dependencies": [
         "B-01",
         "B-03"
@@ -310,13 +341,13 @@
     },
     {
       "id": "C-01",
-      "status": "待启动",
-      "status_detail": "待启动 / P1",
+      "status": "进行中",
+      "status_detail": "已从current2094fa创建独立分支并核实原network-hint→clear_if_owner→下一真实bind后G+1入口；正在设计最小真实loopback rebind/旧ACK拒绝/新canonical闭环与原JoinSet回收钩子，尚未原生执行。",
       "dependencies": [
         "B-01",
         "B-03"
       ],
-      "next_action": "B-01/B-03；补同网关重映射、切网、休眠、撤权/rekey 并发",
+      "next_action": "最小原supervisor网络hint驱动的loopback rebind/原身份闭环，不替代真实设备。",
       "acceptance": "恢复时间、失包、旧 owner 拒绝、资源回收及跨路径不重放",
       "accepted_scope": null,
       "evidence_for_full_task_completion": null,
@@ -325,7 +356,7 @@
     {
       "id": "C-02",
       "status": "进行中",
-      "status_detail": "原保活与B01、尖峰/ACK adoption排队/普通业务无应用回复三个新test-only切片已组合main211；28exact/full计划准备，尚未原生执行新组合。只有旧局部full通过，不作完整C02验收。",
+      "status_detail": "clean325e与B01/main211组合，28exact/工作区2347pass3原ignored/253隔离/NAT92/quality108/完整11全部通过，独立复核无阻断；PR212已发布，完整CI待验。普通UDP无应用回复、60ms RTT尖峰、ACK到达后adoption排队均局部验证；Linux实际应用暂停工具仍实施中。",
       "dependencies": [
         "B-02A",
         "B-03"
@@ -338,7 +369,7 @@
     {
       "id": "C-03",
       "status": "进行中",
-      "status_detail": "固定DirectFirst/Auto×Direct可用/黑洞四轮工具静态已验；实际0轮。独立审查复现policy receipt与原exec摘要不匹配仍被接受，正在最小修复；未采用。",
+      "status_detail": "原exec策略摘要绑定反例已修，离线45控制与四门禁通过；工具a5395c9普通整合current209/main211为clean39e593f，当前9静态检查通过、native marker实际存在。固定4冷启动原预算零重试计划可用，但新组合原生回归与实际四轮尚未执行。",
       "dependencies": [
         "B-01",
         "B-02A",
@@ -353,7 +384,7 @@
     {
       "id": "R-00",
       "status": "进行中",
-      "status_detail": "common canonical实际两项通过：普通新请求/独立重加密重复、原成员替换旧ACK拒绝/双向新请求Fresh；原清理均收齐。测试修复5a28bea与main211普通组合，68exact/full13运行中，尚未采用。",
+      "status_detail": "common canonical两实际测试通过，含新请求/独立重加密重复、原成员替换旧ACK拒绝/双向新请求Fresh。current2094fa clean full13/68exact全部通过，普通推送后完整CI进行中；不证明替换merge worker重新学习路线或公网质量收益。",
       "dependencies": [
         "B-01",
         "B-02A",
@@ -404,10 +435,10 @@
     },
     {
       "id": "X-02",
-      "status": "条件候选",
-      "status_detail": "条件候选（按部署影响提级）",
+      "status": "进行中",
+      "status_detail": "PR213 clean c18e599完整12本机检查通过：实际IPv6 TLS默认IP证书验证/注册及原workers2/2、WS、workspace2342/3原ignored、253隔离、NAT92、quality108；已普通推送创建PR，完整CI待验。旧Relayconnect Timeout不作指定RED/归因，WS有指定RED；DNS64/NAT64未验。",
       "dependencies": [],
-      "next_action": "IPv6-only/NAT64 实际样本",
+      "next_action": "PR213完整CI和ordinary merge；DNS64/NAT64继续保留环境限制。",
       "acceptance": "STUN/控制/Relay、IPv4 literal/DNS64 的可达性矩阵；目标部署受影响则提级实施",
       "accepted_scope": null,
       "evidence_for_full_task_completion": null,
@@ -427,9 +458,9 @@
     {
       "id": "G-01",
       "status": "进行中",
-      "status_detail": "原24批及#208/#211已完整CI后普通合并，共28发布26合并2待验。#209继续common原生验收，#210实际Relay拓扑失败诊断；main03674990，所有失败证据保留，任务完整范围未升级完成。",
+      "status_detail": "30发布26普通合并4待验，main03674990。#209/#210/#212/#213当前CI进行中或初始化采证；其余本机候选继续验收。最新handoff检查点本次准备中。",
       "dependencies": [],
-      "next_action": "贯穿所有任务，当前先完成五个 pending 产品 PR",
+      "next_action": "完成#209/#210/#212/#213当次完整CI，保留失败、源码和产物身份，逐批普通合并。",
       "acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
       "accepted_scope": null,
       "evidence_for_full_task_completion": null,
@@ -503,7 +534,9 @@
     "verified_main": "03674990c4956df5580f2b56cb1aad83c645de36",
     "verified_pending_PRs": [
       209,
-      210
+      210,
+      212,
+      213
     ],
     "toolchain": "rustc 1.99.0 (b940084d7 2026-09-28)",
     "local_platform": "aarch64-apple-darwin",
@@ -614,7 +647,7 @@
       "fixed-version Minecraft server and interactive clients",
       "deployment/canary target and rollback exercise"
     ],
-    "updated_UTC": "2026-10-14T00:14:06.948701+00:00",
+    "updated_UTC": "2026-10-14T00:44:05.197505+00:00",
     "missing_acceptance_definitions": {
       "labels": [
         "S3C",
@@ -653,7 +686,7 @@
       ],
       "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
     },
-    "handoff_progress_commit": "cb45595a3cfcfa744ca6e91f4d54dd20904282e0",
+    "handoff_progress_commit": "150ada17c45b492f407e19ba922b9c5afcd7f84a",
     "parallel_preparation": {
       "B-02B.tool_contract": {
         "UTC": "2026-10-13T14:46:18.121210+00:00",
@@ -1179,15 +1212,17 @@
       }
     },
     "product_batch_counts_current": {
-      "published": 28,
+      "published": 30,
       "ordinary_merged": 26,
-      "pending": 2,
+      "pending": 4,
       "original24_all_merged": true,
       "post_handoff_PRs": [
         208,
         209,
         210,
-        211
+        211,
+        212,
+        213
       ],
       "handoff_checkpoint_is_product_batch": false
     },
@@ -1568,144 +1603,284 @@
     },
     "task_status_current": {
       "D-00A": {
+        "id": "D-00A",
         "status": "完成",
+        "status_detail": "完成（本机）",
+        "dependencies": [],
+        "next_action": "维持 fallback 读/路由取消保护、feedback 关闭回归",
+        "acceptance": "确定性回归保持；真实 TUN 归 B-02A/D-03",
         "accepted_scope": "historical_local_correctness_only",
-        "remaining_acceptance": "确定性回归保持；真实 TUN 归 B-02A/D-03",
-        "current_detail": "完成（本机）"
+        "evidence_for_full_task_completion": null
       },
       "D-00B": {
+        "id": "D-00B",
         "status": "完成",
+        "status_detail": "完成（本机）",
+        "dependencies": [],
+        "next_action": "维持 per-peer 唯一 owner 准入、公平锁活锁修复、FIFO/截止",
+        "acceptance": "本机四锁争用、超时/关闭/活锁回归保持；真实性能另验",
         "accepted_scope": "historical_local_correctness_only",
-        "remaining_acceptance": "本机四锁争用、超时/关闭/活锁回归保持；真实性能另验",
-        "current_detail": "完成（本机）"
+        "evidence_for_full_task_completion": null
       },
       "B-01": {
+        "id": "B-01",
         "status": "进行中",
+        "status_detail": "PR209 current4fa8 full13/68exact本机通过、完整CI进行中；worker-loss与C02组合clean325e full11/28exact通过并独立复核，已普通推送创建PR212；Managed组合c2ac414静态通过，61exact尚未原生验收。完整身份pipeline及缺失原定义仍未完成。",
+        "dependencies": [],
+        "next_action": "完成#209/#212当前CI和Managed组合61原生/完整回归；继续原身份与故障后fresh闭环，缺失编号定义单列。",
+        "acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
         "accepted_scope": null,
-        "remaining_acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
-        "current_detail": "PR209组合66unique/完整13本地检查通过；独立复核要求进一步收紧close原截止，close5及7项检查通过并提交762a69e。原真实Emit失败与join-only不足保留；common完整canonical两项首次原生运行中，尚未推送采用。",
-        "status_detail": "PR209组合66unique/完整13本地检查通过；独立复核要求进一步收紧close原截止，close5及7项检查通过并提交762a69e。原真实Emit失败与join-only不足保留；common完整canonical两项首次原生运行中，尚未推送采用。"
+        "evidence_for_full_task_completion": null
       },
       "B-02A": {
+        "id": "B-02A",
         "status": "进行中",
+        "status_detail": "PR208 a7cd902 ordinarily merged dbe5d67 after full17CI/18gates/87pass2skip and same-head realLinuxTUN32/32 with11groups/22handles cleanup. Fullcanonical/public/device scope remains unverified.",
+        "dependencies": [
+          "B-01"
+        ],
+        "next_action": "B-01；补双端真实 TUN 请求链、路径/session/socket 精确归属与当前请求证据",
+        "acceptance": "Transport、Overlay、Dataplane、Application 分层；历史 Mock/RX/TX 观察不作全任务验收",
         "accepted_scope": null,
-        "remaining_acceptance": "Transport、Overlay、Dataplane、Application 分层；历史 Mock/RX/TX 观察不作全任务验收",
-        "current_detail": "PR208 a7cd902 ordinarily merged dbe5d67 after full17CI/18gates/87pass2skip and same-head realLinuxTUN32/32 with11groups/22handles cleanup. Fullcanonical/public/device scope remains unverified."
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "B-02B": {
+        "id": "B-02B",
         "status": "进行中",
+        "status_detail": "PR208 adopted after fullCI; same-head Java24/Bedrock53/contracts23/runner28 and4zeroaudit reports accepted. No actual Minecraft world/TPS/MSPT/GC or workload performance acceptance.",
+        "dependencies": [
+          "B-01",
+          "B-02A"
+        ],
+        "next_action": "B-01、B-02A；实现 Minecraft 可重复交互工具",
+        "acceptance": "Java TCP 与 Bedrock UDP 分开；同端请求/确认 RTT，固定世界/版本，TPS/MSPT/GC/重传与超时保留",
         "accepted_scope": null,
-        "remaining_acceptance": "Java TCP 与 Bedrock UDP 分开；同端请求/确认 RTT，固定世界/版本，TPS/MSPT/GC/重传与超时保留",
-        "current_detail": "PR208 adopted after fullCI; same-head Java24/Bedrock53/contracts23/runner28 and4zeroaudit reports accepted. No actual Minecraft world/TPS/MSPT/GC or workload performance acceptance."
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "B-03": {
+        "id": "B-03",
         "status": "进行中",
+        "status_detail": "clean6053681普通整合current209/main211，原10B03文件字节保留、7静态通过；91unique四组及full14正在原生运行，未采用，完整pipeline/成本仍缺。",
+        "dependencies": [
+          "B-01"
+        ],
+        "next_action": "B-01；12 个既有 Vec 站点及 actor/FIFO 局部事实保持，补全 pipeline/coverage/lease/copy/serialized 计量",
+        "acceptance": "channel+pending+in-flight 总资源、真实操作及覆盖/开销可解释；未知 bytes 不伪造 atomic 总量或改进率",
         "accepted_scope": null,
-        "remaining_acceptance": "channel+pending+in-flight 总资源、真实操作及覆盖/开销可解释；未知 bytes 不伪造 atomic 总量或改进率",
-        "current_detail": "Old23/full11/2actualneg/restored23 passed at8a. Ordinary no-commit integration of PR2098d staged,73unique combinednative/full notrun; static7pass, notadopted."
+        "evidence_for_full_task_completion": null
       },
       "N-01": {
+        "id": "N-01",
         "status": "进行中",
+        "status_detail": "PR210更新84a76a5：原4ab产品Rust不变，纳入已验Cshim及main211，当前7项改动相关检查通过，新17CI开始。额外314工具313过1restart凭据缺失，单项18s未复现、旧原因未知；不能写整套通过，原CI两栈溢出保留。",
+        "dependencies": [
+          "B-01",
+          "B-03"
+        ],
+        "next_action": "B-01、B-03；六个本机子项完成记录保持，补真实执行/失败/成本对应",
+        "acceptance": "计划与实际发送可核对；过期、预算、限流、未发送、发送不确定分开；公网结论有实际样本",
         "accepted_scope": null,
-        "remaining_acceptance": "计划与实际发送可核对；过期、预算、限流、未发送、发送不确定分开；公网结论有实际样本",
-        "current_detail": "PR210 4ab完整本地12通过，但CI新增Relay3/4真实失败；保留依赖门禁原3000s超时以及Rekey checkout超时后同源成功。正读取原NAT日志和产物诊断，不作采用。",
-        "status_detail": "PR210 4ab完整本地12通过，但CI新增Relay3/4真实失败；保留依赖门禁原3000s超时以及Rekey checkout超时后同源成功。正读取原NAT日志和产物诊断，不作采用。"
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "N-02": {
+        "id": "N-02",
         "status": "进行中",
+        "status_detail": "旧固定12轮实际各2有效+4栈溢出全部保留，零重试；Cshim修复3ce已验，双方同shim新候选324484f及固定12计划已准备、实际0轮；新组合原生验证和收益结论待验。",
+        "dependencies": [
+          "N-01"
+        ],
+        "next_action": "N-01；同预算 hh2 时序/候选 A/B",
+        "acceptance": "规律/跳号/随机映射、冷/热/背景分层；可复现收益或不采纳结论",
         "accepted_scope": null,
-        "remaining_acceptance": "规律/跳号/随机映射、冷/热/背景分层；可复现收益或不采纳结论",
-        "current_detail": "旧固定12轮实际各2有效+4栈溢出全部保留，零重试；Cshim修复3ce已验，双方同shim新候选324484f及固定12计划已准备、实际0轮；新组合原生验证和收益结论待验。",
-        "status_detail": "旧固定12轮实际各2有效+4栈溢出全部保留，零重试；Cshim修复3ce已验，双方同shim新候选324484f及固定12计划已准备、实际0轮；新组合原生验证和收益结论待验。"
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "N-03": {
+        "id": "N-03",
         "status": "进行中",
+        "status_detail": "e764工具已验；和main208/新Cshim3ce普通组合881d348，仅两工具delta，Python35/quality108/四门禁/dryrun通过；固定off/2/4共9真实cold仍未运行，usable未知，未采用。",
+        "dependencies": [
+          "B-01",
+          "N-01"
+        ],
+        "next_action": "B-01、N-01；普通 pool 与 hh2 socket 独立实验",
+        "acceptance": "保持平台 cap、全进程预算、deadline；requested/attached/usable、竞争、清理/映射副作用完整",
         "accepted_scope": null,
-        "remaining_acceptance": "保持平台 cap、全进程预算、deadline；requested/attached/usable、竞争、清理/映射副作用完整",
-        "current_detail": "e764工具已验；和main208/新Cshim3ce普通组合881d348，仅两工具delta，Python35/quality108/四门禁/dryrun通过；固定off/2/4共9真实cold仍未运行，usable未知，未采用。"
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "D-01": {
+        "id": "D-01",
         "status": "条件候选",
+        "status_detail": "条件候选 / P1",
+        "dependencies": [
+          "B-02A",
+          "B-03"
+        ],
+        "next_action": "B-02A/B-03 且复现 TUN 串行等待；平台 split API 原型",
+        "acceptance": "双向/outbound-only、关闭/重建/取消安全；同负载尾延迟改善，否则不合入",
         "accepted_scope": null,
-        "remaining_acceptance": "双向/outbound-only、关闭/重建/取消安全；同负载尾延迟改善，否则不合入",
-        "current_detail": "条件候选 / P1"
+        "evidence_for_full_task_completion": null
       },
       "D-02": {
+        "id": "D-02",
         "status": "条件候选",
+        "status_detail": "条件候选 / P1",
+        "dependencies": [
+          "B-02A",
+          "B-03"
+        ],
+        "next_action": "B-02A/B-03 且复现可控多流排队；明文 DRR 原型",
+        "acceptance": "流内有序、密文不重排、backlog/fast path 不绕过、公平与资源有界；收益不足不合入",
         "accepted_scope": null,
-        "remaining_acceptance": "流内有序、密文不重排、backlog/fast path 不绕过、公平与资源有界；收益不足不合入",
-        "current_detail": "条件候选 / P1"
+        "evidence_for_full_task_completion": null
       },
       "D-03": {
+        "id": "D-03",
         "status": "进行中",
+        "status_detail": "PR211 1d35708完整17 CI/18门禁/87成功2原跳过，Linux同candidate故障证据已验后普通合并03674990。baseline32/32、16故障终态、16新请求成功、11组22句柄及原规则namespace清理均通过；完整跨平台/MTU故障矩阵仍未验。",
+        "dependencies": [
+          "B-01",
+          "B-03"
+        ],
+        "next_action": "B-01/B-03；通用采证复用 B-02A，无需等待 MC",
+        "acceptance": "Linux/macOS/Windows/Android 真实 TUN/TCP、切路/黑洞/EMSGSIZE/PTB/预算变化；不错误降级健康或超预算发包",
         "accepted_scope": null,
-        "remaining_acceptance": "Linux/macOS/Windows/Android 真实 TUN/TCP、切路/黑洞/EMSGSIZE/PTB/预算变化；不错误降级健康或超预算发包",
-        "current_detail": "PR211 1d35708完整17 CI/18门禁/87成功2原跳过，Linux同candidate故障证据已验后普通合并03674990。baseline32/32、16故障终态、16新请求成功、11组22句柄及原规则namespace清理均通过；完整跨平台/MTU故障矩阵仍未验。",
-        "status_detail": "PR211 1d35708完整17 CI/18门禁/87成功2原跳过，Linux同candidate故障证据已验后普通合并03674990。baseline32/32、16故障终态、16新请求成功、11组22句柄及原规则namespace清理均通过；完整跨平台/MTU故障矩阵仍未验。"
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "C-01": {
-        "status": "待启动",
+        "id": "C-01",
+        "status": "进行中",
+        "status_detail": "已从current2094fa创建独立分支并核实原network-hint→clear_if_owner→下一真实bind后G+1入口；正在设计最小真实loopback rebind/旧ACK拒绝/新canonical闭环与原JoinSet回收钩子，尚未原生执行。",
+        "dependencies": [
+          "B-01",
+          "B-03"
+        ],
+        "next_action": "最小原supervisor网络hint驱动的loopback rebind/原身份闭环，不替代真实设备。",
+        "acceptance": "恢复时间、失包、旧 owner 拒绝、资源回收及跨路径不重放",
         "accepted_scope": null,
-        "remaining_acceptance": "恢复时间、失包、旧 owner 拒绝、资源回收及跨路径不重放",
-        "current_detail": "待启动 / P1"
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "C-02": {
+        "id": "C-02",
         "status": "进行中",
+        "status_detail": "clean325e与B01/main211组合，28exact/工作区2347pass3原ignored/253隔离/NAT92/quality108/完整11全部通过，独立复核无阻断；PR212已发布，完整CI待验。普通UDP无应用回复、60ms RTT尖峰、ACK到达后adoption排队均局部验证；Linux实际应用暂停工具仍实施中。",
+        "dependencies": [
+          "B-02A",
+          "B-03"
+        ],
+        "next_action": "B-02A/B-03；MC 误报参考 B-02B；健康只读 shadow",
+        "acceptance": "空闲、UDP 无 ACK、单尖峰、服务器卡顿、本机排队不误判路径失活",
         "accepted_scope": null,
-        "remaining_acceptance": "空闲、UDP 无 ACK、单尖峰、服务器卡顿、本机排队不误判路径失活",
-        "current_detail": "原保活与B01、尖峰/ACK adoption排队/普通业务无应用回复三个新test-only切片已组合main211；28exact/full计划准备，尚未原生执行新组合。只有旧局部full通过，不作完整C02验收。"
+        "evidence_for_full_task_completion": null
       },
       "C-03": {
+        "id": "C-03",
         "status": "进行中",
+        "status_detail": "原exec策略摘要绑定反例已修，离线45控制与四门禁通过；工具a5395c9普通整合current209/main211为clean39e593f，当前9静态检查通过、native marker实际存在。固定4冷启动原预算零重试计划可用，但新组合原生回归与实际四轮尚未执行。",
+        "dependencies": [
+          "B-01",
+          "B-02A",
+          "C-02"
+        ],
+        "next_action": "B-01/B-02A/C-02；先 A/B 现有启动策略，再按证据扩展唯一 reducer",
+        "acceptance": "首次可用改善，Direct 不回归，Relay 成本可见；不重置截止或降低验证",
         "accepted_scope": null,
-        "remaining_acceptance": "首次可用改善，Direct 不回归，Relay 成本可见；不重置截止或降低验证",
-        "current_detail": "固定DirectFirst/Auto×Direct可用/黑洞四轮工具静态已验；实际0轮。独立审查复现policy receipt与原exec摘要不匹配仍被接受，正在最小修复；未采用。"
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "R-00": {
+        "id": "R-00",
         "status": "进行中",
+        "status_detail": "common canonical两实际测试通过，含新请求/独立重加密重复、原成员替换旧ACK拒绝/双向新请求Fresh。current2094fa clean full13/68exact全部通过，普通推送后完整CI进行中；不证明替换merge worker重新学习路线或公网质量收益。",
+        "dependencies": [
+          "B-01",
+          "B-02A",
+          "B-03"
+        ],
+        "next_action": "B-01/B-02A/B-03；现有多区域/重选与持续业务质量、协调迁移",
+        "acceptance": "双端同 Relay rendezvous、验证/续期/撤权保持，有业务证据才改选择机制",
         "accepted_scope": null,
-        "remaining_acceptance": "双端同 Relay rendezvous、验证/续期/撤权保持，有业务证据才改选择机制",
-        "current_detail": "common canonical实际两项通过：普通新请求/独立重加密重复、原成员替换旧ACK拒绝/双向新请求Fresh；原清理均收齐。测试修复5a28bea与main211普通组合，68exact/full13运行中，尚未采用。"
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "R-01": {
+        "id": "R-01",
         "status": "条件候选",
+        "status_detail": "条件候选 / P2",
+        "dependencies": [
+          "B-02A",
+          "R-00"
+        ],
+        "next_action": "B-02A/R-00 证明 TLS Relay 的问题；UDP Relay RFC 与单区域原型",
+        "acceptance": "双向加密业务、TLS 回退、票据/撤权、防放大、限速、MTU/拥塞与成本",
         "accepted_scope": null,
-        "remaining_acceptance": "双向加密业务、TLS 回退、票据/撤权、防放大、限速、MTU/拥塞与成本",
-        "current_detail": "条件候选 / P2"
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "R-02": {
+        "id": "R-02",
         "status": "条件候选",
+        "status_detail": "条件候选 / P2",
+        "dependencies": [
+          "R-01"
+        ],
+        "next_action": "R-01 结论及用户需求；自愿 Peer Relay RFC/配额",
+        "acceptance": "显式参与/退出、权限、配额、兼容可验证；不自动开放转发",
         "accepted_scope": null,
-        "remaining_acceptance": "显式参与/退出、权限、配额、兼容可验证；不自动开放转发",
-        "current_detail": "条件候选 / P2"
+        "evidence_for_full_task_completion": null
       },
       "X-01": {
+        "id": "X-01",
         "status": "条件候选",
+        "status_detail": "条件候选 / P2",
+        "dependencies": [],
+        "next_action": "明确 TCP 打洞需求；simultaneous-open 独立实验",
+        "acceptance": "OS/NAT 矩阵、取消与资源上界，失败保持 UDP/TLS 主线",
         "accepted_scope": null,
-        "remaining_acceptance": "OS/NAT 矩阵、取消与资源上界，失败保持 UDP/TLS 主线",
-        "current_detail": "条件候选 / P2"
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "X-02": {
-        "status": "条件候选",
+        "id": "X-02",
+        "status": "进行中",
+        "status_detail": "PR213 clean c18e599完整12本机检查通过：实际IPv6 TLS默认IP证书验证/注册及原workers2/2、WS、workspace2342/3原ignored、253隔离、NAT92、quality108；已普通推送创建PR，完整CI待验。旧Relayconnect Timeout不作指定RED/归因，WS有指定RED；DNS64/NAT64未验。",
+        "dependencies": [],
+        "next_action": "PR213完整CI和ordinary merge；DNS64/NAT64继续保留环境限制。",
+        "acceptance": "STUN/控制/Relay、IPv4 literal/DNS64 的可达性矩阵；目标部署受影响则提级实施",
         "accepted_scope": null,
-        "remaining_acceptance": "STUN/控制/Relay、IPv4 literal/DNS64 的可达性矩阵；目标部署受影响则提级实施",
-        "current_detail": "条件候选（按部署影响提级）"
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "X-03": {
+        "id": "X-03",
         "status": "条件候选",
+        "status_detail": "条件候选 / P2",
+        "dependencies": [],
+        "next_action": "CPU/系统调用/多出口瓶颈证据",
+        "acceptance": "GSO/GRO、batch、多队列、多链路分别实验；CPU/吞吐/尾延迟，乱序与 replay 有界",
         "accepted_scope": null,
-        "remaining_acceptance": "GSO/GRO、batch、多队列、多链路分别实验；CPU/吞吐/尾延迟，乱序与 replay 有界",
-        "current_detail": "条件候选 / P2"
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       },
       "G-01": {
+        "id": "G-01",
         "status": "进行中",
+        "status_detail": "30发布26普通合并4待验，main03674990。#209/#210/#212/#213当前CI进行中或初始化采证；其余本机候选继续验收。最新handoff检查点本次准备中。",
+        "dependencies": [],
+        "next_action": "完成#209/#210/#212/#213当次完整CI，保留失败、源码和产物身份，逐批普通合并。",
+        "acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
         "accepted_scope": null,
-        "remaining_acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
-        "current_detail": "原24批及#208/#211已完整CI后普通合并，共28发布26合并2待验。#209继续common原生验收，#210实际Relay拓扑失败诊断；main03674990，所有失败证据保留，任务完整范围未升级完成。",
-        "status_detail": "原24批及#208/#211已完整CI后普通合并，共28发布26合并2待验。#209继续common原生验收，#210实际Relay拓扑失败诊断；main03674990，所有失败证据保留，任务完整范围未升级完成。"
+        "evidence_for_full_task_completion": null,
+        "continuation_environment_limit": "User limits execution to local machine and GitHub CI. Real deployment/device/public-network acceptance requires unavailable external evidence."
       }
     },
-    "latest_observation_utc": "2026-10-14T00:14:06.948701+00:00",
+    "latest_observation_utc": "2026-10-14T00:23:39.708935+00:00",
     "pr208": {
       "number": 208,
       "url": "https://github.com/yhan-sun/p2wlan/pull/208",
@@ -1835,10 +2010,10 @@
     "pr209": {
       "number": 209,
       "url": "https://github.com/yhan-sun/p2wlan/pull/209",
-      "head": "8d0b64d14384b1329b54be5b4777d88b4a5b3f2e",
-      "tree": "b918214190c5ae48fcd67cbde28b4dbc24660b38",
-      "base": "48febb538333b161fabe86135c0b8319429ab644",
-      "candidate": "2d505ab8304d48f5614dbd51485321a46db4cdec",
+      "head": "4fa8b9ef24cb81bef8976db23f6a233b3ba8cbe4",
+      "tree": "6ba6992ac8452bf2f56db1883a1a8c26f4da07ea",
+      "base": "03674990c4956df5580f2b56cb1aad83c645de36",
+      "candidate": "f623c4b2704d539ef89bb86dd966bf0342676324",
       "status": "runtimeVIP fix ordinary committed/pushed; fresh17run fullCI started; not adopted",
       "expected_runs": 17,
       "expected_gates": 18,
@@ -1980,15 +2155,18 @@
         "current_failure_reason": "Bootstrap PeerManager localVIP .1 differs from original runtime control-assigned .2/.3; sufficient source-inferred REQUEST rejection. Separate missing compatibility marker after native ACK success; not solely a logging issue.",
         "failure_audit": "work/evidence/pr209-nat-first-failure-audit/REPORT.md"
       },
-      "current_head_CI_failure_status": "new fullCI in progress; no failure conclusion yet"
+      "current_head_CI_failure_status": "new fullCI in progress; no failure conclusion yet",
+      "ci": "current_17_runs_started",
+      "adopted": false,
+      "evidence": "work/evidence/ci-b28-209-4fa8b9e"
     },
     "n01_current": {
-      "head": "4ab2f284f79103ef99e7b3df1de8c1d1101eab16",
-      "tree": "5164e71a767c75a5db738ad99a5af60221ac45ca",
+      "head": "84a76a5de76776183017a405bcb4491031b0299b",
+      "tree": "429d61cadb276d7da0d4fafcf1896fc4e2c608bf",
       "main": "dbe5d67f2142981e103b858cf82981696b5c1bb6",
       "local": "full12passed;40+13focused",
       "ci_evidence": "work/evidence/ci-n01-210-4ab2f28",
-      "ci": "running",
+      "ci": "new17 running",
       "adopted": false
     },
     "d03_current": {
@@ -2652,7 +2830,7 @@
         "dbe5d67f2142981e103b858cf82981696b5c1bb6",
         "gate-query-only two files from4ab"
       ],
-      "pushed": false,
+      "pushed": true,
       "adopted": false,
       "first_full_run": "failed at asymmetric revoked/compat exact after22passed; full13 not completed",
       "evidence": "work/evidence/pr209-asymmetric-common-main208-full/manifest.json",
@@ -2671,8 +2849,9 @@
       "current_head": "4fa8b9ef24cb81bef8976db23f6a233b3ba8cbe4",
       "current_tree": "6ba6992ac8452bf2f56db1883a1a8c26f4da07ea",
       "main": "03674990c4956df5580f2b56cb1aad83c645de36",
-      "latest_validation": "68exact/full13 now running; previous66/full13 preserved",
-      "latest_evidence": "work/evidence/pr209-main211-common-final/full/manifest.json"
+      "latest_validation": "current clean4fa8b9e full13 passed:68exact/workspace2418 ignored3/HH253/NAT92/quality108; readonly independent review no blockers",
+      "latest_evidence": "work/evidence/pr209-main211-common-final/full/manifest.json",
+      "current_ci": "work/evidence/ci-b28-209-4fa8b9e"
     },
     "r00_current": {
       "commit": "0b01d67082a61a1a44dd94cd53e58f7356cd1544",
@@ -3187,6 +3366,41 @@
       "finding": "IPv6 bracketed URL host reaches Relay resolver/default TLS name and WS tuple resolver; actual ::1 RED tests being prepared, not native proven",
       "report_sha256": "e17e1ededb326a2a85529f4fb7e5f9849a7fc48c1e57cd9f1103382f45a13e0f",
       "evidence": "work/evidence/x02-ipv6-local-preparation/REPORT.md"
+    },
+    "n01_shim_main211_followup": {
+      "commit": "84a76a5de76776183017a405bcb4491031b0299b",
+      "unchanged_product_source": "client/crates/server/Cargo byte identical4ab whose full12 passed",
+      "current_checks": "C312 twofocus + parallelrooms46 + fourgates passed; C314focus passed inside expanded314",
+      "expanded314": "313passed/1 restart fixture error missing node-b stopped receipt; temporary deleted, old exact cause unknown",
+      "diagnostic": "fixed1 original-budget retainedartifact single restart control passed; first setup attempt missing parent did not executefixture; not whole314 acceptance",
+      "previous_ci": "4ab Relay3/4 actual stackoverflow wait134 + two9/9 cleanup, schema1failed projection rejected byRequired; all original artifacts retained",
+      "evidence": "work/evidence/n01-shim-main211-validation",
+      "ci": "work/evidence/ci-n01-210-84a76a5",
+      "adopted": false
+    },
+    "latest_work_snapshot": {
+      "utc": "2026-10-14T00:36:40.906216+00:00",
+      "pr212": "325e294; full11 and independent review passed; full CI pending",
+      "x02": "c18e599 actual TLS/WS passed before compatibility assertions; final12 running",
+      "c03": "39e593f static9 passed; native4 not run",
+      "b03": "6053681 static7 passed; native91 not run",
+      "managed": "c2ac414 static passed; native61 not run",
+      "evidence": [
+        "work/evidence/c02-all-health-main211-native",
+        "work/evidence/c02-all-health-main211-independent-review",
+        "work/evidence/x02-ipv6-final-native",
+        "work/evidence/c03-main211-combination",
+        "work/evidence/b03-main211-integration",
+        "work/evidence/b28-managed-dynamic-new209-integrated"
+      ]
+    },
+    "pr213": {
+      "head": "c18e5990384cc7ccfa490b8f1c23dd5a1e6ab2a3",
+      "tree": "75201a7f4e0c8eac83ef777717e00d8427a47c8e",
+      "full_local": "12 checks passed",
+      "CI": "pending",
+      "adopted": false,
+      "evidence": "work/evidence/x02-ipv6-final-native"
     }
   },
   "original_handoff_snapshot": {

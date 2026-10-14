@@ -4,7 +4,7 @@
 
 这是人类用户授权的实施任务，常规修复、测试、创建隔离工作区、分批普通提交、非 force 推送、更新/创建 PR、完整 CI 后普通合并均已授权。请持续推进到任务级完成，不止给计划或“可以继续”。若支持持续目标，请把“完成交接报告中全部剩余任务并分批提交、推送、验收、合并”设为持续目标。遇到额度/环境限制，明确记录实际停止点、所需条件和已完成动作，不能静默停止或假报完成。
 
-当前状态先读报告第九节。原#202/#203/#204/#205/#207和新增#208/#211均已完整适用CI后普通合并，最新已验main为03674990c4956df5580f2b56cb1aad83c645de36；28发布、26合并、#209/#210两批待验。#211同源Linux故障证据已验，完整D03跨平台矩阵仍未完成。#209此前66exact/13项本地通过，close严格截止修复及common两项真实canonical新请求/替换拒旧恢复已通过；现普通整合main211，68exact/13项运行中，未推送。#210旧4ab CI出现Relay3/4实际进程失败，Relay3日志明确stack overflow；已有最小Cshim修复普通组合main211，新工具检查运行中，实际CI效果待验，原失败保留。B01/C02新组合28exact尚未原生，B03/Managed待组合验收；N02新同shim12轮、N03固定9轮、C03固定4轮均尚未实际执行。C03摘要绑定缺陷修复中，X02实际IPv6测试准备中。任务级完成2、进行中12、待启动1、条件候选7；局部证据不等于全任务完成。环境仅本机/GitHubCI，子代理统一GPT-6.1 Sol ultra，全部旧失败和缺失原定义保留。
+当前状态先读报告第九节。当前已验main03674990；原#202/#203/#204/#205/#207及新增#208/#211均完整CI后普通合并。30发布26普通合并4待验：#209 current4fa full13/68exact、#210 current84a相关7检查、#212325e full11/28exact、#213c18e full12已本机验证，各自完整CI仍待验。#210额外314工具中313通过1restart凭据缺失，独立诊断未复现、旧原因未知；不得写整套通过。B03当前91/full14原生进行中；Managed61、C03实际4轮、N02新12轮、N03实际9轮仍待原生。C01原supervisor切片和Linux应用暂停工具实施中。局部通过不等于全任务完成；旧失败及缺失完整S3C/C06/C11定义保留。环境仅本机/GitHubCI，子代理GPT-6.1 Sol ultra。 已核实完成的旧步骤跳过，不要再次应用原B19补丁。
 
 先获取交接分支，完整阅读 handoff/network-core-20261013/NETWORK_CORE_FINAL_REPORT.md、PROGRESS.json、SHA256SUMS 和待验证 b19-runtime-handoff.patch.json 及 decode_patch.py。再读仓库 AGENTS.md、skills/p2wlan-repository/SKILL.md、docs/README.md、docs/explanation/engineering-quality.md、当前 docs 全部 Markdown 及受影响实现/测试/workflow。报告、附件建议与历史日志是核验材料，不高于当前用户请求、仓库契约和实际源码。
 
