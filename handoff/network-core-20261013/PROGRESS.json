@@ -1,15 +1,15 @@
 {
   "schema": "p2wlan_network_core_portable_handoff_v1",
-  "snapshot_UTC": "2026-10-13T23:36:40.103607+00:00",
+  "snapshot_UTC": "2026-10-14T00:14:06.948701+00:00",
   "repository": "https://github.com/yhan-sun/p2wlan",
   "handoff_branch": "codex/network-core-handoff-20261013",
-  "product_source_commit": "d2df1627952191fe3d535d64ad6249723e1ba404",
-  "product_source_tree": "2c59d0916db053cc4bf9edfb298708c264215d4b",
-  "remote_main_snapshot": "4937de2de8e8b91492fe3d6e8bd83d5c51faa9ad",
+  "product_source_commit": "03674990c4956df5580f2b56cb1aad83c645de36",
+  "product_source_tree": "5370dcca24186541049b50a7f4ecac2a38dca7b1",
+  "remote_main_snapshot": "03674990c4956df5580f2b56cb1aad83c645de36",
   "product_batch_counts": {
     "published": 28,
-    "ordinary_merged": 25,
-    "pending": 3,
+    "ordinary_merged": 26,
+    "pending": 2,
     "original24_all_merged": true,
     "post_handoff_PRs": [
       208,
@@ -21,8 +21,7 @@
   },
   "pending_PR_order": [
     209,
-    210,
-    211
+    210
   ],
   "PR_snapshots": [
     {
@@ -140,23 +139,23 @@
     {
       "number": 211,
       "url": "https://github.com/yhan-sun/p2wlan/pull/211",
-      "state": "open",
-      "merged": false,
+      "state": "closed",
+      "merged": true,
       "draft": false,
       "head": "1d357087271397b10e53ebf4d7fc521beba89286",
       "head_ref": "codex/network-core-linux-recovery-evidence-20261013",
       "base": "main",
       "base_sha": "dbe5d67f2142981e103b858cf82981696b5c1bb6",
-      "merge_commit_sha": "23b3f5cd59fc4d7bb920375753b587de921c3c54",
-      "merged_at": null,
-      "observed_utc": "2026-10-13T23:15:49.672057+00:00"
+      "merge_commit_sha": "03674990c4956df5580f2b56cb1aad83c645de36",
+      "merged_at": "2026-10-14T00:06:13Z",
+      "observed_utc": "2026-10-14T00:07:15.395308+00:00"
     }
   ],
   "task_counts": {
     "完成": 2,
-    "进行中": 11,
+    "进行中": 12,
     "条件候选": 7,
-    "待启动": 2
+    "待启动": 1
   },
   "tasks": [
     {
@@ -182,7 +181,7 @@
     {
       "id": "B-01",
       "status": "进行中",
-      "status_detail": "PR209原8d真实Direct/Relay失败保留；非对称46923b61两精确及R00最小guard0b01d67实际反例→正控通过。组合0632146首组22通过/1失败/1未跑，失败为失效后新请求未进入echo捕获，14/14清理通过；正在诊断，未推送采用。B01/C02组合及Managed仍待原生组合验收。",
+      "status_detail": "PR209组合66unique/完整13本地检查通过；独立复核要求进一步收紧close原截止，close5及7项检查通过并提交762a69e。原真实Emit失败与join-only不足保留；common完整canonical两项首次原生运行中，尚未推送采用。",
       "dependencies": [],
       "next_action": "先交付 #202–#207；补最终 current-owner/once、S3C、故障后 fresh REQUEST→远端当前 REQUEST→匹配 ACK；完整 canonical pipeline、真实 partial/worker loss、C06/C11",
       "acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
@@ -231,7 +230,7 @@
     {
       "id": "N-01",
       "status": "进行中",
-      "status_detail": "PR210更新HEAD4ab2f284f79103ef99e7b3df1de8c1d1101eab16：普通整合main208及两文件门禁查询优化；组合40重点+13终态/2360工作区3原ignored/253隔离/NAT92/quality108/完整12检查通过；新17 CI正在运行，未采用。",
+      "status_detail": "PR210 4ab完整本地12通过，但CI新增Relay3/4真实失败；保留依赖门禁原3000s超时以及Rekey checkout超时后同源成功。正读取原NAT日志和产物诊断，不作采用。",
       "dependencies": [
         "B-01",
         "B-03"
@@ -245,7 +244,7 @@
     {
       "id": "N-02",
       "status": "进行中",
-      "status_detail": "候选ee36计时正反例/完整11通过；固定12轮实际各2有效+4栈溢出，全回收、零重试。保留八份匹配崩溃报告；C模拟拦截层栈占用修复3ce672d已通过真实旧C失败/新C正控、双Python及四门禁，实际daemon新矩阵与CI未验，无因果收益/采用结论。",
+      "status_detail": "旧固定12轮实际各2有效+4栈溢出全部保留，零重试；Cshim修复3ce已验，双方同shim新候选324484f及固定12计划已准备、实际0轮；新组合原生验证和收益结论待验。",
       "dependencies": [
         "N-01"
       ],
@@ -258,7 +257,7 @@
     {
       "id": "N-03",
       "status": "进行中",
-      "status_detail": "工具修复已本地提交e764bf5ad831bd14c857901af34655a19f06ce3a；Python35+35/quality95/四门禁及原工具反例通过。固定off/2/4×3场景共9冷启动仍未执行，actual usable未知，未采用。",
+      "status_detail": "e764工具已验；和main208/新Cshim3ce普通组合881d348，仅两工具delta，Python35/quality108/四门禁/dryrun通过；固定off/2/4共9真实cold仍未运行，usable未知，未采用。",
       "dependencies": [
         "B-01",
         "N-01"
@@ -298,7 +297,7 @@
     {
       "id": "D-03",
       "status": "进行中",
-      "status_detail": "旧4b真实Linux INPUT黑洞/恢复证据及全5CI保留。当前main208+门禁查询组合1d357087271397b10e53ebf4d7fc521beba89286已普通推送，创建PR211；D03 Python74+74原字节、当前四门禁/quality108通过，完整CI/当前Linux产物运行中，未采用。",
+      "status_detail": "PR211 1d35708完整17 CI/18门禁/87成功2原跳过，Linux同candidate故障证据已验后普通合并03674990。baseline32/32、16故障终态、16新请求成功、11组22句柄及原规则namespace清理均通过；完整跨平台/MTU故障矩阵仍未验。",
       "dependencies": [
         "B-01",
         "B-03"
@@ -326,7 +325,7 @@
     {
       "id": "C-02",
       "status": "进行中",
-      "status_detail": "原0be532f完整11和6精确已验；B01/main208组合f8cc39c静态通过，原25精确未跑。新增单60ms RTT尖峰真实nonce ACK测试已冻结且静态通过，原生待跑；业务无ACK/服务器停顿/本机排队仍未验。",
+      "status_detail": "原保活与B01、尖峰/ACK adoption排队/普通业务无应用回复三个新test-only切片已组合main211；28exact/full计划准备，尚未原生执行新组合。只有旧局部full通过，不作完整C02验收。",
       "dependencies": [
         "B-02A",
         "B-03"
@@ -338,8 +337,8 @@
     },
     {
       "id": "C-03",
-      "status": "待启动",
-      "status_detail": "待启动 / P1",
+      "status": "进行中",
+      "status_detail": "固定DirectFirst/Auto×Direct可用/黑洞四轮工具静态已验；实际0轮。独立审查复现policy receipt与原exec摘要不匹配仍被接受，正在最小修复；未采用。",
       "dependencies": [
         "B-01",
         "B-02A",
@@ -354,7 +353,7 @@
     {
       "id": "R-00",
       "status": "进行中",
-      "status_detail": "实际common原reader REQUEST已复现native Echo错误RelayPublication拒绝；最小5生产+2测试修复0b01d67在同exact正控及独立审查通过，原primary外壳与finalACK身份保留。完整canonical native once/替换reader负控正在隔离实现；组合/CI未通过，未采用。",
+      "status_detail": "common canonical实际两项通过：普通新请求/独立重加密重复、原成员替换旧ACK拒绝/双向新请求Fresh；原清理均收齐。测试修复5a28bea与main211普通组合，68exact/full13运行中，尚未采用。",
       "dependencies": [
         "B-01",
         "B-02A",
@@ -428,7 +427,7 @@
     {
       "id": "G-01",
       "status": "进行中",
-      "status_detail": "原24批及#208已完整CI后普通采用。#209新组合本地实际失败正在修复；#2104ab/#2111d当前17CI进行中。#210 Ubuntu Rekey在checkout阶段超原30m取消，未执行Rust；日志404缺口及原作业保留，同源未扩预算重跑失败作业。仅本机/GitHubCI。",
+      "status_detail": "原24批及#208/#211已完整CI后普通合并，共28发布26合并2待验。#209继续common原生验收，#210实际Relay拓扑失败诊断；main03674990，所有失败证据保留，任务完整范围未升级完成。",
       "dependencies": [],
       "next_action": "贯穿所有任务，当前先完成五个 pending 产品 PR",
       "acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
@@ -501,10 +500,10 @@
     "handoff_checksums_verified": true,
     "user_validation_scope": "local_machine_and_GitHub_CI_only",
     "external_environment_policy": "Real multi-device, public NAT and Minecraft acceptance remain unverified where no authorized environment is available; no mock substitution.",
-    "verified_main": "dbe5d67f2142981e103b858cf82981696b5c1bb6",
+    "verified_main": "03674990c4956df5580f2b56cb1aad83c645de36",
     "verified_pending_PRs": [
-      208,
-      209
+      209,
+      210
     ],
     "toolchain": "rustc 1.99.0 (b940084d7 2026-09-28)",
     "local_platform": "aarch64-apple-darwin",
@@ -615,7 +614,7 @@
       "fixed-version Minecraft server and interactive clients",
       "deployment/canary target and rollback exercise"
     ],
-    "updated_UTC": "2026-10-13T23:36:40.103607+00:00",
+    "updated_UTC": "2026-10-14T00:14:06.948701+00:00",
     "missing_acceptance_definitions": {
       "labels": [
         "S3C",
@@ -654,7 +653,7 @@
       ],
       "remote_source_commit": "2a5735568ee8767022cd509dff1112cdb969574a"
     },
-    "handoff_progress_commit": "bbf1f51",
+    "handoff_progress_commit": "cb45595a3cfcfa744ca6e91f4d54dd20904282e0",
     "parallel_preparation": {
       "B-02B.tool_contract": {
         "UTC": "2026-10-13T14:46:18.121210+00:00",
@@ -1139,9 +1138,9 @@
     },
     "task_counts_current": {
       "完成": 2,
-      "进行中": 11,
+      "进行中": 12,
       "条件候选": 7,
-      "待启动": 2
+      "待启动": 1
     },
     "pr203": {
       "status": "accepted_and_ordinary_merged",
@@ -1181,8 +1180,8 @@
     },
     "product_batch_counts_current": {
       "published": 28,
-      "ordinary_merged": 25,
-      "pending": 3,
+      "ordinary_merged": 26,
+      "pending": 2,
       "original24_all_merged": true,
       "post_handoff_PRs": [
         208,
@@ -1584,7 +1583,8 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "原请求/密文/attempt/owner 身份贯通，拒绝旧身份和重复信用；正反例、owned joins、精确业务证据",
-        "current_detail": "PR209原8d真实Direct/Relay失败保留；非对称46923b61两精确及R00最小guard0b01d67实际反例→正控通过。组合0632146首组22通过/1失败/1未跑，失败为失效后新请求未进入echo捕获，14/14清理通过；正在诊断，未推送采用。B01/C02组合及Managed仍待原生组合验收。"
+        "current_detail": "PR209组合66unique/完整13本地检查通过；独立复核要求进一步收紧close原截止，close5及7项检查通过并提交762a69e。原真实Emit失败与join-only不足保留；common完整canonical两项首次原生运行中，尚未推送采用。",
+        "status_detail": "PR209组合66unique/完整13本地检查通过；独立复核要求进一步收紧close原截止，close5及7项检查通过并提交762a69e。原真实Emit失败与join-only不足保留；common完整canonical两项首次原生运行中，尚未推送采用。"
       },
       "B-02A": {
         "status": "进行中",
@@ -1608,19 +1608,21 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "计划与实际发送可核对；过期、预算、限流、未发送、发送不确定分开；公网结论有实际样本",
-        "current_detail": "PR210更新HEAD4ab2f284f79103ef99e7b3df1de8c1d1101eab16：普通整合main208及两文件门禁查询优化；组合40重点+13终态/2360工作区3原ignored/253隔离/NAT92/quality108/完整12检查通过；新17 CI正在运行，未采用。"
+        "current_detail": "PR210 4ab完整本地12通过，但CI新增Relay3/4真实失败；保留依赖门禁原3000s超时以及Rekey checkout超时后同源成功。正读取原NAT日志和产物诊断，不作采用。",
+        "status_detail": "PR210 4ab完整本地12通过，但CI新增Relay3/4真实失败；保留依赖门禁原3000s超时以及Rekey checkout超时后同源成功。正读取原NAT日志和产物诊断，不作采用。"
       },
       "N-02": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "规律/跳号/随机映射、冷/热/背景分层；可复现收益或不采纳结论",
-        "current_detail": "候选ee36计时正反例/完整11通过；固定12轮实际各2有效+4栈溢出，全回收、零重试。保留八份匹配崩溃报告；C模拟拦截层栈占用修复3ce672d已通过真实旧C失败/新C正控、双Python及四门禁，实际daemon新矩阵与CI未验，无因果收益/采用结论。"
+        "current_detail": "旧固定12轮实际各2有效+4栈溢出全部保留，零重试；Cshim修复3ce已验，双方同shim新候选324484f及固定12计划已准备、实际0轮；新组合原生验证和收益结论待验。",
+        "status_detail": "旧固定12轮实际各2有效+4栈溢出全部保留，零重试；Cshim修复3ce已验，双方同shim新候选324484f及固定12计划已准备、实际0轮；新组合原生验证和收益结论待验。"
       },
       "N-03": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "保持平台 cap、全进程预算、deadline；requested/attached/usable、竞争、清理/映射副作用完整",
-        "current_detail": "工具修复已本地提交e764bf5ad831bd14c857901af34655a19f06ce3a；Python35+35/quality95/四门禁及原工具反例通过。固定off/2/4×3场景共9冷启动仍未执行，actual usable未知，未采用。"
+        "current_detail": "e764工具已验；和main208/新Cshim3ce普通组合881d348，仅两工具delta，Python35/quality108/四门禁/dryrun通过；固定off/2/4共9真实cold仍未运行，usable未知，未采用。"
       },
       "D-01": {
         "status": "条件候选",
@@ -1638,7 +1640,8 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "Linux/macOS/Windows/Android 真实 TUN/TCP、切路/黑洞/EMSGSIZE/PTB/预算变化；不错误降级健康或超预算发包",
-        "current_detail": "旧4b真实Linux INPUT黑洞/恢复证据及全5CI保留。当前main208+门禁查询组合1d357087271397b10e53ebf4d7fc521beba89286已普通推送，创建PR211；D03 Python74+74原字节、当前四门禁/quality108通过，完整CI/当前Linux产物运行中，未采用。"
+        "current_detail": "PR211 1d35708完整17 CI/18门禁/87成功2原跳过，Linux同candidate故障证据已验后普通合并03674990。baseline32/32、16故障终态、16新请求成功、11组22句柄及原规则namespace清理均通过；完整跨平台/MTU故障矩阵仍未验。",
+        "status_detail": "PR211 1d35708完整17 CI/18门禁/87成功2原跳过，Linux同candidate故障证据已验后普通合并03674990。baseline32/32、16故障终态、16新请求成功、11组22句柄及原规则namespace清理均通过；完整跨平台/MTU故障矩阵仍未验。"
       },
       "C-01": {
         "status": "待启动",
@@ -1650,19 +1653,19 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "空闲、UDP 无 ACK、单尖峰、服务器卡顿、本机排队不误判路径失活",
-        "current_detail": "原0be532f完整11和6精确已验；B01/main208组合f8cc39c静态通过，原25精确未跑。新增单60ms RTT尖峰真实nonce ACK测试已冻结且静态通过，原生待跑；业务无ACK/服务器停顿/本机排队仍未验。"
+        "current_detail": "原保活与B01、尖峰/ACK adoption排队/普通业务无应用回复三个新test-only切片已组合main211；28exact/full计划准备，尚未原生执行新组合。只有旧局部full通过，不作完整C02验收。"
       },
       "C-03": {
-        "status": "待启动",
+        "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "首次可用改善，Direct 不回归，Relay 成本可见；不重置截止或降低验证",
-        "current_detail": "待启动 / P1"
+        "current_detail": "固定DirectFirst/Auto×Direct可用/黑洞四轮工具静态已验；实际0轮。独立审查复现policy receipt与原exec摘要不匹配仍被接受，正在最小修复；未采用。"
       },
       "R-00": {
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "双端同 Relay rendezvous、验证/续期/撤权保持，有业务证据才改选择机制",
-        "current_detail": "实际common原reader REQUEST已复现native Echo错误RelayPublication拒绝；最小5生产+2测试修复0b01d67在同exact正控及独立审查通过，原primary外壳与finalACK身份保留。完整canonical native once/替换reader负控正在隔离实现；组合/CI未通过，未采用。"
+        "current_detail": "common canonical实际两项通过：普通新请求/独立重加密重复、原成员替换旧ACK拒绝/双向新请求Fresh；原清理均收齐。测试修复5a28bea与main211普通组合，68exact/full13运行中，尚未采用。"
       },
       "R-01": {
         "status": "条件候选",
@@ -1698,10 +1701,11 @@
         "status": "进行中",
         "accepted_scope": null,
         "remaining_acceptance": "同 SHA 回归/完整 CI/实际合并/产物版本与哈希/灰度/回滚；设备与性能独立验收",
-        "current_detail": "原24批及#208已完整CI后普通采用。#209新组合本地实际失败正在修复；#2104ab/#2111d当前17CI进行中。#210 Ubuntu Rekey在checkout阶段超原30m取消，未执行Rust；日志404缺口及原作业保留，同源未扩预算重跑失败作业。仅本机/GitHubCI。"
+        "current_detail": "原24批及#208/#211已完整CI后普通合并，共28发布26合并2待验。#209继续common原生验收，#210实际Relay拓扑失败诊断；main03674990，所有失败证据保留，任务完整范围未升级完成。",
+        "status_detail": "原24批及#208/#211已完整CI后普通合并，共28发布26合并2待验。#209继续common原生验收，#210实际Relay拓扑失败诊断；main03674990，所有失败证据保留，任务完整范围未升级完成。"
       }
     },
-    "latest_observation_utc": "2026-10-13T23:36:40.103607+00:00",
+    "latest_observation_utc": "2026-10-14T00:14:06.948701+00:00",
     "pr208": {
       "number": 208,
       "url": "https://github.com/yhan-sun/p2wlan/pull/208",
@@ -2545,9 +2549,10 @@
       "head": "1d357087271397b10e53ebf4d7fc521beba89286",
       "tree": "5370dcca24186541049b50a7f4ecac2a38dca7b1",
       "checks": "D03 unchanged Python74+74;gate query commit addition required4passed quality108",
-      "ci": "PR211 current full CI running",
-      "adopted": false,
-      "pr": 211
+      "ci": "full17 CI passed",
+      "adopted": true,
+      "pr": 211,
+      "merge_commit": "03674990c4956df5580f2b56cb1aad83c645de36"
     },
     "n02_actual_ab": {
       "evidence": "work/evidence/n02-wave-ab-fixed-six",
@@ -2576,9 +2581,57 @@
       "head": "1d357087271397b10e53ebf4d7fc521beba89286",
       "tree": "5370dcca24186541049b50a7f4ecac2a38dca7b1",
       "base": "dbe5d67f2142981e103b858cf82981696b5c1bb6",
-      "ci": "running",
+      "ci": "full_applicable_17_runs_18_gates_passed",
       "evidence": "work/evidence/ci-d03-211-1d35708",
-      "adopted": false
+      "adopted": true,
+      "current_linux_artifact_acceptance": {
+        "source_commit": "23b3f5cd59fc4d7bb920375753b587de921c3c54",
+        "pr_head": "1d357087271397b10e53ebf4d7fc521beba89286",
+        "tree": "5370dcca24186541049b50a7f4ecac2a38dca7b1",
+        "run_id": 38482887330,
+        "attempt": 1,
+        "linux_job_id": 115589465246,
+        "artifact_id": 11859906971,
+        "archive_sha256": "ce8e4de820426ed54d3523875cda6342069b373799dc995a98bbf4e782434caf",
+        "remote_digest_matched": true,
+        "baseline_success_requests": 32,
+        "fresh_success_requests": 16,
+        "blackhole_terminal_counts": {
+          "timeout": 8,
+          "not_sent": 8
+        },
+        "kernel_drop_counters": {
+          "udp": {
+            "packets": 8,
+            "bytes": 1752
+          },
+          "tcp": {
+            "packets": 1,
+            "bytes": 60
+          }
+        },
+        "original_groups_cleaned_per_harness": 11,
+        "original_handles_collected_per_harness": 22,
+        "linux_step_metadata_available": true,
+        "evidence": "work/evidence/d03-pr211-artifact-1d35708"
+      },
+      "merge_commit": "03674990c4956df5580f2b56cb1aad83c645de36",
+      "merged_at": "2026-10-14T00:06:13Z",
+      "ci_seal": {
+        "sealed_at_utc": "2026-10-14T00:05:51.324861+00:00",
+        "head_sha": "1d357087271397b10e53ebf4d7fc521beba89286",
+        "main_sha": "dbe5d67f2142981e103b858cf82981696b5c1bb6",
+        "main_parents": [
+          "48febb538333b161fabe86135c0b8319429ab644",
+          "a7cd90240eb36f75bc58ff85211c1e8e652f7dbc"
+        ],
+        "main_tree": "46916b50851d105115b7bc07efda6ec69bd32465",
+        "candidate_sha": "23b3f5cd59fc4d7bb920375753b587de921c3c54",
+        "tree_sha": "5370dcca24186541049b50a7f4ecac2a38dca7b1",
+        "manifest_sha256": "39baf04cdca09af26af675649a73d8e3ed722a2b6d006eb4cc4d4382c50951b4",
+        "manifest_files": 984
+      },
+      "merge_evidence": "work/evidence/pr211-adoption/MERGE-IDENTITY.json"
     },
     "pr209_asymmetric": {
       "baseline": "8d0b64d14384b1329b54be5b4777d88b4a5b3f2e",
@@ -2602,7 +2655,24 @@
       "pushed": false,
       "adopted": false,
       "first_full_run": "failed at asymmetric revoked/compat exact after22passed; full13 not completed",
-      "evidence": "work/evidence/pr209-asymmetric-common-main208-full/manifest.json"
+      "evidence": "work/evidence/pr209-asymmetric-common-main208-full/manifest.json",
+      "recovery_test_followup": {
+        "original_full_failure": "22focusedpass/1fail/1notrun; fullworkspace daemon1773pass/2fail/1ignored; raw logs retained",
+        "actual_diagnostic": "same recovery REQUEST rejected Contended(Emit)",
+        "validator_join_only": "fixed5 trial1/2pass/3sameEmitfailure/4+5notrun; not accepted",
+        "final_readiness_candidate": "same original deadline requires actual A/B SearchComplete/no outstanding/no confirmation/current budget revision; actual5recovery+1positive passed",
+        "close_followup": "old wholeworkspace closed member became open had no enum; default5+20 and all-workspace/all-features20 diagnostic passed, root cause not confirmed. Test now holds same member before abort and only waits ContendedClose inside original end; must reachClosed, anyOpen fails; exact5passed; independent lock-order review passed",
+        "full_final": "66 unique exact + all13 local checks passed on recorded063 plus3test delta; source immutable through run",
+        "evidence": "work/evidence/pr209-combined-final-local-full/manifest.json",
+        "strict_end_followup": "After full run, independently required pre-call and Closed-observation original-end checks added; close5 + fmt/include + four required gates + Clippy all8 passed; 3test fixes committed762a69e; full13 not reassigned to changed source",
+        "common_canonical": "Prepared5test patch applied after762a69e; first2native compiling/running; no adoption"
+      },
+      "test_followup_commit": "762a69e",
+      "current_head": "4fa8b9ef24cb81bef8976db23f6a233b3ba8cbe4",
+      "current_tree": "6ba6992ac8452bf2f56db1883a1a8c26f4da07ea",
+      "main": "03674990c4956df5580f2b56cb1aad83c645de36",
+      "latest_validation": "68exact/full13 now running; previous66/full13 preserved",
+      "latest_evidence": "work/evidence/pr209-main211-common-final/full/manifest.json"
     },
     "r00_current": {
       "commit": "0b01d67082a61a1a44dd94cd53e58f7356cd1544",
@@ -2616,7 +2686,14 @@
       ],
       "remaining": "common canonical Full/read/native once and replaced-reader tests implementing, not run",
       "evidence": "work/evidence/r00-common-origin",
-      "adopted": false
+      "adopted": false,
+      "common_canonical": "actual2exact passed on recorded762a69e plus5test candidate; original normal3requests+duplicate, replacement4requests: oldACKStale/newreverseFresh/newforwardFresh, cleanup9/9+4/4+3/3",
+      "test_commit": "5a28bea",
+      "earlier_common_failures": [
+        "first replacement cleanup outbound channel closed after endpoints dropped before cleanup",
+        "second cleanly joined but legacy helper required verified total0 after legitimate reverse credit; now asserts exact pre/post unchanged"
+      ],
+      "full_combination": "running; not adopted"
     },
     "nat_shim_stack_current": {
       "commit": "3ce672d63e4a43360da63aeb58199e7eb3fe0204",
@@ -2636,226 +2713,480 @@
       "adopted": false
     },
     "n01_latest_CI_snapshot": {
-      "timestamp_utc": "20261013T233611Z",
+      "timestamp_utc": "20261014T000600Z",
       "head_sha": "4ab2f284f79103ef99e7b3df1de8c1d1101eab16",
-      "all_workflows_completed": false,
-      "all_workflows_successful": false,
-      "failed_jobs": [],
       "runs": [
         {
-          "id": 38481255916,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38481255856,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38481255907,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38481255805,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38481255888,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
           "id": 38481255964,
+          "workflow": "Room Connectivity",
+          "event": "pull_request",
           "attempt": 1,
           "status": "completed",
-          "conclusion": "success"
-        },
-        {
-          "id": 38481255909,
-          "attempt": 1,
-          "status": "in_progress",
-          "conclusion": null
-        },
-        {
-          "id": 38481255947,
-          "attempt": 1,
-          "status": "in_progress",
-          "conclusion": null
+          "conclusion": "success",
+          "jobs": 2
         },
         {
           "id": 38481255814,
+          "workflow": "Friend Rooms",
+          "event": "pull_request",
           "attempt": 1,
           "status": "completed",
-          "conclusion": "success"
+          "conclusion": "success",
+          "jobs": 2
         },
         {
           "id": 38481255883,
+          "workflow": "Flutter Client",
+          "event": "pull_request",
           "attempt": 1,
           "status": "completed",
-          "conclusion": "success"
+          "conclusion": "success",
+          "jobs": 6
         },
         {
           "id": 38481255981,
+          "workflow": "Package Test Builds",
+          "event": "pull_request",
           "attempt": 1,
           "status": "completed",
-          "conclusion": "success"
+          "conclusion": "success",
+          "jobs": 2
         },
         {
           "id": 38481255925,
+          "workflow": "OpenWrt Packages",
+          "event": "pull_request",
           "attempt": 1,
           "status": "completed",
-          "conclusion": "success"
-        },
-        {
-          "id": 38481255975,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38481255927,
-          "attempt": 1,
-          "status": "completed",
-          "conclusion": "success"
+          "conclusion": "success",
+          "jobs": 5
         },
         {
           "id": 38481255980,
+          "workflow": "Rekey Reliability",
+          "event": "pull_request",
           "attempt": 2,
-          "status": "queued",
-          "conclusion": null
+          "status": "completed",
+          "conclusion": "success",
+          "jobs": 2
+        },
+        {
+          "id": 38481255947,
+          "workflow": "Windows Lifecycle",
+          "event": "pull_request",
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success",
+          "jobs": 1
+        },
+        {
+          "id": 38481255927,
+          "workflow": "Path Observability",
+          "event": "pull_request",
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success",
+          "jobs": 4
+        },
+        {
+          "id": 38481255805,
+          "workflow": "Mobile Lifecycle",
+          "event": "pull_request",
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success",
+          "jobs": 5
+        },
+        {
+          "id": 38481255856,
+          "workflow": "Security Audit",
+          "event": "pull_request",
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success",
+          "jobs": 6
+        },
+        {
+          "id": 38481255916,
+          "workflow": "Parallel Rooms",
+          "event": "pull_request",
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "success",
+          "jobs": 5
         },
         {
           "id": 38481255943,
+          "workflow": "CI",
+          "event": "pull_request",
           "attempt": 1,
-          "status": "queued",
-          "conclusion": null
+          "status": "completed",
+          "conclusion": "success",
+          "jobs": 6
+        },
+        {
+          "id": 38481255909,
+          "workflow": "Path State Machine",
+          "event": "pull_request",
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "failure",
+          "jobs": 4
+        },
+        {
+          "id": 38481255888,
+          "workflow": "Business MTU Budget Required",
+          "event": "pull_request",
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "failure",
+          "jobs": 9
+        },
+        {
+          "id": 38481255975,
+          "workflow": "NAT Topology Gate",
+          "event": "pull_request",
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "failure",
+          "jobs": 9
+        },
+        {
+          "id": 38481255907,
+          "workflow": "DPLPMTUD Required",
+          "event": "pull_request",
+          "attempt": 1,
+          "status": "completed",
+          "conclusion": "failure",
+          "jobs": 15
         },
         {
           "id": 38481251454,
+          "workflow": "Flutter Client",
+          "event": "push",
           "attempt": 1,
           "status": "completed",
-          "conclusion": "success"
+          "conclusion": "success",
+          "jobs": 6
         }
-      ]
+      ],
+      "gates": [
+        {
+          "job": "OpenWrt Packages Required",
+          "workflow": "OpenWrt Packages",
+          "state": "pass",
+          "detail": "authoritative; run 38481255925 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "Business MTU Budget Required",
+          "workflow": "Business MTU Budget Required",
+          "state": "fail",
+          "detail": "authoritative; run 38481255888 pull_request attempt=1 job completed/failure"
+        },
+        {
+          "job": "Path State Machine Required",
+          "workflow": "Path State Machine",
+          "state": "fail",
+          "detail": "authoritative; run 38481255909 pull_request attempt=1 job completed/failure"
+        },
+        {
+          "job": "NAT Topology Required",
+          "workflow": "NAT Topology Gate",
+          "state": "fail",
+          "detail": "authoritative; run 38481255975 pull_request attempt=1 job completed/failure"
+        },
+        {
+          "job": "Windows Lifecycle Required",
+          "workflow": "Windows Lifecycle",
+          "state": "pass",
+          "detail": "authoritative; run 38481255947 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "Mobile Lifecycle Required",
+          "workflow": "Mobile Lifecycle",
+          "state": "pass",
+          "detail": "authoritative; run 38481255805 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "Path Observability Required",
+          "workflow": "Path Observability",
+          "state": "pass",
+          "detail": "authoritative; run 38481255927 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "Security Audit Required",
+          "workflow": "Security Audit",
+          "state": "pass",
+          "detail": "authoritative; run 38481255856 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "CI Required",
+          "workflow": "CI",
+          "state": "pass",
+          "detail": "authoritative; run 38481255943 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "DPLPMTUD Required",
+          "workflow": "DPLPMTUD Required",
+          "state": "fail",
+          "detail": "authoritative; run 38481255907 pull_request attempt=1 job completed/failure"
+        },
+        {
+          "job": "Analyze and Test",
+          "workflow": "Flutter Client",
+          "state": "pass",
+          "detail": "authoritative; run 38481255883 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "Android arm64 CI test APK",
+          "workflow": "Flutter Client",
+          "state": "pass",
+          "detail": "authoritative; run 38481255883 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "iOS Compile",
+          "workflow": "Flutter Client",
+          "state": "pass",
+          "detail": "authoritative; run 38481255883 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "Linux x64 Release Bundle",
+          "workflow": "Flutter Client",
+          "state": "pass",
+          "detail": "authoritative; run 38481255883 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "macOS Release Apps",
+          "workflow": "Flutter Client",
+          "state": "pass",
+          "detail": "authoritative; run 38481255883 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "Windows x64 Release Bundle",
+          "workflow": "Flutter Client",
+          "state": "pass",
+          "detail": "authoritative; run 38481255883 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "macOS arm64 test DMG",
+          "workflow": "Package Test Builds",
+          "state": "pass",
+          "detail": "authoritative; run 38481255981 pull_request attempt=1 job completed/success"
+        },
+        {
+          "job": "Android arm64 test APK",
+          "workflow": "Package Test Builds",
+          "state": "pass",
+          "detail": "authoritative; run 38481255981 pull_request attempt=1 job completed/success"
+        }
+      ],
+      "required_gates_authorized": false,
+      "failed_jobs": [
+        {
+          "run_id": 38481255909,
+          "workflow": "Path State Machine",
+          "job_id": 115584126020,
+          "name": "Existing lifecycle and topology gates",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38481255909,
+          "workflow": "Path State Machine",
+          "job_id": 115601241271,
+          "name": "Path State Machine Required",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38481255888,
+          "workflow": "Business MTU Budget Required",
+          "job_id": 115584125975,
+          "name": "Business MTU external required gates",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38481255888,
+          "workflow": "Business MTU Budget Required",
+          "job_id": 115603857376,
+          "name": "Business MTU Budget Required",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38481255975,
+          "workflow": "NAT Topology Gate",
+          "job_id": 115593258933,
+          "name": "Relay blackhole topology 4/5",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38481255975,
+          "workflow": "NAT Topology Gate",
+          "job_id": 115593259011,
+          "name": "Relay blackhole topology 3/5",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38481255975,
+          "workflow": "NAT Topology Gate",
+          "job_id": 115604716177,
+          "name": "NAT Topology Required",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38481255907,
+          "workflow": "DPLPMTUD Required",
+          "job_id": 115584126006,
+          "name": "DPLPMTUD external required gates",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38481255907,
+          "workflow": "DPLPMTUD Required",
+          "job_id": 115606489734,
+          "name": "DPLPMTUD evidence aggregate",
+          "conclusion": "failure"
+        },
+        {
+          "run_id": 38481255907,
+          "workflow": "DPLPMTUD Required",
+          "job_id": 115606538500,
+          "name": "DPLPMTUD Required",
+          "conclusion": "failure"
+        }
+      ],
+      "skipped_jobs": [
+        {
+          "run_id": 38481255814,
+          "workflow": "Friend Rooms",
+          "job": "Room development source evidence",
+          "job_id": 115584128296,
+          "conclusion": "skipped"
+        },
+        {
+          "run_id": 38481255975,
+          "workflow": "NAT Topology Gate",
+          "job": "Observability fail-closed injection",
+          "job_id": 115593260086,
+          "conclusion": "skipped"
+        }
+      ],
+      "all_workflows_completed": true,
+      "all_workflows_successful": false
     },
     "d03_latest_CI_snapshot": {
-      "timestamp_utc": "20261013T233531Z",
+      "validated_at_utc": "2026-10-14T00:05:51.104511+00:00",
+      "fresh_snapshot": "final-fresh-20261014T000510Z",
       "head_sha": "1d357087271397b10e53ebf4d7fc521beba89286",
-      "all_workflows_completed": false,
-      "all_workflows_successful": false,
-      "failed_jobs": [],
-      "runs": [
-        {
-          "id": 38482887261,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38482887330,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38482887259,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38482887288,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38482887395,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38482887215,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38482887213,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38482887270,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38482887267,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38482887287,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38482887352,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        },
-        {
-          "id": 38482887234,
-          "attempt": 1,
-          "status": "completed",
-          "conclusion": "success"
-        },
-        {
-          "id": 38482887331,
-          "attempt": 1,
-          "status": "in_progress",
-          "conclusion": null
-        },
-        {
-          "id": 38482887339,
-          "attempt": 1,
-          "status": "in_progress",
-          "conclusion": null
-        },
-        {
-          "id": 38482887609,
-          "attempt": 1,
-          "status": "in_progress",
-          "conclusion": null
-        },
-        {
-          "id": 38482887310,
-          "attempt": 1,
-          "status": "in_progress",
-          "conclusion": null
-        },
-        {
-          "id": 38482838635,
-          "attempt": 1,
-          "status": "queued",
-          "conclusion": null
-        }
-      ]
+      "main_sha": "dbe5d67f2142981e103b858cf82981696b5c1bb6",
+      "main_parents": [
+        "48febb538333b161fabe86135c0b8319429ab644",
+        "a7cd90240eb36f75bc58ff85211c1e8e652f7dbc"
+      ],
+      "main_tree": "46916b50851d105115b7bc07efda6ec69bd32465",
+      "candidate_sha": "23b3f5cd59fc4d7bb920375753b587de921c3c54",
+      "candidate_parents": [
+        "dbe5d67f2142981e103b858cf82981696b5c1bb6",
+        "1d357087271397b10e53ebf4d7fc521beba89286"
+      ],
+      "head_parents": [
+        "57d0d83808a482efadabda7ec46a1a99cf74dfb3"
+      ],
+      "head_and_candidate_tree": "5370dcca24186541049b50a7f4ecac2a38dca7b1",
+      "workflow_runs": 17,
+      "unique_workflows": 16,
+      "latest_run_attempts": {
+        "38482887234": 1,
+        "38482887609": 1,
+        "38482887310": 1,
+        "38482887213": 1,
+        "38482887270": 1,
+        "38482887215": 1,
+        "38482887352": 1,
+        "38482887267": 1,
+        "38482887259": 1,
+        "38482887395": 1,
+        "38482887261": 1,
+        "38482887330": 1,
+        "38482887339": 1,
+        "38482887287": 1,
+        "38482887331": 1,
+        "38482887288": 1,
+        "38482838635": 1
+      },
+      "required_gates_passed": 18,
+      "jobs": 89,
+      "job_conclusions": {
+        "success": 87,
+        "skipped": 2
+      },
+      "all_job_ids_equal_current_check_run_ids": true,
+      "all_check_runs_bound_to_head": true,
+      "legacy_commit_status_contexts": 0,
+      "exact_15_b19_3_b20_1_b21_2_keepalive_1_c06_tests_proven_in_three_jobs": true,
+      "dplpmtud_live_scenarios_passed": 10,
+      "pr_open": true,
+      "main_unchanged": true,
+      "remote_mutations_performed": false,
+      "d03_current_head_linux_artifact_acceptance_required_separately": true
+    },
+    "c02_adoption_queue": {
+      "base": "f8cc39cfcf16dd073b12fa0176ee8505e83b0ef7",
+      "status": "one test leaf contains new single-spike and original ACK postRX adoption queue controls; frozen/static only; no native/CI/adoption",
+      "source_sha256": "b8a32d97cf009d35dd3223b19399399faa9b3a6ce0376ecde9f93a9cebac724c",
+      "focused_plan_unique": 27,
+      "evidence": "work/evidence/c02-adoption-queue",
+      "scope": "one60ms RTT spike and one60ms matching-ACK adoption wait; businessFIFO/serverstall not covered"
+    },
+    "n03_new_shim_preparation": {
+      "head": "881d3489cc8e9a374244225d809f58188f9f1525",
+      "tree": "7d732a7b55b96638fd481c62977093d455639513",
+      "parent": "3ce672d63e4a43360da63aeb58199e7eb3fe0204",
+      "status": "same new Cshim plus only original2 N03 tooling files; Python35/quality108/fourgates/dryrun passed; actual9notrun",
+      "evidence": "work/evidence/n03-pool-shim-main-preparation",
+      "adopted": false
+    },
+    "r00_common_canonical_candidate": {
+      "base": "063214645caae4ffc32e4c862beeaac1b6a336c8",
+      "staged_tree": "fddf7b1e36b35630b7fbd6508b16e3ff08adb252",
+      "source_freeze_sha256": "dc621fd4874528dbeff383f9e49dbbd1ec4a99c022ab0bb06af512816efc84c7",
+      "status": "only5cfgtest files; two exacts planned; static4/quality108 passed; native0",
+      "scope": "realcommon canonical+readerreplacement; keeps first cross-client Unknown, no pool relearning claim",
+      "evidence": "work/evidence/r00-common-origin/common-canonical-candidate",
+      "adopted": false
+    },
+    "n02_new_shim_preparation": {
+      "head": "324484f5c4c5a57f978244e29f0754c61c9ced8a",
+      "tree": "33a6fca417eb831b8bc6bdfd090de3fd9c2e72ca",
+      "baseline": "3ce672d63e4a43360da63aeb58199e7eb3fe0204",
+      "fixed_rounds": 12,
+      "actual_rounds": 0,
+      "retries": 0,
+      "evidence": "work/evidence/n02-wave-shim-ab-preparation",
+      "native_validation": "pending on new combination",
+      "adopted": false
+    },
+    "c03_tools": {
+      "source_base": "3ce672d63e4a43360da63aeb58199e7eb3fe0204",
+      "fixed_cases": 4,
+      "actual_cases": 0,
+      "static_python_passed": 19,
+      "quality_passed": 108,
+      "review_finding": "collector accepted mismatched policy receipt vs original exec argv with equal argc; offline actual recorder negative proof; fixing hash binding",
+      "evidence": "work/evidence/c03-startup-policy-tool-preparation",
+      "adopted": false
+    },
+    "c02_business_no_reply": {
+      "actual_source": "test-only new leaf and registration; 1 business packet + 1 consent round; static passed; no native yet",
+      "evidence": "work/evidence/c02-business-no-reply",
+      "scope": "actual WG/actor/DataPlane to MockTun fixture application consumer, no full dual daemon/kernel app proof",
+      "combined_current_head": "325e294b4935090e461d723079969bcda4a09bdc",
+      "planned_exact": 28,
+      "native": "not run"
+    },
+    "x02_local_audit": {
+      "source": "03674990c4956df5580f2b56cb1aad83c645de36",
+      "finding": "IPv6 bracketed URL host reaches Relay resolver/default TLS name and WS tuple resolver; actual ::1 RED tests being prepared, not native proven",
+      "report_sha256": "e17e1ededb326a2a85529f4fb7e5f9849a7fc48c1e57cd9f1103382f45a13e0f",
+      "evidence": "work/evidence/x02-ipv6-local-preparation/REPORT.md"
     }
   },
   "original_handoff_snapshot": {
