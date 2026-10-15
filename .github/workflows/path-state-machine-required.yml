@@ -216,14 +216,15 @@ jobs:
             throw "candidate source checkout mismatch"
           }
           $plan = Join-Path $env:RUNNER_TEMP 'netbind-original-plan.json'
+          $evidenceDir = Join-Path $env:RUNNER_TEMP 'windows-original-netbind'
           [System.IO.File]::WriteAllText($plan, '[{"name":"all-original-netbind","selector":"::","exact":false,"repeat":1}]')
-          python scripts/quality/run_rust_tests.py --package p2pnet-netbind --plan $plan --evidence-dir windows-original-netbind --test-timeout-seconds 20
+          python scripts/quality/run_rust_tests.py --package p2pnet-netbind --plan $plan --evidence-dir $evidenceDir --test-timeout-seconds 20
           $nativeExit = $LASTEXITCODE
-          $manifestPath = 'windows-original-netbind/manifest.json'
+          $manifestPath = Join-Path $evidenceDir 'manifest.json'
           if (Test-Path $manifestPath) {
             $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
             if ($manifest.binary -and (Test-Path $manifest.binary.path)) {
-              Copy-Item $manifest.binary.path 'windows-original-netbind/actual-netbind-test.exe'
+              Copy-Item $manifest.binary.path (Join-Path $evidenceDir 'actual-netbind-test.exe')
             }
           }
           if ($nativeExit -ne 0) { exit $nativeExit }
@@ -232,6 +233,6 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: windows-original-netbind-${{ github.run_id }}-${{ github.run_attempt }}
-          path: windows-original-netbind
+          path: ${{ runner.temp }}/windows-original-netbind
           if-no-files-found: error
           retention-days: 7
