@@ -34,6 +34,10 @@ on:
         description: Optional exact candidate for original native netbind tests; no Required credit
         type: string
         default: ""
+      windows_console_validation_sha:
+        description: Exact candidate for original console controls; diagnostic only
+        type: string
+        default: ""
 
 permissions:
   contents: read
@@ -171,7 +175,7 @@ jobs:
           fi
   windows_socket_profile_diagnostic:
     name: Diagnostic Windows socket readback, no Required credit
-    if: github.event_name == 'workflow_dispatch' && inputs.windows_socket_profile_only && inputs.windows_probe_validation_sha == ''
+    if: github.event_name == 'workflow_dispatch' && inputs.windows_socket_profile_only && inputs.windows_probe_validation_sha == '' && inputs.windows_console_validation_sha == ''
     runs-on: windows-latest
     timeout-minutes: 8
     steps:
@@ -191,7 +195,7 @@ jobs:
           retention-days: 7
   windows_original_probe_native:
     name: Diagnostic original native netbind suite, no Required credit
-    if: github.event_name == 'workflow_dispatch' && inputs.windows_socket_profile_only && inputs.windows_probe_validation_sha != ''
+    if: github.event_name == 'workflow_dispatch' && inputs.windows_socket_profile_only && inputs.windows_probe_validation_sha != '' && inputs.windows_console_validation_sha == ''
     runs-on: windows-latest
     timeout-minutes: 15
     env:
@@ -234,5 +238,46 @@ jobs:
         with:
           name: windows-original-netbind-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/windows-original-netbind
+          if-no-files-found: error
+          retention-days: 7
+
+  windows_original_console_diagnostic:
+    name: Diagnostic original Windows console controls, no Required credit
+    if: github.event_name == 'workflow_dispatch' && inputs.windows_socket_profile_only && inputs.windows_console_validation_sha != '' && inputs.windows_probe_validation_sha == ''
+    runs-on: windows-latest
+    timeout-minutes: 8
+    env:
+      CONSOLE_VALIDATION_SHA: ${{ inputs.windows_console_validation_sha }}
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - name: Validate exact candidate identity
+        shell: pwsh
+        run: |
+          if ($env:CONSOLE_VALIDATION_SHA -cnotmatch '^[0-9a-f]{40}$') {
+            throw 'invalid console candidate SHA'
+          }
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          path: dispatcher
+          persist-credentials: false
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ inputs.windows_console_validation_sha }}
+          path: candidate
+          persist-credentials: false
+      - name: Original Core18, supplemental Desktop native and ABI controls
+        shell: pwsh
+        run: |
+          python -B dispatcher/scripts/windows_lifecycle/run_original_console_diagnostic.py `
+            --candidate candidate --expected-sha $env:CONSOLE_VALIDATION_SHA `
+            --dispatcher-sha $env:GITHUB_SHA `
+            --out (Join-Path $env:RUNNER_TEMP 'windows-original-console')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Preserve actual original outputs and bounded native records
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: windows-original-console-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/windows-original-console
           if-no-files-found: error
           retention-days: 7
