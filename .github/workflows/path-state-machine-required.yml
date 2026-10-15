@@ -25,6 +25,11 @@ on:
       - "scripts/mtu-smoke.sh"
       - "scripts/quality/**"
   workflow_dispatch:
+    inputs:
+      windows_socket_profile_only:
+        description: Isolated Windows option readback; not adoption validation
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -42,6 +47,7 @@ concurrency:
 
 jobs:
   rust_required:
+    if: github.event_name != 'workflow_dispatch' || !inputs.windows_socket_profile_only
     name: Path state machine Rust checks
     runs-on: ubuntu-24.04
     timeout-minutes: 60
@@ -80,6 +86,7 @@ jobs:
         run: cargo test -p p2wlan-daemon --lib hard_hard_ -- --test-threads=1
 
   windows_path_state_machine:
+    if: github.event_name != 'workflow_dispatch' || !inputs.windows_socket_profile_only
     name: Path state machine Windows tests
     runs-on: windows-latest
     timeout-minutes: 35
@@ -137,7 +144,7 @@ jobs:
             --timeout-seconds 3000
   required:
     name: Path State Machine Required
-    if: always()
+    if: always() && !(github.event_name == 'workflow_dispatch' && inputs.windows_socket_profile_only)
     needs:
       - rust_required
       - windows_path_state_machine
@@ -158,3 +165,23 @@ jobs:
           else
             test "$EXTERNAL_RESULT" = "skipped"
           fi
+  windows_socket_profile_diagnostic:
+    name: Diagnostic Windows socket readback, no Required credit
+    if: github.event_name == 'workflow_dispatch' && inputs.windows_socket_profile_only
+    runs-on: windows-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Observe owned IPv4 and IPv6 socket option transitions
+        shell: pwsh
+        run: ./scripts/windows_lifecycle/diagnose_udp_probe_options.ps1 -OutputPath windows-socket-profile.json
+      - name: Preserve observations
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: windows-socket-profile-diagnostic-${{ github.run_id }}-${{ github.run_attempt }}
+          path: windows-socket-profile.json
+          if-no-files-found: error
+          retention-days: 7
