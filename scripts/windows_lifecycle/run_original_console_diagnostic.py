@@ -96,6 +96,33 @@ def main():
         (out / ('abi-' + name + '.stdout.log')).write_bytes(process.stdout)
         (out / ('abi-' + name + '.stderr.log')).write_bytes(process.stderr)
         abi[name] = process.returncode == 0 and output.exists()
+    # Observe the real Desktop ACL command identity before deciding which
+    # module-location invariant is valid for the GUI's owned child process.
+    module_script = r"""
+$ErrorActionPreference = 'Stop'
+$command = Get-Command Get-Acl -ErrorAction Stop
+[ordered]@{
+    edition = $PSVersionTable.PSEdition
+    version = $PSVersionTable.PSVersion.ToString()
+    ps_home = $PSHOME
+    command_type = $command.CommandType.ToString()
+    module_name = $command.ModuleName
+    module_base = $command.Module.ModuleBase
+    module_path = $command.Module.Path
+    assembly_name = $command.ImplementingType.Assembly.FullName
+    assembly_location = $command.ImplementingType.Assembly.Location
+    assembly_runtime = $command.ImplementingType.Assembly.ImageRuntimeVersion
+    expected_manifest_directory = Join-Path $PSHOME 'Modules\Microsoft.PowerShell.Security'
+} | ConvertTo-Json -Depth 4
+"""
+    module = subprocess.run([desktop, '-NoLogo', '-NoProfile', '-NonInteractive',
+                             '-WindowStyle', 'Hidden', '-ExecutionPolicy', 'Bypass',
+                             '-Command', module_script], capture_output=True,
+                            env=desktop_env, timeout=10)
+    if len(module.stdout) + len(module.stderr) > 65536:
+        raise RuntimeError('ACL module identity exceeded fixed capture bound')
+    (out / 'desktop-acl-module.stdout.json').write_bytes(module.stdout)
+    (out / 'desktop-acl-module.stderr.log').write_bytes(module.stderr)
     if hashes != {str(path.relative_to(candidate)): hashlib.sha256(path.read_bytes()).hexdigest() for path in files}:
         raise RuntimeError('candidate controls changed during execution')
     success = (all(value['successful'] and value['skipped'] == 0 for value in outcomes.values())
@@ -107,6 +134,7 @@ def main():
               'outcomes': outcomes, 'native_detail_interpreters': sorted(captured),
               'actual_abi_verified': abi, 'diagnostic_only_no_Required_credit': True,
               'supplemental_desktop_child_PSModulePath_removed': True,
+              'supplemental_desktop_ACL_identity_returncode': module.returncode,
               'original10_second_deadline_and_all_assertions_unchanged': True,
               'result': 'pass' if success else 'fail'}
     (out / 'manifest.json').write_text(json.dumps(report, indent=2))
