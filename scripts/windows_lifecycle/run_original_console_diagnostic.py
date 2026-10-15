@@ -77,7 +77,11 @@ def main():
 
     execute('original-core18', suite)
     label = 'desktop'
-    with mock.patch.object(controls.shutil, 'which', side_effect=lambda name: desktop if name == 'pwsh' else original_which(name)):
+    # Python inherits Core's module paths. Desktop must construct its own paths;
+    # restrict this environment correction to this owned supplemental variant.
+    desktop_env = {key: value for key, value in os.environ.items() if key.upper() != 'PSMODULEPATH'}
+    with mock.patch.dict(os.environ, desktop_env, clear=True), mock.patch.object(
+            controls.shutil, 'which', side_effect=lambda name: desktop if name == 'pwsh' else original_which(name)):
         execute('supplemental-desktop-original-negative', unittest.TestSuite([
             controls.ConsoleCtrlCInjectorTests('test_target_without_console_cannot_report_a_successful_broadcast')]))
     inspector = Path(__file__).with_name('inspect_console_helper_abi.ps1').resolve()
@@ -87,19 +91,22 @@ def main():
         process = subprocess.run([executable, '-NoLogo', '-NoProfile', '-NonInteractive',
                                   '-ExecutionPolicy', 'Bypass', '-File', str(inspector),
                                   '-InjectorPath', str(files[0]), '-OutputPath', str(output)],
-                                 capture_output=True, timeout=30)
+                                 capture_output=True, timeout=30,
+                                 env=desktop_env if name == 'desktop' else None)
         (out / ('abi-' + name + '.stdout.log')).write_bytes(process.stdout)
         (out / ('abi-' + name + '.stderr.log')).write_bytes(process.stderr)
         abi[name] = process.returncode == 0 and output.exists()
     if hashes != {str(path.relative_to(candidate)): hashlib.sha256(path.read_bytes()).hexdigest() for path in files}:
         raise RuntimeError('candidate controls changed during execution')
     success = (all(value['successful'] and value['skipped'] == 0 for value in outcomes.values())
-               and set(captured) == {'core', 'desktop'} and all(abi.values()))
+               and set(captured) == {'core', 'desktop'} and all(abi.values())
+               and all(value['injector_record']['native_error_code'] == 6 for value in captured.values()))
     report = {'schema_version': 1, 'source_head_sha': actual, 'dispatcher_sha': args.dispatcher_sha,
               'python': sys.version, 'platform': sys.platform, 'source_files': hashes,
               'original_core_cases': 18, 'supplemental_desktop_same_native_case': 1,
               'outcomes': outcomes, 'native_detail_interpreters': sorted(captured),
               'actual_abi_verified': abi, 'diagnostic_only_no_Required_credit': True,
+              'supplemental_desktop_child_PSModulePath_removed': True,
               'original10_second_deadline_and_all_assertions_unchanged': True,
               'result': 'pass' if success else 'fail'}
     (out / 'manifest.json').write_text(json.dumps(report, indent=2))

@@ -26,6 +26,7 @@ $expected = @{
     SetConsoleCtrlHandler = @('System.IntPtr', 'System.Boolean')
 }
 $records = @()
+$mismatches = @()
 foreach ($name in @('AttachConsole', 'FreeConsole', 'GenerateConsoleCtrlEvent', 'SetConsoleCtrlHandler')) {
     $method = $native.GetMethod($name)
     if ($null -eq $method) { throw "native method absent: $name" }
@@ -33,22 +34,24 @@ foreach ($name in @('AttachConsole', 'FreeConsole', 'GenerateConsoleCtrlEvent', 
     if ($imports.Count -ne 1) { throw "native import identity missing: $name" }
     $import = $imports[0]
     $parameters = @($method.GetParameters() | ForEach-Object { $_.ParameterType.FullName })
-    if ($import.Value -cne 'kernel32.dll' -or $import.EntryPoint -cne $name -or
+    $valid = -not ($import.Value -cne 'kernel32.dll' -or $import.EntryPoint -cne $name -or
         -not $import.SetLastError -or -not $import.PreserveSig -or
         $import.CallingConvention -ne [System.Runtime.InteropServices.CallingConvention]::Winapi -or
+        $import.CharSet -ne [System.Runtime.InteropServices.CharSet]::None -or
         $method.ReturnType -ne [bool] -or
-        (($parameters -join ',') -cne ($expected[$name] -join ','))) {
-        throw "native ABI changed: $name"
-    }
+        (($parameters -join ',') -cne ($expected[$name] -join ',')))
+    if (-not $valid) { $mismatches += $name }
     $records += [ordered]@{
         method = $name; dll = $import.Value; entry_point = $import.EntryPoint
         set_last_error = $import.SetLastError; preserve_sig = $import.PreserveSig
         calling_convention = $import.CallingConvention.ToString()
+        char_set = $import.CharSet.ToString(); valid = $valid
         return_type = $method.ReturnType.FullName; parameters = $parameters
     }
 }
 [ordered]@{
     schema_version = 1; powershell = $PSVersionTable.PSVersion.ToString()
     edition = $PSVersionTable.PSEdition; source_sha256 = (Get-FileHash $InjectorPath -Algorithm SHA256).Hash.ToLowerInvariant()
-    executed_target_action = $false; methods = $records
+    executed_target_action = $false; methods = $records; mismatches = $mismatches
 } | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $OutputPath -Encoding utf8
+if ($mismatches.Count -ne 0) { throw ('native ABI changed: ' + ($mismatches -join ', ')) }
