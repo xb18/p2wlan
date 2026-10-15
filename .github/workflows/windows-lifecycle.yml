@@ -486,9 +486,13 @@ jobs:
 
   console_diagnostic:
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.console_timeout_diagnostic == true }}
-    name: Console injector diagnostic only
+    name: Console injector cold diagnostic ${{ matrix.cold_start }}/4
     runs-on: windows-latest
     timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        cold_start: [1, 2, 3, 4]
     steps:
       - name: Validate diagnostic source identity
         shell: pwsh
@@ -514,13 +518,13 @@ jobs:
           $source = Join-Path $env:GITHUB_WORKSPACE 'diagnostic-source'
           $driver = Join-Path $env:GITHUB_WORKSPACE 'diagnostic-control/scripts/windows_lifecycle/diagnose_console_injector.py'
           $output = Join-Path $env:RUNNER_TEMP 'p2wlan-console-diagnostic'
-          python $driver --source $source --source-sha $env:P2WLAN_EXACT_HEAD --output $output --cases 4
+          python $driver --source $source --source-sha $env:P2WLAN_EXACT_HEAD --output $output --cases 1
           exit $LASTEXITCODE
       - name: Upload diagnostic-only original records
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: windows-console-diagnostic-${{ github.run_id }}-${{ github.run_attempt }}
+          name: windows-console-cold-${{ matrix.cold_start }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/p2wlan-console-diagnostic
           if-no-files-found: error
           retention-days: 7
