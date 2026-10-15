@@ -45,7 +45,17 @@ pub(super) async fn encrypt_then_send_with_deadline(
     stopping: Option<&AtomicBool>,
 ) -> EncryptSendOutcome {
     let packet = packet.into();
+    let original_buffer_lease = crate::dataplane_resources::OwnedBufferLease::observe(
+        transport.resource_capture(),
+        crate::dataplane_resources::BufferStage::ActiveOriginal,
+        &packet.packet,
+    );
     let retry_packet = packet.clone();
+    let _retry_buffer_lease = crate::dataplane_resources::OwnedBufferLease::observe(
+        transport.resource_capture(),
+        crate::dataplane_resources::BufferStage::RetryPlaintext,
+        &retry_packet.packet,
+    );
     if let Some(capture) = transport.resource_capture() {
         let _ = capture.observe_vec(
             crate::dataplane_resources::VecSite::TxRetryCopy,
@@ -67,6 +77,11 @@ pub(super) async fn encrypt_then_send_with_deadline(
     // across its exact nonblocking UDP syscall, which is the revocation/path
     // replacement linearization point.
     let preparation_retry = retry_packet.clone();
+    let preparation_buffer_lease = crate::dataplane_resources::OwnedBufferLease::observe(
+        transport.resource_capture(),
+        crate::dataplane_resources::BufferStage::PreparationPlaintext,
+        &preparation_retry.packet,
+    );
     if let Some(capture) = transport.resource_capture() {
         let _ = capture.observe_vec(
             crate::dataplane_resources::VecSite::TxPreparationCopy,
@@ -91,6 +106,10 @@ pub(super) async fn encrypt_then_send_with_deadline(
     // cancellation may abandon an allocated counter, but its ciphertext has
     // never been handed off, so only the original plaintext can be retried.
     let prepare = async {
+        // These move-only leases are owned by the same preparation future as
+        // the corresponding buffers, including cancellation before encryption.
+        let original_buffer_lease = original_buffer_lease;
+        let _preparation_buffer_lease = preparation_buffer_lease;
         let emit_lock_started = Instant::now();
         let emit_guard = Arc::new(transport.acquire_outbound_emit_guard(&packet.peer_id).await);
         let emit_guard_acquired = Instant::now();
@@ -109,7 +128,13 @@ pub(super) async fn encrypt_then_send_with_deadline(
             lock_wait_ms = emit_lock_wait_ms,
             "business packet acquired its per-peer WireGuard counter-ordering lock"
         );
-        let (encrypted, direct_business_plan, force_relay, physical_preparation) = {
+        let (
+            encrypted,
+            direct_business_plan,
+            force_relay,
+            physical_preparation,
+            serialized_buffer_lease,
+        ) = {
             let epoch_gate = peers.network_epoch_gate();
             let epoch_gate_wait_started = Instant::now();
             let _epoch_guard = epoch_gate.lock().await;
@@ -264,7 +289,44 @@ pub(super) async fn encrypt_then_send_with_deadline(
             } else {
                 None
             };
-            let result = match transport.encrypt_request_with_emit_guard(packet).await {
+            if let Some(echo) = packet.original_echo() {
+                if packet.binding().is_none_or(|binding| {
+                    binding.state() != crate::request_carriage::RequestBindingState::RoutedExact
+                }) || !echo.exact_route_for_owner(peers, &packet, Instant::now())
+                {
+                    return Err(EncryptSendOutcome::Terminal {
+                        packet: preparation_retry,
+                        reason_code: "original_echo_input_changed",
+                        reason: "sealed original echo bytes or route changed before encryption"
+                            .into(),
+                    });
+                }
+                if let Err(reason) = peers.try_qualify_original_echo_input_in_epoch(transport, echo)
+                {
+                    if let crate::overlay_requests::OverlayCreditOutcome::Contended(site) = reason {
+                        // No encryption, counter allocation or handoff has
+                        // happened. Return the same sealed plaintext to its
+                        // existing FIFO, whose retry pacing and original
+                        // deadline remain authoritative. The next attempt
+                        // must qualify the original source again.
+                        return Err(EncryptSendOutcome::Retryable {
+                            packet: preparation_retry,
+                            reason_code: REASON_ORIGINAL_ECHO_SOURCE_CONTENDED,
+                            reason: format!(
+                                "original REQUEST source contended before encryption: {site:?}"
+                            ),
+                        });
+                    }
+                    return Err(EncryptSendOutcome::Terminal {
+                        packet: preparation_retry,
+                        reason_code: "original_echo_source_rejected",
+                        reason: format!(
+                            "original REQUEST source rejected before encryption: {reason:?}"
+                        ),
+                    });
+                }
+            }
+            let mut result = match transport.encrypt_request_with_emit_guard(packet).await {
                 Ok(Some(value)) => value,
                 Ok(None) => {
                     debug!(
@@ -298,6 +360,15 @@ pub(super) async fn encrypt_then_send_with_deadline(
                     });
                 }
             };
+            // The original plaintext has been consumed by the crypto call.
+            // Bind the returned wire owner before any further awaited work.
+            drop(original_buffer_lease);
+            let serialized_buffer_lease = crate::dataplane_resources::OwnedBufferLease::observe(
+                transport.resource_capture(),
+                crate::dataplane_resources::BufferStage::SerializedWire,
+                &result.wire_bytes,
+            );
+            result.bind_original_echo_emit(&emit_guard);
             let physical_preparation =
                 result.prepare_physical_publication(peers, transport, current_generation);
             if let Some(trace) = sampled_trace.as_ref() {
@@ -327,6 +398,7 @@ pub(super) async fn encrypt_then_send_with_deadline(
                 direct_business_plan,
                 force_relay,
                 physical_preparation,
+                serialized_buffer_lease,
             )
         };
         Ok((
@@ -337,9 +409,10 @@ pub(super) async fn encrypt_then_send_with_deadline(
             emit_lock_started,
             emit_guard_acquired,
             physical_preparation,
+            serialized_buffer_lease,
         ))
     };
-    let (emit_guard, encrypted, direct_business_plan, force_relay, emit_lock_started, emit_guard_acquired, physical_preparation) =
+    let (emit_guard, encrypted, direct_business_plan, force_relay, emit_lock_started, emit_guard_acquired, physical_preparation, _serialized_buffer_lease) =
         match timeout(preparation_bound, prepare).await {
             Ok(Ok(prepared)) => prepared,
             Ok(Err(outcome)) => return outcome,
@@ -423,6 +496,13 @@ pub(super) async fn encrypt_then_send_with_deadline(
     );
     #[cfg(test)]
     prepare_relay_capture_for_test(&encrypted, &mut physical_attempt);
+    #[cfg(test)]
+    transport
+        .pause_worker_loss_for_test(
+            crate::transport::WorkerLossPoint::BeforePhysicalHandoff,
+            admission_deadline,
+        )
+        .await;
     let outcome = send_encrypted_packet_bounded_with_origin(
         &encrypted,
         peers,
@@ -544,10 +624,11 @@ pub(super) async fn encrypt_then_send_with_deadline(
             reason_code: REASON_DIRECT_BUDGET_STALE,
             reason,
         },
-        SendOutcome::RetryableLocalBackpressure { reason } => {
+        SendOutcome::RetryableLocalBackpressure { reason, socket } => {
             EncryptSendOutcome::RetryableLocalBackpressure {
                 packet: retry_packet,
                 reason,
+                socket,
             }
         }
         SendOutcome::LocalMtuFailure {
@@ -852,7 +933,10 @@ async fn send_encrypted_packet_once_with_origin(
         let udp_read_acquired = Instant::now();
         let udp = udp_guard.clone();
         let udp_read_hold = udp_read_acquired.elapsed();
-        drop(udp_guard);
+        // Sourced Direct echoes retain the actual slot through the syscall.
+        if !packet.has_original_echo() {
+            drop(udp_guard);
+        }
         if let Some(sampled) = sampled {
             profiler.record(
                 sampled,
@@ -923,15 +1007,29 @@ async fn send_encrypted_packet_once_with_origin(
             // active-path replacement, while the runtime's independent
             // publication gate orders revision/owner revocation against this
             // one nonblocking `try_send_to` syscall.
-            let send_result = match origin.as_deref_mut() {
-                Some(origin) => plan.udp.try_send_direct_business_packet_with_origin(
-                    &plan.prepared,
-                    packet,
-                    Some(origin.udp()),
-                ),
-                None => plan
-                    .udp
-                    .try_send_direct_business_packet(&plan.prepared, packet),
+            let send_result = if packet.has_original_echo() {
+                packet
+                    .original_echo_prewrite()
+                    .ok_or(DirectBusinessUdpSendError::StaleToken)
+                    .and_then(|prewrite| {
+                        prewrite.try_send_direct_in_epoch(
+                            &plan.udp,
+                            Some(&plan.prepared),
+                            packet,
+                            plan.prepared.endpoint,
+                        )
+                    })
+            } else {
+                match origin.as_deref_mut() {
+                    Some(origin) => plan.udp.try_send_direct_business_packet_with_origin(
+                        &plan.prepared,
+                        packet,
+                        Some(origin.udp()),
+                    ),
+                    None => plan
+                        .udp
+                        .try_send_direct_business_packet(&plan.prepared, packet),
+                }
             };
             if let Some(sampled) = sampled {
                 profiler.record(sampled, "udp_send_call_us", send_started.elapsed());
@@ -950,6 +1048,7 @@ async fn send_encrypted_packet_once_with_origin(
                 Err(DirectBusinessUdpSendError::WouldBlock) => {
                     SendOutcome::RetryableLocalBackpressure {
                         reason: "exact UDP socket would block before handoff".to_string(),
+                        socket: Some(plan.prepared.socket.clone()),
                     }
                 }
                 Err(DirectBusinessUdpSendError::LocalPacketTooLarge) => {
@@ -995,6 +1094,34 @@ async fn send_encrypted_packet_once_with_origin(
                         err: error.to_string(),
                     })
                 }
+            };
+        }
+        if packet.has_original_echo() && selection.path == Some(NetworkPath::Direct) {
+            let result = match (
+                udp.as_ref(),
+                selection.direct_endpoint,
+                packet.original_echo_prewrite(),
+            ) {
+                (Some(udp), Some(endpoint), Some(prewrite)) if selection.direct_confirmed => {
+                    prewrite.try_send_direct_in_epoch(udp, None, packet, endpoint)
+                }
+                _ => Err(DirectBusinessUdpSendError::StaleToken),
+            };
+            return match result {
+                Ok(_) => SendOutcome::Sent,
+                Err(DirectBusinessUdpSendError::WouldBlock) => {
+                    SendOutcome::RetryableLocalBackpressure {
+                        reason: "original echo receive/send publication contended".into(),
+                        socket: None,
+                    }
+                }
+                Err(DirectBusinessUdpSendError::StaleToken) => SendOutcome::DirectBudgetStale {
+                    reason: "original REQUEST source is stale at Direct echo syscall".into(),
+                },
+                Err(error) => SendOutcome::Terminal(TerminalSendFailure::DeliveryUncertain {
+                    reason: REASON_DIRECT_DELIVERY_UNCERTAIN,
+                    err: error.to_string(),
+                }),
             };
         }
         if let Some(sampled) = sampled {
@@ -1178,6 +1305,10 @@ mod tests;
 mod resource_capture_tests;
 
 #[cfg(test)]
+#[path = "tests/resource_capture_active_buffers.rs"]
+mod resource_capture_active_buffers_tests;
+
+#[cfg(test)]
 #[path = "tests/request_carriage_send.rs"]
 mod request_carriage_tests;
 
@@ -1191,13 +1322,30 @@ mod relay_publication_tests;
 
 async fn send_original_relay_with_capture(
     relay: &RelayTransport,
-    packet: &EncryptedPeerPacket,
+    packet: &EncryptedRequestDelivery,
     peers: &PeerManager,
     generation: u64,
     relay_send_started: &AtomicBool,
     sampled: Option<bool>,
     origin: Option<&mut super::physical_attempt::PhysicalSendCapture>,
 ) -> SendOutcome {
+    if packet.has_original_echo() {
+        let Some(prewrite) = packet.original_echo_prewrite() else {
+            return SendOutcome::DirectBudgetStale {
+                reason: "original echo encryption/emit source unavailable".into(),
+            };
+        };
+        return super::relay::send_via_relay_with_echo(
+            relay,
+            packet,
+            peers,
+            generation,
+            relay_send_started,
+            sampled,
+            prewrite,
+        )
+        .await;
+    }
     match origin.and_then(|origin| origin.relay(packet)) {
         Some(origin) => {
             super::relay::send_via_relay_with_origin(
@@ -1304,3 +1452,7 @@ mod relay_actor_legacy_full_tests;
 #[cfg(test)]
 #[path = "tests/relay_actor_drain.rs"]
 mod relay_actor_drain_tests;
+
+#[cfg(test)]
+#[path = "tests/relay_actor_loss.rs"]
+mod relay_actor_loss_tests;

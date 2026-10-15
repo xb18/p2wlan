@@ -298,6 +298,9 @@ pub struct UdpTransport {
     probe_send_failure_hook: Arc<std::sync::Mutex<Option<ProbeSendFailureHook>>>,
     #[cfg(test)]
     probe_send_failure_hook_enabled: Arc<AtomicBool>,
+    /// Fixture-only ownership of this transport's original retransmit tasks.
+    #[cfg(test)]
+    probe_burst_capture_for_test: Option<Arc<ProbeBurstCaptureForTest>>,
     /// Per-transport one-shot ordinary fresh-mapping lifecycle barrier.
     /// Absent from production; it never supplies send authority or summaries.
     #[cfg(test)]
@@ -415,7 +418,12 @@ mod birthday_tests;
 mod core;
 
 mod business_mtu;
+mod ingress_origin;
 mod send_origin;
+#[allow(unused_imports)] // Staged source/guard consumers; no final credit yet.
+pub(crate) use ingress_origin::{
+    DirectOriginFailure, DirectOriginPublicationGuard, OriginalUdpIngressSource,
+};
 pub(crate) use send_origin::{UdpFullSendFact, UdpSendCapture, UdpSendFence};
 
 mod socket_registry;
@@ -459,3 +467,10 @@ pub(crate) use punch_pacing::hard_hard_first_wave_pacing_margin;
 use punch_pacing::HardHardProbePacer;
 
 mod punch_reports;
+
+#[cfg(test)]
+mod original_dynamic_test;
+#[cfg(test)]
+pub(crate) use original_dynamic_test::{
+    OriginalDynamicAttachForTest, OriginalDynamicRetirementForTest,
+};

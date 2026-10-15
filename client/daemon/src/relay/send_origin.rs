@@ -94,6 +94,19 @@ impl RelayFullSendFact {
                     .is_some_and(|fact| fact.belongs_to_writer(&writer))
             })
     }
+    pub(super) fn matches_publication(
+        &self,
+        connection_id: u64,
+        live: &Arc<std::sync::Mutex<bool>>,
+    ) -> bool {
+        self.connection_id == connection_id && self.live.ptr_eq(&Arc::downgrade(live))
+    }
+    pub(super) fn matches_client(&self, client: &Arc<RelayClient>) -> bool {
+        self.writer.ptr_eq(&Arc::downgrade(client))
+            && self
+                .original()
+                .is_some_and(|fact| fact.belongs_to_writer(client))
+    }
     pub(crate) fn disposition(&self) -> RelayBranchDisposition {
         match self.disposition.load(Ordering::Acquire) {
             0 => RelayBranchDisposition::Unresolved,
@@ -410,6 +423,9 @@ pub(crate) mod publication_test_support {
                 end: tokio::time::Instant::now() + Duration::from_secs(2),
             }
         }
+        pub(crate) fn original_end(self) -> tokio::time::Instant {
+            self.end
+        }
         pub(crate) async fn step<T>(&self, future: impl Future<Output = T>) -> T {
             let end = self
                 .end
@@ -418,6 +434,11 @@ pub(crate) mod publication_test_support {
                 .await
                 .expect("B19 bounded original caller prerequisite timeout")
         }
+    }
+    pub(crate) async fn ping_original_writer(
+        transport: &RelayTransport,
+    ) -> p2pnet_relay::RelayResult<()> {
+        transport.client.ping().await
     }
     pub(crate) struct Fixture {
         transport: Option<RelayTransport>,
@@ -676,6 +697,7 @@ pub(crate) mod publication_test_support {
             }),
             tasks: std::sync::Mutex::new(Vec::new()),
             stopped: AtomicBool::new(false),
+            stop_attempted: AtomicBool::new(false),
         })
     }
     pub(crate) fn closed_rendezvous(

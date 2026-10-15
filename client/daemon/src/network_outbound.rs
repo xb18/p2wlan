@@ -228,6 +228,10 @@ const MAX_PENDING_BYTES_PER_PEER: usize = 2 * 1024 * 1024;
 // cross-peer fairness.
 const MAX_FLUSH_PER_PEER_PER_TICK: usize = 64;
 
+/// Socket readiness can be a false positive. Bound immediate retries as well
+/// as their time budget before returning to the paced maintenance fallback.
+const MAX_DIRECT_WRITABLE_RETRIES_PER_FLUSH: usize = 4;
+
 /// Stable reason code emitted when the first business packet has no usable
 /// path because the daemon is configured direct-only (no relay candidates are
 /// configured or expected).  Kept distinct from a relay startup timeout so the
@@ -293,6 +297,8 @@ pub(crate) const REASON_DIRECT_BUSINESS_MALFORMED: &str = "direct_business_malfo
 
 pub(crate) const REASON_IPV6_BUDGET_BELOW_MINIMUM_MTU: &str = "ipv6_budget_below_minimum_mtu";
 
+pub(crate) const REASON_ORIGINAL_ECHO_SOURCE_CONTENDED: &str = "original_echo_source_contended";
+
 /// Outcome of handing one business packet to the network.
 enum SendOutcome {
     /// The packet was handed to the selected transport.
@@ -306,11 +312,14 @@ enum SendOutcome {
     DirectBudgetStale {
         reason: String,
     },
-    /// The exact nonblocking socket accepted no bytes because its local send
-    /// queue is temporarily full. This is neither path/budget staleness nor a
-    /// Direct-health signal, and it must never enter Relay fallback.
+    /// The local send is known not to have handed off any bytes. This is
+    /// neither path/budget staleness nor a Direct-health signal and must
+    /// never enter Relay fallback.
     RetryableLocalBackpressure {
         reason: String,
+        /// Only exact UDP WouldBlock carries readiness. Publication contention
+        /// keeps the original paced retry without inventing a socket signal.
+        socket: Option<Arc<tokio::net::UdpSocket>>,
     },
     LocalMtuFailure {
         reason_code: &'static str,
@@ -403,6 +412,7 @@ enum EncryptSendOutcome {
     RetryableLocalBackpressure {
         packet: RawRequestDelivery,
         reason: String,
+        socket: Option<Arc<tokio::net::UdpSocket>>,
     },
     Terminal {
         packet: RawRequestDelivery,
@@ -437,3 +447,155 @@ use physical_attempt::PhysicalAttempt;
 
 #[cfg(test)]
 mod test_support;
+
+#[cfg(test)]
+pub(crate) use queue::echo_queue_test_support::OriginalEchoQueueForTest;
+
+/// Test entry into the original bounded sender, using genuine carriage input.
+#[cfg(test)]
+#[allow(clippy::too_many_arguments)]
+pub(crate) async fn send_original_for_test(
+    packet: RawRequestDelivery,
+    transport: &WireGuardTransport,
+    peers: &PeerManager,
+    generation: u64,
+    prefer_direct: bool,
+    udp: &RwLock<Option<UdpTransport>>,
+    relay: &RwLock<Option<RelayTransport>>,
+    relay_expected: bool,
+) -> bool {
+    let deadline = Instant::now() + OUTBOUND_SEND_TIMEOUT;
+    let send = async {
+        let mut packet = packet;
+        let mut fast_paths = HashMap::new();
+        let mut ineligible = HashMap::new();
+        loop {
+            if Instant::now() >= deadline {
+                return false;
+            }
+            // Echo sources use the original guarded slow boundary. Ordinary
+            // LAN attempts retain only plaintext after a safe fast fallback.
+            if packet.original_echo().is_some() {
+                break;
+            }
+            // Only an unopened or proven not-handed original A may attempt
+            // again. A Full, uncertain or terminal publication ends dispatch.
+            if packet
+                .binding()
+                .and_then(|binding| binding.token().request())
+                .is_some_and(|request| {
+                    !matches!(request.physical_publication.state(),
+                    crate::overlay_requests::PhysicalPublicationState::Idle |
+                    crate::overlay_requests::PhysicalPublicationState::DefinitelyNotHanded)
+                })
+            {
+                return false;
+            }
+            packet = match fast_path::try_lan_direct_fast_path(
+                packet,
+                transport,
+                peers,
+                prefer_direct,
+                udp,
+                &mut fast_paths,
+                &mut ineligible,
+            ) {
+                fast_path::FastPathAttempt::Sent => return true,
+                fast_path::FastPathAttempt::Fallback(packet) => packet,
+                _ => return false,
+            };
+            if peers
+                .active_direct_path_snapshot(&packet.peer_id, generation, prefer_direct)
+                .await
+                .is_none()
+            {
+                break;
+            }
+            // A real current LAN does not turn a try-lock race into qualified
+            // slow Full. Retry the original fenced sender, never ciphertext.
+            tokio::task::yield_now().await;
+        }
+        matches!(
+            send::encrypt_then_send_with_deadline(
+                packet,
+                transport,
+                peers,
+                generation,
+                prefer_direct,
+                udp,
+                relay,
+                relay_expected,
+                Some(deadline),
+                None
+            )
+            .await,
+            EncryptSendOutcome::Sent
+        )
+    };
+    tokio::time::timeout_at(tokio::time::Instant::from_std(deadline), send)
+        .await
+        .unwrap_or(false)
+}
+
+/// The unmodified general sender; unmanaged Direct is intentionally Unknown.
+#[cfg(test)]
+#[allow(clippy::too_many_arguments)]
+pub(crate) async fn send_original_slow_for_test(
+    packet: RawRequestDelivery,
+    transport: &WireGuardTransport,
+    peers: &PeerManager,
+    generation: u64,
+    prefer_direct: bool,
+    udp: &RwLock<Option<UdpTransport>>,
+    relay: &RwLock<Option<RelayTransport>>,
+    relay_expected: bool,
+) -> bool {
+    matches!(
+        send::encrypt_then_send_with_deadline(
+            packet,
+            transport,
+            peers,
+            generation,
+            prefer_direct,
+            udp,
+            relay,
+            relay_expected,
+            Some(Instant::now() + OUTBOUND_SEND_TIMEOUT),
+            None,
+        )
+        .await,
+        EncryptSendOutcome::Sent
+    )
+}
+
+/// Fixture entry into the original managed slow core, with genuine carriage.
+#[cfg(test)]
+pub(crate) async fn send_original_managed_for_test(
+    packet: RawRequestDelivery,
+    transport: &WireGuardTransport,
+    peers: &PeerManager,
+    udp: &RwLock<Option<UdpTransport>>,
+    relay: &RwLock<Option<RelayTransport>>,
+) -> bool {
+    let deadline = Instant::now() + OUTBOUND_SEND_TIMEOUT;
+    tokio::time::timeout_at(tokio::time::Instant::from_std(deadline), async {
+        matches!(
+            send::encrypt_then_send_with_deadline(
+                packet,
+                transport,
+                peers,
+                peers.current_network_generation_sync(),
+                true,
+                udp,
+                relay,
+                false,
+                Some(deadline),
+                None,
+            )
+            .await,
+            EncryptSendOutcome::Sent
+        )
+    })
+    .await
+    .unwrap_or(false)
+}

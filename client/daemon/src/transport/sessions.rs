@@ -2,9 +2,12 @@ use super::*;
 
 mod decryption;
 mod encryption;
+mod overlay_credit;
 pub(crate) use encryption::{
-    EncryptedOutboundWithSource, OriginalEncryptionSource, SessionBoundEncryptionWithSource,
+    EncryptedOutboundWithSource, OriginalEchoSessionGuard, OriginalEncryptionSource,
+    SessionBoundEncryptionWithSource,
 };
+pub(crate) use overlay_credit::{OriginalOverlaySessionFailure, OriginalOverlaySessionGuard};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 enum ResponderTokenDisposition {
@@ -299,6 +302,8 @@ impl WireGuardTransport {
             resource_queue_gate: None,
             #[cfg(test)]
             request_handoff_probe: None,
+            #[cfg(test)]
+            previous_overlay_observer: Arc::new(std::sync::Mutex::new(None)),
             rx_business_capture: None,
             wg_evidence_owner: crate::business_evidence::WgEvidenceOwnerId::allocate(),
             sessions: Arc::new(Mutex::new(HashMap::new())),
@@ -1427,6 +1432,37 @@ impl WireGuardTransport {
     pub(crate) fn observe_resource_queue_task_for_test(&self, task: tokio::task::AbortHandle) {
         if let Some(gate) = self.resource_queue_gate.as_ref() {
             gate.observe_task(task);
+        }
+    }
+
+    pub(crate) async fn pause_worker_loss_for_test(
+        &self,
+        point: super::WorkerLossPoint,
+        deadline: Option<Instant>,
+    ) {
+        if let Some(gate) = self.resource_queue_gate.as_ref() {
+            gate.pause_worker_loss(point, deadline).await;
+        }
+    }
+
+    pub(crate) async fn observe_worker_loss_for_test(
+        &self,
+        observed: super::WorkerLossObservation,
+    ) {
+        if let Some(gate) = self.resource_queue_gate.as_ref() {
+            gate.observe_loss(observed).await;
+        }
+    }
+
+    pub(crate) fn abort_worker_loss_children_for_test(&self) -> bool {
+        self.resource_queue_gate
+            .as_ref()
+            .is_some_and(|gate| gate.children_abort_requested())
+    }
+
+    pub(crate) fn observe_worker_loss_join_for_test(&self, id: tokio::task::Id) {
+        if let Some(gate) = self.resource_queue_gate.as_ref() {
+            gate.note_joined(id);
         }
     }
 
