@@ -514,7 +514,7 @@ jobs:
           $source = Join-Path $env:GITHUB_WORKSPACE 'diagnostic-source'
           $driver = Join-Path $env:GITHUB_WORKSPACE 'diagnostic-control/scripts/windows_lifecycle/diagnose_console_injector.py'
           $output = Join-Path $env:RUNNER_TEMP 'p2wlan-console-diagnostic'
-          python $driver --source $source --source-sha $env:P2WLAN_EXACT_HEAD --output $output
+          python $driver --source $source --source-sha $env:P2WLAN_EXACT_HEAD --output $output --cases 4
           exit $LASTEXITCODE
       - name: Upload diagnostic-only original records
         if: always()
