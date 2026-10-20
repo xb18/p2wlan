@@ -215,18 +215,14 @@ class LoopbackTests(unittest.TestCase):
         with loopback_socket() as client, loopback_socket() as server:
             config = config_for(client, server, count=3, interval_ms=50)
 
-            def noise():
-                server.settimeout(1)
-                _data, source = server.recvfrom(probe.MAX_DATAGRAM_BYTES)
-                server.sendto(b"bad", source)
-                server.sendto(b"bad", source)
-
-            thread = threading.Thread(target=noise)
-            thread.start()
+            # This control measures the receive cap. Queue both actual noise
+            # datagrams before its clock starts so a producer thread's response
+            # delay cannot turn this fixture into a request-timeout experiment.
+            self.assertEqual(server.sendto(b"bad", client.getsockname()), 3)
+            self.assertEqual(server.sendto(b"bad", client.getsockname()), 3)
+            self.assertEqual(probe.select.select([client], [], [], 0)[0], [client])
             with patch.object(probe, "MAX_RX_DATAGRAMS", 2):
                 report = probe.run_probe(config, client)
-            thread.join(2)
-            self.assertFalse(thread.is_alive())
         result = summary.summarize([report])
         self.assertEqual(report["termination_reason"], "receive_budget_exhausted")
         self.assertEqual(report["received_datagrams"], 2)
