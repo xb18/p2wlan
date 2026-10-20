@@ -220,15 +220,23 @@ class LoopbackTests(unittest.TestCase):
             # delay cannot turn this fixture into a request-timeout experiment.
             self.assertEqual(server.sendto(b"bad", client.getsockname()), 3)
             self.assertEqual(server.sendto(b"bad", client.getsockname()), 3)
-            self.assertEqual(probe.select.select([client], [], [], 0)[0], [client])
+            # Send completion does not guarantee immediate read readiness.
+            # One bounded real wait belongs to setup, before probe clocks.
+            ready = probe.select.select([client], [], [], 1.0)[0]
+            self.assertEqual(
+                ready,
+                [client],
+                msg="receiver not readable after one bounded premeasurement wait for the two actual sends",
+            )
             with patch.object(probe, "MAX_RX_DATAGRAMS", 2):
                 report = probe.run_probe(config, client)
         result = summary.summarize([report])
-        self.assertEqual(report["termination_reason"], "receive_budget_exhausted")
-        self.assertEqual(report["received_datagrams"], 2)
-        self.assertEqual(result["prescheduled_requests"], 3)
-        self.assertEqual(result["success_requests"], 0)
-        self.assertEqual(result["status_counts"]["cancelled"] + result["status_counts"]["not_sent"], 3)
+        diagnostic = json.dumps({"report": report, "summary": result}, sort_keys=True)
+        self.assertEqual(report["termination_reason"], "receive_budget_exhausted", msg=diagnostic)
+        self.assertEqual(report["received_datagrams"], 2, msg=diagnostic)
+        self.assertEqual(result["prescheduled_requests"], 3, msg=diagnostic)
+        self.assertEqual(result["success_requests"], 0, msg=diagnostic)
+        self.assertEqual(result["status_counts"]["cancelled"] + result["status_counts"]["not_sent"], 3, msg=diagnostic)
 
     def test_echo_receive_error_preserves_prior_counts_and_cli_returns_failure(self):
         with loopback_socket() as client, loopback_socket() as server:
