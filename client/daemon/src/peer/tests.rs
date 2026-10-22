@@ -72,3 +72,7 @@ mod kernel_read_view;
 #[cfg(unix)]
 #[path = "tests/authenticated_endpoint_learning.rs"]
 mod authenticated_endpoint_learning;
+
+#[cfg(unix)]
+#[path = "tests/kernel_read_retention.rs"]
+mod kernel_read_retention;
