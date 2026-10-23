@@ -30,6 +30,7 @@ jobs:
         with:
           components: rustfmt, clippy
       - name: Install Linux Desktop Dependencies
+        timeout-minutes: 15
         run: |
           sudo apt-get update
           sudo apt-get install -y \
