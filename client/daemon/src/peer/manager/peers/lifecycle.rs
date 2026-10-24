@@ -190,6 +190,9 @@ impl PeerManager {
     ) -> PeerUpdate {
         #[cfg(test)]
         self.notify_peer_add_wait_started_for_test();
+        if let Some(update) = self.try_refresh_peer_last_seen(info) {
+            return update;
+        }
         let mut lock_trace = PeerUpdateLockTrace::new(
             self,
             &info.node_id,

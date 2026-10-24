@@ -52,6 +52,9 @@ mod relay_only_diagnostics;
 #[path = "tests/peer_update_resources.rs"]
 mod peer_update_resources;
 
+#[path = "tests/heartbeat_metadata.rs"]
+mod heartbeat_metadata;
+
 #[path = "tests/emit_preparation_logging.rs"]
 mod emit_preparation_logging;
 #[path = "tests/path_selection_logging.rs"]
