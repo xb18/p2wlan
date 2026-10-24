@@ -33,7 +33,7 @@ async fn advanced_timestamp_does_not_wait_for_epoch_or_ip_writer_or_publish_path
     );
     let after = manager.connections.try_read().unwrap();
     let after = after.get(&peer.node_id).unwrap();
-    assert_eq!(after.last_seen, 11);
+    assert_eq!(after.last_seen.get(), 11);
     assert_eq!(after.path_state_snapshot(), before.path_state_snapshot());
     assert_eq!(after.remote_nat_profile, before.remote_nat_profile);
     assert_eq!(
@@ -90,7 +90,8 @@ async fn changed_correctness_or_other_metadata_fields_keep_original_epoch_fence(
                 .unwrap()
                 .get(&peer.node_id)
                 .unwrap()
-                .last_seen,
+                .last_seen
+                .get(),
             10
         );
     }
@@ -107,10 +108,10 @@ async fn busy_original_metadata_owners_never_partially_refresh_timestamp() {
     let ledger = manager.remote_identity_ledger.lock().unwrap();
     assert!(manager.try_refresh_peer_last_seen(&peer).is_none());
     drop(ledger);
-    let reader = manager.connections.read().await;
+    let writer = manager.connections.write().await;
     assert!(manager.try_refresh_peer_last_seen(&peer).is_none());
-    assert_eq!(reader.get(&peer.node_id).unwrap().last_seen, 10);
-    drop(reader);
+    assert_eq!(writer.get(&peer.node_id).unwrap().last_seen.get(), 10);
+    drop(writer);
     assert!(manager.add_peer(&peer).await.last_seen_only);
 }
 
@@ -162,7 +163,8 @@ async fn unchanged_or_older_timestamp_and_newer_registration_floor_use_original_
             .get_connection(&peer.node_id)
             .await
             .unwrap()
-            .last_seen,
+            .last_seen
+            .get(),
         10
     );
     assert!(manager.add_peer(&peer).await.last_seen_only);
@@ -171,7 +173,8 @@ async fn unchanged_or_older_timestamp_and_newer_registration_floor_use_original_
             .get_connection(&peer.node_id)
             .await
             .unwrap()
-            .last_seen,
+            .last_seen
+            .get(),
         10
     );
 }
@@ -193,4 +196,38 @@ async fn real_offline_rejoin_and_registration_change_still_rotate_original_lifec
     peer.last_seen = 13;
     assert!(manager.add_peer(&peer).await.registration_changed);
     assert!(!manager.peer_session_is_current_sync(&peer.node_id, second));
+}
+
+#[tokio::test]
+async fn heartbeat_refresh_shares_original_peer_read_lock_and_freezes_snapshot_time() {
+    let (manager, mut peer) = setup().await;
+    let manager = Arc::new(manager);
+    let snapshot = manager.get_connection(&peer.node_id).await.unwrap();
+    let reader = manager.connections.read().await;
+    peer.last_seen = 11;
+    assert!(
+        manager
+            .try_refresh_peer_last_seen(&peer)
+            .unwrap()
+            .last_seen_only
+    );
+    assert_eq!(reader.get(&peer.node_id).unwrap().last_seen.get(), 11);
+    assert_eq!(snapshot.last_seen.get(), 10);
+    let original = manager
+        .try_capture_original_kernel_read_peer(
+            &peer.node_id,
+            peer.virtual_ip.parse().unwrap(),
+            #[cfg(any(target_os = "linux", all(unix, test)))]
+            None,
+        )
+        .unwrap();
+    assert!(original.try_identity_at(&manager, Instant::now()).is_ok());
+    // Shared reads cannot conceal a real writer or create current-owner credit.
+    drop(reader);
+    let writer = manager.connections.write().await;
+    assert_eq!(
+        original.try_identity_at(&manager, Instant::now()),
+        Err(OverlayCreditOutcome::Contended(CreditLock::Connections))
+    );
+    drop(writer);
 }

@@ -11,11 +11,12 @@ impl PeerManager {
         } else {
             Some(info.endpoint.parse::<SocketAddr>().ok()?)
         };
-        let mut connections = self.connections.try_write().ok()?;
-        let conn = connections.get_mut(&info.node_id)?;
+        let connections = self.connections.try_read().ok()?;
+        let conn = connections.get(&info.node_id)?;
+        let observed_last_seen = conn.last_seen.get();
         if !conn.online
             || conn.state == ConnectionState::Closed
-            || info.last_seen <= conn.last_seen
+            || info.last_seen <= observed_last_seen
             || conn.virtual_ip != info.virtual_ip
             || conn.public_key != info.public_key
             || conn.registration_seq != info.registration_seq
@@ -53,10 +54,15 @@ impl PeerManager {
             return None;
         }
         // All fallible checks precede this sole advisory mutation. The
-        // connection writer excludes removal/replacement; a concurrent network
+        // connection reader excludes removal/replacement; a concurrent network
         // generation change cannot turn this timestamp into an epoch fact.
         let previous_virtual_ip = (!conn.virtual_ip.is_empty()).then(|| conn.virtual_ip.clone());
-        conn.last_seen = info.last_seen;
+        if !conn
+            .last_seen
+            .try_advance(observed_last_seen, info.last_seen)
+        {
+            return None;
+        }
         Some(PeerUpdate {
             last_seen_only: true,
             previous_virtual_ip,
