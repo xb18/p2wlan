@@ -2,7 +2,6 @@
 import hashlib
 import json
 import os
-from pathlib import Path
 import stat
 
 MAX_IMAGE_BYTES = 1024 * 1024 * 1024
@@ -23,7 +22,9 @@ def prepare(args, manifest):
                for k in ("run_id", "run_attempt")):
         raise ValueError("shared image store requires the original run identity")
     if not store.exists():
-        store.mkdir(mode=0o700)
+        # Non-secret program images are retained by sudo, then uploaded by
+        # the ordinary CI runner. Keep read/traverse access for that reader.
+        store.mkdir(mode=0o755)
         with (store / "owner.json").open("x") as stream:
             json.dump(owner, stream)
     if not store.is_dir() or (store / "owner.json").is_symlink():
@@ -34,6 +35,8 @@ def prepare(args, manifest):
         raise ValueError("image store checkout or run mismatch")
     if set(p.name for p in store.iterdir()) - {"owner.json", *("p2wlan-" + r for r in ROLES)}:
         raise ValueError("image store contains unexpected entries")
+    store.chmod(0o755)
+    (store / "owner.json").chmod(0o444)
     manifest.update(schema_version=2, image_store=STORE_NAME)
     return store
 
@@ -44,9 +47,15 @@ def identity(value):
 
 
 def read_image(source, saved=None):
-    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+    path_before = source.stat(follow_symlinks=False)
+    if not stat.S_ISREG(path_before.st_mode):
+        raise ValueError("original image path is not regular")
+    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0) | getattr(os, "O_BINARY", 0)
     with os.fdopen(os.open(source, flags), "rb") as original:
         before = os.fstat(original.fileno())
+        if ((path_before.st_dev, path_before.st_ino, path_before.st_size, path_before.st_mtime_ns)
+                != (before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns)):
+            raise ValueError("original image path changed before retention")
         if not stat.S_ISREG(before.st_mode) or not 0 < before.st_size <= MAX_IMAGE_BYTES:
             raise ValueError("original image exceeds capacity or is not regular")
         copied, value = 0, hashlib.sha256()
@@ -60,7 +69,10 @@ def read_image(source, saved=None):
         after = os.fstat(original.fileno())
     if copied != before.st_size or identity(before) != identity(after):
         raise ValueError("original image changed during retention")
-    if identity(source.stat(follow_symlinks=False)) != identity(after):
+    # Windows path stat may expose birth time as ctime while fstat exposes
+    # change time (CPython #157671). Compare each through the same API, keeping
+    # descriptor change-time checks and path replacement checks separately.
+    if identity(source.stat(follow_symlinks=False)) != identity(path_before):
         raise ValueError("original image path changed during retention")
     return copied, value.hexdigest()
 
@@ -90,4 +102,4 @@ def retain(source, target, expected, row, shared):
     row.update(available=True, file=target.name, bytes=copied, sha256=actual,
                matched_original_report_digest=True)
     if shared:
-        row.update(archive_member=str(Path(STORE_NAME) / target.name), shared_image_reused=reused)
+        row.update(archive_member=STORE_NAME + "/" + target.name, shared_image_reused=reused)

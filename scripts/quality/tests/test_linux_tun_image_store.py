@@ -52,9 +52,22 @@ class OriginalImageStoreControls(unittest.TestCase):
             (self.root / store.STORE_NAME).iterdir()})
         self.assertEqual(first["schema_version"], 2)
         for row in first["images"]:
+            self.assertEqual(row["archive_member"], store.STORE_NAME + "/p2wlan-" + row["role"])
             self.assertEqual((self.root / row["archive_member"]).read_bytes(),
                 (self.daemon if row["role"] == "daemon" else self.control).read_bytes())
         self.assertEqual(list((self.root / "normal").iterdir()), [])
+
+    def test_non_secret_store_can_be_traversed_and_read_by_the_uploading_runner(self):
+        previous_umask = os.umask(0o077)
+        try:
+            manifest = self.run_scope("sudo-created")
+        finally:
+            os.umask(previous_umask)
+        directory = self.root / store.STORE_NAME
+        self.assertEqual(directory.stat().st_mode & 0o555, 0o555)
+        for row in manifest["images"]:
+            self.assertEqual((self.root / row["archive_member"]).stat().st_mode & 0o444, 0o444)
+        self.assertEqual((directory / "owner.json").stat().st_mode & 0o444, 0o444)
 
     def test_legacy_scope_keeps_its_schema_and_own_original_bytes(self):
         manifest = self.run_scope("legacy", shared=False)
@@ -97,6 +110,41 @@ class OriginalImageStoreControls(unittest.TestCase):
         with patch.object(store, "MAX_IMAGE_BYTES", 4):
             with self.assertRaises(ValueError):
                 self.run_scope("oversize", shared=False)
+
+    def test_descriptor_change_time_is_compared_separately_from_path_birth_time(self):
+        real_fstat = os.fstat
+        def descriptor_clock(fd):
+            value = real_fstat(fd)
+            return SimpleNamespace(**{name: getattr(value, name) for name in
+                ("st_dev", "st_ino", "st_size", "st_mtime_ns", "st_mode")},
+                st_ctime_ns=value.st_ctime_ns + 71)
+        with patch.object(store.os, "fstat", side_effect=descriptor_clock):
+            manifest = self.run_scope("separate-stat-APIs", shared=False)
+        self.assertTrue(all(row["available"] for row in manifest["images"]))
+
+    def test_replacing_source_path_during_read_is_still_rejected(self):
+        real_fstat = os.fstat
+        calls = []
+        def replace_path(fd):
+            value = real_fstat(fd)
+            calls.append(fd)
+            if len(calls) == 2:
+                self.daemon.rename(self.root / "previous-original")
+                self.daemon.write_bytes(b"different path object")
+            return value
+        with patch.object(store.os, "fstat", side_effect=replace_path):
+            with self.assertRaisesRegex(ValueError, "path changed during retention"):
+                self.run_scope("replaced", shared=False)
+
+    def test_binary_newline_and_control_Z_bytes_are_preserved_exactly(self):
+        original = b"\x7fELF\r\n\x1a\x00\n\r\n"
+        self.daemon.write_bytes(original)
+        report = json.loads(self.report.read_text())
+        report["binary_sha256"]["daemon"] = hashlib.sha256(original).hexdigest()
+        self.report.write_text(json.dumps(report))
+        manifest = self.run_scope("binary", shared=False)
+        self.assertTrue(manifest["images"][0]["available"])
+        self.assertEqual((self.root / "binary" / "p2wlan-daemon").read_bytes(), original)
 
     def test_source_metadata_change_is_retained_as_failure(self):
         real_fstat = os.fstat
