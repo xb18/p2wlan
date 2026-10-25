@@ -100,6 +100,10 @@ pub(crate) struct CaptureSession {
     clock_scope: Option<NativeClockScope>,
     #[cfg(any(target_os = "linux", all(unix, test)))]
     sources: native::source_index::SourceIndex,
+    // Only the sole descriptor actor installs original window metadata.
+    // Packet read/retention never locks this disjoint partition.
+    #[cfg(any(target_os = "linux", all(unix, test)))]
+    window_commands: control_lock::ControlState<()>,
     state: RegistryMutex<RegistryState>,
     gaps: AtomicU64,
 }
@@ -296,6 +300,20 @@ impl CaptureSession {
         );
         // All possible flow slots are reserved before this scope is exposed.
         let flows = registration::flow_storage()?;
+        let state = RegistryMutex::new(RegistryState {
+            current_owners,
+            original_room_owner: None,
+            flows,
+            native_flows,
+            original_device: None,
+            system_device,
+            read_history,
+            inbound_history,
+            requests: 0,
+            revision: 0,
+            producers: registration::producer_membership()?,
+        });
+        let window_commands = state.sibling(());
         let session = Arc::new(Self {
             owner,
             active: Arc::new(AtomicBool::new(true)),
@@ -321,19 +339,8 @@ impl CaptureSession {
             producer_scope: plan.producer_scope,
             clock_scope: NativeClockScope::capture(),
             sources,
-            state: RegistryMutex::new(RegistryState {
-                current_owners,
-                original_room_owner: None,
-                flows,
-                native_flows,
-                original_device: None,
-                system_device,
-                read_history,
-                inbound_history,
-                requests: 0,
-                revision: 0,
-                producers: registration::producer_membership()?,
-            }),
+            state,
+            window_commands,
             gaps: AtomicU64::new(0),
         });
         if !plan.flows.is_empty() {
@@ -354,6 +361,10 @@ impl CaptureSession {
             .state
             .try_lock()
             .map_err(|_| CaptureFailure::Contended)?;
+        let _window = self
+            .window_commands
+            .try_lock()
+            .map_err(|_| CaptureFailure::Contended)?;
         let result = prepared.append(self, &mut state);
         drop(state);
         result
@@ -366,10 +377,34 @@ impl CaptureSession {
         end: tokio::time::Instant,
     ) -> Result<RegistrationReceipt, CaptureFailure> {
         let mut prepared = registration::PreparedRegistration::new(plan, self);
-        let mut state = self.state.lock_until(end).await?;
-        let result = prepared.append(self, &mut state);
-        drop(state);
-        result
+        loop {
+            let result = {
+                let mut state = self.state.lock_until(end).await?;
+                match self.window_commands.try_lock() {
+                    Ok(_window) => Some(prepared.append(self, &mut state)),
+                    Err(std::sync::TryLockError::Poisoned(_)) => {
+                        Some(Err(CaptureFailure::Contended))
+                    }
+                    Err(std::sync::TryLockError::WouldBlock) => None,
+                }
+            };
+            if let Some(result) = result {
+                return result;
+            }
+            // Never retain the packet registry while awaiting the window
+            // partition. This is metadata admission within the same deadline.
+            {
+                let _released = self.window_commands.lock_until(end).await?;
+            }
+        }
+    }
+
+    #[cfg(any(target_os = "linux", all(unix, test)))]
+    fn try_source_metadata_versions(&self) -> Result<(u64, u64), std::sync::TryLockError<()>> {
+        Ok((
+            self.state.try_metadata_version()?,
+            self.window_commands.try_metadata_version()?,
+        ))
     }
 
     pub(crate) fn retire(&self) {
