@@ -29,6 +29,7 @@ mod full;
 mod full_completion;
 mod full_loss;
 mod inbound_loss;
+mod queue_observation;
 #[cfg(any(target_os = "linux", all(unix, test)))]
 mod registration;
 #[cfg(all(unix, test))]
@@ -168,6 +169,7 @@ pub(crate) struct KernelReadBinding {
     #[cfg(any(target_os = "linux", all(unix, test)))]
     full_completion_pending: AtomicBool,
     original_publication_ns: OnceLock<u64>,
+    initial_queue_intervals: OnceLock<queue_observation::QueueIntervals>,
     original_peers: Vec<Arc<read_peer::FirstReadPeer>>,
     original_responses: Vec<Arc<ingress::ResponseCapture>>,
     original_request_rooms: Vec<Arc<ingress::OriginalIncomingRoom>>,
@@ -658,6 +660,7 @@ impl CaptureSession {
                 #[cfg(any(target_os = "linux", all(unix, test)))]
                 full_completion_pending: AtomicBool::new(false),
                 original_publication_ns: OnceLock::new(),
+                initial_queue_intervals: OnceLock::new(),
                 original_peers,
                 original_responses,
                 original_request_rooms,

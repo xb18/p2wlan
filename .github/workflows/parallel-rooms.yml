@@ -38,6 +38,20 @@ jobs:
           else
             python3 scripts/dual-end/test_probe_request_plan.py -v
           fi
+      - name: TCP socket and layered request observation controls
+        shell: bash
+        run: |
+          if [[ "$RUNNER_OS" == "Windows" ]]; then
+            python scripts/dual-end/test_tcp_socket_observation.py -v
+            python scripts/dual-end/test_tcp_observation_integration.py -v
+            python scripts/dual-end/test_application_layer_report.py -v
+            python scripts/dual-end/test_application_layer_export.py -v
+          else
+            python3 scripts/dual-end/test_tcp_socket_observation.py -v
+            python3 scripts/dual-end/test_tcp_observation_integration.py -v
+            python3 scripts/dual-end/test_application_layer_report.py -v
+            python3 scripts/dual-end/test_application_layer_export.py -v
+          fi
       - name: Original OS socket write observation controls
         shell: bash
         run: |
@@ -154,6 +168,7 @@ jobs:
             --daemon target/debug/p2wlan-daemon \
             --control target/debug/p2wlan-control \
             --head "$(git rev-parse HEAD)" \
+            --layered-measurements \
             --output-dir "$RUNNER_TEMP/linux-tun-application"
           sudo --preserve-env=GITHUB_RUN_ID,GITHUB_RUN_ATTEMPT python3 scripts/parallel-rooms/linux_tun_evidence.py \
             --write-facts \
@@ -171,6 +186,11 @@ jobs:
             --head "$(git rev-parse HEAD)" \
             --server-stall \
             --output-dir "$RUNNER_TEMP/linux-tun-server-stall"
+      - name: Verify original real-TUN TCP layered measurements
+        run: |
+          python3 scripts/parallel-rooms/verify_application_layers.py \
+            --root "$RUNNER_TEMP/linux-tun-application" \
+            --head "$(git rev-parse HEAD)"
       - name: Real kernel TUN supplementary Relay UDP and TCP requests
         timeout-minutes: 8
         run: |
