@@ -3,7 +3,7 @@
 use super::{NetworkEpochGuard, PeerManager, PeerSessionGeneration};
 use std::net::Ipv4Addr;
 use std::sync::atomic::{AtomicBool, Ordering};
-use std::sync::{Arc, Mutex, OnceLock, Weak};
+use std::sync::{Arc, OnceLock, RwLock, Weak};
 use std::time::Instant;
 
 #[derive(Clone)]
@@ -31,7 +31,7 @@ struct State {
 #[derive(Default)]
 pub(super) struct ReadViewRegistry {
     identity: Arc<()>,
-    state: Mutex<State>,
+    state: RwLock<State>,
 }
 
 pub(crate) struct PreparedReadView {
@@ -55,7 +55,7 @@ type ObservedView = (Arc<PreparedReadView>, u64, PeerSessionGeneration);
 
 impl ReadViewRegistry {
     pub(super) fn observe(&self, peer: &str, target: Ipv4Addr) -> Option<ObservedView> {
-        let view = self.state.try_lock().ok()?.view.upgrade()?;
+        let view = self.state.try_read().ok()?.view.upgrade()?;
         if !view.registry.ptr_eq(&Arc::downgrade(&self.identity))
             || view.peer != peer
             || view.target != target
@@ -86,7 +86,7 @@ impl PeerManager {
         active: Weak<AtomicBool>,
         expires: Instant,
     ) {
-        if let Ok(mut state) = self.kernel_read_views.state.try_lock() {
+        if let Ok(mut state) = self.kernel_read_views.state.try_write() {
             state.observer = Some(Observer { active, expires });
             state.view = Weak::new();
         }
@@ -102,7 +102,7 @@ impl PeerManager {
         let observer = self
             .kernel_read_views
             .state
-            .try_lock()
+            .try_read()
             .ok()?
             .observer
             .clone()?;
@@ -137,7 +137,7 @@ impl PeerManager {
         let values = self
             .try_kernel_read_peer_values_in_epoch(epoch, &prepared.peer, prepared.target)
             .ok()?;
-        let mut state = self.kernel_read_views.state.try_lock().ok()?;
+        let mut state = self.kernel_read_views.state.try_write().ok()?;
         prepared.values.set(values).ok()?;
         if !epoch.bind_read_view(&prepared.active) {
             return None;
@@ -148,5 +148,23 @@ impl PeerManager {
             _epoch: epoch,
             view: prepared.clone(),
         })
+    }
+}
+
+#[cfg(all(unix, test))]
+impl PeerManager {
+    pub(crate) fn with_original_kernel_view_read_held_for_test<T>(
+        &self,
+        operation: impl FnOnce() -> T,
+    ) -> T {
+        let _held = self.kernel_read_views.state.read().unwrap();
+        operation()
+    }
+    pub(crate) fn with_original_kernel_view_write_held_for_test<T>(
+        &self,
+        operation: impl FnOnce() -> T,
+    ) -> T {
+        let _held = self.kernel_read_views.state.write().unwrap();
+        operation()
     }
 }
