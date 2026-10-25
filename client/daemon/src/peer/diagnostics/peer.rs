@@ -443,8 +443,8 @@ impl PeerDiagnostics {
             connected_for_ms: conn
                 .connected_at
                 .map(|connected_at| duration_millis(connected_at.elapsed())),
-            bytes_sent: conn.bytes_sent,
-            bytes_received: conn.bytes_received,
+            bytes_sent: conn.bytes_sent.get(),
+            bytes_received: conn.bytes_received.get(),
             relay_server: conn.relay_server.clone(),
             candidates: conn.candidates.clone(),
             direct: PathHealthDiagnostics::from(&conn.direct_health),

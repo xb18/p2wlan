@@ -79,3 +79,6 @@ mod authenticated_endpoint_learning;
 #[cfg(unix)]
 #[path = "tests/kernel_read_retention.rs"]
 mod kernel_read_retention;
+
+#[path = "tests/traffic_counters.rs"]
+mod traffic_counters;

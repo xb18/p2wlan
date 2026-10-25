@@ -199,9 +199,9 @@ pub struct PeerConnection {
     /// When the connection was established.
     pub connected_at: Option<Instant>,
     /// Bytes sent to this peer.
-    pub bytes_sent: u64,
+    pub bytes_sent: TrafficBytes,
     /// Bytes received from this peer.
-    pub bytes_received: u64,
+    pub bytes_received: TrafficBytes,
     /// Which relay server is being used (if connected via relay).
     pub relay_server: Option<String>,
     /// ICE candidates for this peer.
@@ -635,8 +635,8 @@ impl PeerConnection {
             path_state_machine: PathStateMachine::new(ConnectionState::Idle),
             path_observability: PathObservabilityState::default(),
             connected_at: None,
-            bytes_sent: 0,
-            bytes_received: 0,
+            bytes_sent: TrafficBytes::new(0),
+            bytes_received: TrafficBytes::new(0),
             relay_server: None,
             candidates: Vec::new(),
             signaled_candidates: HashSet::new(),
@@ -993,13 +993,13 @@ impl PeerConnection {
     }
 
     /// Record bytes sent.
-    pub fn record_sent(&mut self, n: u64) {
-        self.bytes_sent += n;
+    pub fn record_sent(&self, n: u64) {
+        self.bytes_sent.add(n);
     }
 
     /// Record bytes received.
-    pub fn record_received(&mut self, n: u64) {
-        self.bytes_received += n;
+    pub fn record_received(&self, n: u64) {
+        self.bytes_received.add(n);
     }
 
     /// Record the first usable production ingress for this peer + generation.

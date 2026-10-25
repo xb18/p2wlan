@@ -8,6 +8,8 @@
 
 mod last_seen;
 pub use last_seen::LastSeen;
+mod traffic_bytes;
+pub use traffic_bytes::TrafficBytes;
 
 use std::collections::{HashMap, HashSet, VecDeque};
 use std::net::{IpAddr, SocketAddr};
